@@ -1,0 +1,129 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    height: 100%;
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+}
+
+body {
+    background-image: url('./img/img1.jpeg');
+    background-size: 100% 100vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed; 
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    color: white;
+}
+
+/* Header Styling */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    background-color: black; 
+    position: fixed; 
+    width: 100%;
+    z-index: 10; 
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    text-transform: uppercase; 
+}
+
+nav ul {
+    list-style: none;
+    display: flexbox;
+}
+
+nav ul li {
+    margin-left: 80px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    padding: 20px 25px;
+    border-bottom: 2px solid transparent;
+    transition: border-bottom-color 0.3s ease; 
+}
+
+nav ul li a:hover {
+    border-bottom-color: white; 
+}
+
+/* Hero Section Styling */
+.hero {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    min-height: calc(100vh); 
+    background-color: rgba(0, 0, 0, 0.5); 
+    padding: 100px 50px; 
+}
+
+.content h1 {
+    font-size: 3.5rem; 
+    letter-spacing: 3px;
+    margin-bottom: 20px; 
+}
+
+.content h1 span {
+    color: #00A9E0;
+}
+
+.content p {
+    font-size: 1.2rem;
+    margin-bottom: 30px; 
+    color: #e0e0e0; 
+}
+
+/* Button Styling */
+.button-container {
+    display: inline-block;
+}
+
+.button {
+    padding: 12px 30px;
+    font-size: 1.1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.3s ease, color 0.3s ease, opacity 0.3s ease;
+    background-color: #00A9E0; 
+    color: white; 
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2); 
+}
+
+.button:hover {
+    opacity: 0.8;
+    transform: translateY(-2px); 
+}
+
+/* Visit Here Button */
+.visit-here-button {
+    background-color: #FFC107; 
+    color: white;
+    padding: 15px 40px; 
+    font-size: 1.2rem; 
+    border-radius: 10px; 
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); 
+    transition: background-color 0.3s ease, color 0.3s ease, opacity 0.3s ease;
+}
+
+.visit-here-button:hover {
+    background-color: #FF9900; 
+    opacity: 0.8;
+    transform: translateY(-2px); 
+}

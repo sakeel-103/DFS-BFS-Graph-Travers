@@ -1,0 +1,42 @@
+<div class="navbar">
+  <div class="nav-left">
+    <p>GRAPH-TRAVERSAL</p>
+  </div>
+  <div class="div-new">
+    <a class="nav-link">DFS</a>
+    <a class="nav-link">BFS</a>
+  </div>
+
+  <!-- Profile Section with Dropdown -->
+  <div class="profile-dropdown">
+    <i class="fas fa-user-circle fa-2x" aria-hidden="true"></i>
+    <div id="dropdown-menu" class="dropdown-content"></div>
+  </div>
+</div>
+
+<div id="dfs-container">
+  <div class="navigation">
+    <a routerLink="/mainIndex" class="btn">Home</a>
+    <a routerLink="/bfsPage" class="btn">Next to BFS</a>
+  </div>
+  <h2>Depth First Search</h2>
+  <canvas id="dfs-canvas" width="600" height="300"></canvas>
+  <div>
+    <button (click)="startDFSTraversal()">Start DFS</button>
+    <button (click)="resetDFS()">Reset DFS</button>
+  </div>
+  <div>
+    <div id="dfs-stack" class="box">
+      <div id="stack-label">Stack:</div>
+      <div id="stack-content"></div>
+    </div>
+    <div id="dfs-processing" class="box">
+      <div id="processing-label">Processing:</div>
+      <div id="processing-content"></div>
+    </div>
+    <div id="dfs-processed" class="box">
+      <div id="processed-label">Processed:</div>
+      <div id="processed-content"></div>
+    </div>
+  </div>
+</div>

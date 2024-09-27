@@ -1,0 +1,79 @@
+<!-- <!DOCTYPE html> -->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login Form</title>
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="login-page.component.css" />
+  </head>
+  <body>
+    <div class="id">
+      <h1>WELCOME TO THE GRAPH TRAVERSAL !</h1>
+    </div>
+    <div class="container">
+      <div class="box">
+        <div class="left">
+          <h2>Login</h2>
+          <form id="loginForm">
+            <div class="input-box">
+              <i class="bx bx-user"></i>
+              <input
+                type="text"
+                id="username"
+                placeholder="Username"
+                required
+              />
+            </div>
+            <div class="input-box">
+              <i class="bx bx-lock-alt"></i>
+              <input
+                type="password"
+                id="password"
+                placeholder="Password"
+                required
+              />
+            </div>
+            <button type="submit" [routerLink]="['/mainIndex']" class="btn">
+              Login
+            </button>
+            <div class="social-icons">
+              <a
+                href="https://www.linkedin.com/in/mdsakeel103/"
+                class="social-icon"
+                title="LinkedIn"
+                ><i class="fab fa-linkedin"></i
+              ></a>
+              <a
+                href="https://github.com/sakeel-103"
+                class="social-icon"
+                title="GitHub"
+                ><i class="fab fa-github"></i
+              ></a>
+              <a
+                href="https://sakeel-103.github.io/My_Portfolio_new/"
+                class="social-icon"
+                title="Portfolio"
+                ><i class="fas fa-laptop"></i
+              ></a>
+            </div>
+            <p class="signup-text">
+              Don't have an account? <a routerLink="/signup">Sign Up</a>
+            </p>
+          </form>
+        </div>
+        <div class="right">
+          <h1>WELCOME BACK!</h1>
+          <p>Login/Signup Form To perform or Visualize the Graph Traversal</p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

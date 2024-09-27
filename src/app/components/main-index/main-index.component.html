@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Graph Traversal Home</title>
+    <link rel="stylesheet" href="main-index.component.css" />
+  </head>
+  <body>
+    <div class="navbar">
+      <div class="nav-left">
+        <p>GRAPH-TRAVERSAL</p>
+      </div>
+      <div class="div-new">
+        <a>DFS</a>
+        <a>BFS</a>
+      </div>
+
+      <div class="profile-dropdown">
+        <i class="fas fa-user-circle fa-2x" aria-hidden="true"></i>
+        <div id="dropdown-menu" class="dropdown-content">
+          <p>Website Designer</p>
+          <a href="#">My Profile</a>
+          <a href="#">Logout</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="welcome-message">
+        <h1>Welcome to Graph Traversal</h1>
+        <p>Select an algorithm below to visualize graph traversal.</p>
+        <div class="button-group">
+          <a [routerLink]="['/dfsPage']" class="btn">DFS</a>
+          <a [routerLink]="['/bfsPage']" class="btn">BFS</a>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Website Design</title>
+    <link rel="stylesheet" href="header.component.css" />
+  </head>
+  <body>
+    <header>
+      <div class="logo">GRAPH-TRAVERSAL</div>
+      <nav>
+        <ul>
+          <li><a routerLink="signup-page">Explore</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <div class="content">
+        <h1>WELCOME TO The <span>GRAPH-TRAVERSAL</span></h1>
+        <p>Register and Login to Explore the graph traversal</p>
+        <div class="buttons">
+          <button [routerLink]="['/signup']" class="visit-here-button">
+            Visit Here
+          </button>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>

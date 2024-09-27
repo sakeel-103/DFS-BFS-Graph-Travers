@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="div-first">
+      <h1>WELCOME TO THE GRAPH TRAVERSAL!</h1>
+    </div>
+    <div class="container">
+      <div class="box">
+        <div class="left">
+          <h1>WELCOME BACK!</h1>
+          <p>Login/Signup Form To perform or Visualize the Graph Traversal</p>
+        </div>
+        <div class="right">
+          <h2>Sign Up</h2>
+          <form [formGroup]="signupForm" id="signupForm">
+            <div class="input-box">
+              <i class="bx bxs-user"></i>
+              <input
+                type="text"
+                id="username"
+                placeholder="Username"
+                formControlName="username"
+              />
+            </div>
+            <div class="input-box">
+              <i class="bx bxs-envelope"></i>
+              <input
+                type="email"
+                id="email"
+                placeholder="Email"
+                formControlName="email"
+              />
+            </div>
+            <div class="input-box">
+              <i class="bx bxs-lock-alt"></i>
+              <input
+                type="password"
+                id="password"
+                placeholder="Password"
+                formControlName="password"
+              />
+            </div>
+            <button type="submit" class="btn" (click)="SignUp()">
+              Sign Up
+            </button>
+            <p class="signup-text">
+              Have not an account yet? <a routerLink="/login">login</a>
+            </p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

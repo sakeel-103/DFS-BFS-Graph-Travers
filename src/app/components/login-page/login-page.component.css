@@ -1,0 +1,151 @@
+/* * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+} */
+
+.id {
+    position: absolute;
+    top: 20px; 
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    width: 100%;
+    font-size: 24px; 
+    font-weight: bold; 
+    color: #333; 
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+}
+
+.container {
+    display: flex;
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    width: 900px;
+    height: 500px;
+}
+
+.box {
+    display: flex;
+    width: 100%;
+    background-color: white;
+}
+
+.left {
+    width: 50%;
+    padding: 50px;
+    background-color: #fff;
+}
+
+.left h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.input-box {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #ccc;
+}
+
+.input-box i {
+    font-size: 20px;
+    margin-right: 10px;
+}
+
+.input-box input {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    outline: none;
+    background: none;
+}
+
+.btn {
+    width: 100%;
+    padding: 15px;
+    background-color: #000;
+    color: #fff;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.social-icon {
+    background-color: #f4f4f4;
+    border-radius: 50%;
+    padding: 12px;
+    margin: 0 12px;
+    font-size: 24px;
+    color: #666;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    text-decoration: none; 
+}
+
+.social-icon:hover {
+    background-color: #898d90;
+    color: white;
+}
+
+.social-icon i {
+    line-height: 1;
+}
+
+.signup-text {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.signup-text a {
+    color: #3498db;
+    text-decoration: none;
+}
+
+.right {
+    width: 50%;
+    background-color: #000;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 50px;
+    text-align: center;
+}
+
+.right h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.right p {
+    font-size: 14px;
+    line-height: 1.6;
+}

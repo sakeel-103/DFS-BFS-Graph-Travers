@@ -1,0 +1,40 @@
+<div class="navbar">
+  <div class="nav-left">
+    <p>GRAPH-TRAVERSAL</p>
+  </div>
+  <div class="div-new">
+    <a href="#">DFS</a>
+    <a href="#">BFS</a>
+  </div>
+
+  <div class="profile-dropdown">
+    <i class="fas fa-user-circle fa-2x" aria-hidden="true" color="white"></i>
+    <div id="dropdown-menu" class="dropdown-content"></div>
+  </div>
+</div>
+<div id="bfs-container">
+  <div class="navigation">
+    <a routerLink="/mainIndex" class="btn">Home</a>
+    <a routerLink="/dfsPage" class="btn">Next to DFS</a>
+  </div>
+  <h2>Breadth First Search</h2>
+  <canvas id="bfs-canvas" width="600" height="300"></canvas>
+  <div>
+    <button (click)="startBFSTraversal()">Start BFS</button>
+    <button (click)="resetBFS()">Reset BFS</button>
+  </div>
+  <div>
+    <div id="bfs-queue" class="box">
+      <div id="queue-label">Queue:</div>
+      <div id="queue-content"></div>
+    </div>
+    <div id="bfs-processing" class="box">
+      <div id="processing-label">Processing:</div>
+      <div id="processing-content"></div>
+    </div>
+    <div id="bfs-processed" class="box">
+      <div id="processed-label">Processed:</div>
+      <div id="processed-content"></div>
+    </div>
+  </div>
+</div>
