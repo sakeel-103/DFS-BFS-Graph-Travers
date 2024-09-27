@@ -1,5 +1,5 @@
 [build]
-  publish = "dist/" 
+  publish = "dist/eccom-prj" 
   command = "ng build --prod"  
 
 [[redirects]]
