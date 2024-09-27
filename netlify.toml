@@ -1,5 +1,5 @@
 [build]
-  publish = "dist/eccom-prj/" 
+  publish = "dist/eccom-prj/browser" 
   command = "ng build --configuration production"  
 
 [[redirects]]
