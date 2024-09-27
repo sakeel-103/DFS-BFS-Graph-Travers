@@ -1,6 +1,6 @@
 [build]
   publish = "dist/eccom-prj"
-  command = "ng build --prod"
+  command = "ng build"
 [[redirects]]
   from = "/*"
   to = "/index.html"
