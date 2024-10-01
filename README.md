@@ -28,7 +28,7 @@ Step 7 -  run - ng serve
 
 ### For DataBase Storage   ###
 
- Step 1 - Right Click and go to " Inspect " on the signup Page
+ Step 1 - Right Click on 'Signup Page' and go to " Inspect " then Application there you will find signup details
  
  Step 2 - Go to the Application 
           There you can find the Data Stored in Local Storage.
