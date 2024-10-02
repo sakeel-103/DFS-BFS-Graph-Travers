@@ -173,6 +173,36 @@ button:active {
     margin-bottom: 5px;
 }
 
+/* BFS Algorithm Card Styling */
+.bfs-card {
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 5px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Hide the card initially */
+  .hidden {
+    display: none;
+  }
+  
+  /* Button Styling */
+  button {
+    padding: 10px 15px;
+    margin-right: 10px;
+    border: none;
+    background-color:  #333;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  button:hover {
+    background-color:  #444;
+  }
+
 /* Responsive design for smaller screens */
 @media (max-width: 700px) {
     #bfs-container, #dfs-container {

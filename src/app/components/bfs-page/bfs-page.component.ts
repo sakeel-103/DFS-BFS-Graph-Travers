@@ -163,4 +163,11 @@ export class BfsPageComponent implements AfterViewInit, OnInit {
   public scrollToTop(): void {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
+
+  toggleBFSCard() {
+    const bfsCard = document.getElementById('bfs-card');
+    if (bfsCard) {
+      bfsCard.classList.toggle('hidden');  // Toggle the hidden class
+    }
+  }
 }
