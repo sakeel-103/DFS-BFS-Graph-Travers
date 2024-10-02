@@ -151,4 +151,13 @@ export class DfsPageComponent implements AfterViewInit {
       }
     }, 1500);
   }
+
+  toggleDFSCard() {
+    const dfsCard = document.getElementById('dfs-card');
+    if (dfsCard) {
+      dfsCard.classList.toggle('hidden');  // Toggle the hidden class
+    }
+  }
 }
+
+

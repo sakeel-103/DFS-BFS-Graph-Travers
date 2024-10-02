@@ -22,7 +22,17 @@
   <div>
     <button (click)="startBFSTraversal()">Start BFS</button>
     <button (click)="resetBFS()">Reset BFS</button>
+    <button (click)="toggleBFSCard()">Algorithm Description</button><!-- New button -->
   </div>
+
+  <!-- BFS Description Card (Initially Hidden) -->
+  <div id="bfs-card" class="bfs-card hidden">
+    <h3>BFS Algorithm</h3>
+    <p>
+      Breadth First Search (BFS) is an algorithm for traversing or searching tree or graph data structures. The algorithm starts at the root node (or an arbitrary node in the case of a graph) and explores all of its neighboring nodes at the present depth before moving on to nodes at the next depth level.
+    </p>
+  </div>
+
   <div>
     <div id="bfs-queue" class="box">
       <div id="queue-label">Queue:</div>
