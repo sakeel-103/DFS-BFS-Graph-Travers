@@ -19,23 +19,7 @@
     <a routerLink="/mainIndex" class="btn">Home</a>
     <a routerLink="/bfsPage" class="btn">Next to BFS</a>
   </div>
-
-  <!-- Custom Graph Input -->
-  <div class="custom-input">
-    <label for="nodes">Nodes (comma-separated):</label>
-    <input [(ngModel)]="customNodeInput" id="nodes" type="text" placeholder="A,B,C,D,E,F,G" />
-    <br>
-    
-    <label for="edges">Edges (format: 0-1;1-2):</label>
-    <input [(ngModel)]="customEdgeInput" id="edges" type="text" placeholder="0-1;0-2;1-3" />
-    <br>
-    
-    <button (click)="handleCustomGraphInput()">Create Custom Graph</button>
-  </div> 
-
   <h2>Depth First Search</h2>
-
- 
   <canvas id="dfs-canvas" width="600" height="300"></canvas>
   <div>
     <button (click)="startDFSTraversal()">Start DFS</button>
