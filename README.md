@@ -116,6 +116,21 @@ The backend server, built with **Node.js** and **Express.js**, handles:
 - 🛡️ **User Authentication**: A basic registration and login system.
 - 🔄 **Graph Traversal**: Provides APIs for DFS and BFS traversals.
 
+## 📊 How the Graph Feature Works
+
+- Input your nodes. **Make sure it is in A,B,... format. Comma is necessary**
+- Input your edges. **Make sure it is in the [to]-[from] format. Eg: 0-1**
+- Click on **create custom graph** button 🔵
+- See how the magic happens
+
+Example: 
+
+![alt text](image.png)
+
+Output:
+
+![alt text](image-1.png)
+
 
 
 ---
