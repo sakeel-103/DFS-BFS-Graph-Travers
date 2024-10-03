@@ -220,6 +220,11 @@ export class BfsPageComponent implements AfterViewInit, OnInit {
     }
   }
 
+  public clearForm(): void {
+    this.customNodeInput = '';
+    this.customEdgeInput = '';
+  }
+
   // New Methods for Custom Graph Input
   public handleCustomGraphInput(): void {
     if (this.validateCustomNodes() && this.validateCustomEdges()) {
