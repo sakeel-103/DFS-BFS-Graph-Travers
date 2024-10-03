@@ -1,129 +1,141 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body, html {
-    height: 100%;
-    font-family: 'Arial', sans-serif;
-    line-height: 1.6;
+  height: 100%;
+  font-family: 'Poppins', sans-serif;
+  line-height: 1.6;
 }
 
 body {
-    background-image: url('./img/img1.jpeg');
-    background-size: 100% 100vh;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed; 
-    font-family: Arial, sans-serif;
-    display: flex;
-    flex-direction: column;
-    color: white;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 /* Header Styling */
 header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 50px;
-    background-color: black; 
-    position: fixed; 
-    width: 100%;
-    z-index: 10; 
+  background-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  position: fixed;
+  width: 100%;
+  z-index: 1000;
+  padding: 1rem 5%;
 }
 
-.logo {
-    font-size: 24px;
-    font-weight: bold;
-    text-transform: uppercase; 
+header .logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #ffffff;
 }
 
 nav ul {
-    list-style: none;
-    display: flexbox;
+  list-style-type: none;
+  display: flex;
+  justify-content: flex-end;
 }
 
 nav ul li {
-    margin-left: 80px;
+  margin-left: 2rem;
 }
 
 nav ul li a {
-    text-decoration: none;
-    color: white;
-    padding: 20px 25px;
-    border-bottom: 2px solid transparent;
-    transition: border-bottom-color 0.3s ease; 
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
 }
 
 nav ul li a:hover {
-    border-bottom-color: white; 
+  color: #ffd60a;
 }
 
 /* Hero Section Styling */
 .hero {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    min-height: calc(100vh); 
-    background-color: rgba(0, 0, 0, 0.5); 
-    padding: 100px 50px; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 2rem 5%;
+  text-align: center;
+}
+
+.content {
+  max-width: 800px;
 }
 
 .content h1 {
-    font-size: 3.5rem; 
-    letter-spacing: 3px;
-    margin-bottom: 20px; 
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
 }
 
 .content h1 span {
-    color: #00A9E0;
+  color: #ffd60a;
 }
 
 .content p {
-    font-size: 1.2rem;
-    margin-bottom: 30px; 
-    color: #e0e0e0; 
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  color: #e0e0e0;
 }
 
 /* Button Styling */
-.button-container {
-    display: inline-block;
+.buttons {
+  display: flex;
+  justify-content: center;
 }
 
-.button {
-    padding: 12px 30px;
-    font-size: 1.1rem;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    text-decoration: none;
-    transition: background-color 0.3s ease, color 0.3s ease, opacity 0.3s ease;
-    background-color: #00A9E0; 
-    color: white; 
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2); 
-}
-
-.button:hover {
-    opacity: 0.8;
-    transform: translateY(-2px); 
-}
-
-/* Visit Here Button */
 .visit-here-button {
-    background-color: #FFC107; 
-    color: white;
-    padding: 15px 40px; 
-    font-size: 1.2rem; 
-    border-radius: 10px; 
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); 
-    transition: background-color 0.3s ease, color 0.3s ease, opacity 0.3s ease;
+  background-color: #ffd60a;
+  color: #333333;
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
 
 .visit-here-button:hover {
-    background-color: #FF9900; 
-    opacity: 0.8;
-    transform: translateY(-2px); 
+  background-color: #ffc300;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  header {
+    padding: 1rem;
+  }
+
+  header .logo {
+    font-size: 1.2rem;
+  }
+
+  nav ul li {
+    margin-left: 1rem;
+  }
+
+  .content h1 {
+    font-size: 2rem;
+  }
+
+  .content p {
+    font-size: 1rem;
+  }
+
+  .visit-here-button {
+    font-size: 0.9rem;
+    padding: 0.6rem 1.2rem;
+  }
 }
