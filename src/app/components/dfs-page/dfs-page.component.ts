@@ -237,6 +237,11 @@ export class DfsPageComponent implements AfterViewInit, OnInit {
     this.parseCustomEdges();
     this.positionNodes();
     this.resetDFS();
+
+    const dfsCanvas = document.getElementById('dfs-canvas');
+    if (dfsCanvas) {
+      dfsCanvas.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
   }
 }
 

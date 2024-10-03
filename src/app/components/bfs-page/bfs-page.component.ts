@@ -232,6 +232,11 @@ export class BfsPageComponent implements AfterViewInit, OnInit {
       this.parseCustomEdges();
       this.positionNodes();
       this.resetBFS();
+
+      const bfsCanvas = document.getElementById('bfs-canvas');
+      if (bfsCanvas) {
+      bfsCanvas.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
     }
   }
   
