@@ -224,6 +224,12 @@ export class DfsPageComponent implements AfterViewInit, OnInit {
     }
   }
 
+  public clearForm(): void {
+    this.customNodeInput = '';
+    this.customEdgeInput = '';
+  }
+  
+
   // New Methods for Custom Graph Input
   public handleCustomGraphInput(): void {
   if (this.validateCustomNodes() && this.validateCustomEdges()) {
@@ -318,5 +324,7 @@ private parseCustomEdges(): void {
   }
 
   this.edges = newEdges;
+
+  
 }
 }
