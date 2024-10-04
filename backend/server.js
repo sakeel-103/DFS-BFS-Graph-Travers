@@ -3,10 +3,12 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const dotenv = require('dotenv');
-const { check, validationResult } = require('express-validator');
+const { validationResult } = require('express-validator');
 const User = require('./models/User');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
+const { validateSignup } = require('./middlewares/validation');
+const authenticateJWT = require('./middlewares/authenticate');
 
 dotenv.config();
 const app = express();
@@ -20,11 +22,7 @@ mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTop
     .catch(err => console.error('MongoDB connection error:', err));
 
 // User registration endpoint with validation
-app.post('/api/signup', [
-    check('username').isLength({ min: 3 }).withMessage('Username must be at least 3 characters'),
-    check('email').isEmail().withMessage('Enter a valid email'),
-    check('password').isLength({ min: 6 }).withMessage('Password must be at least 6 characters'),
-], async (req, res) => {
+app.post('/api/signup', validateSignup, async (req, res) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
         return res.status(400).json({ errors: errors.array() });
@@ -86,22 +84,6 @@ app.post('/api/login', async (req, res) => {
         res.status(500).send('Internal server error');
     }
 });
-
-// Middleware for protected routes (example)
-const authenticateJWT = (req, res, next) => {
-    const token = req.header('Authorization')?.split(' ')[1];
-    if (token) {
-        jwt.verify(token, process.env.JWT_SECRET, (err, user) => {
-            if (err) {
-                return res.sendStatus(403); // Forbidden
-            }
-            req.user = user;
-            next();
-        });
-    } else {
-        res.sendStatus(401); // Unauthorized
-    }
-};
 
 // Example of a protected route
 app.get('/api/protected', authenticateJWT, (req, res) => {
