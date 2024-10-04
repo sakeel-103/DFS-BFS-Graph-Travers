@@ -4,7 +4,7 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const dotenv = require('dotenv');
 const { check, validationResult } = require('express-validator');
-const User = require('./models/User'); 
+const User = require('./models/User');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
@@ -50,7 +50,7 @@ app.post('/api/signup', [
 
         // Save the new user
         await newUser.save();
-        res.status(201).send('User registered');
+        res.status(201).json({ message: 'User registered' });
     } catch (error) {
         console.error('Error registering user:', error);
         res.status(500).send('Error registering user');
