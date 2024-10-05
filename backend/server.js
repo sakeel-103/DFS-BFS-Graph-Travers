@@ -43,7 +43,8 @@ app.post('/api/signup', validateSignup, async (req, res) => {
         }
 
         // Hash the password
-        const hashedPassword = await bcrypt.hash(password, 10);
+        const saltRounds = Number(process.env.BCRYPT_SALT_ROUNDS) || 10;
+        const hashedPassword = await bcrypt.hash(password, saltRounds);
         const newUser = new User({ username, email, password: hashedPassword });
 
         // Save the new user
