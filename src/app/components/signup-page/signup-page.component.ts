@@ -69,4 +69,9 @@ export class SignupComponent {
   openLogin() {
     this.router.navigate(['/login']);
   }
+
+  goHome() {
+    // Navigate to the home page
+    this.router.navigate(['/']); // Change this to your desired route for home page
+  }
 }

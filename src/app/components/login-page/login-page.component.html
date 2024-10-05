@@ -1,4 +1,4 @@
-<!-- <!DOCTYPE html> -->
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -13,16 +13,41 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="login-page.component.css" />
+    <style>
+      .go-back-container {
+        background-color: white; /* White background */
+        padding: 10px 20px;
+        border-radius: 5px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        position: absolute; /* Position absolute to place at bottom left */
+        bottom: 10px; /* Adjust this value to move vertically */
+        left: 10px; /* Adjust this value to move horizontally */
+        cursor: pointer;
+      }
+      .go-back-text {
+        color: black; /* Black text color */
+        margin-left: 0px; /* No extra margin */
+      }
+      .go-back-container:hover {
+        background-color: #f0f0f0; /* Hover effect */
+      }
+
+      .box {
+        position: relative; /* Make the box relative so go-back stays inside */
+      }
+    </style>
   </head>
   <body>
     <div class="id">
-      <h1>WELCOME TO THE GRAPH TRAVERSAL !</h1>
+      <h1>WELCOME TO THE GRAPH TRAVERSAL!</h1>
     </div>
     <div class="container">
       <div class="box">
         <div class="left">
           <h2>Login</h2>
-          <form id="loginForm">
+          <form id="loginForm" (ngSubmit)="login(loginForm)" #loginForm="ngForm">
             <div class="input-box">
               <i class="bx bx-user"></i>
               <input
@@ -41,7 +66,7 @@
                 required
               />
             </div>
-            <button type="submit" [routerLink]="['/mainIndex']" class="btn">
+            <button type="submit" class="btn">
               Login
             </button>
             <div class="social-icons">
@@ -68,6 +93,10 @@
               Don't have an account? <a routerLink="/signup">Sign Up</a>
             </p>
           </form>
+          <!-- Go Back Container in the bottom left -->
+          <div class="go-back-container" (click)="goBack()">
+            <span class="go-back-text"><< Go Back</span>
+          </div>
         </div>
         <div class="right">
           <h1>WELCOME BACK!</h1>
