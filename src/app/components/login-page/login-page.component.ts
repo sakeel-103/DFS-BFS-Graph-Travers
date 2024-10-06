@@ -26,6 +26,21 @@ export class LoginPageComponent {
   }
 
   private authenticate(username: string, password: string): boolean {
-    return username === 'test' && password === 'password';
+    // Hardcoded credentials check
+    if (username === 'test' && password === 'password') {
+      return true;
+    }
+  
+    // Check localStorage for 'users' array
+    const users = JSON.parse(localStorage.getItem('users') || '[]');
+  asd
+    // Iterate through users array and check for matching credentials
+    for (const user of users) {
+      if (user.username === username && user.password === password) {
+        return true;
+      }
+    }
+    // If no match is found, return false
+    return false;
   }
 }
