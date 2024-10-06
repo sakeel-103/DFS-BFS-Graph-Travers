@@ -26,14 +26,14 @@ body {
 .nav-right {
   display: flex;
   align-items: center;
-  margin-right: 2rem; 
+  margin-right: 2rem;
 }
 
 .div-new {
   display: flex;
   align-items: center;
-  margin-left: auto; 
-  margin-right: 1rem; 
+  margin-left: auto;
+  margin-right: 1rem;
 }
 
 .div-new a {
@@ -308,4 +308,24 @@ body {
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   width: 45%;
+
+.logout-btn {
+  background-color: #ff4757; /* Red background */
+  color: #fff; /* White text */
+  border: none; /* No border */
+  border-radius: 5px; /* Rounded corners */
+  padding: 10px 20px; /* Padding for size */
+  font-size: 16px; /* Font size */
+  cursor: pointer; /* Pointer cursor */
+  transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transitions */
+}
+
+.logout-btn:hover {
+  background-color: #ff6b81; /* Lighter red on hover */
+  transform: scale(1.05); /* Slightly grow on hover */
+}
+
+.logout-btn:focus {
+  outline: none; /* Remove outline on focus */
+  box-shadow: 0 0 5px rgba(255, 71, 87, 0.5); /* Subtle shadow on focus */
 }

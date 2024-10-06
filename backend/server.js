@@ -96,6 +96,10 @@ process.on('SIGINT', async () => {
     console.log('Shutting down gracefully...');
     await mongoose.connection.close();
     process.exit(0);
+app.post('/api/logout', authenticateJWT, (req, res) => {
+    // Invalidate the user's session or token
+    req.user = null; // This would depend on your session management strategy
+    res.sendStatus(200);
 });
 
 // Start the server
