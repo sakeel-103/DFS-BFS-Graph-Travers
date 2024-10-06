@@ -17,7 +17,9 @@
         </div>
         <div class="right">
           <h2>Sign Up</h2>
-          <form [formGroup]="signupForm" id="signupForm">
+          <!-- Cross Button -->
+          <button type="button" class="cross-button" (click)="goHome()">&times;</button>
+          <form [formGroup]="signupForm" id="signupForm" (ngSubmit)="SignUp()">
             <div class="input-box">
               <i class="bx bxs-user"></i>
               <input
@@ -45,7 +47,7 @@
                 formControlName="password"
               />
             </div>
-            <button type="submit" class="btn" (click)="SignUp()">
+            <button type="submit" class="btn">
               Sign Up
             </button>
             <p class="signup-text">

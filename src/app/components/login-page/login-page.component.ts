@@ -28,4 +28,8 @@ export class LoginPageComponent {
   private authenticate(username: string, password: string): boolean {
     return username === 'test' && password === 'password';
   }
+
+  goBack() {
+    this.router.navigate(['/signup']); // Navigate back to the signup page
+  }
 }

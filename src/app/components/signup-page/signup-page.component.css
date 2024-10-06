@@ -140,3 +140,18 @@ form p a {
 form p a:hover {
     text-decoration: underline;
 }
+.cross-button {
+    background-color: transparent; /* Transparent background */
+    border: none; /* No border */
+    color: black; /* Black color for the cross */
+    font-size: 30px; /* Adjust the size of the cross */
+    cursor: pointer; /* Change cursor to pointer on hover */
+    position: absolute; /* Positioning */
+    top: 20px; /* Distance from the top */
+    right: 20px; /* Distance from the right */
+  }
+  
+  .cross-button:hover {
+    color: red; /* Change color on hover */
+  }
+  
