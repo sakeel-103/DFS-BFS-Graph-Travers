@@ -40,6 +40,7 @@ export class LoginPageComponent {
         return true;
       }
     }
+    
     // If no match is found, return false
     return false;
   }
