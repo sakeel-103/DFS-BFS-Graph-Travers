@@ -14,6 +14,8 @@ export class DfsPageComponent implements AfterViewInit, OnInit {
   private edges: [number, number][] = [];
 
   private dfsTimeout: any;
+  private dfsCanvas!: HTMLCanvasElement; // Use '!' to indicate it's definitely assigned later
+  private maxDepth: number = 0; // New property to track maximum depth
 
   customNodeInput: string = '';
   customEdgeInput: string = '';
@@ -21,25 +23,31 @@ export class DfsPageComponent implements AfterViewInit, OnInit {
   constructor() {}
 
   ngOnInit(): void {
-    const dfsCanvas = document.getElementById(
-      'dfs-canvas'
-    ) as HTMLCanvasElement;
-    const dfsCtx = dfsCanvas.getContext('2d')!;
-    this.drawGraph(dfsCtx);
+    // No need to access the canvas here
   }
 
-  ngAfterViewInit(): void {}
+  ngAfterViewInit(): void {
+    this.dfsCanvas = document.getElementById('dfs-canvas') as HTMLCanvasElement;
+    const dfsCtx = this.dfsCanvas.getContext('2d')!;
+
+    this.adjustCanvasSize(); // Adjust size first
+    this.drawGraph(dfsCtx);  // Then draw
+  }
+
+  private adjustCanvasSize(): void {
+    const height = Math.max(400, this.maxDepth * 75); // Maximum height of 600, calculated from depth
+    this.dfsCanvas.height = height;
+  }
 
   public startDFSTraversal(): void {
-    const dfsCanvas = document.getElementById('dfs-canvas') as HTMLCanvasElement;
-    const dfsCtx = dfsCanvas.getContext('2d')!;
+    const dfsCtx = this.dfsCanvas.getContext('2d')!;
     this.positionNodes();  // New: Position nodes before drawing
     this.dfsTraversalVisualization(dfsCtx);
   }
 
   private positionNodes(): void {
     const root = 0; // Assume BFS starts at node 0 or any other root node
-    const levelGap = 100; // Vertical gap between levels
+    const levelGap = 80; // Vertical gap between levels
     const nodeGap = 80; // Horizontal gap between nodes in the same level
     const levels: { [key: number]: number[] } = {}; // Store nodes per level
     const visited: boolean[] = new Array(this.nodes.length).fill(false);
@@ -80,7 +88,9 @@ export class DfsPageComponent implements AfterViewInit, OnInit {
   
       currentLevel++;
     }
-  
+
+    this.maxDepth = currentLevel; // Set the maximum depth
+
     // Assign node positions based on the calculated levels
     Object.keys(levels).forEach((levelStr) => {
       const level = parseInt(levelStr); // Convert level keys back to numbers
@@ -199,10 +209,7 @@ export class DfsPageComponent implements AfterViewInit, OnInit {
   
 
   public resetDFS(): void {
-    const dfsCanvas = document.getElementById(
-      'dfs-canvas'
-    ) as HTMLCanvasElement;
-    const dfsCtx = dfsCanvas.getContext('2d')!;
+    const dfsCtx = this.dfsCanvas.getContext('2d')!;
     this.drawGraph(dfsCtx);
     document.getElementById('stack-content')!.innerHTML = '';
     document.getElementById('processing-content')!.innerHTML = '';
@@ -236,18 +243,18 @@ export class DfsPageComponent implements AfterViewInit, OnInit {
     this.parseCustomNodes();
     this.parseCustomEdges();
     this.positionNodes();
+    this.adjustCanvasSize();
     this.resetDFS();
 
-    const dfsCanvas = document.getElementById('dfs-canvas');
-    if (dfsCanvas) {
-      dfsCanvas.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    if (this.dfsCanvas) {
+      this.dfsCanvas.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
   }
 }
 
 private validateCustomNodes(): boolean {
   const nodeInput = this.customNodeInput.trim().split(',');
-  
+
   // Check for empty input or empty labels
   if (nodeInput.length === 0 || nodeInput.some(label => label.trim() === '')) {
     alert('Node input is invalid. Ensure all nodes have non-empty labels.');
