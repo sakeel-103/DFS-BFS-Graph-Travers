@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html> -->
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -22,14 +22,12 @@
       <div class="box">
         <div class="left">
           <h2>Login</h2>
-          <form id="loginForm" #form="ngForm" (ngSubmit)="login(form)">
+          <form id="loginForm">
             <div class="input-box">
               <i class="bx bx-user"></i>
               <input
                 type="text"
                 id="username"
-                name="username"
-                ngModel
                 placeholder="Username"
                 required
               />
@@ -39,13 +37,13 @@
               <input
                 type="password"
                 id="password"
-                name="password"
-                ngModel
                 placeholder="Password"
                 required
               />
             </div>
-            <button type="submit" class="btn">Login</button>
+            <button type="submit" [routerLink]="['/mainIndex']" class="btn">
+              Login
+            </button>
             <div class="social-icons">
               <a
                 href="https://www.linkedin.com/in/mdsakeel103/"
