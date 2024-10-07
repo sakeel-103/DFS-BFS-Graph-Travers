@@ -24,6 +24,7 @@ src/                        # Angular application source code
 .editorconfig               # Editor configuration for consistent coding style
 .gitignore                  # Git ignore file to exclude certain files from being committed
 CODE_OF_CONDUCT.md          # Code of conduct for contributors
+CONTRIBUTING.md             # Guidelines for contributing to the project
 README.md                   # Project documentation file
 angular.json                # Angular workspace configuration
 netlify.toml                # Configuration for deploying to Netlify
@@ -131,7 +132,8 @@ Output:
 
 ![alt text](image-1.png)
 
-
+## Contributing
+We welcome contributions from developers of all experience levels. Please refer to the [CONTRIBUTING.md](CONTRIBUTING.md) file for guidelines.
 
 ---
 
