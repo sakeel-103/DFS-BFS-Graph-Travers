@@ -48,22 +48,22 @@ Go to the original repository and create a Pull Request (PR). Make sure to descr
 - Stick to best practices for the programming language you are contributing in.
 - Respect the folder structure and organization of the repository.
 
-### Code Style
+## Code Style
 Please follow the existing code style in the project. Consistent code style helps maintain readability and makes it easier for everyone to contribute. Ensure that your code passes all linting and formatting checks before submitting.
 
-### Writing Tests
+## Writing Tests
 If you’re adding a new feature or fixing a bug, please include tests to ensure that your changes don’t break existing functionality. Tests should be written using the existing testing framework in the project.
 
-### Documentation
+## Documentation
 If your contribution changes how the package works, please update the relevant documentation. This includes updating comments, README files, and other markdown files as needed.
 
-### Code of Conduct
+## Code of Conduct
 Please note that this project is governed by a [Code of Conduct](CODE_OF_CONDUCT.md). By participating in this project, you agree to abide by its terms.
 
-### Reporting Issues
+## Reporting Issues
 If you encounter any issues or have feature requests, please open an issue in the repository to discuss it.
 
-### Contact Information
+## Contact Information
 If you have any questions or need assistance, feel free to reach out to the maintainers via [Your Email or Contact Method].
 
 Thank you for your contributions! Together, we can build something amazing. ✨
