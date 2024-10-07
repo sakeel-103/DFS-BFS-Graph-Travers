@@ -133,7 +133,7 @@ Output:
 ![alt text](image-1.png)
 
 ## Contributing
-We welcome contributions from developers of all experience levels. Please refer to the CONTRIBUTING.md file for guidelines.
+We welcome contributions from developers of all experience levels. Please refer to the [CONTRIBUTING.md](CONTRIBUTING.md) file for guidelines.
 
 ---
 
