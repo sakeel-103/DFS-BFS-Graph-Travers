@@ -22,8 +22,8 @@ export class AuthService {
   }
 
   login(userData: { username: string; password: string }): Observable<any> {
-    return this.http.post(`${this.apiUrl}/login`, userData).pipe(tap((response: any) => {
-        localStorage.setItem('authToken', response.token);
+    return this.http.post(`${this.apiUrl}/login`, userData).pipe(tap(() => {
+      // On successful login, you could manage user session here if needed
     }));
   }
 
@@ -32,24 +32,25 @@ export class AuthService {
   }
 
   logout(): void {
-    this.http.post(`${this.apiUrl}/logout`, {}).pipe(
-        tap(() => {
-          // Remove the token from local storage after logging out
-          localStorage.removeItem('authToken');
-        })
-      );
-    localStorage.removeItem('authToken'); // Remove the token
-    this.router.navigate(['/login']); // Redirect to login page
+    this.http.post(`${this.apiUrl}/logout`, {}).subscribe({
+      next: () => {
+        // Clear any user info from storage (if applicable)
+        this.router.navigate(['/login']); // Redirect to login page after logout
+      },
+      error: (error) => {
+        console.error('Error logging out:', error);
+      }
+    });
   }
 
   fetchAllUsers(): void {
-    this.getAllUsers().subscribe(
-      (res: any) => {
+    this.getAllUsers().subscribe({
+      next: (res: any) => {
         this.userList = res;
       },
-      (error) => {
+      error: (error) => {
         console.error('Error fetching users:', error);
       }
-    );
+    });
   }
 }
