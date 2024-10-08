@@ -43,12 +43,6 @@ body {
   text-decoration: none;
 }
 
-.profile-dropdown {
-  position: relative;
-  margin-right: 2rem;
-  color: #fff;
-}
-
 .profile-img {
   width: 40px;
   height: 40px;
