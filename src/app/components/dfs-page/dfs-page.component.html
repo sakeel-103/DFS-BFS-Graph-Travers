@@ -12,6 +12,8 @@
     <i class="fas fa-user-circle fa-2x" aria-hidden="true"></i>
     <div id="dropdown-menu" class="dropdown-content"></div>
   </div>
+
+  <button (click)="onLogout()" class="btn logout-btn">Logout</button>
 </div>
 
 <div id="dfs-container">
@@ -25,14 +27,14 @@
     <label for="nodes">Nodes (comma-separated):</label>
     <input [(ngModel)]="customNodeInput" id="nodes" type="text" placeholder="A,B,C,D,E,F,G" />
     <br>
-    
+
     <label for="edges">Edges (format: 0-1;1-2):</label>
     <input [(ngModel)]="customEdgeInput" id="edges" type="text" placeholder="0-1;0-2;1-3" />
     <br>
-    
+
     <button (click)="handleCustomGraphInput()">Create Custom Graph</button>
     <button class="clear-button" (click)="clearForm()">Clear Form</button>
-  </div> 
+  </div>
 
   <h2>Depth First Search</h2>
 
@@ -45,7 +47,7 @@
     <button (click)="resetDFS()">Reset DFS</button>
     <button (click)="toggleDFSCard()">Algorithm Description</button> <!-- New button -->
   </div>
-  
+
   <!-- DFS Description Card (Initially Hidden) -->
   <div id="dfs-card" class="dfs-card hidden">
     <h3>DFS Algorithm</h3>

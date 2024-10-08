@@ -1,6 +1,7 @@
 import { Component, AfterViewInit, OnInit } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-dfs-page',
@@ -20,7 +21,7 @@ export class DfsPageComponent implements AfterViewInit, OnInit {
   customNodeInput: string = '';
   customEdgeInput: string = '';
 
-  constructor() {}
+  constructor(private authService: AuthService) {}
 
   ngOnInit(): void {
     // No need to access the canvas here
@@ -52,30 +53,30 @@ export class DfsPageComponent implements AfterViewInit, OnInit {
     const levels: { [key: number]: number[] } = {}; // Store nodes per level
     const visited: boolean[] = new Array(this.nodes.length).fill(false);
     const queue: number[] = [];
-  
+
     queue.push(root);
     visited[root] = true;
     levels[0] = [root]; // Root is at level 0
-  
+
     let currentLevel = 1;
-  
+
     while (queue.length > 0) {
       const node = queue.shift()!;
-  
+
       // Find the current node level by converting level strings to numbers
       const currentNodeLevel = Object.keys(levels)
         .map(level => parseInt(level))
         .find((level) => levels[level].includes(node)) || 0;
-  
+
       const nextLevelNodes: number[] = [];
-  
+
       // Find all neighbors (children) of the current node
       this.edges.forEach((edge) => {
         const [from, to] = edge;
-  
+
         // Check if the node is either 'from' or 'to' and the other is unvisited
         const neighbor = from === node ? to : from === node ? to : null;
-  
+
         if (neighbor !== null && !visited[neighbor]) {
           if (!levels[currentLevel]) {
             levels[currentLevel] = [];
@@ -85,7 +86,7 @@ export class DfsPageComponent implements AfterViewInit, OnInit {
           queue.push(neighbor);
         }
       });
-  
+
       currentLevel++;
     }
 
@@ -154,25 +155,25 @@ export class DfsPageComponent implements AfterViewInit, OnInit {
     const stackElement = document.getElementById('stack-content') as HTMLElement;
     const processingElement = document.getElementById('processing-content') as HTMLElement;
     const processedElement = document.getElementById('processed-content') as HTMLElement;
-  
+
     stackElement.innerHTML = '';
     processingElement.innerHTML = '';
     processedElement.innerHTML = '';
-  
+
     const visited: number[] = [];
     const stack: number[] = [0];  // Start DFS with the root node (node 0)
-  
+
     stackElement.innerHTML = this.nodes[0]?.label || '';  // Show initial stack with root
-  
+
     const processNextNode = (): void => {
       if (stack.length > 0) {
         const node: number = stack.pop()!;  // DFS pops from the stack (LIFO behavior)
-  
+
         // If the node is already visited, backtrack by moving to the next node in the stack
         if (!visited.includes(node)) {
           processingElement.innerHTML = this.nodes[node].label;  // Show the current processing node
           this.drawGraph(ctx, stack, node, visited);  // Update the graph visualization
-  
+
           this.dfsTimeout = setTimeout(() => {
             visited.push(node);  // Mark node as visited
             processedElement.innerHTML = visited
@@ -181,19 +182,19 @@ export class DfsPageComponent implements AfterViewInit, OnInit {
             stackElement.innerHTML = stack
               .map((index) => this.nodes[index].label)
               .join(' -> ');  // Update stack visualization
-  
+
             // Get all unvisited neighbors and add them to the stack
             const neighbors: number[] = this.edges
               .filter((edge) => edge[0] === node && !visited.includes(edge[1]))
               .map((edge) => edge[1]);
-  
+
             if (neighbors.length > 0) {
               // Push neighbors in reverse to explore deeper before backtracking
               stack.push(...neighbors.reverse());
             }
-  
+
             this.drawGraph(ctx, stack, node, visited);  // Redraw the graph after updating the stack
-  
+
             // Continue to the next node in DFS order after processing current node
             this.dfsTimeout = setTimeout(processNextNode, 2000);
           }, 1500);
@@ -203,10 +204,13 @@ export class DfsPageComponent implements AfterViewInit, OnInit {
         }
       }
     };
-  
+
     processNextNode();  // Start the DFS process
   }
-  
+
+  public onLogout(): void {
+    this.authService.logout(); // Call the logout method from AuthService
+  }
 
   public resetDFS(): void {
     const dfsCtx = this.dfsCanvas.getContext('2d')!;
@@ -235,7 +239,7 @@ export class DfsPageComponent implements AfterViewInit, OnInit {
     this.customNodeInput = '';
     this.customEdgeInput = '';
   }
-  
+
 
   // New Methods for Custom Graph Input
   public handleCustomGraphInput(): void {
@@ -286,7 +290,7 @@ private validateCustomEdges(): boolean {
     const from = Number(nodes[0]);
     const to = Number(nodes[1]);
 
-    
+
   }
 
   return true;
@@ -294,7 +298,7 @@ private validateCustomEdges(): boolean {
 
 private parseCustomNodes(): void {
   const nodeInput = this.customNodeInput.trim().split(',');
-  
+
   // Check for empty input or invalid formats
   if (nodeInput.length === 0 || nodeInput.some(label => label.trim() === '')) {
     alert('Invalid node input format. Please enter valid node labels separated by commas.');
@@ -337,6 +341,6 @@ private parseCustomEdges(): void {
 
   this.edges = newEdges;
 
-  
+
 }
 }
