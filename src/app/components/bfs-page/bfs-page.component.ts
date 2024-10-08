@@ -1,6 +1,7 @@
 import { Component, AfterViewInit, OnInit } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { FormsModule } from '@angular/forms'; 
+import { FormsModule } from '@angular/forms';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-bfs-page',
@@ -18,7 +19,7 @@ export class BfsPageComponent implements AfterViewInit, OnInit {
   customNodeInput: string = '';
   customEdgeInput: string = '';
 
-  constructor() {}
+  constructor(private authService: AuthService) {}
 
   ngOnInit(): void {
     const bfsCanvas = document.getElementById(
@@ -36,7 +37,7 @@ export class BfsPageComponent implements AfterViewInit, OnInit {
     this.positionNodes();  // New: Position nodes before drawing
     this.bfsTraversalVisualization(bfsCtx);
   }
-  
+
   private positionNodes(): void {
     const root = 0; // Assume BFS starts at node 0 or any other root node
     const levelGap = 100; // Vertical gap between levels
@@ -44,30 +45,30 @@ export class BfsPageComponent implements AfterViewInit, OnInit {
     const levels: { [key: number]: number[] } = {}; // Store nodes per level
     const visited: boolean[] = new Array(this.nodes.length).fill(false);
     const queue: number[] = [];
-  
+
     queue.push(root);
     visited[root] = true;
     levels[0] = [root]; // Root is at level 0
-  
+
     let currentLevel = 1;
-  
+
     while (queue.length > 0) {
       const node = queue.shift()!;
-  
+
       // Find the current node level by converting level strings to numbers
       const currentNodeLevel = Object.keys(levels)
         .map(level => parseInt(level))
         .find((level) => levels[level].includes(node)) || 0;
-  
+
       const nextLevelNodes: number[] = [];
-  
+
       // Find all neighbors (children) of the current node
       this.edges.forEach((edge) => {
         const [from, to] = edge;
-  
+
         // Check if the node is either 'from' or 'to' and the other is unvisited
         const neighbor = from === node ? to : from === node ? to : null;
-  
+
         if (neighbor !== null && !visited[neighbor]) {
           if (!levels[currentLevel]) {
             levels[currentLevel] = [];
@@ -77,10 +78,10 @@ export class BfsPageComponent implements AfterViewInit, OnInit {
           queue.push(neighbor);
         }
       });
-  
+
       currentLevel++;
     }
-  
+
     // Assign node positions based on the calculated levels
     Object.keys(levels).forEach((levelStr) => {
       const level = parseInt(levelStr); // Convert level keys back to numbers
@@ -91,7 +92,7 @@ export class BfsPageComponent implements AfterViewInit, OnInit {
       });
     });
   }
-  
+
   private drawGraph(
     ctx: CanvasRenderingContext2D,
     queue: number[] = [],
@@ -100,7 +101,7 @@ export class BfsPageComponent implements AfterViewInit, OnInit {
   ): void {
     ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
     ctx.strokeStyle = '#000';
-  
+
     // Draw edges (including cyclic connections)
     this.edges.forEach((edge) => {
       const [from, to] = edge;
@@ -108,7 +109,7 @@ export class BfsPageComponent implements AfterViewInit, OnInit {
       ctx.moveTo(this.nodes[from].x, this.nodes[from].y);
       ctx.lineTo(this.nodes[to].x, this.nodes[to].y);
       ctx.stroke();
-  
+
       // If there's a cyclic connection, highlight it
       if (from === to) {
         ctx.strokeStyle = 'green'; // Highlight cyclic connections
@@ -116,12 +117,12 @@ export class BfsPageComponent implements AfterViewInit, OnInit {
         ctx.stroke();
       }
     });
-  
+
     // Draw nodes
     this.nodes.forEach((node, index) => {
       ctx.beginPath();
       ctx.arc(node.x, node.y, 20, 0, 2 * Math.PI);
-  
+
       // Determine the fill color based on the node state
       if (processingNode === index) {
         ctx.fillStyle = 'yellow';
@@ -132,7 +133,7 @@ export class BfsPageComponent implements AfterViewInit, OnInit {
       } else {
         ctx.fillStyle = 'white';
       }
-  
+
       ctx.fill();
       ctx.stroke();
       ctx.fillStyle = 'black';
@@ -194,6 +195,10 @@ export class BfsPageComponent implements AfterViewInit, OnInit {
     processNextNode();
   }
 
+  public onLogout(): void {
+    this.authService.logout(); // Call the logout method from AuthService
+  }
+
   public resetBFS(): void {
     const bfsCanvas = document.getElementById(
       'bfs-canvas'
@@ -239,29 +244,29 @@ export class BfsPageComponent implements AfterViewInit, OnInit {
       }
     }
   }
-  
+
   private validateCustomNodes(): boolean {
     const nodeInput = this.customNodeInput.trim().split(',');
-    
+
     // Check for empty input or empty labels
     if (nodeInput.length === 0 || nodeInput.some(label => label.trim() === '')) {
       alert('Node input is invalid. Ensure all nodes have non-empty labels.');
       return false;
     }
-  
+
     // Check for duplicate labels
     const uniqueLabels = new Set(nodeInput.map(label => label.trim()));
     if (uniqueLabels.size !== nodeInput.length) {
       alert('Node input contains duplicate labels. Ensure all nodes have unique labels.');
       return false;
     }
-  
+
     return true;
   }
-  
+
   private validateCustomEdges(): boolean {
     const edgeInput = this.customEdgeInput.trim().split(';');
-  
+
     // Check for proper edge formatting (must contain at least one '-')
     for (const edge of edgeInput) {
       const nodes = edge.split('-');
@@ -269,27 +274,27 @@ export class BfsPageComponent implements AfterViewInit, OnInit {
         alert(`Invalid edge format: ${edge}. Edges should be formatted as 'from-to', where 'from' and 'to' are valid node indices.`);
         return false;
       }
-  
+
       // Check if the node indices are within bounds
       const from = Number(nodes[0]);
       const to = Number(nodes[1]);
-  
-      
+
+
     }
-  
+
     return true;
   }
-  
+
   private parseCustomNodes(): void {
     const nodeInput = this.customNodeInput.trim().split(',');
-    
+
     // Check for empty input or invalid formats
     if (nodeInput.length === 0 || nodeInput.some(label => label.trim() === '')) {
       alert('Invalid node input format. Please enter valid node labels separated by commas.');
       this.nodes = []; // Reset nodes to avoid further issues
       return;
     }
-  
+
     this.nodes = nodeInput.map((label, index) => {
       return {
         label: label.trim(),
@@ -298,22 +303,22 @@ export class BfsPageComponent implements AfterViewInit, OnInit {
       };
     });
   }
-  
+
   private parseCustomEdges(): void {
     const edgeInput = this.customEdgeInput.trim().split(';');
-  
+
     // Check for empty input or invalid formats
     if (edgeInput.length === 0 || edgeInput.some(edge => edge.trim() === '')) {
       alert('Invalid edge input format. Please enter valid edges in the format "from-to" separated by semicolons.');
       this.edges = []; // Reset edges to avoid further issues
       return;
     }
-  
+
     // Validate edge format and update edges
     const newEdges: [number, number][] = [];
     for (const edge of edgeInput) {
       const [from, to] = edge.split('-').map(Number);
-  
+
       // Check for valid number conversion
       if (isNaN(from) || isNaN(to) || from < 0 || to < 0 || from >= this.nodes.length || to >= this.nodes.length) {
         alert(`Invalid edge: ${edge}. Please ensure both nodes are valid indices.`);
@@ -322,8 +327,7 @@ export class BfsPageComponent implements AfterViewInit, OnInit {
       }
       newEdges.push([from, to]);
     }
-  
+
     this.edges = newEdges;
   }
   }
-  

@@ -6,15 +6,23 @@ const dotenv = require('dotenv');
 const { validationResult } = require('express-validator');
 const User = require('./models/User');
 const bcrypt = require('bcrypt');
-const jwt = require('jsonwebtoken');
+const session = require('express-session');
 const { validateSignup } = require('./middlewares/validation');
-const authenticateJWT = require('./middlewares/authenticate');
+const authenticateSession = require('./middlewares/authenticate');
 
 dotenv.config();
 const app = express();
 
 app.use(cors());
 app.use(bodyParser.json());
+
+// Session management setup
+app.use(session({
+    secret: process.env.SESSION_SECRET || 'defaultSecret',
+    resave: false,
+    saveUninitialized: true,
+    cookie: { secure: false } // Set to true if using HTTPS
+}));
 
 // Connect to MongoDB
 mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
@@ -49,7 +57,7 @@ app.post('/api/signup', validateSignup, async (req, res) => {
 
         // Save the new user
         await newUser.save();
-        res.status(201).json({message: "User registered"});
+        res.status(201).json({ message: "User registered" });
     } catch (error) {
         console.error('Error registering user:', error);
         res.status(500).send('Error registering user');
@@ -77,9 +85,10 @@ app.post('/api/login', async (req, res) => {
             return res.status(400).send('Invalid credentials');
         }
 
-        // Generate JWT
-        const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, { expiresIn: '1h' });
-        res.json({ token });
+        // Store user info in session
+        req.session.userId = user._id;
+        req.session.username = user.username;
+        res.json({ message: 'Logged in successfully' });
     } catch (error) {
         console.error('Error logging in:', error);
         res.status(500).send('Internal server error');
@@ -87,9 +96,26 @@ app.post('/api/login', async (req, res) => {
 });
 
 // Example of a protected route
-app.get('/api/protected', authenticateJWT, (req, res) => {
+app.get('/api/protected', authenticateSession, (req, res) => {
+    if (!req.session.userId) {
+        return res.status(401).send('Unauthorized');
+    }
     res.send('This is a protected route');
 });
+
+// User logout endpoint
+app.post('/api/logout', (req, res) => {
+    req.session.destroy(err => {
+        if (err) {
+            return res.status(500).send('Could not log out');
+        }
+        res.json({ message: 'Logout successful' }); // Send a JSON response
+    });
+});
+
+// Start the server
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 
 // Graceful shutdown
 process.on('SIGINT', async () => {
@@ -97,7 +123,3 @@ process.on('SIGINT', async () => {
     await mongoose.connection.close();
     process.exit(0);
 });
-
-// Start the server
-const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
