@@ -1,5 +1,6 @@
 import { Component, Inject } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import {
   ReactiveFormsModule,
   FormBuilder,
@@ -21,6 +22,7 @@ export class SignupComponent {
 
   constructor(
     private fb: FormBuilder,
+    private toastr:ToastrService,
     @Inject(AuthService) private authService: AuthService,
     private router: Router
   ) {
@@ -42,7 +44,7 @@ export class SignupComponent {
         (user) => user.email === signupData.email
       );
       if (existingUser) {
-        alert('User already exists. Please use a different email.');
+        this.toastr.error("User already exists. Please use a different email.",'error')
         return;
       }
 
@@ -51,18 +53,19 @@ export class SignupComponent {
       users.push(userIdentifier);
       localStorage.setItem('users', JSON.stringify(users));
 
-      alert('Sign-up successful! You can now log in.');
+      this.toastr.success("Sign-up successful! You can now log in.",'Success')
+      
       this.authService.signUp(signupData).subscribe(
         (response: any) => {
           this.router.navigate(['/main-index']);
         },
         (error: any) => {
-          console.error('Error during sign-up:', error); // Keep this for debugging
-          alert('Sign-up failed. Please try again.');
+          console.error('Error during sign-up:', error);
+          this.toastr.error("Sign-up failed. Please try again.",'error')
         }
       );
     } else {
-      alert('Please fill out the form correctly.');
+      this.toastr.error("Please fill out the form correctly.",'error')
     }
   }
 
