@@ -24,7 +24,6 @@ export class SignupComponent {
     @Inject(AuthService) private authService: AuthService,
     private router: Router
   ) {
-    // Initialize the form with validation
     this.signupForm = this.fb.group({
       username: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
@@ -34,7 +33,7 @@ export class SignupComponent {
 
   SignUp() {
     const signupData = this.signupForm.value;
-    console.log(this.signupForm.value);
+
     if (this.signupForm.valid) {
       const localusers = localStorage.getItem('users');
       let users: any[] = localusers ? JSON.parse(localusers) : [];
@@ -47,17 +46,18 @@ export class SignupComponent {
         return;
       }
 
-      users.push(signupData);
+      // Instead of storing full user data, store only necessary identifiers
+      const userIdentifier = { email: signupData.email };
+      users.push(userIdentifier);
       localStorage.setItem('users', JSON.stringify(users));
 
       alert('Sign-up successful! You can now log in.');
       this.authService.signUp(signupData).subscribe(
         (response: any) => {
-          console.log('Sign-up successful with API!', response);
           this.router.navigate(['/main-index']);
         },
         (error: any) => {
-          console.error('Error during sign-up:', error);
+          console.error('Error during sign-up:', error); // Keep this for debugging
           alert('Sign-up failed. Please try again.');
         }
       );
@@ -71,7 +71,6 @@ export class SignupComponent {
   }
 
   goHome() {
-    // Navigate to the home page
-    this.router.navigate(['/']); // Change this to your desired route for home page
+    this.router.navigate(['/']);
   }
 }
