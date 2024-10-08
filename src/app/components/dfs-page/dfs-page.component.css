@@ -15,28 +15,25 @@ body {
     align-items: center;
     padding: 1rem;
     background-color: #333;
-}
-
-.nav-left {
-    margin-left: 2rem;
-}
+    color: #fff;
+  }
 
 .nav-left p {
     font-size: 1.5rem;
-    color: #fff;
     font-weight: bold;
+    margin: 0;
 }
 
 .div-new {
     display: flex;
     align-items: center;
-    margin-left: auto; 
+    margin-left: auto;
     margin-right: 1rem;
 }
 
 .div-new a {
     margin-left: 1rem;
-    padding-right: 10px;
+    padding-right: 20px;
     color: #fff;
     text-decoration: none;
 }
@@ -45,7 +42,12 @@ body {
     position: relative;
     margin-right: 2rem;
     color: #fff;
-  }
+}
+.profile-img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
 
 #bfs-container, #dfs-container {
     display: flex;
@@ -63,7 +65,7 @@ body {
 }
 
 #bfs-container, #dfs-container {
-    margin: 20px auto; 
+    margin: 20px auto;
 }
 
 .navigation {
@@ -193,29 +195,30 @@ button:active {
     margin-top: 20px;
     border-radius: 5px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-  }
+}
 
-  /* Hide the card initially */
-  .hidden {
+/* Hide the card initially */
+.hidden {
     display: none;
-  }
+}
 
-  /* Button Styling */
-  button {
-    padding: 10px 15px;
-    margin-right: 10px;
-    border: none;
-    background-color:  #333;
-    color: white;
-    cursor: pointer;
+.btn {
+    text-decoration: none;
+    color: #fff;
+    padding: 0.5rem 1.5rem;
+    margin-top: 1rem;
+    background-color: #444;
     border-radius: 5px;
-  }
+    display: inline-block;
+    transition: background-color 0.3s;
+}
 
-  button:hover {
-    background-color:  #444;
-  }
+.btn:hover {
+    background-color: #555;
+}
 
-  .custom-input {
+/* Button Styling */
+.custom-input {
     display: flex;
     flex-direction: column;
     width: 300px;
@@ -242,30 +245,29 @@ button:active {
     font-size: 14px;
   }
 
-  .custom-input button {
+.custom-input button {
     padding: 10px 15px;
-    background-color: #007bff;
+    background-color: #333; /* Match navbar background */
     color: white;
     border: none;
     border-radius: 4px;
     font-size: 14px;
     cursor: pointer;
     transition: background-color 0.3s ease;
-  }
+}
 
-  .custom-input button:hover {
-    background-color: #0056b3;
-  }
+.custom-input button:hover {
+    background-color: #555; /* Match navbar hover color */
+}
 
-  .custom-input button.clear-button {
+.custom-input button.clear-button {
     background-color: #dc3545;
     margin-top: 10px;
-  }
+}
 
-  .custom-input button.clear-button:hover {
+.custom-input button.clear-button:hover {
     background-color: #c82333;
-  }
-
+}
 
 @media (max-width: 700px) {
     #bfs-container, #dfs-container {
@@ -290,4 +292,25 @@ button:active {
         width: 100%;
         margin-bottom: 10px;
     }
+}
+
+.logout-btn {
+    background-color: #ff4757; /* Red background */
+    color: #fff; /* White text */
+    border: none; /* No border */
+    border-radius: 5px; /* Rounded corners */
+    padding: 10px 20px; /* Padding for size */
+    font-size: 16px; /* Font size */
+    cursor: pointer; /* Pointer cursor */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transitions */
+  }
+
+.logout-btn:hover {
+    background-color: #ff6b81; /* Lighter red on hover */
+    transform: scale(1.05); /* Slightly grow on hover */
+}
+
+.logout-btn:focus {
+    outline: none; /* Remove outline on focus */
+    box-shadow: 0 0 5px rgba(255, 71, 87, 0.5); /* Subtle shadow on focus */
 }
