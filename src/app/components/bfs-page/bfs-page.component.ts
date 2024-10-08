@@ -16,31 +16,39 @@ export class BfsPageComponent implements AfterViewInit, OnInit {
 
   private bfsTimeout: any;
 
+  private bfsCanvas!: HTMLCanvasElement; // Use '!' to indicate it's definitely assigned later
+  private maxDepth: number = 0; // New property to track maximum depth
+
   customNodeInput: string = '';
   customEdgeInput: string = '';
 
   constructor(private authService: AuthService) {}
 
   ngOnInit(): void {
-    const bfsCanvas = document.getElementById(
-      'bfs-canvas'
-    ) as HTMLCanvasElement;
-    const bfsCtx = bfsCanvas.getContext('2d')!;
+
+  }
+
+  ngAfterViewInit(): void {
+    this.bfsCanvas = document.getElementById('bfs-canvas') as HTMLCanvasElement;
+    const bfsCtx = this.bfsCanvas.getContext('2d')!;
+    this.adjustCanvasSize(); // Adjust size first
     this.drawGraph(bfsCtx);
   }
 
-  ngAfterViewInit(): void {}
+  private adjustCanvasSize(): void {
+    const height = Math.max(400, this.maxDepth * 75); // Maximum height of 600, calculated from depth
+    this.bfsCanvas.height = height;
+  }
 
   public startBFSTraversal(): void {
-    const bfsCanvas = document.getElementById('bfs-canvas') as HTMLCanvasElement;
-    const bfsCtx = bfsCanvas.getContext('2d')!;
+    const bfsCtx = this.bfsCanvas.getContext('2d')!;
     this.positionNodes();  // New: Position nodes before drawing
     this.bfsTraversalVisualization(bfsCtx);
   }
 
   private positionNodes(): void {
     const root = 0; // Assume BFS starts at node 0 or any other root node
-    const levelGap = 100; // Vertical gap between levels
+    const levelGap = 80; // Vertical gap between levels
     const nodeGap = 80; // Horizontal gap between nodes in the same level
     const levels: { [key: number]: number[] } = {}; // Store nodes per level
     const visited: boolean[] = new Array(this.nodes.length).fill(false);
@@ -81,6 +89,8 @@ export class BfsPageComponent implements AfterViewInit, OnInit {
 
       currentLevel++;
     }
+
+    this.maxDepth = currentLevel; // Set the maximum depth
 
     // Assign node positions based on the calculated levels
     Object.keys(levels).forEach((levelStr) => {
@@ -236,6 +246,7 @@ export class BfsPageComponent implements AfterViewInit, OnInit {
       this.parseCustomNodes();
       this.parseCustomEdges();
       this.positionNodes();
+      this.adjustCanvasSize();
       this.resetBFS();
 
       const bfsCanvas = document.getElementById('bfs-canvas');

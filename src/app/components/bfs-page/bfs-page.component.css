@@ -132,6 +132,19 @@ canvas {
     margin-bottom: 20px;
 }
 
+.scrollable-container {
+    width: 100%; /* Make it responsive */
+    max-height: 400px; /* Set a maximum height for the scrollable area */
+    overflow: auto; /* Enable scrolling */
+    border: 1px solid #ccc; /* Optional: add a border for better visibility */
+}
+
+#bfs-canvas {
+    display: block; /* Ensures canvas behaves properly */
+    width: 600px; /* Set a specific width */
+    height: auto; /* Let height be dynamic */
+}
+
 button {
     padding: 10px 20px;
     font-size: 16px;
