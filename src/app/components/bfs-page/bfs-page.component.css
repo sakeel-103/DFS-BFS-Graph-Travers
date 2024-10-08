@@ -15,28 +15,25 @@ body {
     align-items: center;
     padding: 1rem;
     background-color: #333;
-}
-
-.nav-left {
-    margin-left: 2rem;
-}
+    color: #fff;
+  }
 
 .nav-left p {
     font-size: 1.5rem;
-    color: #fff;
     font-weight: bold;
+    margin: 0;
 }
 
 .div-new {
     display: flex;
     align-items: center;
-    margin-left: auto; 
+    margin-left: auto;
     margin-right: 1rem;
 }
 
 .div-new a {
     margin-left: 1rem;
-    padding-right: 10px;
+    padding-right: 20px;
     color: #fff;
     text-decoration: none;
 }
@@ -45,7 +42,13 @@ body {
     position: relative;
     margin-right: 2rem;
     color: #fff;
-  }
+}
+
+.profile-img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
 
 #bfs-container, #dfs-container {
     display: flex;
@@ -56,14 +59,14 @@ body {
     background-color: #fff;
     padding: 30px;
     border: 1px solid #ccc;
-    border-radius: 12px; 
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     width: 700px;
-    margin: 20px; 
+    margin: 20px;
 }
 
 #bfs-container, #dfs-container {
-    margin: 20px auto; 
+    margin: 20px auto;
 }
 
 .navigation {
@@ -182,12 +185,12 @@ button:active {
     border-radius: 5px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
   }
-  
+
   /* Hide the card initially */
   .hidden {
     display: none;
   }
-  
+
   /* Button Styling */
   button {
     padding: 10px 15px;
@@ -198,10 +201,25 @@ button:active {
     cursor: pointer;
     border-radius: 5px;
   }
-  
+
   button:hover {
     background-color:  #444;
   }
+
+  .btn {
+    text-decoration: none;
+    color: #fff;
+    padding: 0.5rem 1.5rem;
+    margin-top: 1rem;
+    background-color: #444;
+    border-radius: 5px;
+    display: inline-block;
+    transition: background-color 0.3s;
+    }
+
+    .btn:hover {
+        background-color: #555;
+    }
 
   .custom-input {
     display: flex;
@@ -214,13 +232,13 @@ button:active {
     background-color: #f9f9f9;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   }
-  
+
   .custom-input label {
     font-weight: bold;
     margin-bottom: 5px;
     color: #333;
   }
-  
+
   .custom-input input {
     padding: 8px;
     margin-bottom: 15px;
@@ -229,7 +247,7 @@ button:active {
     width: 100%;
     font-size: 14px;
   }
-  
+
   .custom-input button {
     padding: 10px 15px;
     background-color: #007bff;
@@ -240,16 +258,16 @@ button:active {
     cursor: pointer;
     transition: background-color 0.3s ease;
   }
-  
+
   .custom-input button:hover {
     background-color: #0056b3;
   }
-  
+
   .custom-input button.clear-button {
     background-color: #dc3545;
     margin-top: 10px;
   }
-  
+
   .custom-input button.clear-button:hover {
     background-color: #c82333;
   }
@@ -279,3 +297,24 @@ button:active {
         margin-bottom: 10px;
     }
 }
+
+.logout-btn {
+    background-color: #ff4757; /* Red background */
+    color: #fff; /* White text */
+    border: none; /* No border */
+    border-radius: 5px; /* Rounded corners */
+    padding: 10px 20px; /* Padding for size */
+    font-size: 16px; /* Font size */
+    cursor: pointer; /* Pointer cursor */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transitions */
+  }
+
+  .logout-btn:hover {
+    background-color: #ff6b81; /* Lighter red on hover */
+    transform: scale(1.05); /* Slightly grow on hover */
+  }
+
+  .logout-btn:focus {
+    outline: none; /* Remove outline on focus */
+    box-shadow: 0 0 5px rgba(255, 71, 87, 0.5); /* Subtle shadow on focus */
+  }
