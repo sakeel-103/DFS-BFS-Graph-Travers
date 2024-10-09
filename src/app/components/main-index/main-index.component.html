@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Graph Traversal Home</title>
     <link rel="stylesheet" href="main-index.component.css" />
-   
   </head>
   <body>
     <div class="navbar">
@@ -24,11 +23,11 @@
           onclick="toggleDropdown()"
         />
         <div id="dropdown-menu" class="dropdown-content">
-
           <a href="#">My Profile</a>
-          <a href="#">Logout</a>
         </div>
       </div>
+
+      <button id="logoutButton" class="btn logout-btn">Logout</button>
     </div>
 
     <div class="container">
@@ -39,12 +38,12 @@
         </p>
         <h3>Depth-First Search (DFS) Algorithm Steps</h3>
         <p>
-          1. Start from the root node (or any starting node)<br>
-          2. Mark the node as visited.<br>
-          3. For each neighbor of the current node:<br>
-          &nbsp;&nbsp;a. If the neighbor has not been visited, recursively visit that neighbor.<br>
-          4. Repeat the process until all nodes are visited.<br>
-          5. Backtrack when there are no more unvisited neighbors to explore.<br>
+          1. Start from the root node (or any starting node)<br />
+          2. Mark the node as visited.<br />
+          3. For each neighbor of the current node:<br />
+          &nbsp;&nbsp;a. If the neighbor has not been visited, recursively visit that neighbor.<br />
+          4. Repeat the process until all nodes are visited.<br />
+          5. Backtrack when there are no more unvisited neighbors to explore.<br />
         </p>
         <a href="/dfsPage" class="btn">DFS</a>
       </div>
@@ -55,29 +54,37 @@
         </p>
         <h3>Breadth-First Search (BFS) Algorithm Steps</h3>
         <p>
-          1. Start from the root node (or any starting node).<br>
-          2. Mark the node as visited and enqueue it.<br>
-          3. While the queue is not empty:<br>
-          &nbsp;&nbsp;a. Dequeue a node from the front of the queue.<br>
-          &nbsp;&nbsp;b. For each neighbor of the dequeued node:<br>
-          &nbsp;&nbsp;&nbsp;&nbsp;i. If the neighbor has not been visited,<br>
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A. Mark it as visited.<br>
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;B. Enqueue the neighbor.<br>
-          4. Repeat the process until the queue is empty.<br>
+          1. Start from the root node (or any starting node).<br />
+          2. Mark the node as visited and enqueue it.<br />
+          3. While the queue is not empty:<br />
+          &nbsp;&nbsp;a. Dequeue a node from the front of the queue.<br />
+          &nbsp;&nbsp;b. For each neighbor of the dequeued node:<br />
+          &nbsp;&nbsp;&nbsp;&nbsp;i. If the neighbor has not been visited,<br />
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A. Mark it as visited.<br />
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;B. Enqueue the neighbor.<br />
+          4. Repeat the process until the queue is empty.<br />
         </p>
         <a href="/bfsPage" class="btn">BFS</a>
       </div>
     </div>
 
     <script>
+      // Logout function
+      document.getElementById('logoutButton').addEventListener('click', onLogout);
+
+      function onLogout() {
+        console.log("Logging out...");
+        window.location.href = "https://dfs-bfs-graph-travers.netlify.app/";
+      }
+
+      // Dropdown toggle function
       function toggleDropdown() {
         const dropdown = document.getElementById("dropdown-menu");
-        // Toggle the display of the dropdown menu
         dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
       }
 
-      // Close the dropdown if the user clicks outside of it
-      window.onclick = function(event) {
+      // Close dropdown when clicking outside
+      window.onclick = function (event) {
         if (!event.target.matches('.profile-img')) {
           const dropdowns = document.getElementsByClassName("dropdown-content");
           for (let i = 0; i < dropdowns.length; i++) {
@@ -87,7 +94,7 @@
             }
           }
         }
-      }
+      };
     </script>
   </body>
 </html>
