@@ -4,22 +4,145 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Website Design</title>
+
+    <!-- Import Montserrat Font from Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+
     <link rel="stylesheet" href="header.component.css" />
+    <style>
+      /* Common color for header and footer */
+      :root {
+        --header-text-color: white; /* Text color for header and footer */
+        --hover-background: #e6e6e6; /* Light gray hover background color */
+        --hover-text-color: black; /* Hover text color */
+        --header-footer-bg: #333c4a; /* Matching color for header and footer */
+        --button-bg-color: #808080; /* Grey color for button-like navigation */
+        --light-sky-gradient: linear-gradient(135deg, #e0f7ff 0%, #f7fcff 100%); /* Light sky blue gradient */
+        --button-hover-shadow: rgba(0, 0, 0, 0.3); /* Box-shadow color for button hover effect */
+      }
+
+      /* Apply Montserrat font to the entire body */
+      body {
+        font-family: 'Montserrat', sans-serif;
+        background: var(--light-sky-gradient); /* Light sky-blue gradient background */
+        color: #333; /* Body text color */
+        margin: 0;
+        padding: 0;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+      }
+
+      /* Header styles */
+      header {
+        color: var(--header-text-color); /* Text color */
+        text-align: center;
+        padding: 20px 0; /* Padding for header */
+        background-color: var(--header-footer-bg); /* Matching color for header */
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Box shadow for depth */
+      }
+
+      nav ul {
+        list-style-type: none; /* Remove bullet points */
+        padding: 0; /* Remove padding */
+        margin: 0;
+      }
+
+      nav ul li {
+        display: inline-block; /* Display items in a row as buttons */
+        margin: 0 15px; /* Space between menu items */
+      }
+
+      nav a {
+        color: var(--header-text-color); /* Link text color */
+        text-decoration: none; /* No underline */
+        font-weight: 500; /* Medium weight for links */
+        padding: 10px 20px; /* Button-like padding */
+        background-color: var(--button-bg-color); /* Grey background for buttons */
+        border-radius: 5px; /* Rounded corners for button effect */
+        transition: background-color 0.3s, color 0.3s; /* Smooth transition */
+      }
+
+      nav a:hover {
+        background-color: var(--hover-background); /* Background color for hover effect */
+        color: var(--hover-text-color); /* Change text color on hover */
+      }
+
+      /* Hero section styles */
+      .hero {
+        background-color: #ffffff; /* White background */
+        text-align: center; /* Center text */
+        padding: 50px 0; /* Padding for the hero section */
+        flex-grow: 1; /* Allow hero section to expand */
+      }
+
+      .hero .content {
+        max-width: 800px; /* Max width for content */
+        margin: 0 auto; /* Center content */
+      }
+
+      .hero h1 {
+        font-weight: 700; /* Bold font for the main title */
+        color: #2a2a2a;
+      }
+
+      .hero h1 span {
+        color: #0d3bfb; /* Highlight color for the title */
+      }
+
+      .hero p {
+        color: #555; /* Subtle text color */
+      }
+
+      .buttons {
+        margin-top: 20px; /* Space above buttons */
+      }
+
+      /* Button hover effect with surrounding container */
+      .visit-here-button {
+        background-color: #3c3d37; /* Button background color */
+        color: white; /* Change button text color */
+        border: none; /* No border */
+        border-radius: 5px; /* Rounded corners */
+        padding: 10px 20px; /* Padding for button */
+        cursor: pointer; /* Pointer cursor on hover */
+        transition: background-color 0.3s, box-shadow 0.3s; /* Smooth transition */
+      }
+
+      .visit-here-button:hover {
+        background-color: #021a7a; /* Darker shade on hover */
+        box-shadow: 0px 0px 15px 5px var(--button-hover-shadow); /* Box-shadow to create container effect */
+      }
+
+      /* Footer styles */
+      footer {
+        background-color: var(--header-footer-bg); /* Matching color for footer */
+        color: var(--header-text-color); /* Text color */
+        text-align: center;
+        padding: 15px 0; /* Padding for footer */
+        width: 100%; /* Full width */
+        box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.3); /* Box shadow for depth */
+        margin-top: auto; /* Push footer to the bottom */
+      }
+    </style>
   </head>
   <body>
     <header>
-      <div class="logo">GRAPH-TRAVERSAL</div>
       <nav>
         <ul>
-          <li><a [routerLink]="'/signup-page'">Explore</a></li>
-          <li><a [routerLink]="'/aboutUs'">About us</a></li>
+          <li><a [routerLink]="'/home'">Home</a></li>
+          <li><a [routerLink]="'/aboutus'">About Us</a></li>
+          <li><a [routerLink]="'/contact'">Contact</a></li>
         </ul>
       </nav>
     </header>
 
     <section class="hero">
       <div class="content">
-        <h1>WELCOME TO The <span>GRAPH-TRAVERSAL</span></h1>
+        <h1>WELCOME TO THE <span>GRAPH-TRAVERSAL</span></h1>
         <p>Register and Login to Explore the graph traversal</p>
         <div class="buttons">
           <button [routerLink]="['/signup']" class="visit-here-button">
@@ -28,5 +151,9 @@
         </div>
       </div>
     </section>
+
+    <footer>
+      <p>&copy; 2024 Graph Traversal. All Rights Reserved.</p>
+    </footer>
   </body>
 </html>
