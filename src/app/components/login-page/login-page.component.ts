@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { NgForm, FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-login-page',
@@ -11,17 +12,21 @@ import { Router } from '@angular/router';
   styleUrls: ['./login-page.component.css'],
 })
 export class LoginPageComponent {
-  constructor(private router: Router) {}
+  constructor(
+    private router: Router,
+    private toastr:ToastrService,
+  ) {}
 
   login(form: NgForm): void {
     const { username, password } = form.value;
     const isSuccess = this.authenticate(username, password);
-
+    console.log("username", username,"pass", password)
     if (isSuccess) {
-      this.router.navigate(['/main-index']);
+      this.toastr.success("Login Successfully",'Success')
+      // this.router.navigate(['/main-index']);
     } else {
       console.error('Login failed');
-      alert('Invalid username or password');
+      this.toastr.error("Invalid username or password",'Error')
     }
   }
 
