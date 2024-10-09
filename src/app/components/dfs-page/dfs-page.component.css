@@ -1,316 +1,269 @@
 body {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    margin: 0;
-    background-color: #f5f5f5;
-    font-family: Arial, sans-serif;
-    color: #333;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0;
+  background-color: #f5f5f5;
+  font-family: Arial, sans-serif;
+  color: #333;
 }
 
 .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem;
-    background-color: #333;
-    color: #fff;
-  }
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: #333;
+  color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
 
 .nav-left p {
-    font-size: 1.5rem;
-    font-weight: bold;
-    margin: 0;
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin: 0;
+  letter-spacing: 1px;
 }
 
 .div-new {
-    display: flex;
-    align-items: center;
-    margin-left: auto;
-    margin-right: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
 }
 
 .div-new a {
-    margin-left: 1rem;
-    padding-right: 20px;
-    color: #fff;
-    text-decoration: none;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+.div-new a:hover {
+  background-color: rgba(255, 255, 255, 0.1);
 }
 
 .profile-dropdown {
-    position: relative;
-    margin-right: 2rem;
-    color: #fff;
+  position: relative;
+  margin-right: 1.5rem;
 }
+
 .profile-img {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  cursor: pointer;
+  transition: transform 0.2s;
 }
 
-#bfs-container, #dfs-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    background-color: #fff;
-    padding: 30px;
-    border: 1px solid #ccc;
-    border-radius: 12px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    width: 700px;
-    margin: 20px;
+.profile-img:hover {
+  transform: scale(1.05);
 }
 
-#bfs-container, #dfs-container {
-    margin: 20px auto;
+#bfs-container,
+#dfs-container {
+  margin-top: 80px;
+  padding: 2rem;
+  max-width: 1000px;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.navigation {
-    margin-bottom: 20px;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-}
-
-.navigation .btn {
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    background-color: #333;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    text-decoration: none;
-    transition: background-color 0.3s, transform 0.2s;
-}
-
-.navigation .btn:hover {
-    background-color: #555;
-}
-
-.navigation .btn:active {
-    background-color: #111;
-    transform: scale(0.95);
-}
-
-h2 {
-    font-size: 24px;
-    color: #333;
-    margin-bottom: 20px;
-}
-
-.bfs-info {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    margin-top: 20px;
-    margin-bottom: 20px;
-}
-
-.bfs-info div {
-    width: 45%;
-    text-align: left;
-}
-
-.bfs-visualization {
-    border: 1px solid #000;
-    padding: 10px;
-    height: 50px;
-    background-color: #e0e0e0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 18px;
-    margin-top: 10px;
-}
-
-canvas {
-    display: block;
-    border: 1px solid #ccc;
-    margin-bottom: 20px;
-}
-
-.scrollable-container {
-    width: 100%; /* Make it responsive */
-    max-height: 400px; /* Set a maximum height for the scrollable area */
-    overflow: auto; /* Enable scrolling */
-    border: 1px solid #ccc; /* Optional: add a border for better visibility */
-}
-
-#dfs-canvas {
-    display: block; /* Ensures canvas behaves properly */
-    width: 600px; /* Set a specific width */
-    height: auto; /* Let height be dynamic */
-}
-
-button {
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    background-color: #333;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    margin: 5px;
-    transition: background-color 0.3s;
-}
-
-button:hover {
-    background-color: #555;
-}
-
-button:active {
-    background-color: #111;
-}
-
-.box {
-    display: inline-block;
-    width: 200px;
-    height: 70px;
-    border: 1px solid black;
-    vertical-align: top;
-    margin-right: 10px;
-    padding: 10px;
-    box-sizing: border-box;
-}
-
-#dfs-stack, #dfs-processed, #bfs-queue, #bfs-processed {
-    text-align: left;
-    font-family: Arial, sans-serif;
-}
-
-#stack-label, #processed-label, #queue-label {
-    font-weight: bold;
-    margin-bottom: 5px;
-}
-
-/* DFS Algorithm Card Styling */
-.dfs-card {
-    border: 1px solid #ccc;
-    background-color: #f9f9f9;
-    padding: 20px;
-    margin-top: 20px;
-    border-radius: 5px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-/* Hide the card initially */
-.hidden {
-    display: none;
-}
-
-.btn {
-    text-decoration: none;
-    color: #fff;
-    padding: 0.5rem 1.5rem;
-    margin-top: 1rem;
-    background-color: #444;
-    border-radius: 5px;
-    display: inline-block;
-    transition: background-color 0.3s;
-}
-
-.btn:hover {
-    background-color: #555;
-}
-
-/* Button Styling */
 .custom-input {
-    display: flex;
-    flex-direction: column;
-    width: 300px;
-    margin: 20px auto;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    background-color: #f9f9f9;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  }
+  background-color: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin: 2rem 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  width: 80%;
+  max-width: 500px;
+}
 
-  .custom-input label {
-    font-weight: bold;
-    margin-bottom: 5px;
-    color: #333;
-  }
+.custom-input label {
+  display: block;
+  color: #555;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
 
-  .custom-input input {
-    padding: 8px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    width: 100%;
-    font-size: 14px;
-  }
+.custom-input input {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+  box-sizing: border-box;
+}
 
 .custom-input button {
-    padding: 10px 15px;
-    background-color: #333; /* Match navbar background */
-    color: white;
-    border: none;
-    border-radius: 4px;
-    font-size: 14px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.custom-input button:hover {
-    background-color: #555; /* Match navbar hover color */
+  width: 100%;
+  padding: 0.75rem;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
 }
 
 .custom-input button.clear-button {
-    background-color: #dc3545;
-    margin-top: 10px;
+  background-color: #ff4757;
+  margin-top: 0.5rem;
 }
 
 .custom-input button.clear-button:hover {
-    background-color: #c82333;
+  background-color: #ff6b81;
 }
 
-@media (max-width: 700px) {
-    #bfs-container, #dfs-container {
-        width: 100%;
-        padding: 10px;
-    }
+h2 {
+  font-size: 2rem;
+  color: #333;
+  margin: 2rem 0;
+  text-align: center;
+}
 
-    .bfs-info {
-        flex-direction: column;
-    }
+.scrollable-container {
+  border: 1px solid #eee;
+  border-radius: 8px;
+  padding: 1rem;
+  margin: 1.5rem 0;
+  background-color: #fff;
+  max-height: 450px;
+  overflow: auto;
+}
 
-    .bfs-info div {
-        width: 100%;
-    }
+#bfs-canvas,
+#dfs-canvas {
+  width: 100%;
+  max-width: 600px;
+  height: 400px;
+  border-radius: 4px;
+  margin: 0 auto;
+}
 
-    canvas {
-        width: 100%;
-        height: auto;
-    }
+.button-group {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin: 1.5rem 0;
+  flex-wrap: wrap;
+}
 
-    .box {
-        width: 100%;
-        margin-bottom: 10px;
-    }
+button {
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  background-color: #555;
+  transform: translateY(-1px);
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+.box-container {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.box {
+  flex: 1;
+  min-width: 200px;
+  max-width: 300px;
+  min-height: 100px;
+  padding: 1rem;
+  background-color: #f8f9fa;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+#stack-label,
+#processed-label,
+#queue-label,
+#processing-label {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #444;
+}
+
+.bfs-card,
+.dfs-card {
+  background-color: #f8f9fa;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin: 1.5rem auto;
+  max-width: 800px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.hidden {
+  display: none;
 }
 
 .logout-btn {
-    background-color: #ff4757; /* Red background */
-    color: #fff; /* White text */
-    border: none; /* No border */
-    border-radius: 5px; /* Rounded corners */
-    padding: 10px 20px; /* Padding for size */
-    font-size: 16px; /* Font size */
-    cursor: pointer; /* Pointer cursor */
-    transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transitions */
-  }
-
-.logout-btn:hover {
-    background-color: #ff6b81; /* Lighter red on hover */
-    transform: scale(1.05); /* Slightly grow on hover */
+  background-color: #ff4757;
+  margin-left: 1rem;
+  padding: 0.6rem 1.2rem;
 }
 
-.logout-btn:focus {
-    outline: none; /* Remove outline on focus */
-    box-shadow: 0 0 5px rgba(255, 71, 87, 0.5); /* Subtle shadow on focus */
+.logout-btn:hover {
+  background-color: #ff6b81;
+  transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    padding: 1rem;
+  }
+
+  .nav-left p {
+    font-size: 1.4rem;
+  }
+
+  #bfs-container,
+  #dfs-container {
+    padding: 1rem;
+    margin-top: 70px;
+    width: 95%;
+  }
+
+  .box-container {
+    flex-direction: column;
+  }
+
+  .box {
+    max-width: none;
+  }
+
+  .custom-input {
+    width: 90%;
+    padding: 1rem;
+  }
+
+  button {
+    padding: 0.6rem 1rem;
+    font-size: 0.9rem;
+  }
 }
