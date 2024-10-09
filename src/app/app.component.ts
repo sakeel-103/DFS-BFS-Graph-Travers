@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { HeaderComponent } from './components/header/header.component';
+import { AboutUsComponent } from './components/aboutUs-page/aboutUs.component';
 import { LoginPageComponent } from './components/login-page/login-page.component';
 import { MainIndexComponent } from './components/main-index/main-index.component';
 
@@ -10,6 +11,7 @@ import { MainIndexComponent } from './components/main-index/main-index.component
   imports: [
     RouterOutlet,
     HeaderComponent,
+    AboutUsComponent,
     LoginPageComponent,
     MainIndexComponent,
   ],
