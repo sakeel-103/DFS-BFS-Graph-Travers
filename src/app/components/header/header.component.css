@@ -1,11 +1,11 @@
-
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-body, html {
+body,
+html {
   height: 100%;
   font-family: 'Poppins', sans-serif;
   line-height: 1.6;
@@ -21,12 +21,9 @@ body {
 
 /* Header Styling */
 header {
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: rgba(0, 0, 0, 0.7); /* Dark transparent background */
   backdrop-filter: blur(10px);
-  position: fixed;
   width: 100%;
-  z-index: 1000;
-  padding: 1rem 5%;
 }
 
 header .logo {
@@ -138,3 +135,5 @@ nav ul li a:hover {
     padding: 0.6rem 1.2rem;
   }
 }
+
+
