@@ -5,13 +5,99 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Website Design</title>
     <link rel="stylesheet" href="header.component.css" />
+    <style>
+      /* Common color for header and footer */
+      :root {
+        --header-text-color: white; /* Text color for header and footer */
+        --hover-background: #d3d3d3; /* Light gray hover background color */
+        --hover-text-color: black; /* Hover text color */
+      }
+
+      /* Header styles */
+      header {
+        color: var(--header-text-color); /* Text color */
+        text-align: center;
+        padding: 20px 0; /* Padding for header */
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Box shadow for depth */
+        background-color: #262626; /* Header background color */
+      }
+
+      nav ul {
+        list-style-type: none; /* Remove bullet points */
+        padding: 0; /* Remove padding */
+      }
+
+      nav ul li {
+        display: inline; /* Display items in a row */
+        margin: 0 20px; /* Space between menu items */
+      }
+
+      nav a {
+        color: var(--header-text-color); /* Link color */
+        text-decoration: none; /* No underline */
+        font-weight: 500; /* Medium weight for links */
+        padding: 10px 15px; /* Padding around the links */
+        border: 2px solid transparent; /* Transparent border for hover effect */
+        border-radius: 5px; /* Rounded corners for a softer look */
+        transition: background-color 0.3s, color 0.3s, border-color 0.3s; /* Smooth transition */
+      }
+
+      nav a:hover {
+        background-color: var(--hover-background); /* Background color for hover effect */
+        color: var(--hover-text-color); /* Change text color on hover */
+        border-color: var(--hover-background); /* Match border color with background */
+      }
+
+      /* Hero section styles */
+      .hero {
+        background-color: #000000; /* Light gray background */
+        text-align: center; /* Center text */
+        padding: 50px 0; /* Padding for the hero section */
+      }
+
+      .hero .content {
+        max-width: 800px; /* Max width for content */
+        margin: 0 auto; /* Center content */
+      }
+
+      .buttons {
+        margin-top: 20px; /* Space above buttons */
+      }
+
+      .visit-here-button {
+        background-color: yellow; /* Button background color */
+        color: black; /* Change button text color to black */
+        border: none; /* No border */
+        border-radius: 5px; /* Rounded corners */
+        padding: 10px 20px; /* Padding for button */
+        cursor: pointer; /* Pointer cursor on hover */
+        transition: background-color 0.3s; /* Smooth transition */
+      }
+
+      .visit-here-button:hover {
+        background-color: #ffd700; /* Darker shade on hover */
+      }
+
+      /* Footer styles */
+      footer {
+        background-color: #262626; /* Same color as header */
+        color: var(--header-text-color); /* Text color */
+        text-align: center;
+        padding: 15px 0; /* Padding for footer */
+        position: relative; /* Allow positioning */
+        bottom: 0; /* Stick to bottom */
+        width: 100%; /* Full width */
+        box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.3); /* Box shadow for depth */
+      }
+    </style>
   </head>
   <body>
     <header>
-      <div class="logo">GRAPH-TRAVERSAL</div>
       <nav>
         <ul>
-          <li><a [routerLink]="'/signup-page'">Explore</a></li>
+          <li><a [routerLink]="'/home'">Home</a></li>
+          <li><a [routerLink]="'/aboutus'">About Us</a></li>
+          <li><a [routerLink]="'/contact'">Contact</a></li>
         </ul>
       </nav>
     </header>
@@ -27,5 +113,9 @@
         </div>
       </div>
     </section>
+
+    <footer>
+      <p>&copy; 2024 Graph Traversal. All Rights Reserved.</p>
+    </footer>
   </body>
 </html>
