@@ -1,0 +1,112 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, html {
+  height: 100%;
+  font-family: 'Poppins', sans-serif;
+  line-height: 1.6;
+}
+
+body {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Header Styling */
+header {
+  background-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  position: fixed;
+  width: 100%;
+  z-index: 1000;
+  padding: 0 5%; 
+  display: flex; 
+  align-items: center;
+  justify-content: space-between; 
+  height: 60px; 
+}
+
+header .logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+nav ul {
+  list-style-type: none;
+  display: flex;
+  align-items: center;
+  margin: 0; 
+}
+
+nav ul li {
+  margin-left: 2rem;
+}
+
+nav ul li a {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+  color: #ffd60a;
+}
+
+.about-us {
+  margin-top: 80px;
+  padding: 2rem 10%;
+  text-align: center;
+}
+
+.about-us .content {
+  margin-bottom: 2rem;
+}
+
+.about-us h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: #ffd60a;
+}
+
+.about-us p {
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+}
+
+/* Team Section */
+.team-section {
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 2rem;
+  border-radius: 8px;
+  margin: 2rem 0;
+}
+
+.team-section h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #ffd60a;
+}
+
+.team-section p {
+  font-size: 1.1rem;
+}
+
+/* Footer */
+footer {
+  background: rgba(0, 0, 0, 0.7);
+  padding: 1rem 0;
+  text-align: center;
+}
+
+footer p {
+  color: #ffffff;
+}

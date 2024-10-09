@@ -26,7 +26,11 @@ header {
   position: fixed;
   width: 100%;
   z-index: 1000;
-  padding: 1rem 5%;
+  padding: 0 5%; 
+  display: flex; 
+  align-items: center;
+  justify-content: space-between; 
+  height: 60px; 
 }
 
 header .logo {
@@ -38,7 +42,8 @@ header .logo {
 nav ul {
   list-style-type: none;
   display: flex;
-  justify-content: flex-end;
+  align-items: center;
+  margin: 0; 
 }
 
 nav ul li {
