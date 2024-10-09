@@ -214,7 +214,7 @@ export class DfsPageComponent implements AfterViewInit, OnInit {
 
   public resetDFS(): void {
     const dfsCtx = this.dfsCanvas.getContext('2d')!;
-    this.drawGraph(dfsCtx);
+    dfsCtx.clearRect(0, 0, this.dfsCanvas.width, this.dfsCanvas.height);
     document.getElementById('stack-content')!.innerHTML = '';
     document.getElementById('processing-content')!.innerHTML = '';
     document.getElementById('processed-content')!.innerHTML = '';
@@ -248,11 +248,9 @@ export class DfsPageComponent implements AfterViewInit, OnInit {
     this.parseCustomEdges();
     this.positionNodes();
     this.adjustCanvasSize();
-    this.resetDFS();
-
-    if (this.dfsCanvas) {
-      this.dfsCanvas.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
+    const dfsCtx = this.dfsCanvas.getContext('2d')!;
+    this.drawGraph(dfsCtx);
+    this.dfsCanvas.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
 }
 
