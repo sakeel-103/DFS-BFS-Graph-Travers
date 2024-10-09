@@ -102,7 +102,7 @@ body {
   margin-left: 1rem;
 }
 body {
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
   margin: 0;
   padding: 0;
   background: #f5f5f5;
@@ -125,17 +125,17 @@ body {
 }
 
 .div-new {
-    display: flex;
-    align-items: center;
-    margin-left: auto;
-    margin-right: 1rem;
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+  margin-right: 1rem;
 }
 
 .div-new a {
-    margin-left: 1rem;
-    padding-right: 20px;
-    color: #fff;
-    text-decoration: none;
+  margin-left: 1rem;
+  padding-right: 20px;
+  color: #fff;
+  text-decoration: none;
 }
 
 .profile-dropdown {
@@ -188,24 +188,24 @@ body {
 }
 
 .content-box ul {
-  margin: 0rem ; /* Reduce the gap between the list and other elements */
+  margin: 0rem; /* Reduce the gap between the list and other elements */
   padding-left: 1.2rem;
   padding-right: 0rem;
 }
 
 .btn {
-    text-decoration: none;
-    color: #fff;
-    padding: 0.5rem 1.5rem;
-    margin-top: 1rem;
-    background-color: #444;
-    border-radius: 5px;
-    display: inline-block;
-    transition: background-color 0.3s;
+  text-decoration: none;
+  color: #fff;
+  padding: 0.5rem 1.5rem;
+  margin-top: 1rem;
+  background-color: #444;
+  border-radius: 5px;
+  display: inline-block;
+  transition: background-color 0.3s;
 }
 
 .btn:hover {
-    background-color: #555;
+  background-color: #555;
 }
 
 body {
@@ -234,7 +234,8 @@ body {
   z-index: 1;
   border-radius: 5px;
 }
-.dropdown-content p, .dropdown-content a {
+.dropdown-content p,
+.dropdown-content a {
   margin: 10px;
   padding: 5px 10px;
   color: black;
@@ -251,7 +252,7 @@ body {
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 .dfs-box {
-  background-image: url('/assets/images/dfs-background.jpg'); /* Replace with your DFS image path */
+  background-image: url("/assets/images/dfs-background.jpg"); /* Replace with your DFS image path */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -262,7 +263,7 @@ body {
   width: 45%;
 }
 .bfs-box {
-  background-image: url('/assets/images/bfs-background.jpg'); /* Replace with your BFS image path */
+  background-image: url("/assets/images/bfs-background.jpg"); /* Replace with your BFS image path */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
