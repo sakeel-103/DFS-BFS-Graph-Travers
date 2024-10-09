@@ -54,7 +54,7 @@ export class SignupComponent {
       localStorage.setItem('users', JSON.stringify(users));
 
       this.toastr.success("Sign-up successful! You can now log in.",'Success')
-      
+      this.router.navigate(['/login']);
       this.authService.signUp(signupData).subscribe(
         (response: any) => {
           this.router.navigate(['/main-index']);
