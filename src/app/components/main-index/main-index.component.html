@@ -1,101 +1,100 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Graph Traversal Home</title>
     <link rel="stylesheet" href="main-index.component.css" />
-</head>
-<body>
+  </head>
+  <body>
     <div class="navbar">
-        <div class="nav-left">
-            <p>GRAPH-TRAVERSAL</p>
+      <div class="nav-left">
+        <p>GRAPH-TRAVERSAL</p>
+      </div>
+      <div class="div-new">
+        <a href="/dfsPage" class="btn">DFS</a>
+        <a href="/bfsPage" class="btn">BFS</a>
+      </div>
+      <div class="profile-dropdown">
+        <img
+          src="https://as1.ftcdn.net/v2/jpg/07/77/92/08/1000_F_777920887_JNV7hglZmyROgiZjGb6x9DP4Qfu5gyg0.jpg"
+          alt="Profile"
+          class="profile-img"
+          onclick="toggleDropdown()"
+        />
+        <div id="dropdown-menu" class="dropdown-content">
+          <a href="#">My Profile</a>
         </div>
-        <div class="div-new">
-            <a href="/dfsPage" class="btn">DFS</a>
-            <a href="/bfsPage" class="btn">BFS</a>
-        </div>
-        <div class="profile-container">
-            <div class="profile-dropdown">
-                <img
-                    src="https://as1.ftcdn.net/v2/jpg/07/77/92/08/1000_F_777920887_JNV7hglZmyROgiZjGb6x9DP4Qfu5gyg0.jpg"
-                    alt="Profile"
-                    class="profile-img"
-                    onclick="toggleDropdown()"
-                />
-                <div id="dropdown-menu" class="dropdown-content">
-                    <a href="#">My Profile</a>
-                </div>
-            </div>
-            <button id="logoutButton" class="btn logout-btn">Logout</button>
-        </div>
+      </div>
+
+      <button id="logoutButton" class="btn logout-btn">Logout</button>
     </div>
 
     <div class="container">
-        <div class="content-box">
-            <h2>Depth-First Search (DFS)</h2>
-            <p>
-                Depth-First Search (DFS) is a graph traversal algorithm used to explore the nodes and edges of a graph. Unlike Breadth-First Search (BFS), which explores nodes level by level, DFS goes as deep as possible into the graph, exploring one branch fully before backtracking. This technique is analogous to exploring a maze by going as deep as possible until hitting a dead-end, and then backtracking to explore another path.
-            </p>
-            <h3>Depth-First Search (DFS) Algorithm Steps</h3>
-            <p>
-                1. Start from the root node (or any starting node)<br>
-                2. Mark the node as visited.<br>
-                3. For each neighbor of the current node:<br>
-                &nbsp;&nbsp;a. If the neighbor has not been visited, recursively visit that neighbor.<br>
-                4. Repeat the process until all nodes are visited.<br>
-                5. Backtrack when there are no more unvisited neighbors to explore.<br>
-            </p>
-            <a href="/dfsPage" class="btn">DFS</a>
-        </div>
-        <div class="content-box">
-            <h2>Breadth-First Search (BFS)</h2>
-            <p>
-                Breadth-First Search (BFS) is a fundamental algorithm used for traversing or searching through data structures like trees or graphs. It explores all the vertices or nodes of a graph level by level before moving to the next level.
-            </p>
-            <h3>Breadth-First Search (BFS) Algorithm Steps</h3>
-            <p>
-                1. Start from the root node (or any starting node).<br>
-                2. Mark the node as visited and enqueue it.<br>
-                3. While the queue is not empty:<br>
-                &nbsp;&nbsp;a. Dequeue a node from the front of the queue.<br>
-                &nbsp;&nbsp;b. For each neighbor of the dequeued node:<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;i. If the neighbor has not been visited,<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A. Mark it as visited.<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;B. Enqueue the neighbor.<br>
-                4. Repeat the process until the queue is empty.<br>
-            </p>
-            <a href="/bfsPage" class="btn">BFS</a>
-        </div>
+      <div class="content-box">
+        <h2>Depth-First Search (DFS)</h2>
+        <p>
+          Depth-First Search (DFS) is a graph traversal algorithm used to explore the nodes and edges of a graph. Unlike Breadth-First Search (BFS), which explores nodes level by level, DFS goes as deep as possible into the graph, exploring one branch fully before backtracking. This technique is analogous to exploring a maze by going as deep as possible until hitting a dead-end, and then backtracking to explore another path.
+        </p>
+        <h3>Depth-First Search (DFS) Algorithm Steps</h3>
+        <p>
+          1. Start from the root node (or any starting node)<br />
+          2. Mark the node as visited.<br />
+          3. For each neighbor of the current node:<br />
+          &nbsp;&nbsp;a. If the neighbor has not been visited, recursively visit that neighbor.<br />
+          4. Repeat the process until all nodes are visited.<br />
+          5. Backtrack when there are no more unvisited neighbors to explore.<br />
+        </p>
+        <a href="/dfsPage" class="btn">DFS</a>
+      </div>
+      <div class="content-box">
+        <h2>Breadth-First Search (BFS)</h2>
+        <p>
+          Breadth-First Search (BFS) is a fundamental algorithm used for traversing or searching through data structures like trees or graphs. It explores all the vertices or nodes of a graph level by level before moving to the next level.
+        </p>
+        <h3>Breadth-First Search (BFS) Algorithm Steps</h3>
+        <p>
+          1. Start from the root node (or any starting node).<br />
+          2. Mark the node as visited and enqueue it.<br />
+          3. While the queue is not empty:<br />
+          &nbsp;&nbsp;a. Dequeue a node from the front of the queue.<br />
+          &nbsp;&nbsp;b. For each neighbor of the dequeued node:<br />
+          &nbsp;&nbsp;&nbsp;&nbsp;i. If the neighbor has not been visited,<br />
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A. Mark it as visited.<br />
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;B. Enqueue the neighbor.<br />
+          4. Repeat the process until the queue is empty.<br />
+        </p>
+        <a href="/bfsPage" class="btn">BFS</a>
+      </div>
     </div>
 
     <script>
-        function toggleDropdown() {
-            const dropdown = document.getElementById("dropdown-menu");
-            // Toggle the display of the dropdown menu
-            dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
-        }
+      // Logout function
+      document.getElementById('logoutButton').addEventListener('click', onLogout);
 
-        // Close the dropdown if the user clicks outside of it
-        window.onclick = function(event) {
-            if (!event.target.matches('.profile-img')) {
-                const dropdowns = document.getElementsByClassName("dropdown-content");
-                for (let i = 0; i < dropdowns.length; i++) {
-                    const openDropdown = dropdowns[i];
-                    if (openDropdown.style.display === "block") {
-                        openDropdown.style.display = "none";
-                    }
-                }
+      function onLogout() {
+        console.log("Logging out...");
+        window.location.href = "https://dfs-bfs-graph-travers.netlify.app/";
+      }
+
+      // Dropdown toggle function
+      function toggleDropdown() {
+        const dropdown = document.getElementById("dropdown-menu");
+        dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
+      }
+
+      // Close dropdown when clicking outside
+      window.onclick = function (event) {
+        if (!event.target.matches('.profile-img')) {
+          const dropdowns = document.getElementsByClassName("dropdown-content");
+          for (let i = 0; i < dropdowns.length; i++) {
+            const openDropdown = dropdowns[i];
+            if (openDropdown.style.display === "block") {
+              openDropdown.style.display = "none";
             }
+          }
         }
-
-        document.getElementById("logoutButton").addEventListener("click", function() {
-            // Clear session or token (example for localStorage)
-            localStorage.removeItem("userToken"); // Adjust according to your session management
-            
-            // Redirect to the login page
-            window.location.href = "https://dfs-bfs-graph-travers.netlify.app/"; // Ensure this points to your actual login page
-        });
+      };
     </script>
-</body>
+  </body>
 </html>
