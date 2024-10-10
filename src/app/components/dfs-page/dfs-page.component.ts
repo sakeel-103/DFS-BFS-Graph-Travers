@@ -20,6 +20,7 @@ export class DfsPageComponent implements AfterViewInit, OnInit {
 
   customNodeInput: string = '';
   customEdgeInput: string = '';
+  isDropdownOpen: boolean = false;
 
   constructor(private authService: AuthService) {}
 
@@ -33,6 +34,10 @@ export class DfsPageComponent implements AfterViewInit, OnInit {
 
     this.adjustCanvasSize(); // Adjust size first
     this.drawGraph(dfsCtx);  // Then draw
+  }
+  
+  toggleDropdown(): void {
+    this.isDropdownOpen = !this.isDropdownOpen;
   }
 
   private adjustCanvasSize(): void {
