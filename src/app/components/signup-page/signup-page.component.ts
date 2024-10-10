@@ -8,6 +8,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { Router } from '@angular/router';
+import { CommonModule } from '@angular/common'; // Import CommonModule
 import { AuthService } from '../../services/auth.service';
 
 @Component({
@@ -15,14 +16,15 @@ import { AuthService } from '../../services/auth.service';
   standalone: true,
   templateUrl: './signup-page.component.html',
   styleUrls: ['./signup-page.component.css'],
-  imports: [RouterModule, ReactiveFormsModule],
+  imports: [RouterModule, ReactiveFormsModule, CommonModule], // Add CommonModule here
 })
 export class SignupComponent {
   signupForm: FormGroup;
+  passwordVisible: boolean = false;
 
   constructor(
     private fb: FormBuilder,
-    private toastr:ToastrService,
+    private toastr: ToastrService,
     @Inject(AuthService) private authService: AuthService,
     private router: Router
   ) {
@@ -44,16 +46,15 @@ export class SignupComponent {
         (user) => user.email === signupData.email
       );
       if (existingUser) {
-        this.toastr.error("User already exists. Please use a different email.",'error')
+        this.toastr.error("User already exists. Please use a different email.", 'error');
         return;
       }
 
-      // Instead of storing full user data, store only necessary identifiers
       const userIdentifier = { email: signupData.email };
       users.push(userIdentifier);
       localStorage.setItem('users', JSON.stringify(users));
 
-      this.toastr.success("Sign-up successful! You can now log in.",'Success')
+      this.toastr.success("Sign-up successful! You can now log in.", 'Success');
       this.router.navigate(['/login']);
       this.authService.signUp(signupData).subscribe(
         (response: any) => {
@@ -61,11 +62,11 @@ export class SignupComponent {
         },
         (error: any) => {
           console.error('Error during sign-up:', error);
-          this.toastr.error("Sign-up failed. Please try again.",'error')
+          this.toastr.error("Sign-up failed. Please try again.", 'error');
         }
       );
     } else {
-      this.toastr.error("Please fill out the form correctly.",'error')
+      this.toastr.error("Please fill out the form correctly.", 'error');
     }
   }
 
@@ -75,5 +76,9 @@ export class SignupComponent {
 
   goHome() {
     this.router.navigate(['/']);
+  }
+
+  togglePasswordVisibility() {
+    this.passwordVisible = !this.passwordVisible; // Toggle the password visibility
   }
 }
