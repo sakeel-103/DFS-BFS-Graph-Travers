@@ -30,6 +30,12 @@ body {
   letter-spacing: 1px;
 }
 
+.div-new {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
 .div-new a {
   color: #fff;
   text-decoration: none;
@@ -45,7 +51,7 @@ body {
 
 .profile-dropdown {
   position: relative;
-  margin-right: 1.5rem;
+  margin-right: 0.5rem;
 }
 
 .profile-img {
@@ -142,13 +148,6 @@ body {
   border-radius: 8px;
   padding: 1.5rem;
   margin-top: 1.5rem;
-}
-
-.btn {
-  padding: 0.6rem 1.2rem;
-  border-radius: 4px;
-  font-weight: 500;
-  transition: all 0.3s;
 }
 
 button {

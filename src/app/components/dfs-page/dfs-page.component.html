@@ -4,22 +4,20 @@
   </div>
   <div style="display: flex;">
     <div class="div-new">
-      <a [routerLink]="['/mainIndex']" class="btn">Home</a>
-      <a [routerLink]="['/bfsPage']" class="btn">BFS</a>
-    </div>
+      <a [routerLink]="['/mainIndex']" class="btn btn-dark me-3">Home</a>
+      <a [routerLink]="['/bfsPage']" class="btn btn-dark me-3">BFS</a>
 
-    <!-- Profile Section with Dropdown -->
-    <div class="profile-dropdown">
-      <img src="https://as1.ftcdn.net/v2/jpg/07/77/92/08/1000_F_777920887_JNV7hglZmyROgiZjGb6x9DP4Qfu5gyg0.jpg"
+        <!-- Profile Section with Dropdown -->
+        <div class="profile-dropdown">
+        <img src="https://as1.ftcdn.net/v2/jpg/07/77/92/08/1000_F_777920887_JNV7hglZmyROgiZjGb6x9DP4Qfu5gyg0.jpg"
         alt="Profile" class="profile-img" onclick="toggleDropdown()">
-      <div id="dropdown-menu" class="dropdown-content">
+        <div id="dropdown-menu" class="dropdown-content">
         <!-- <a href="#">My Profile</a>
             <a href="#">Logout</a> -->
-      </div>
+        </div>
     </div>
-
     <button (click)="onLogout()" class="btn logout-btn">Logout</button>
-
+    </div>
   </div>
 </div>
 
