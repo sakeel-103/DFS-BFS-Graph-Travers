@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GraphExplorer Pro - FAQ</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+        integrity="sha384-k6RqeWeci5ZR/Lv4MR0sA0FfDOM8OtChmBfKybU8aJ6p2e63CDbAI6BX8wr7C6YJ" crossorigin="anonymous">
+    <script src="./faq-toggle.js" defer></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        .faq {
+            padding: 4rem 2rem;
+            margin: auto;
+        }
+
+        .faq h1 {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #333;
+            margin-bottom: 3rem;
+        }
+
+        .faq-item {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 1.5rem;
+            overflow: hidden;
+            transition: transform 0.2s ease;
+        }
+
+        .faq-item:hover {
+            transform: scale(1.02);
+        }
+
+        .faq-question {
+            width: 100%;
+            background-color: #007bff;
+            color: #fff;
+            font-size: 1.25rem;
+            font-weight: 600;
+            padding: 1rem 1.5rem;
+            text-align: left;
+            border: none;
+            cursor: pointer;
+            outline: none;
+            position: relative;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background-color 0.3s ease;
+        }
+
+        .faq-question:hover {
+            background-color: #0056b3;
+        }
+
+        .faq-question .arrow {
+            font-size: 1.25rem;
+            transition: transform 0.3s ease;
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            background-color: #f1f1f1;
+            padding: 0 1.5rem;
+            transition: max-height 0.3s ease;
+        }
+
+        .faq-answer p {
+            padding: 1rem 0;
+            margin: 0;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+            padding-bottom: 1.5rem;
+        }
+
+        .faq-item.active .arrow {
+            transform: rotate(180deg);
+        }
+    </style>
+</head>
+
+<body>
+    <section class="faq">
+        <div class="container">
+            <h1>Frequently Asked Questions</h1>
+            <div class="faq-item">
+                <button class="faq-question">What is GraphExplorer Pro?<i
+                        class="fas fa-chevron-down arrow"></i></button>
+                <div class="faq-answer">
+                    <p>GraphExplorer Pro is an interactive tool designed to help users explore, learn, and visualize
+                        different graph algorithms and their real-world applications.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">What graph algorithms are included?<i
+                        class="fas fa-chevron-down arrow"></i></button>
+                <div class="faq-answer">
+                    <p>GraphExplorer Pro covers a wide range of graph algorithms, including Depth-First Search (DFS),
+                        Breadth-First Search (BFS), Dijkstra's algorithm, and more.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">How can I use the Graph Visualizer?<i
+                        class="fas fa-chevron-down arrow"></i></button>
+                <div class="faq-answer">
+                    <p>The Graph Visualizer allows users to experiment with different graph structures and watch
+                        algorithms traverse them step by step, providing an in-depth understanding of the processes
+                        involved.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">What are the different graph types I can explore?<i
+                        class="fas fa-chevron-down arrow"></i></button>
+                <div class="faq-answer">
+                    <p>GraphExplorer Pro allows you to explore directed graphs, undirected graphs, weighted graphs,
+                        trees, and directed acyclic graphs (DAGs).</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">Is GraphExplorer Pro suitable for beginners?<i
+                        class="fas fa-chevron-down arrow"></i></button>
+                <div class="faq-answer">
+                    <p>Yes! GraphExplorer Pro is designed for learners of all levels, offering interactive
+                        visualizations and detailed explanations to help beginners understand the basics of graph
+                        theory.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">Can I save my visualizations?<i
+                        class="fas fa-chevron-down arrow"></i></button>
+                <div class="faq-answer">
+                    <p>Yes, GraphExplorer Pro provides an option to save your graph visualizations so you can revisit
+                        and analyze them later.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">Does GraphExplorer Pro support weighted graphs?<i
+                        class="fas fa-chevron-down arrow"></i></button>
+                <div class="faq-answer">
+                    <p>Yes, GraphExplorer Pro supports weighted graphs, and you can visualize how different algorithms
+                        handle weights in edges.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">What platforms is GraphExplorer Pro available on?<i
+                        class="fas fa-chevron-down arrow"></i></button>
+                <div class="faq-answer">
+                    <p>GraphExplorer Pro is a web-based tool that works on all modern browsers, and it is compatible
+                        with desktop, tablet, and mobile devices.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">How often are new features added?<i
+                        class="fas fa-chevron-down arrow"></i></button>
+                <div class="faq-answer">
+                    <p>We frequently update GraphExplorer Pro with new features and improvements based on user feedback.
+                        Stay tuned for updates!</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">Do I need to create an account to use GraphExplorer Pro?<i
+                        class="fas fa-chevron-down arrow"></i></button>
+                <div class="faq-answer">
+                    <p>No, you can use GraphExplorer Pro without creating an account. However, creating an account
+                        allows you to save your progress and visualizations.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>
