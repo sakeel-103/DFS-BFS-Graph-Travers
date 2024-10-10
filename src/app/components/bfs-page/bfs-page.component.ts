@@ -214,7 +214,8 @@ export class BfsPageComponent implements AfterViewInit, OnInit {
       'bfs-canvas'
     ) as HTMLCanvasElement;
     const bfsCtx = bfsCanvas.getContext('2d')!;
-    this.drawGraph(bfsCtx);
+    // Clear the entire canvas
+    bfsCtx.clearRect(0, 0, bfsCanvas.width, bfsCanvas.height);
     document.getElementById('queue-content')!.innerHTML = '';
     document.getElementById('processing-content')!.innerHTML = '';
     document.getElementById('processed-content')!.innerHTML = '';
@@ -247,12 +248,9 @@ export class BfsPageComponent implements AfterViewInit, OnInit {
       this.parseCustomEdges();
       this.positionNodes();
       this.adjustCanvasSize();
-      this.resetBFS();
-
-      const bfsCanvas = document.getElementById('bfs-canvas');
-      if (bfsCanvas) {
-      bfsCanvas.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
+      const bfsCtx = this.bfsCanvas.getContext('2d')!;
+      this.drawGraph(bfsCtx);
+      this.bfsCanvas.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
   }
 
