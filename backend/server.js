@@ -112,6 +112,14 @@ app.post('/api/logout', (req, res) => {
         res.json({ message: 'Logout successful' }); // Send a JSON response
     });
 });
+// Centralized Error Handling Middleware
+app.use((err, req, res, next) => {
+    console.error(err.stack); // Log the error stack trace for debugging purposes
+    res.status(500).json({
+        message: 'An internal server error occurred',
+        error: process.env.NODE_ENV === 'development' ? err.message : {} // Only send the error message in development mode
+    });
+});
 
 // Start the server
 const PORT = process.env.PORT || 5000;
