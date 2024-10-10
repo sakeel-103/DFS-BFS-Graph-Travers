@@ -1,159 +1,219 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Website Design</title>
 
-    <!-- Import Montserrat Font from Google Fonts -->
-    <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap"
-      rel="stylesheet"
-    />
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GraphExplorer Pro</title>
+  <link href="./style.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
+</head>
 
-    <link rel="stylesheet" href="header.component.css" />
-    <style>
-      /* Common color for header and footer */
-      :root {
-        --header-text-color: white; /* Text color for header and footer */
-        --hover-background: #e6e6e6; /* Light gray hover background color */
-        --hover-text-color: black; /* Hover text color */
-        --header-footer-bg: #333c4a; /* Matching color for header and footer */
-        --button-bg-color: #808080; /* Grey color for button-like navigation */
-        --light-sky-gradient: linear-gradient(135deg, #e0f7ff 0%, #f7fcff 100%); /* Light sky blue gradient */
-        --button-hover-shadow: rgba(0, 0, 0, 0.3); /* Box-shadow color for button hover effect */
-      }
+<body>
+  <header>
+    <nav class="container">
+      <div class="logo">GraphExplorer Pro</div>
+      <div class="nav-links">
+        <a href="#features">Features</a>
+        <a href="#graph-types">Graph Types</a>
+        <a href="#algorithms">Algorithms</a>
+        <a href="#visualizer">Visualizer</a>
+      </div>
+    </nav>
+  </header>
 
-      /* Apply Montserrat font to the entire body */
-      body {
-        font-family: 'Montserrat', sans-serif;
-        background: var(--light-sky-gradient); /* Light sky-blue gradient background */
-        color: #333; /* Body text color */
-        margin: 0;
-        padding: 0;
-        min-height: 100vh;
-        display: flex;
-        flex-direction: column;
-      }
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <h1>Unlock the Power of Graph Algorithms</h1>
+        <p>Dive into the fascinating world of graph theory and master advanced traversal techniques with GraphExplorer
+          Pro.</p>
+        <a href="#features" [routerLink]="['/signup']" class="cta-button">Start Exploring</a>
+      </div>
+    </div>
+    <div class="graph-visual">
+      <div class="node" style="top: 20%; left: 20%;">A</div>
+      <div class="node" style="top: 60%; left: 30%;">B</div>
+      <div class="node" style="top: 40%; left: 60%;">C</div>
+      <div class="node" style="top: 80%; left: 70%;">D</div>
+      <div class="edge" style="width: 100px; top: 25%; left: 25%; transform: rotate(30deg);"></div>
+      <div class="edge" style="width: 150px; top: 45%; left: 35%; transform: rotate(-10deg);"></div>
+      <div class="edge" style="width: 120px; top: 65%; left: 40%; transform: rotate(40deg);"></div>
+    </div>
+  </section>
 
-      /* Header styles */
-      header {
-        color: var(--header-text-color); /* Text color */
-        text-align: center;
-        padding: 20px 0; /* Padding for header */
-        background-color: var(--header-footer-bg); /* Matching color for header */
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Box shadow for depth */
-      }
-
-      nav ul {
-        list-style-type: none; /* Remove bullet points */
-        padding: 0; /* Remove padding */
-        margin: 0;
-      }
-
-      nav ul li {
-        display: inline-block; /* Display items in a row as buttons */
-        margin: 0 15px; /* Space between menu items */
-      }
-
-      nav a {
-        color: var(--header-text-color); /* Link text color */
-        text-decoration: none; /* No underline */
-        font-weight: 500; /* Medium weight for links */
-        padding: 10px 20px; /* Button-like padding */
-        background-color: var(--button-bg-color); /* Grey background for buttons */
-        border-radius: 5px; /* Rounded corners for button effect */
-        transition: background-color 0.3s, color 0.3s; /* Smooth transition */
-      }
-
-      nav a:hover {
-        background-color: var(--hover-background); /* Background color for hover effect */
-        color: var(--hover-text-color); /* Change text color on hover */
-      }
-
-      /* Hero section styles */
-      .hero {
-        background-color: #ffffff; /* White background */
-        text-align: center; /* Center text */
-        padding: 50px 0; /* Padding for the hero section */
-        flex-grow: 1; /* Allow hero section to expand */
-      }
-
-      .hero .content {
-        max-width: 800px; /* Max width for content */
-        margin: 0 auto; /* Center content */
-      }
-
-      .hero h1 {
-        font-weight: 700; /* Bold font for the main title */
-        color: #2a2a2a;
-      }
-
-      .hero h1 span {
-        color: #0d3bfb; /* Highlight color for the title */
-      }
-
-      .hero p {
-        color: #555; /* Subtle text color */
-      }
-
-      .buttons {
-        margin-top: 20px; /* Space above buttons */
-      }
-
-      /* Button hover effect with surrounding container */
-      .visit-here-button {
-        background-color: #3c3d37; /* Button background color */
-        color: white; /* Change button text color */
-        border: none; /* No border */
-        border-radius: 5px; /* Rounded corners */
-        padding: 10px 20px; /* Padding for button */
-        cursor: pointer; /* Pointer cursor on hover */
-        transition: background-color 0.3s, box-shadow 0.3s; /* Smooth transition */
-      }
-
-      .visit-here-button:hover {
-        background-color: #021a7a; /* Darker shade on hover */
-        box-shadow: 0px 0px 15px 5px var(--button-hover-shadow); /* Box-shadow to create container effect */
-      }
-
-      /* Footer styles */
-      footer {
-        background-color: var(--header-footer-bg); /* Matching color for footer */
-        color: var(--header-text-color); /* Text color */
-        text-align: center;
-        padding: 15px 0; /* Padding for footer */
-        width: 100%; /* Full width */
-        box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.3); /* Box shadow for depth */
-        margin-top: auto; /* Push footer to the bottom */
-      }
-    </style>
-  </head>
-  <body>
-    <header>
-      <nav>
-        <ul>
-          <li><a [routerLink]="'/home'">Home</a></li>
-          <li><a [routerLink]="'/aboutus'">About Us</a></li>
-          <li><a [routerLink]="'/contact'">Contact</a></li>
-        </ul>
-      </nav>
-    </header>
-
-    <section class="hero">
-      <div class="content">
-        <h1>WELCOME TO THE <span>GRAPH-TRAVERSAL</span></h1>
-        <p>Register and Login to Explore the graph traversal</p>
-        <div class="buttons">
-          <button [routerLink]="['/signup']" class="visit-here-button">
-            Visit Here
-          </button>
+  <section id="features" class="features">
+    <div class="container">
+      <h2>Why Choose GraphExplorer Pro?</h2>
+      <div class="feature-grid">
+        <div class="feature-card">
+          <div class="feature-icon">📊</div>
+          <h3>Interactive Visualizations</h3>
+          <p>Experience graph algorithms in action with our cutting-edge visualization tools.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🧠</div>
+          <h3>In-Depth Learning</h3>
+          <p>Gain a deep understanding of graph theory and its practical applications.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🚀</div>
+          <h3>Performance Optimization</h3>
+          <p>Learn how to implement and optimize graph algorithms for real-world scenarios.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🌐</div>
+          <h3>Real-World Applications</h3>
+          <p>Discover how graph algorithms power social networks, GPS systems, and more.</p>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <footer>
-      <p>&copy; 2024 Graph Traversal. All Rights Reserved.</p>
-    </footer>
-  </body>
+  <section id="graph-types" class="graph-types">
+    <div class="container">
+      <h2>Explore Various Graph Types</h2>
+      <div class="graph-grid">
+        <div class="graph-item">
+          <div class="graph-icon">→</div>
+          <h3>Directed Graphs</h3>
+        </div>
+        <div class="graph-item">
+          <div class="graph-icon">⇔</div>
+          <h3>Undirected Graphs</h3>
+        </div>
+        <div class="graph-item">
+          <div class="graph-icon">⚖️</div>
+          <h3>Weighted Graphs</h3>
+        </div>
+        <div class="graph-item">
+          <div class="graph-icon">🌳</div>
+          <h3>Trees</h3>
+        </div>
+        <div class="graph-item">
+          <div class="graph-icon">⇉</div>
+          <h3>Directed Acyclic Graphs</h3>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="algorithms" class="algorithms">
+    <div class="container">
+      <h2>Master Key Graph Algorithms</h2>
+      <div class="algorithm-tabs">
+        <button class="tab-button active" data-tab="dfs">DFS</button>
+        <button class="tab-button" data-tab="bfs">BFS</button>
+        <button class="tab-button" data-tab="dijkstra">Dijkstra's</button>
+      </div>
+      <div class="tab-content">
+        <div id="dfs-content">
+          <h3>Depth-First Search (DFS)</h3>
+          <p>DFS is a graph traversal algorithm that explores as far as possible along each branch before backtracking.
+            It's excellent for:</p>
+          <ul>
+            <li>Detecting cycles in graphs</li>
+            <li>Pathfinding in mazes</li>
+            <li>Topological sorting</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="visualizer" class="visualizer">
+    <div class="container">
+      <h2>Interactive Graph Visualizer</h2>
+      <p>See graph algorithms in action! Experiment with different graph structures and watch as the algorithms traverse
+        them step by step.</p>
+      <div class="graph-container">
+        <div class="graph-node" style="top: 20%; left: 20%;">1</div>
+        <div class="graph-node" style="top: 60%; left: 30%;">2</div>
+        <div class="graph-node" style="top: 40%; left: 60%;">3</div>
+        <div class="graph-node" style="top: 80%; left: 70%;">4</div>
+        <div class="graph-edge" style="width: 150px; top: 25%; left: 25%; transform: rotate(30deg);"></div>
+        <div class="graph-edge" style="width: 150px; top: 25%; left: 25%; transform: rotate(30deg);"></div>
+        <div class="graph-edge" style="width: 150px; top: 25%; left: 25%; transform: rotate(30deg);"></div>
+        <div class="graph-edge" style="width: 180px; top: 50%; left: 35%; transform: rotate(-20deg);"></div>
+        <div class="graph-edge" style="width: 130px; top: 75%; left: 40%; transform: rotate(40deg);"></div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <p>&copy; 2024 GraphExplorer Pro. All rights reserved.</p>
+        <div class="social-links">
+          <a href="#">Twitter</a> |
+          <a href="#">Facebook</a> |
+          <a href="#">LinkedIn</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      // Tab switching functionality for algorithms section
+      const tabs = document.querySelectorAll(".tab-button");
+      const tabContents = {
+        "dfs": `<h3>Depth-First Search (DFS)</h3>
+                 <p>DFS is a graph traversal algorithm that explores as far as possible along each branch before backtracking. It's excellent for:</p>
+                 <ul>
+                     <li>Detecting cycles in graphs</li>
+                     <li>Pathfinding in mazes</li>
+                     <li>Topological sorting</li>
+                 </ul>`,
+        "bfs": `<h3>Breadth-First Search (BFS)</h3>
+                 <p>BFS is a graph traversal algorithm that explores neighbors before moving to the next level. It's commonly used for:</p>
+                 <ul>
+                     <li>Finding the shortest path in unweighted graphs</li>
+                     <li>Level-order traversal in trees</li>
+                     <li>Networking and web crawlers</li>
+                 </ul>`,
+        "dijkstra": `<h3>Dijkstra's Algorithm</h3>
+                 <p>Dijkstra's is a shortest path algorithm for finding the shortest paths between nodes in a graph, particularly useful for:</p>
+                 <ul>
+                     <li>GPS Navigation Systems</li>
+                     <li>Network routing</li>
+                     <li>Optimal decision-making paths</li>
+                 </ul>`
+      };
+
+      tabs.forEach(tab => {
+        tab.addEventListener("click", function () {
+          // Remove active class from all tabs
+          tabs.forEach(t => t.classList.remove("active"));
+          // Add active class to the clicked tab
+          this.classList.add("active");
+          // Update tab content
+          document.querySelector(".tab-content").innerHTML = tabContents[this.dataset.tab];
+        });
+      });
+
+      // Animate Hero Graph Nodes
+      gsap.utils.toArray(".node").forEach(node => {
+        gsap.fromTo(node, {
+          scale: 0.8,
+          opacity: 0,
+          y: 100
+        }, {
+          scale: 1,
+          opacity: 1,
+          y: 0,
+          duration: 1,
+          ease: "bounce",
+          scrollTrigger: {
+            trigger: node,
+            start: "top 80%"
+          }
+        });
+      });
+    });
+  </script>
+</body>
+
 </html>
