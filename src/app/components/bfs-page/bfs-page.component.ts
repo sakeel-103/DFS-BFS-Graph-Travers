@@ -21,7 +21,7 @@ export class BfsPageComponent implements AfterViewInit, OnInit {
 
   customNodeInput: string = '';
   customEdgeInput: string = '';
-
+  isDropdownOpen: boolean = false;
   constructor(private authService: AuthService) {}
 
   ngOnInit(): void {
@@ -33,6 +33,10 @@ export class BfsPageComponent implements AfterViewInit, OnInit {
     const bfsCtx = this.bfsCanvas.getContext('2d')!;
     this.adjustCanvasSize(); // Adjust size first
     this.drawGraph(bfsCtx);
+  }
+
+  toggleDropdown(): void {
+    this.isDropdownOpen = !this.isDropdownOpen;
   }
 
   private adjustCanvasSize(): void {
