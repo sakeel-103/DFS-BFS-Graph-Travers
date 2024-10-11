@@ -2,11 +2,12 @@ import { Component, AfterViewInit, OnInit } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
+import { NavbarComponent } from '../navbar/navbar.component';
 
 @Component({
   selector: 'app-dfs-page',
   standalone: true,
-  imports: [RouterModule, FormsModule],
+  imports: [RouterModule, FormsModule,NavbarComponent],
   templateUrl: './dfs-page.component.html',
   styleUrls: ['./dfs-page.component.css'],
 })

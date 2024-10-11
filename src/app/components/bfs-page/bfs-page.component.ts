@@ -2,11 +2,12 @@ import { Component, AfterViewInit, OnInit } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
+import { NavbarComponent } from '../navbar/navbar.component';
 
 @Component({
   selector: 'app-bfs-page',
   standalone: true,
-  imports: [RouterModule,FormsModule],
+  imports: [RouterModule, FormsModule,NavbarComponent],
   templateUrl: './bfs-page.component.html',
   styleUrls: ['./bfs-page.component.css'],
 })
