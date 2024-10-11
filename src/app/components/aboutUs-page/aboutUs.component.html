@@ -1,43 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Website Design</title>
-    <link rel="stylesheet" href="aboutUs.component.css" />
-  </head>
-  <body>
-    <header>
-      <div class="logo">GRAPH-TRAVERSAL</div>
-      <nav>
-        <ul>
-          <li><a [routerLink]="'/signup-page'">Explore</a></li>
-          <li><a [routerLink]="'/aboutUs-page'">About us</a></li>
-        </ul>
-      </nav>
-    </header>
-    <section class="about-us">
-      <div class="content">
-        <h1>About Our Project</h1>
-        <p>
-          Welcome to our Graph Traversal Project! This project focuses on implementing Depth-First Search (DFS) and Breadth-First Search (BFS) algorithms for graph traversal. These algorithms play a crucial role in various applications like pathfinding, network analysis, and AI search strategies.
-        </p>
-        <p>
-          Our backend features user authentication functionality, providing a Login and Signup page for a secure and personalized experience. Whether you are a student learning graph theory or a professional looking to understand advanced search algorithms, our platform offers a comprehensive solution for understanding these traversal techniques.
-        </p>
-      </div>
 
-      <div class="team-section">
-        <h2>Meet Our Team</h2>
-        <p>
-          We are a dedicated group of developers and designers passionate about creating educational tools and software that make complex algorithms accessible to everyone. With this project, we aim to bridge the gap between theoretical knowledge and practical implementation.
-        </p>
-      </div>
-    </section>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Website Design</title>
+  <link rel="stylesheet" href="aboutUs.component.css" />
+</head>
 
-    <footer>
-      <p>© 2024 Graph Traversal Project. All rights reserved.</p>
-    </footer>
-    
-  </body>
+<body>
+  <header>
+    <div class="logo">GRAPH-TRAVERSAL</div>
+    <app-navbar></app-navbar>
+  </header>
+  <section class="about-us">
+    <div class="content">
+      <h1>About Our Project</h1>
+      <p>
+        Welcome to our Graph Traversal Project! This project focuses on implementing Depth-First Search (DFS) and
+        Breadth-First Search (BFS) algorithms for graph traversal. These algorithms play a crucial role in various
+        applications like pathfinding, network analysis, and AI search strategies.
+      </p>
+      <p>
+        Our backend features user authentication functionality, providing a Login and Signup page for a secure and
+        personalized experience. Whether you are a student learning graph theory or a professional looking to understand
+        advanced search algorithms, our platform offers a comprehensive solution for understanding these traversal
+        techniques.
+      </p>
+    </div>
+
+    <div class="team-section">
+      <h2>Meet Our Team</h2>
+      <p>
+        We are a dedicated group of developers and designers passionate about creating educational tools and software
+        that make complex algorithms accessible to everyone. With this project, we aim to bridge the gap between
+        theoretical knowledge and practical implementation.
+      </p>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2024 Graph Traversal Project. All rights reserved.</p>
+  </footer>
+
+</body>
+
 </html>

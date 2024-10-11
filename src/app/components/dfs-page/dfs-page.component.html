@@ -1,22 +1,4 @@
-<div class="navbar">
-  <div class="nav-left">
-    <p>GRAPH-TRAVERSAL</p>
-  </div>
-  <div style="display: flex;">
-    <div class="div-new">
-      <a [routerLink]="['/mainIndex']" class="btn">Home</a>
-      <a [routerLink]="['/dfsPage']" class="btn">DFS</a>
-    </div>
-    <!-- Profile Section with Dropdown -->
-    <div class="profile-dropdown">
-      <img src="https://as1.ftcdn.net/v2/jpg/07/77/92/08/1000_F_777920887_JNV7hglZmyROgiZjGb6x9DP4Qfu5gyg0.jpg"
-        alt="Profile" class="profile-img" (click)="toggleDropdown()">
-      <div class="dropdown-content" [class.show]="isDropdownOpen">
-        <a (click)="onLogout()">Logout</a>
-      </div>
-    </div>
-  </div>
-</div>
+<app-navbar></app-navbar>
 
 <div id="dfs-container">
   <!-- Custom Graph Input -->
