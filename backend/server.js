@@ -9,6 +9,7 @@ const session = require('express-session');
 const User = require('./models/User');
 const { validateSignup } = require('./middlewares/validation');
 const authenticateSession = require('./middlewares/authenticate');
+const dijkstra = require('./utils/dijkstra');  // Dijkstra's algorithm import
 
 dotenv.config();
 const app = express();
@@ -86,6 +87,21 @@ app.post('/api/login', async (req, res) => {
     } catch (error) {
         console.error('Error logging in:', error);
         res.status(500).json({ message: 'Internal server error' });
+    }
+});
+
+// Endpoint for Dijkstra's algorithm
+app.post('/api/dijkstra', (req, res) => {
+    const { graph, start } = req.body;
+    if (!graph || !start) {
+        return res.status(400).send('Graph and start node required');
+    }
+    try {
+        const result = dijkstra(graph, start); // Assuming dijkstra logic exists in utils
+        res.json({ distances: result });
+    } catch (error) {
+        console.error('Error:', error);
+        res.status(500).send('Error calculating shortest path');
     }
 });
 
