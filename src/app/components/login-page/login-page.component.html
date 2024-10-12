@@ -27,31 +27,25 @@
 
     .go-back-container {
       background-color: white;
-      /* White background */
-      padding: 10px 20px;
-      border-radius: 5px;
+      padding: 5px 10px; /* Reduced padding */
+      border-radius: 3px; /* Slightly reduced border radius */
       display: flex;
       align-items: center;
       justify-content: flex-start;
       position: absolute;
-      /* Position absolute to place at bottom left */
       bottom: 10px;
-      /* Adjust this value to move vertically */
       left: 10px;
-      /* Adjust this value to move horizontally */
       cursor: pointer;
+      font-size: 0.9em; /* Reduced font size */
     }
 
     .go-back-text {
       color: black;
-      /* Black text color */
       margin-left: 0px;
-      /* No extra margin */
     }
 
     .go-back-container:hover {
       background-color: #f0f0f0;
-      /* Hover effect */
     }
 
     .box {
@@ -83,8 +77,13 @@
               style="cursor: pointer; position: absolute; right: 10px; top: 50%; transform: translateY(-50%);"></i>
           </div>
 
-          <button type="submit" [routerLink]="['/mainIndex']" class="btn"> Login
+          <button type="submit" [routerLink]="['/mainIndex']" class="btn">Login</button>
+          
+          <!-- Add Google login button -->
+          <button type="button" class="btn google-btn" (click)="loginWithGoogle()">
+            <i class="fab fa-google"></i> Login with Google
           </button>
+
           <div class="social-icons">
             <a href="https://www.linkedin.com/in/mdsakeel103/" class="social-icon" title="LinkedIn"><i
                 class="fab fa-linkedin"></i></a>
