@@ -149,3 +149,17 @@ body {
     font-size: 14px;
     line-height: 1.6;
 }
+
+.google-btn {
+  background-color: #4285F4;
+  color: white;
+  margin-top: 10px;
+}
+
+.google-btn:hover {
+  background-color: #357ae8;
+}
+
+.google-btn i {
+  margin-right: 10px;
+}
