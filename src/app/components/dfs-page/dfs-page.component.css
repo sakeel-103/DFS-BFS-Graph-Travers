@@ -14,8 +14,8 @@ body {
   left: 0;
   right: 0;
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
   padding: 1rem 2rem;
   background-color: #333;
   color: #fff;
@@ -33,7 +33,7 @@ body {
 .div-new {
   display: flex;
   align-items: center;
-  gap: 1.5rem;
+  gap: 0.5rem;
 }
 
 .div-new a {
