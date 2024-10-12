@@ -9,6 +9,7 @@ const session = require('express-session');
 const User = require('./models/User');
 const { validateSignup } = require('./middlewares/validation');
 const authenticateSession = require('./middlewares/authenticate');
+//const dijkstra = require('./utils/dijkstra');  // Dijkstra's algorithm import
 
 dotenv.config();
 const app = express();
@@ -17,12 +18,16 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 
-// Session management setup
+// Session management setup with enhanced security
 app.use(session({
     secret: process.env.SESSION_SECRET || 'defaultSecret',
     resave: false,
     saveUninitialized: true,
-    cookie: { secure: process.env.NODE_ENV === 'production', httpOnly: true }
+    cookie: {
+        secure: process.env.NODE_ENV === 'production',  // Cookies sent over HTTPS only
+        httpOnly: true,  // Prevent access via client-side JS
+        sameSite: 'strict'  // Protection against CSRF attacks
+    }
 }));
 
 // Connect to MongoDB
@@ -80,12 +85,35 @@ app.post('/api/login', async (req, res) => {
             return res.status(400).json({ message: 'Invalid credentials' });
         }
 
-        req.session.userId = user._id;
-        req.session.username = user.username;
-        res.json({ message: 'Logged in successfully' });
+        // Regenerate session ID after successful login
+        req.session.regenerate((err) => {
+            if (err) {
+                console.error('Session regeneration error:', err);
+                return res.status(500).json({ message: 'Internal server error' });
+            }
+
+            req.session.userId = user._id;
+            req.session.username = user.username;
+            res.json({ message: 'Logged in successfully' });
+        });
     } catch (error) {
         console.error('Error logging in:', error);
         res.status(500).json({ message: 'Internal server error' });
+    }
+});
+
+// Endpoint for Dijkstra's algorithm
+app.post('/api/dijkstra', (req, res) => {
+    const { graph, start } = req.body;
+    if (!graph || !start) {
+        return res.status(400).send('Graph and start node required');
+    }
+    try {
+        const result = dijkstra(graph, start); // Assuming dijkstra logic exists in utils
+        res.json({ distances: result });
+    } catch (error) {
+        console.error('Error:', error);
+        res.status(500).send('Error calculating shortest path');
     }
 });
 
