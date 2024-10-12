@@ -9,7 +9,8 @@ const session = require('express-session');
 const User = require('./models/User');
 const { validateSignup } = require('./middlewares/validation');
 const authenticateSession = require('./middlewares/authenticate');
-//const dijkstra = require('./utils/dijkstra');  // Dijkstra's algorithm import
+
+// const dijkstra = require('./utils/dijkstra');  // Dijkstra's algorithm import
 
 dotenv.config();
 const app = express();
@@ -99,6 +100,54 @@ app.post('/api/login', async (req, res) => {
     } catch (error) {
         console.error('Error logging in:', error);
         res.status(500).json({ message: 'Internal server error' });
+    }
+});
+
+// Graph analysis functions
+function detectCycle(graph) {
+    // Placeholder for cycle detection logic (DFS)
+    return "Cycle detection not implemented";
+}
+
+function findConnectedComponents(graph) {
+    // Placeholder for finding connected components (DFS/BFS)
+    return "Connected components detection not implemented";
+}
+
+function calculateNodeDegree(graph, node) {
+    if (!graph[node]) return 0;
+    return graph[node].length;  // Degree of a node based on adjacency list
+}
+
+// Graph analysis endpoint
+app.post('/api/graph-analysis', (req, res) => {
+    const { graph, analysisType, node } = req.body;
+    
+    if (!graph) {
+        return res.status(400).send('Graph data is required');
+    }
+
+    try {
+        let result;
+        switch (analysisType) {
+            case 'cycle-detection':
+                result = detectCycle(graph);
+                break;
+            case 'connected-components':
+                result = findConnectedComponents(graph);
+                break;
+            case 'node-degree':
+                if (!node) return res.status(400).send('Node is required for degree calculation');
+                result = calculateNodeDegree(graph, node);
+                break;
+            default:
+                return res.status(400).send('Invalid analysis type');
+        }
+
+        res.json({ result });
+    } catch (error) {
+        console.error('Error in graph analysis:', error);
+        res.status(500).send('Error analyzing graph');
     }
 });
 
