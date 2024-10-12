@@ -9,7 +9,7 @@ const session = require('express-session');
 const User = require('./models/User');
 const { validateSignup } = require('./middlewares/validation');
 const authenticateSession = require('./middlewares/authenticate');
-const dijkstra = require('./utils/dijkstra');  // Dijkstra's algorithm import
+//const dijkstra = require('./utils/dijkstra');  // Dijkstra's algorithm import
 
 dotenv.config();
 const app = express();
@@ -23,7 +23,7 @@ app.use(session({
     secret: process.env.SESSION_SECRET || 'defaultSecret',
     resave: false,
     saveUninitialized: true,
-    cookie: { 
+    cookie: {
         secure: process.env.NODE_ENV === 'production',  // Cookies sent over HTTPS only
         httpOnly: true,  // Prevent access via client-side JS
         sameSite: 'strict'  // Protection against CSRF attacks
