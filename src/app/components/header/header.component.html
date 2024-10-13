@@ -9,6 +9,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
+  <!-- Add this line to include i18next library for translations -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/i18next/21.6.10/i18next.min.js"></script>
 </head>
 
 <body>
@@ -18,11 +20,20 @@
         <a href="#hero">GraphExplorer Pro</a>
       </div>
       <div class="nav-links">
-        <a href="#features">Features</a>
-        <a href="#graph-types">Graph Types</a>
-        <a href="#algorithms">Algorithms</a>
-        <a href="#visualizer">Visualizer</a>
-        <a href="/faq">FAQ</a>
+        <a href="#features" data-i18n="features">Features</a>
+        <a href="#graph-types" data-i18n="graph-types">Graph Types</a>
+        <a href="#algorithms" data-i18n="algorithms">Algorithms</a>
+        <a href="#visualizer" data-i18n="visualizer">Visualizer</a>
+        <a href="/faq" data-i18n="faq">FAQ</a>
+        <div class="language-selector">
+          <select id="languageSelect">
+            <option value="en">English</option>
+            <option value="hi">हिन्दी (Hindi)</option>
+            <option value="fr">Français (French)</option>
+            <option value="de">Deutsch (German)</option>
+            <option value="es">Español (Spanish)</option>
+          </select>
+        </div>
         <a href="https://github.com/sakeel-103/DFS-BFS-Graph-Travers" target="_blank" class="github-link">
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="#ffffff">
             <path
@@ -36,10 +47,10 @@
   <section id="hero" class="hero">
     <div class="container">
       <div class="hero-content">
-        <h1>Unlock the Power of Graph Algorithms</h1>
-        <p>Dive into the fascinating world of graph theory and master advanced traversal techniques with GraphExplorer
+        <h1 data-i18n="hero-title">Unlock the Power of Graph Algorithms</h1>
+        <p data-i18n="hero-description">Dive into the fascinating world of graph theory and master advanced traversal techniques with GraphExplorer
           Pro.</p>
-        <a href="#features" [routerLink]="['/signup']" class="cta-button">Start Exploring</a>
+        <a href="#features" [routerLink]="['/signup']" class="cta-button" data-i18n="start-exploring">Start Exploring</a>
       </div>
     </div>
     <div class="graph-visual">
@@ -55,27 +66,27 @@
 
   <section id="features" class="features">
     <div class="container">
-      <h2>Why Choose GraphExplorer Pro?</h2>
+      <h2 data-i18n="why-choose">Why Choose GraphExplorer Pro?</h2>
       <div class="feature-grid">
         <div class="feature-card">
           <div class="feature-icon">📊</div>
-          <h3>Interactive Visualizations</h3>
-          <p>Experience graph algorithms in action with our cutting-edge visualization tools.</p>
+          <h3 data-i18n="interactive-visualizations">Interactive Visualizations</h3>
+          <p data-i18n="interactive-visualizations-desc">Experience graph algorithms in action with our cutting-edge visualization tools.</p>
         </div>
         <div class="feature-card">
           <div class="feature-icon">🧠</div>
-          <h3>In-Depth Learning</h3>
-          <p>Gain a deep understanding of graph theory and its practical applications.</p>
+          <h3 data-i18n="in-depth-learning">In-Depth Learning</h3>
+          <p data-i18n="in-depth-learning-desc">Gain a deep understanding of graph theory and its practical applications.</p>
         </div>
         <div class="feature-card">
           <div class="feature-icon">🚀</div>
-          <h3>Performance Optimization</h3>
-          <p>Learn how to implement and optimize graph algorithms for real-world scenarios.</p>
+          <h3 data-i18n="performance-optimization">Performance Optimization</h3>
+          <p data-i18n="performance-optimization-desc">Learn how to implement and optimize graph algorithms for real-world scenarios.</p>
         </div>
         <div class="feature-card">
           <div class="feature-icon">🌐</div>
-          <h3>Real-World Applications</h3>
-          <p>Discover how graph algorithms power social networks, GPS systems, and more.</p>
+          <h3 data-i18n="real-world-applications">Real-World Applications</h3>
+          <p data-i18n="real-world-applications-desc">Discover how graph algorithms power social networks, GPS systems, and more.</p>
         </div>
       </div>
     </div>
@@ -83,27 +94,27 @@
 
   <section id="graph-types" class="graph-types">
     <div class="container">
-      <h2>Explore Various Graph Types</h2>
+      <h2 data-i18n="explore-graph-types">Explore Various Graph Types</h2>
       <div class="graph-grid">
         <div class="graph-item">
           <div class="graph-icon">→</div>
-          <h3>Directed Graphs</h3>
+          <h3 data-i18n="directed-graphs">Directed Graphs</h3>
         </div>
         <div class="graph-item">
           <div class="graph-icon">⇔</div>
-          <h3>Undirected Graphs</h3>
+          <h3 data-i18n="undirected-graphs">Undirected Graphs</h3>
         </div>
         <div class="graph-item">
           <div class="graph-icon">⚖️</div>
-          <h3>Weighted Graphs</h3>
+          <h3 data-i18n="weighted-graphs">Weighted Graphs</h3>
         </div>
         <div class="graph-item">
           <div class="graph-icon">🌳</div>
-          <h3>Trees</h3>
+          <h3 data-i18n="trees">Trees</h3>
         </div>
         <div class="graph-item">
           <div class="graph-icon">⇉</div>
-          <h3>Directed Acyclic Graphs</h3>
+          <h3 data-i18n="directed-acyclic-graphs">Directed Acyclic Graphs</h3>
         </div>
       </div>
     </div>
@@ -111,21 +122,20 @@
 
   <section id="algorithms" class="algorithms">
     <div class="container">
-      <h2>Master Key Graph Algorithms</h2>
+      <h2 data-i18n="master-key-algorithms">Master Key Graph Algorithms</h2>
       <div class="algorithm-tabs">
-        <button class="tab-button active" data-tab="dfs">DFS</button>
-        <button class="tab-button" data-tab="bfs">BFS</button>
-        <button class="tab-button" data-tab="dijkstra">Dijkstra's</button>
+        <button class="tab-button active" data-tab="dfs" data-i18n="dfs">DFS</button>
+        <button class="tab-button" data-tab="bfs" data-i18n="bfs">BFS</button>
+        <button class="tab-button" data-tab="dijkstra" data-i18n="dijkstra">Dijkstra's</button>
       </div>
       <div class="tab-content">
         <div id="dfs-content">
-          <h3>Depth-First Search (DFS)</h3>
-          <p>DFS is a graph traversal algorithm that explores as far as possible along each branch before backtracking.
-            It's excellent for:</p>
+          <h3 data-i18n="dfs-full">Depth-First Search (DFS)</h3>
+          <p data-i18n="dfs-description">DFS is a graph traversal algorithm that explores as far as possible along each branch before backtracking. It's excellent for:</p>
           <ul>
-            <li>Detecting cycles in graphs</li>
-            <li>Pathfinding in mazes</li>
-            <li>Topological sorting</li>
+            <li data-i18n="dfs-use-1">Detecting cycles in graphs</li>
+            <li data-i18n="dfs-use-2">Pathfinding in mazes</li>
+            <li data-i18n="dfs-use-3">Topological sorting</li>
           </ul>
         </div>
       </div>
@@ -134,9 +144,8 @@
 
   <section id="visualizer" class="visualizer">
     <div class="container">
-      <h2>Interactive Graph Visualizer</h2>
-      <p>See graph algorithms in action! Experiment with different graph structures and watch as the algorithms traverse
-        them step by step.</p>
+      <h2 data-i18n="interactive-graph-visualizer">Interactive Graph Visualizer</h2>
+      <p data-i18n="visualizer-description">See graph algorithms in action! Experiment with different graph structures and watch as the algorithms traverse them step by step.</p>
       <div class="graph-container">
         <div class="graph-node" style="top: 20%; left: 20%;">1</div>
         <div class="graph-node" style="top: 60%; left: 30%;">2</div>
@@ -221,6 +230,207 @@
           }
         });
       });
+
+      // Translation functionality
+      const translations = {
+        en: {
+          "hero-title": "Unlock the Power of Graph Algorithms",
+          "hero-description": "Dive into the fascinating world of graph theory and master advanced traversal techniques with GraphExplorer Pro.",
+          "start-exploring": "Start Exploring",
+          "features": "Features",
+          "graph-types": "Graph Types",
+          "algorithms": "Algorithms",
+          "visualizer": "Visualizer",
+          "faq": "FAQ",
+          "why-choose": "Why Choose GraphExplorer Pro?",
+          "interactive-visualizations": "Interactive Visualizations",
+          "interactive-visualizations-desc": "Experience graph algorithms in action with our cutting-edge visualization tools.",
+          "in-depth-learning": "In-Depth Learning",
+          "in-depth-learning-desc": "Gain a deep understanding of graph theory and its practical applications.",
+          "performance-optimization": "Performance Optimization",
+          "performance-optimization-desc": "Learn how to implement and optimize graph algorithms for real-world scenarios.",
+          "real-world-applications": "Real-World Applications",
+          "real-world-applications-desc": "Discover how graph algorithms power social networks, GPS systems, and more.",
+          "explore-graph-types": "Explore Various Graph Types",
+          "directed-graphs": "Directed Graphs",
+          "undirected-graphs": "Undirected Graphs",
+          "weighted-graphs": "Weighted Graphs",
+          "trees": "Trees",
+          "directed-acyclic-graphs": "Directed Acyclic Graphs",
+          "interactive-graph-visualizer": "Interactive Graph Visualizer",
+          "visualizer-description": "See graph algorithms in action! Experiment with different graph structures and watch as the algorithms traverse them step by step.",
+          "master-key-algorithms": "Master Key Graph Algorithms",
+          "dfs": "DFS",
+          "bfs": "BFS",
+          "dijkstra": "Dijkstra's",
+          "dfs-full": "Depth-First Search (DFS)",
+          "dfs-description": "DFS is a graph traversal algorithm that explores as far as possible along each branch before backtracking. It's excellent for:",
+          "dfs-use-1": "Detecting cycles in graphs",
+          "dfs-use-2": "Pathfinding in mazes",
+          "dfs-use-3": "Topological sorting"
+        },
+        hi: {
+          "hero-title": "ग्राफ़ एल्गोरिदम की शक्ति को अनलॉक करें",
+          "hero-description": "ग्राफ़एक्सप्लोरर प्रो के साथ ग्राफ़एक्सप्लोरर प्रो के साथ ग्राफ़ सिद्धांत की रोमांचक दुनिया में गोता लगाएं और उन्नत ट्रैवर्सल तकनीकों में महारत हासिल करें।",
+          "start-exploring": "खोजना शुरू करें",
+          "features": "विशेषताएँ",
+          "graph-types": "ग्राफ प्रकार",
+          "algorithms": "एल्गोरिदम",
+          "visualizer": "विज़ुअलाइज़र",
+          "faq": "सामान्य प्रश्न",
+          "why-choose": "ग्राफएक्सप्लोरर प्रो क्यों चुनें?",
+          "interactive-visualizations": "इंटरैक्टिव विज़ुअलाइज़ेशन",
+          "interactive-visualizations-desc": "हमारे अत्याधुनिक विज़ुअलाइज़ेशन टूल्स के साथ ग्राफ एल्गोरिदम को क्रिया में अनुभव करें।",
+          "in-depth-learning": "गहन अध्ययन",
+          "in-depth-learning-desc": "ग्राफ सिद्धांत और इसके व्यावहारिक अनुप्रयोगों की गहरी समझ प्राप्त करें।",
+          "performance-optimization": "प्रदर्शन अनुकूलन",
+          "performance-optimization-desc": "वास्तविक दुनिया के परिदृश्यों के लिए ग्राफ एल्गोरिदम को कैसे लागू और अनुकूलित करें, यह सीखें।",
+          "real-world-applications": "वास्तविक दुनिया के अनुप्रयोग",
+          "real-world-applications-desc": "जानें कि ग्राफ एल्गोरिदम कैसे सोशल नेटवर्क, GPS सिस्टम और अधिक को संचालित करते हैं।",
+          "explore-graph-types": "विभिन्न ग्राफ प्रकारों का अन्वेषण करें",
+          "directed-graphs": "निर्देशित ग्राफ",
+          "undirected-graphs": "अनिर्देशित ग्राफ",
+          "weighted-graphs": "भारित ग्राफ",
+          "trees": "वृक्ष",
+          "directed-acyclic-graphs": "निर्देशित अचक्रीय ग्राफ",
+          "interactive-graph-visualizer": "इंटरैक्टिव ग्राफ विज़ुअलाइज़र",
+          "visualizer-description": "ग्राफ एल्गोरिदम को कार्रवाई में देखें! विभिन्न ग्राफ संरचनाओं के साथ प्रयोग करें और देखें कि एल्गोरिदम उन्हें कैसे चरण-दर-चरण पार करते हैं।",
+          "master-key-algorithms": "मास्टर की ग्राफ एल्गोरिदम",
+          "dfs": "DFS",
+          "bfs": "BFS",
+          "dijkstra": "डिजक्स्ट्रा",
+          "dfs-full": "गहरी पहुंच खोज (DFS)",
+          "dfs-description": "DFS एक ग्राफ ट्रैवर्सल एल्गोरिदम है जो प्रत्येक शाखा के सबसे दूर तक पहुंचता है और फिर वापस जाता है। यह बहुत अच्छा है:",
+          "dfs-use-1": "ग्राफ में सिक्ल का पता लगाने के लिए",
+          "dfs-use-2": "मेज़ों में पथ खोजने के लिए",
+          "dfs-use-3": "टॉपोलॉजिकल सॉर्टिंग"
+        },
+        fr: {
+          "hero-title": "Débloquez la puissance des algorithmes de graphes",
+          "hero-description": "Plongez dans le monde fascinant de la théorie des graphes et maîtrisez les techniques de traversée avancées avec GraphExplorer Pro.",
+          "start-exploring": "Commencer l'exploration",
+          "features": "Fonctionnalités",
+          "graph-types": "Types de graphes",
+          "algorithms": "Algorithmes",
+          "visualizer": "Visualiseur",
+          "faq": "FAQ",
+          "why-choose": "Pourquoi choisir GraphExplorer Pro ?",
+          "interactive-visualizations": "Visualisations interactives",
+          "interactive-visualizations-desc": "Expérimentez les algorithmes de graphes en action avec nos outils de visualisation de pointe.",
+          "in-depth-learning": "Apprentissage approfondi",
+          "in-depth-learning-desc": "Acquérez une compréhension approfondie de la théorie des graphes et de ses applications pratiques.",
+          "performance-optimization": "Optimisation des performances",
+          "performance-optimization-desc": "Apprenez à implémenter et à optimiser des algorithmes de graphes pour des scénarios du monde réel.",
+          "real-world-applications": "Applications concrètes",
+          "real-world-applications-desc": "Découvrez comment les algorithmes de graphes alimentent les réseaux sociaux, les systèmes GPS et bien plus encore.",
+          "explore-graph-types": "Explorez différents types de graphes",
+          "directed-graphs": "Graphes orientés",
+          "undirected-graphs": "Graphes non orientés",
+          "weighted-graphs": "Graphes pondérés",
+          "trees": "Arbres",
+          "directed-acyclic-graphs": "Graphes acycliques orientés",
+          "interactive-graph-visualizer": "Visualiseur de graphes interactif",
+          "visualizer-description": "Voyez les algorithmes de graphes en action ! Expérimentez avec différentes structures de graphes et observez comment les algorithmes les parcourent étape par étape.",
+          "master-key-algorithms": "Algorithmes clés de graphes",
+          "dfs": "DFS",
+          "bfs": "BFS",
+          "dijkstra": "Dijkstra",
+          "dfs-full": "Recherche en profondeur (DFS)",
+          "dfs-description": "DFS est un algorithme de parcours de graphe qui explore autant que possible le long de chaque branche avant de revenir en arrière. Il est excellent pour :",
+          "dfs-use-1": "Détection de cycles dans les graphes",
+          "dfs-use-2": "Recherche de chemin dans les labyrinthes",
+          "dfs-use-3": "Tri topologique"
+        },
+        de: {
+          "hero-title": "Erschließen Sie die Macht von Graphalgorithmen",
+          "hero-description": "Tauchen Sie mit GraphExplorer Pro in die faszinierende Welt der Graphentheorie ein und meistern Sie fortgeschrittene Traversierungstechniken.",
+          "start-exploring": "Starten Sie die Erkundung",
+          "features": "Funktionen",
+          "graph-types": "Graphentypen",
+          "algorithms": "Algorithmen",
+          "visualizer": "Visualisierer",
+          "faq": "FAQ",
+          "why-choose": "Warum GraphExplorer Pro wählen?",
+          "interactive-visualizations": "Interaktive Visualisierungen",
+          "interactive-visualizations-desc": "Erleben Sie Graphalgorithmen in Aktion mit unseren hochmodernen Visualisierungstools.",
+          "in-depth-learning": "Tiefgehendes Lernen",
+          "in-depth-learning-desc": "Gewinnen Sie ein tiefes Verständnis der Graphentheorie und ihrer praktischen Anwendungen.",
+          "performance-optimization": "Leistungsoptimierung",
+          "performance-optimization-desc": "Lernen Sie, wie man Graphalgorithmen für reale Szenarien implementiert und optimiert.",
+          "real-world-applications": "Anwendungen in der realen Welt",
+          "real-world-applications-desc": "Entdecken Sie, wie Graphalgorithmen soziale Netzwerke, GPS-Systeme und mehr antreiben.",
+          "explore-graph-types": "Erkunden Sie verschiedene Graphentypen",
+          "directed-graphs": "Gerichtete Graphen",
+          "undirected-graphs": "Ungerichtete Graphen",
+          "weighted-graphs": "Gewichtete Graphen",
+          "trees": "Bäume",
+          "directed-acyclic-graphs": "Gerichtete azyklische Graphen",
+          "interactive-graph-visualizer": "Interaktiver Graph-Visualisierer",
+          "visualizer-description": "Sehen Sie Graphalgorithmen in Aktion! Experimentieren Sie mit verschiedenen Graphstrukturen und beobachten Sie, wie die Algorithmen sie Schritt für Schritt durchlaufen.",
+          "master-key-algorithms": "Meister-Graphenalgorithmen",
+          "dfs": "DFS",
+          "bfs": "BFS",
+          "dijkstra": "Dijkstra",
+          "dfs-full": "Tiefensuche (DFS)",
+          "dfs-description": "DFS ist ein Graphen-Traversal-Algorithmus, der so weit wie möglich entlang jeder Verzweigung vor dem Zurückgehen erkundet. Es ist hervorragend für:",
+          "dfs-use-1": "Zyklen in Graphen erkennen",
+          "dfs-use-2": "Pfadfindung in Labyrinthen",
+          "dfs-use-3": "Topologische Sortierung"
+        },
+        es: {
+          "hero-title": "Desbloquea el poder de los algoritmos de grafos",
+          "hero-description": "Sumérgete en el fascinante mundo de la teoría de grafos y domina técnicas avanzadas de recorrido con GraphExplorer Pro.",
+          "start-exploring": "Empieza a explorar",
+          "features": "Características",
+          "graph-types": "Tipos de grafos",
+          "algorithms": "Algoritmos",
+          "visualizer": "Visualizador",
+          "faq": "Preguntas frecuentes",
+          "why-choose": "¿Por qué elegir GraphExplorer Pro?",
+          "interactive-visualizations": "Visualizaciones interactivas",
+          "interactive-visualizations-desc": "Experimenta los algoritmos de grafos en acción con nuestras herramientas de visualización de vanguardia.",
+          "in-depth-learning": "Aprendizaje en profundidad",
+          "in-depth-learning-desc": "Obtén una comprensión profunda de la teoría de grafos y sus aplicaciones prácticas.",
+          "performance-optimization": "Optimización del rendimiento",
+          "performance-optimization-desc": "Aprende a implementar y optimizar algoritmos de grafos para escenarios del mundo real.",
+          "real-world-applications": "Aplicaciones del mundo real",
+          "real-world-applications-desc": "Descubre cómo los algoritmos de grafos impulsan las redes sociales, los sistemas GPS y mucho más.",
+          "explore-graph-types": "Explora varios tipos de grafos",
+          "directed-graphs": "Grafos dirigidos",
+          "undirected-graphs": "Grafos no dirigidos",
+          "weighted-graphs": "Grafos ponderados",
+          "trees": "Árboles",
+          "directed-acyclic-graphs": "Grafos acíclicos dirigidos",
+          "interactive-graph-visualizer": "Visualizador de grafos interactivo",
+          "visualizer-description": "¡Vea los algoritmos de grafos en acción! Experimente con diferentes estructuras de grafos y observe cómo los algoritmos los recorren paso a paso.",
+          "master-key-algorithms": "Algoritmos clave de grafos",
+          "dfs": "DFS",
+          "bfs": "BFS",
+          "dijkstra": "Dijkstra",
+          "dfs-full": "Búsqueda en profundidad (DFS)",
+          "dfs-description": "DFS es un algoritmo de recorrido de grafos que explora lo más posible a lo largo de cada rama antes de retroceder. Es excelente para:",
+          "dfs-use-1": "Detectar ciclos en grafos",
+          "dfs-use-2": "Búsqueda de rutas en laberintos",
+          "dfs-use-3": "Ordenamiento topológico"
+        }
+      };
+
+      function translatePage(lang) {
+        document.querySelectorAll('[data-i18n]').forEach(element => {
+          const key = element.getAttribute('data-i18n');
+          if (translations[lang] && translations[lang][key]) {
+            element.textContent = translations[lang][key];
+          }
+        });
+      }
+
+      const languageSelect = document.getElementById('languageSelect');
+      languageSelect.addEventListener('change', (event) => {
+        translatePage(event.target.value);
+      });
+
+      // Initialize with English
+      translatePage('en');
     });
   </script>
 </body>
