@@ -8,65 +8,6 @@ body {
   color: #333;
 }
 
-.navbar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem 2rem;
-  background-color: #333;
-  color: #fff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  z-index: 1000;
-}
-
-.nav-left p {
-  font-size: 1.8rem;
-  font-weight: bold;
-  margin: 0;
-  letter-spacing: 1px;
-}
-
-.div-new {
-  display: flex;
-  align-items: center;
-  gap: 1.5rem;
-}
-
-.div-new a {
-  color: #fff;
-  text-decoration: none;
-  font-weight: 500;
-  padding: 0.5rem 1rem;
-  border-radius: 4px;
-  transition: background-color 0.3s;
-}
-
-.div-new a:hover {
-  background-color: rgba(255, 255, 255, 0.1);
-}
-
-.profile-dropdown {
-  position: relative;
-  margin-right: 1.5rem;
-}
-
-.profile-img {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  border: 2px solid #fff;
-  cursor: pointer;
-  transition: transform 0.2s;
-}
-
-.profile-img:hover {
-  transform: scale(1.05);
-}
-
 #bfs-container,
 #dfs-container {
   margin-top: 80px;
@@ -178,14 +119,6 @@ button:active {
   transform: translateY(0);
 }
 
-.box-container {
-  display: flex;
-  gap: 1rem;
-  margin-top: 2rem;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
 .box {
   flex: 1;
   min-width: 200px;
@@ -222,35 +155,12 @@ button:active {
   display: none;
 }
 
-.logout-btn {
-  background-color: #ff4757;
-  margin-left: 1rem;
-  padding: 0.6rem 1.2rem;
-}
-
-.logout-btn:hover {
-  background-color: #ff6b81;
-  transform: scale(1.05);
-}
-
 @media (max-width: 768px) {
-  .navbar {
-    padding: 1rem;
-  }
-
-  .nav-left p {
-    font-size: 1.4rem;
-  }
-
   #bfs-container,
   #dfs-container {
     padding: 1rem;
     margin-top: 70px;
     width: 95%;
-  }
-
-  .box-container {
-    flex-direction: column;
   }
 
   .box {
