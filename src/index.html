@@ -1,26 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <title>EccomPRJ</title>
-    <base href="/" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <!-- <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
-      integrity="sha384-DyZvKOMtLm7n1KrDI+Wk8dqE3T4W93Z2RUB+8fjYPfR6H+Dr/29o23y4S9bOeRSF"
-      crossorigin="anonymous"
-    /> -->
-    <!-- <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
-      integrity="sha384-lpIfNCMRYw6B++fWQlvAnXo3yF2Rkpjr3xlA9y2Y8/yH68St2soGgll95FZGl/Mz"
-      crossorigin="anonymous"
-    /> -->
 
-    <link rel="icon" type="image/x-icon" href="favicon.ico" />
-  </head>
-  <body>
-    <app-root></app-root>
-  </body>
+<head>
+  <meta charset="utf-8" />
+  <title>EccomPRJ</title>
+  <base href="/" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="icon" type="image/x-icon" href="favicon.ico" />
+
+  <style>
+    .scrollToTop {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      display: none;
+      width: 50px;
+      height: 50px;
+      background-color: #8f8f8f;
+      color: white;
+      opacity: 0.5;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 28px;
+      font-weight: 500;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+      text-align: center;
+      transition: opacity 0.3s ease;
+    }
+
+    .scrollToTop.show-btn {
+      display: flex;
+      opacity: 1;
+    }
+
+    .scrollToTop:hover {
+      box-shadow: 0 4px 8px rgba(255, 255, 255, 0.3);
+    }
+  </style>
+</head>
+
+<body>
+  <app-root></app-root>
+  <button id="scrollToTopBtn" class="scrollToTop">↑</button>
+
+  <script>
+    const scrollButton = document.getElementById('scrollToTopBtn');
+
+    window.addEventListener('scroll', () => {
+      window.pageYOffset > 100
+        ? scrollButton.classList.add('show-btn')
+        : scrollButton.classList.remove('show-btn');
+    });
+
+    function smoothScrollToTop() {
+      const scrollY = window.pageYOffset;
+
+      if (scrollY > 0) {
+        window.scrollBy(0, -Math.min(scrollY, 70));
+        requestAnimationFrame(smoothScrollToTop);
+      }
+    }
+
+    scrollButton.addEventListener('click', () => {
+      smoothScrollToTop();
+    });
+  </script>
+</body>
 </html>

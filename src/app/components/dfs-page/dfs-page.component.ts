@@ -2,11 +2,12 @@ import { Component, AfterViewInit, OnInit } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
+import { NavbarComponent } from '../navbar/navbar.component';
 
 @Component({
   selector: 'app-dfs-page',
   standalone: true,
-  imports: [RouterModule, FormsModule],
+  imports: [RouterModule, FormsModule,NavbarComponent],
   templateUrl: './dfs-page.component.html',
   styleUrls: ['./dfs-page.component.css'],
 })
@@ -20,6 +21,7 @@ export class DfsPageComponent implements AfterViewInit, OnInit {
 
   customNodeInput: string = '';
   customEdgeInput: string = '';
+  isDropdownOpen: boolean = false;
 
   constructor(private authService: AuthService) {}
 
@@ -33,6 +35,10 @@ export class DfsPageComponent implements AfterViewInit, OnInit {
 
     this.adjustCanvasSize(); // Adjust size first
     this.drawGraph(dfsCtx);  // Then draw
+  }
+  
+  toggleDropdown(): void {
+    this.isDropdownOpen = !this.isDropdownOpen;
   }
 
   private adjustCanvasSize(): void {

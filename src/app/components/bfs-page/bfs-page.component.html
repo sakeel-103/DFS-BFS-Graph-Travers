@@ -1,50 +1,32 @@
-<div class="navbar">
-  <div class="nav-left">
-    <p>GRAPH-TRAVERSAL</p>
-  </div>
-  <div style="display: flex;">
-    <div class="div-new">
-      <a [routerLink]="['/mainIndex']" class="btn">Home</a>
-      <a [routerLink]="['/dfsPage']" class="btn">DFS</a>
-    </div>
-
-    <!-- Profile Section with Dropdown -->
-    <div class="profile-dropdown">
-      <img src="https://as1.ftcdn.net/v2/jpg/07/77/92/08/1000_F_777920887_JNV7hglZmyROgiZjGb6x9DP4Qfu5gyg0.jpg"
-        alt="Profile" class="profile-img" onclick="toggleDropdown()">
-      <div id="dropdown-menu" class="dropdown-content">
-        <!-- <a href="#">My Profile</a>
-                <a href="#">Logout</a> -->
-      </div>
-    </div>
-
-    <button (click)="onLogout()" class="btn logout-btn">Logout</button>
-
-  </div>
-</div>
+<app-navbar></app-navbar>
 
 <div id="bfs-container">
   <!-- Custom Graph Input -->
-  <div class="custom-input">
-    <label for="nodes">Nodes (comma-separated):</label>
-    <input [(ngModel)]="customNodeInput" id="nodes" type="text" placeholder="A,B,C,D,E,F,G" />
-    <br>
+  <div style="display: flex; justify-content: center;">
+    <div class="custom-input">
+      <label for="nodes">Nodes (comma-separated):</label>
+      <input [(ngModel)]="customNodeInput" id="nodes" type="text" placeholder="A,B,C,D,E,F,G" />
+      <br>
 
-    <label for="edges">Edges (format: 0-1;1-2):</label>
-    <input [(ngModel)]="customEdgeInput" id="edges" type="text" placeholder="0-1;0-2;1-3" />
-    <br>
+      <label for="edges">Edges (format: 0-1;1-2):</label>
+      <input [(ngModel)]="customEdgeInput" id="edges" type="text" placeholder="0-1;0-2;1-3" />
+      <br>
 
-    <button (click)="handleCustomGraphInput()">Create Custom Graph</button>
-    <button class="clear-button" (click)="clearForm()">Clear Form</button>
+      <button (click)="handleCustomGraphInput()">Create Custom Graph</button>
+      <button class="clear-button" (click)="clearForm()">Clear Form</button>
+    </div>
   </div>
 
   <h2>Breadth First Search</h2>
-  <div class="scrollable-container">
-    <canvas #bfsCanvas id="bfs-canvas" width="600" height="400"></canvas>
+
+  <div class="scrollable-container" style="height: 200px;">
+    <canvas #bfsCanvas id="bfs-canvas" width="600" height="200"></canvas>
   </div>
+
   <div>
-    <button (click)="startBFSTraversal()">Start BFS</button>
-    <button (click)="resetBFS()">Reset BFS</button>
+    <button style="margin: 10px;" (click)="startBFSTraversal()">Start BFS</button>
+    <button style="margin: 10px;" (click)="resetBFS()">Reset BFS</button>
+    <button style="margin: 10px;" (click)="toggleBFSCard()">Algorithm Description</button> <!-- New button -->
   </div>
 
   <!-- BFS Description Card (Initially Hidden) -->
@@ -57,7 +39,7 @@
     </p>
   </div>
 
-  <div>
+  <div style="display: flex;">
     <div id="bfs-queue" class="box">
       <div id="queue-label">Queue:</div>
       <div id="queue-content"></div>

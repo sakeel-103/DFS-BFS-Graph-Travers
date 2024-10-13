@@ -2,11 +2,12 @@ import { Component, AfterViewInit, OnInit } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
+import { NavbarComponent } from '../navbar/navbar.component';
 
 @Component({
   selector: 'app-bfs-page',
   standalone: true,
-  imports: [RouterModule,FormsModule],
+  imports: [RouterModule, FormsModule,NavbarComponent],
   templateUrl: './bfs-page.component.html',
   styleUrls: ['./bfs-page.component.css'],
 })
@@ -21,7 +22,7 @@ export class BfsPageComponent implements AfterViewInit, OnInit {
 
   customNodeInput: string = '';
   customEdgeInput: string = '';
-
+  isDropdownOpen: boolean = false;
   constructor(private authService: AuthService) {}
 
   ngOnInit(): void {
@@ -33,6 +34,10 @@ export class BfsPageComponent implements AfterViewInit, OnInit {
     const bfsCtx = this.bfsCanvas.getContext('2d')!;
     this.adjustCanvasSize(); // Adjust size first
     this.drawGraph(bfsCtx);
+  }
+
+  toggleDropdown(): void {
+    this.isDropdownOpen = !this.isDropdownOpen;
   }
 
   private adjustCanvasSize(): void {

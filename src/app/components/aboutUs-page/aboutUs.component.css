@@ -1,13 +1,13 @@
-
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-body, html {
+body,
+html {
   height: 100%;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   line-height: 1.6;
 }
 
@@ -26,39 +26,17 @@ header {
   position: fixed;
   width: 100%;
   z-index: 1000;
-  padding: 0 5%; 
-  display: flex; 
+  padding: 0 5%;
+  display: flex;
   align-items: center;
-  justify-content: space-between; 
-  height: 60px; 
+  justify-content: space-between;
+  height: 60px;
 }
 
 header .logo {
   font-size: 1.5rem;
   font-weight: 700;
   color: #ffffff;
-}
-
-nav ul {
-  list-style-type: none;
-  display: flex;
-  align-items: center;
-  margin: 0; 
-}
-
-nav ul li {
-  margin-left: 2rem;
-}
-
-nav ul li a {
-  color: #ffffff;
-  text-decoration: none;
-  font-weight: 500;
-  transition: color 0.3s ease;
-}
-
-nav ul li a:hover {
-  color: #ffd60a;
 }
 
 .about-us {
