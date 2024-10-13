@@ -10,6 +10,7 @@ import { DfsPageComponent } from './components/dfs-page/dfs-page.component';
 import { FaqComponent } from './components/faq/faq.component';
 import { QuizComponent } from './components/quiz/quiz.component';
 import { RealworldComponent } from './components/realworld/realworld.component';
+import { QuestionBankComponent } from './components/practice/practice.component';
 
 export const routes: Routes = [
   {
@@ -51,6 +52,10 @@ export const routes: Routes = [
   {
     path: 'real-world',
     component: RealworldComponent,
+  },
+  {
+    path: 'questions',
+    component: QuestionBankComponent,
   },
   {
     path: '**',

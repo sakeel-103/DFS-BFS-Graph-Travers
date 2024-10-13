@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { NavbarComponent } from '../navbar/navbar.component';
 
 interface Application {
   id: number;
@@ -14,7 +15,7 @@ interface Application {
 @Component({
   selector: 'app-graph-applications',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, NavbarComponent],
   templateUrl: './realworld.component.html',
   styleUrls: ['./realworld.component.css']
 })
