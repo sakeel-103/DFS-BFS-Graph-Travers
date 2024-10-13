@@ -164,6 +164,102 @@
       </div>
     </div>
   </section>
+  <div class="forum-container">
+    <h1>Discussion Forum</h1>
+
+    <!-- Create New Thread Form -->
+    <div class="new-thread">
+      <h2>Create a New Thread</h2>
+      <input id="thread-title" type="text" placeholder="Thread Title" required>
+      <textarea id="thread-content" placeholder="Write your thread content" required></textarea>
+      <button onclick="createThread()">Post Thread</button>
+    </div>
+
+    <!-- Display All Threads -->
+    <div id="threads" class="threads">
+      <h2>All Threads</h2>
+      <!-- Threads will be injected here -->
+    </div>
+  </div>
+
+  <!-- Inline JavaScript code (previously TypeScript) -->
+  <script>
+    // Interface for thread structure
+    // Converted to plain JavaScript as browsers don't natively support TypeScript
+    let threads = JSON.parse(localStorage.getItem('threads') || '[]');
+
+    // Function to create a new thread
+    function createThread() {
+      const titleInput = document.getElementById('thread-title');
+      const contentInput = document.getElementById('thread-content');
+
+      const title = titleInput.value;
+      const content = contentInput.value;
+
+      if (title && content) {
+        const newThread = {
+          title,
+          content,
+          replies: []
+        };
+
+        threads.push(newThread);
+        localStorage.setItem('threads', JSON.stringify(threads));
+
+        // Clear the input fields
+        titleInput.value = '';
+        contentInput.value = '';
+
+        // Reload the threads
+        displayThreads();
+      }
+    }
+
+    // Function to display all threads
+    function displayThreads() {
+      const threadsContainer = document.getElementById('threads');
+      threadsContainer.innerHTML = ''; // Clear existing threads
+
+      threads.forEach((thread, index) => {
+        const threadDiv = document.createElement('div');
+        threadDiv.classList.add('thread');
+        threadDiv.innerHTML = `
+          <h3>${thread.title}</h3>
+          <p>${thread.content}</p>
+          <button onclick="toggleReplies(${index})">View Replies</button>
+          <div id="replies-${index}" class="reply-container" style="display:none">
+            ${thread.replies.map(reply => `<div class="reply">${reply}</div>`).join('')}
+            <textarea id="reply-input-${index}" placeholder="Your reply"></textarea>
+            <button onclick="addReply(${index})">Post Reply</button>
+          </div>
+        `;
+        threadsContainer.appendChild(threadDiv);
+      });
+    }
+
+    // Function to add a reply to a thread
+    function addReply(threadIndex) {
+      const replyInput = document.getElementById(`reply-input-${threadIndex}`);
+      const replyContent = replyInput.value;
+
+      if (replyContent) {
+        threads[threadIndex].replies.push(replyContent);
+        localStorage.setItem('threads', JSON.stringify(threads));
+        replyInput.value = ''; // Clear the reply input
+        displayThreads(); // Reload the threads with new replies
+      }
+    }
+
+    // Function to toggle the visibility of replies
+    function toggleReplies(threadIndex) {
+      const repliesContainer = document.getElementById(`replies-${threadIndex}`);
+      repliesContainer.style.display = repliesContainer.style.display === 'none' ? 'block' : 'none';
+    }
+
+    // Initial load of threads
+    displayThreads();
+  </script>
+  
 
   <footer class="footer">
     <div class="container">
