@@ -20,7 +20,7 @@
       right: 0;
       z-index: 1000;
     }
-    
+
     body {
       padding-top: 50px; /* Adjust this value based on the height of your welcome heading */
     }
@@ -76,6 +76,10 @@
             <i class="bx" [ngClass]="passwordVisible ? 'bx bx-show' : 'bx bx-hide'" (click)="togglePasswordVisibility()"
               style="cursor: pointer; position: absolute; right: 10px; top: 50%; transform: translateY(-50%);"></i>
           </div>
+          <div class="checkbox-container">
+            <input type="checkbox" id="remember" name="remember">
+            <label for="remember">Remember Me</label>
+        </div>
 
           <button type="submit" [routerLink]="['/mainIndex']" class="btn">Login</button>
           
@@ -91,6 +95,7 @@
             <a href="https://sakeel-103.github.io/My_Portfolio_new/" class="social-icon" title="Portfolio"><i
                 class="fas fa-laptop"></i></a>
           </div>
+
           <p class="signup-text">
             Don't have an account? <a routerLink="/signup">Sign Up</a>
           </p>
