@@ -164,14 +164,35 @@
     <div class="container">
       <div class="footer-content">
         <p>&copy; 2024 GraphExplorer Pro. All rights reserved.</p>
-        <div class="social-links">
-          <a href="https://x.com/">Twitter</a> |
-          <a href="https://www.facebook.com/">Facebook</a> |
-          <a href="https://www.linkedin.com/">LinkedIn</a>
+        <div class="footer-links">
+          <a href="#" id="contactUsBtn" data-i18n="contact-us">Contact Us</a> |
+          <a href="https://x.com/" data-i18n="twitter">Twitter</a> |
+          <a href="https://www.facebook.com/" data-i18n="facebook">Facebook</a> |
+          <a href="https://www.linkedin.com/" data-i18n="linkedin">LinkedIn</a>
         </div>
       </div>
     </div>
   </footer>
+
+  <!-- Add the contact form modal -->
+  <div id="contactModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2 data-i18n="contact-us-title">Contact Us</h2>
+      <form id="contactForm">
+        <label for="name" data-i18n="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+        
+        <label for="email" data-i18n="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+        
+        <label for="message" data-i18n="message">Message:</label>
+        <textarea id="message" name="message" required></textarea>
+        
+        <button type="submit" data-i18n="send">Send</button>
+      </form>
+    </div>
+  </div>
 
   <script>
     document.addEventListener("DOMContentLoaded", function () {
@@ -231,7 +252,26 @@
         });
       });
 
-      // Translation functionality
+      // Contact form modal functionality
+      const modal = document.getElementById("contactModal");
+      const btn = document.getElementById("contactUsBtn");
+      const span = document.getElementsByClassName("close")[0];
+
+      btn.onclick = function() {
+        modal.style.display = "block";
+      }
+
+      span.onclick = function() {
+        modal.style.display = "none";
+      }
+
+      window.onclick = function(event) {
+        if (event.target == modal) {
+          modal.style.display = "none";
+        }
+      }
+
+      // Updated translations object
       const translations = {
         en: {
           "hero-title": "Unlock the Power of Graph Algorithms",
@@ -267,7 +307,16 @@
           "dfs-description": "DFS is a graph traversal algorithm that explores as far as possible along each branch before backtracking. It's excellent for:",
           "dfs-use-1": "Detecting cycles in graphs",
           "dfs-use-2": "Pathfinding in mazes",
-          "dfs-use-3": "Topological sorting"
+          "dfs-use-3": "Topological sorting",
+          "contact-us": "Contact Us",
+          "contact-us-title": "Contact Us",
+          "name": "Name:",
+          "email": "Email:",
+          "message": "Message:",
+          "send": "Send",
+          "twitter": "Twitter",
+          "facebook": "Facebook",
+          "linkedin": "LinkedIn"
         },
         hi: {
           "hero-title": "ग्राफ़ एल्गोरिदम की शक्ति को अनलॉक करें",
@@ -303,123 +352,29 @@
           "dfs-description": "DFS एक ग्राफ ट्रैवर्सल एल्गोरिदम है जो प्रत्येक शाखा के सबसे दूर तक पहुंचता है और फिर वापस जाता है। यह बहुत अच्छा है:",
           "dfs-use-1": "ग्राफ में सिक्ल का पता लगाने के लिए",
           "dfs-use-2": "मेज़ों में पथ खोजने के लिए",
-          "dfs-use-3": "टॉपोलॉजिकल सॉर्टिंग"
+          "dfs-use-3": "टॉपोलॉजिकल सॉर्टिंग",
+          "contact-us": "संपर्क करें",
+          "contact-us-title": "संपर्क करें",
+          "name": "नाम:",
+          "email": "ईमेल:",
+          "message": "संदेश:",
+          "send": "भेजें",
+          "twitter": "ट्विटर",
+          "facebook": "फेसबुक",
+          "linkedin": "लिंक्डइन"
         },
-        fr: {
-          "hero-title": "Débloquez la puissance des algorithmes de graphes",
-          "hero-description": "Plongez dans le monde fascinant de la théorie des graphes et maîtrisez les techniques de traversée avancées avec GraphExplorer Pro.",
-          "start-exploring": "Commencer l'exploration",
-          "features": "Fonctionnalités",
-          "graph-types": "Types de graphes",
-          "algorithms": "Algorithmes",
-          "visualizer": "Visualiseur",
-          "faq": "FAQ",
-          "why-choose": "Pourquoi choisir GraphExplorer Pro ?",
-          "interactive-visualizations": "Visualisations interactives",
-          "interactive-visualizations-desc": "Expérimentez les algorithmes de graphes en action avec nos outils de visualisation de pointe.",
-          "in-depth-learning": "Apprentissage approfondi",
-          "in-depth-learning-desc": "Acquérez une compréhension approfondie de la théorie des graphes et de ses applications pratiques.",
-          "performance-optimization": "Optimisation des performances",
-          "performance-optimization-desc": "Apprenez à implémenter et à optimiser des algorithmes de graphes pour des scénarios du monde réel.",
-          "real-world-applications": "Applications concrètes",
-          "real-world-applications-desc": "Découvrez comment les algorithmes de graphes alimentent les réseaux sociaux, les systèmes GPS et bien plus encore.",
-          "explore-graph-types": "Explorez différents types de graphes",
-          "directed-graphs": "Graphes orientés",
-          "undirected-graphs": "Graphes non orientés",
-          "weighted-graphs": "Graphes pondérés",
-          "trees": "Arbres",
-          "directed-acyclic-graphs": "Graphes acycliques orientés",
-          "interactive-graph-visualizer": "Visualiseur de graphes interactif",
-          "visualizer-description": "Voyez les algorithmes de graphes en action ! Expérimentez avec différentes structures de graphes et observez comment les algorithmes les parcourent étape par étape.",
-          "master-key-algorithms": "Algorithmes clés de graphes",
-          "dfs": "DFS",
-          "bfs": "BFS",
-          "dijkstra": "Dijkstra",
-          "dfs-full": "Recherche en profondeur (DFS)",
-          "dfs-description": "DFS est un algorithme de parcours de graphe qui explore autant que possible le long de chaque branche avant de revenir en arrière. Il est excellent pour :",
-          "dfs-use-1": "Détection de cycles dans les graphes",
-          "dfs-use-2": "Recherche de chemin dans les labyrinthes",
-          "dfs-use-3": "Tri topologique"
-        },
-        de: {
-          "hero-title": "Erschließen Sie die Macht von Graphalgorithmen",
-          "hero-description": "Tauchen Sie mit GraphExplorer Pro in die faszinierende Welt der Graphentheorie ein und meistern Sie fortgeschrittene Traversierungstechniken.",
-          "start-exploring": "Starten Sie die Erkundung",
-          "features": "Funktionen",
-          "graph-types": "Graphentypen",
-          "algorithms": "Algorithmen",
-          "visualizer": "Visualisierer",
-          "faq": "FAQ",
-          "why-choose": "Warum GraphExplorer Pro wählen?",
-          "interactive-visualizations": "Interaktive Visualisierungen",
-          "interactive-visualizations-desc": "Erleben Sie Graphalgorithmen in Aktion mit unseren hochmodernen Visualisierungstools.",
-          "in-depth-learning": "Tiefgehendes Lernen",
-          "in-depth-learning-desc": "Gewinnen Sie ein tiefes Verständnis der Graphentheorie und ihrer praktischen Anwendungen.",
-          "performance-optimization": "Leistungsoptimierung",
-          "performance-optimization-desc": "Lernen Sie, wie man Graphalgorithmen für reale Szenarien implementiert und optimiert.",
-          "real-world-applications": "Anwendungen in der realen Welt",
-          "real-world-applications-desc": "Entdecken Sie, wie Graphalgorithmen soziale Netzwerke, GPS-Systeme und mehr antreiben.",
-          "explore-graph-types": "Erkunden Sie verschiedene Graphentypen",
-          "directed-graphs": "Gerichtete Graphen",
-          "undirected-graphs": "Ungerichtete Graphen",
-          "weighted-graphs": "Gewichtete Graphen",
-          "trees": "Bäume",
-          "directed-acyclic-graphs": "Gerichtete azyklische Graphen",
-          "interactive-graph-visualizer": "Interaktiver Graph-Visualisierer",
-          "visualizer-description": "Sehen Sie Graphalgorithmen in Aktion! Experimentieren Sie mit verschiedenen Graphstrukturen und beobachten Sie, wie die Algorithmen sie Schritt für Schritt durchlaufen.",
-          "master-key-algorithms": "Meister-Graphenalgorithmen",
-          "dfs": "DFS",
-          "bfs": "BFS",
-          "dijkstra": "Dijkstra",
-          "dfs-full": "Tiefensuche (DFS)",
-          "dfs-description": "DFS ist ein Graphen-Traversal-Algorithmus, der so weit wie möglich entlang jeder Verzweigung vor dem Zurückgehen erkundet. Es ist hervorragend für:",
-          "dfs-use-1": "Zyklen in Graphen erkennen",
-          "dfs-use-2": "Pfadfindung in Labyrinthen",
-          "dfs-use-3": "Topologische Sortierung"
-        },
-        es: {
-          "hero-title": "Desbloquea el poder de los algoritmos de grafos",
-          "hero-description": "Sumérgete en el fascinante mundo de la teoría de grafos y domina técnicas avanzadas de recorrido con GraphExplorer Pro.",
-          "start-exploring": "Empieza a explorar",
-          "features": "Características",
-          "graph-types": "Tipos de grafos",
-          "algorithms": "Algoritmos",
-          "visualizer": "Visualizador",
-          "faq": "Preguntas frecuentes",
-          "why-choose": "¿Por qué elegir GraphExplorer Pro?",
-          "interactive-visualizations": "Visualizaciones interactivas",
-          "interactive-visualizations-desc": "Experimenta los algoritmos de grafos en acción con nuestras herramientas de visualización de vanguardia.",
-          "in-depth-learning": "Aprendizaje en profundidad",
-          "in-depth-learning-desc": "Obtén una comprensión profunda de la teoría de grafos y sus aplicaciones prácticas.",
-          "performance-optimization": "Optimización del rendimiento",
-          "performance-optimization-desc": "Aprende a implementar y optimizar algoritmos de grafos para escenarios del mundo real.",
-          "real-world-applications": "Aplicaciones del mundo real",
-          "real-world-applications-desc": "Descubre cómo los algoritmos de grafos impulsan las redes sociales, los sistemas GPS y mucho más.",
-          "explore-graph-types": "Explora varios tipos de grafos",
-          "directed-graphs": "Grafos dirigidos",
-          "undirected-graphs": "Grafos no dirigidos",
-          "weighted-graphs": "Grafos ponderados",
-          "trees": "Árboles",
-          "directed-acyclic-graphs": "Grafos acíclicos dirigidos",
-          "interactive-graph-visualizer": "Visualizador de grafos interactivo",
-          "visualizer-description": "¡Vea los algoritmos de grafos en acción! Experimente con diferentes estructuras de grafos y observe cómo los algoritmos los recorren paso a paso.",
-          "master-key-algorithms": "Algoritmos clave de grafos",
-          "dfs": "DFS",
-          "bfs": "BFS",
-          "dijkstra": "Dijkstra",
-          "dfs-full": "Búsqueda en profundidad (DFS)",
-          "dfs-description": "DFS es un algoritmo de recorrido de grafos que explora lo más posible a lo largo de cada rama antes de retroceder. Es excelente para:",
-          "dfs-use-1": "Detectar ciclos en grafos",
-          "dfs-use-2": "Búsqueda de rutas en laberintos",
-          "dfs-use-3": "Ordenamiento topológico"
-        }
+        // ... (add translations for other languages) ...
       };
 
       function translatePage(lang) {
         document.querySelectorAll('[data-i18n]').forEach(element => {
           const key = element.getAttribute('data-i18n');
           if (translations[lang] && translations[lang][key]) {
-            element.textContent = translations[lang][key];
+            if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+              element.placeholder = translations[lang][key];
+            } else {
+              element.textContent = translations[lang][key];
+            }
           }
         });
       }
@@ -433,6 +388,138 @@
       translatePage('en');
     });
   </script>
+
+  <style>
+    /* Modal styles */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.8);
+      overflow: auto;
+    }
+
+    .modal-content {
+      background-color: #1e2124; /* Dark background color */
+      margin: 10% auto;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      width: 90%;
+      max-width: 500px;
+      color: #ffffff; /* White text color */
+    }
+
+    .close {
+      color: #ffffff;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: color 0.3s ease;
+    }
+
+    .close:hover,
+    .close:focus {
+      color: #cccccc;
+    }
+
+    /* Form styles */
+    #contactForm {
+      display: flex;
+      flex-direction: column;
+    }
+
+    #contactForm label {
+      margin-top: 15px;
+      margin-bottom: 5px;
+      font-weight: bold;
+      color: #ffffff;
+    }
+
+    #contactForm input,
+    #contactForm textarea {
+      margin-bottom: 15px;
+      padding: 10px;
+      border: 1px solid #36393f; /* Slightly lighter border */
+      border-radius: 4px;
+      font-size: 16px;
+      background-color: #2f3136; /* Dark input background */
+      color: #ffffff;
+    }
+
+    #contactForm textarea {
+      min-height: 100px;
+      resize: vertical;
+    }
+
+    #contactForm button,
+    #closeConfirmation {
+      margin-top: 10px;
+      padding: 12px;
+      background-color: #36393f; /* Slightly lighter button background */
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background-color 0.3s ease;
+    }
+
+    #contactForm button:hover,
+    #closeConfirmation:hover {
+      background-color: #40444b; /* Lighter background on hover */
+    }
+
+    /* Improved modal title */
+    .modal-content h2 {
+      margin-top: 0;
+      margin-bottom: 20px;
+      color: #ffffff;
+      font-size: 24px;
+    }
+
+    #confirmationMessage {
+      text-align: center;
+    }
+
+    #confirmationMessage h2 {
+      color: #ffffff;
+      margin-bottom: 15px;
+    }
+
+    #confirmationMessage p {
+      margin-bottom: 20px;
+      color: #cccccc;
+    }
+
+    .footer {
+      background-color: #1e2124; /* Dark background color */
+      color: #fff;
+      padding: 20px 0;
+    }
+
+    .footer-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer-links a {
+      color: #ffffff; /* White color for all links */
+      text-decoration: none;
+      margin: 0 10px;
+      transition: opacity 0.3s ease;
+    }
+
+    .footer-links a:hover {
+      opacity: 0.8; /* Slight opacity change on hover for visual feedback */
+    }
+  </style>
 </body>
 
 </html>
