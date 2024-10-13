@@ -8,6 +8,7 @@ import { MainIndexComponent } from './components/main-index/main-index.component
 import { BfsPageComponent } from './components/bfs-page/bfs-page.component';
 import { DfsPageComponent } from './components/dfs-page/dfs-page.component';
 import { FaqComponent } from './components/faq/faq.component';
+import { QuizComponent } from './components/quiz/quiz.component';
 
 export const routes: Routes = [
   {
@@ -41,6 +42,10 @@ export const routes: Routes = [
   {
     path: 'faq',
     component: FaqComponent,
+  },
+  {
+    path: 'quiz',
+    component: QuizComponent,
   },
   {
     path: '**',
