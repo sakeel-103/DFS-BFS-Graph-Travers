@@ -5,10 +5,12 @@ const cors = require('cors');
 const dotenv = require('dotenv');
 const { validationResult } = require('express-validator');
 const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken'); // Added for JWT handling
 const session = require('express-session');
 const User = require('./models/User');
 const { validateSignup } = require('./middlewares/validation');
 const authenticateSession = require('./middlewares/authenticate');
+const authenticateJWT = require('./middlewares/authenticateJWT'); // JWT Authentication Middleware
 
 // const dijkstra = require('./utils/dijkstra');  // Dijkstra's algorithm import
 
@@ -67,7 +69,7 @@ app.post('/api/signup', validateSignup, async (req, res) => {
     }
 });
 
-// User login endpoint
+// User login endpoint with JWT
 app.post('/api/login', async (req, res) => {
     const { username, password } = req.body;
 
@@ -78,7 +80,11 @@ app.post('/api/login', async (req, res) => {
     try {
         const user = await User.findOne({ username });
         if (!user) {
+master
+            return res.status(400).send('Invalid credentials');
+=======
             return res.status(400).json({ message: 'Invalid credentials' });
+master
         }
 
         const isMatch = await bcrypt.compare(password, user.password);
@@ -86,6 +92,22 @@ app.post('/api/login', async (req, res) => {
             return res.status(400).json({ message: 'Invalid credentials' });
         }
 
+<<<master
+        // Generate JWT token
+        const token = jwt.sign(
+            { userId: user._id, username: user.username },
+            process.env.JWT_SECRET,
+            { expiresIn: process.env.JWT_EXPIRES_IN || '1h' } // Token expiration
+        );
+
+        // Store user info in session
+        req.session.userId = user._id;
+        req.session.username = user.username;
+
+        res.json({
+            message: 'Logged in successfully',
+            token // Send JWT token to the user
+=======
         // Regenerate session ID after successful login
         req.session.regenerate((err) => {
             if (err) {
@@ -96,6 +118,7 @@ app.post('/api/login', async (req, res) => {
             req.session.userId = user._id;
             req.session.username = user.username;
             res.json({ message: 'Logged in successfully' });
+    master
         });
     } catch (error) {
         console.error('Error logging in:', error);
@@ -166,12 +189,18 @@ app.post('/api/dijkstra', (req, res) => {
     }
 });
 
+master
+// Protected route with session and JWT authentication
+app.get('/api/protected', authenticateSession, authenticateJWT, (req, res) => {
+    res.send('This is a protected route, and you are authorized');
+=======
 // Example of a protected route
 app.get('/api/protected', authenticateSession, (req, res) => {
     if (!req.session.userId) {
         return res.status(401).json({ message: 'Unauthorized' });
     }
     res.json({ message: 'This is a protected route' });
+master
 });
 
 // User logout endpoint
