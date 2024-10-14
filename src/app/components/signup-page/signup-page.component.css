@@ -155,3 +155,21 @@ form p a:hover {
     color: red; /* Change color on hover */
   }
   
+  @media (max-width:926px){
+    .container{
+        width: 450px;
+    }
+    .right{
+        width: 100%;
+    }
+    .left{
+        display: none;
+        width: 0;
+    }
+}
+
+@media (max-width:460px){
+    .container{
+        width: 400px;
+    }
+}
