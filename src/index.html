@@ -40,16 +40,7 @@
       box-shadow: 0 4px 8px rgba(255, 255, 255, 0.3);
     }
 
-
     /* Add some basic styling for the translator */
-    .gtranslate_wrapper {
-      position: fixed;
-      bottom: 20px;
-      left: 20px;
-      z-index: 1000;
-    }
-
-    /* Updated styling for the translator */
     .gtranslate_wrapper {
       position: fixed;
       bottom: 20px;
@@ -65,12 +56,12 @@
 
     .gt_float_switcher:hover {
       opacity: 1;
+    }
 
     .real-time-updates {
       margin-top: 20px;
       font-size: 18px;
       font-family: Arial, sans-serif;
-
     }
   </style>
 </head>
@@ -78,7 +69,6 @@
 <body>
   <app-root></app-root>
   <button id="scrollToTopBtn" class="scrollToTop">↑</button>
-
 
   <!-- Add the GTranslate wrapper -->
   <div class="gtranslate_wrapper"></div>
@@ -88,24 +78,18 @@
     <ul id="updatesList"></ul>
   </div>
 
-
   <script>
     window.embeddedChatbotConfig = {
-    chatbotId: "oA_rXZ5BFgXbM-YwcC0vx",
-    domain: "www.chatbase.co"
+      chatbotId: "oA_rXZ5BFgXbM-YwcC0vx",
+      domain: "www.chatbase.co"
     }
-    </script>
-    <script
-    src="https://www.chatbase.co/embed.min.js"
-    chatbotId="oA_rXZ5BFgXbM-YwcC0vx"
-    domain="www.chatbase.co"
-    defer>
-    </script>
+  </script>
+  <script src="https://www.chatbase.co/embed.min.js" chatbotId="oA_rXZ5BFgXbM-YwcC0vx" domain="www.chatbase.co" defer></script>
 
   <script>
     const scrollButton = document.getElementById('scrollToTopBtn');
     const updatesList = document.getElementById('updatesList');
-    
+
     // Scroll-to-top button logic
     window.addEventListener('scroll', () => {
       window.pageYOffset > 100
@@ -126,7 +110,6 @@
       smoothScrollToTop();
     });
 
-
     // GTranslate settings
     window.gtranslateSettings = {
       "default_language": "en",
@@ -137,7 +120,8 @@
     };
 
     // Real-time WebSocket logic for collaboration
-    const socket = new WebSocket('ws://localhost:5000'); // Change to your server address
+    const protocol = window.location.protocol === 'https:' ? 'wss' : 'ws';
+    const socket = new WebSocket(`${protocol}://localhost:5000`); // Change to your server address
 
     socket.addEventListener('open', function (event) {
       console.log('Connected to WebSocket server');
@@ -163,4 +147,5 @@
   <script src="https://cdn.gtranslate.net/widgets/latest/popup.js" defer></script>
 
 </body>
+
 </html>
