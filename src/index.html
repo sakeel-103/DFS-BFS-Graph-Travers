@@ -39,12 +39,41 @@
     .scrollToTop:hover {
       box-shadow: 0 4px 8px rgba(255, 255, 255, 0.3);
     }
+
+    /* Add some basic styling for the translator */
+    .gtranslate_wrapper {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      z-index: 1000;
+    }
+
+    /* Updated styling for the translator */
+    .gtranslate_wrapper {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      z-index: 1000;
+    }
+
+    /* Optional: Add some styling to the GTranslate widget */
+    .gt_float_switcher {
+      opacity: 0.8;
+      transition: opacity 0.3s ease;
+    }
+
+    .gt_float_switcher:hover {
+      opacity: 1;
+    }
   </style>
 </head>
 
 <body>
   <app-root></app-root>
   <button id="scrollToTopBtn" class="scrollToTop">↑</button>
+
+  <!-- Add the GTranslate wrapper -->
+  <div class="gtranslate_wrapper"></div>
 
   <script>
     const scrollButton = document.getElementById('scrollToTopBtn');
@@ -67,6 +96,19 @@
     scrollButton.addEventListener('click', () => {
       smoothScrollToTop();
     });
+
+    // GTranslate settings
+    window.gtranslateSettings = {
+      "default_language": "en",
+      "detect_browser_language": true,
+      "wrapper_selector": ".gtranslate_wrapper",
+      "float_switcher_open_direction": "top",
+      "float_switching_attributes": ["alt", "title", "placeholder", "aria-label"]
+    };
   </script>
+
+  <!-- GTranslate script -->
+  <script src="https://cdn.gtranslate.net/widgets/latest/popup.js" defer></script>
+
 </body>
 </html>
