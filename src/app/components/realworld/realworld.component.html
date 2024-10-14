@@ -1,0 +1,38 @@
+<div class="applications-container">
+    <header>
+        <h1>Real-World Applications of Graphs</h1>
+        <p class="intro">
+            Discover how graph theory shapes various aspects of our world, from technology to biology and beyond.
+        </p>
+    </header>
+
+    <div class="search-filter-container">
+        <input type="text" [(ngModel)]="searchTerm" placeholder="Search applications..." class="search-input">
+        <div class="category-filter">
+            <button *ngFor="let category of categories" (click)="filterByCategory(category)"
+                [class.active]="category === selectedCategory">
+                {{ category }}
+            </button>
+        </div>
+    </div>
+
+    <div class="application-grid">
+        <div *ngFor="let app of filteredApplications" class="application-card">
+            <div class="card-header">
+                <span class="icon">{{ app.icon }}</span>
+                <h2>{{ app.title }}</h2>
+            </div>
+            <p class="card-description">{{ app.description }}</p>
+            <div class="card-details">
+                <h3>Key Applications:</h3>
+                <ul>
+                    <li *ngFor="let detail of app.details">{{ detail }}</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>Explore the power of graphs in solving real-world problems!</p>
+    </footer>
+</div>
