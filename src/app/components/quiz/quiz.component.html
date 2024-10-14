@@ -1,0 +1,39 @@
+<app-navbar></app-navbar>
+<div class="quiz-container">
+    <header>
+        <h1>Ultimate Graph Theory Challenge</h1>
+        <div class="progress-bar" [style.width.%]="progressPercentage"></div>
+    </header>
+
+    <main *ngIf="!quizCompleted" class="question-container">
+        <div class="question-card" [@cardAnimation]="animationState">
+            <h2>Question {{ currentQuestionIndex + 1 }} of {{ questions.length }}</h2>
+            <p class="question-text">{{ currentQuestion.text }}</p>
+
+            <div class="options">
+                <button *ngFor="let option of currentQuestion.options; let i = index" (click)="selectAnswer(i)"
+                    [class.selected]="selectedAnswerIndex === i" [disabled]="answerSubmitted">
+                    {{ option }}
+                </button>
+            </div>
+
+            <div class="action-buttons">
+                <button (click)="submitAnswer()" [disabled]="selectedAnswerIndex === null || answerSubmitted">Submit
+                    Answer</button>
+            </div>
+        </div>
+    </main>
+
+    <div *ngIf="quizCompleted" class="results-container" [@fadeInAnimation]>
+        <h2>Quiz Completed!</h2>
+        <p>Your score: {{ score }} out of {{ questions.length }}</p>
+        <div class="score-breakdown">
+            <div class="score-bar" [style.width.%]="(score / questions.length) * 100"></div>
+        </div>
+        <button (click)="restartQuiz()">Retake Quiz</button>
+    </div>
+
+    <footer>
+        <p>Created by Graph Theory Enthusiasts</p>
+    </footer>
+</div>
