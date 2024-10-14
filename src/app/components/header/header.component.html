@@ -167,6 +167,82 @@
       </div>
     </div>
   </section>
+  <h1 class="canvas_1">CANVAS</h1>
+
+  <canvas id="graphCanvas" width="1500" height="600"></canvas>
+  
+<script>
+    const canvas = document.getElementById('graphCanvas');
+    const ctx = canvas.getContext('2d');
+    let nodes = []; // Store nodes as {x, y}
+    let edges = []; // Store edges as [{startNodeIndex, endNodeIndex}]
+    let isDrawing = false;
+    let startNodeIndex = null;
+
+    // Handle mousedown event
+    canvas.addEventListener('mousedown', (e) => {
+        const {offsetX, offsetY} = e;
+        const nodeIndex = nodes.findIndex(node => Math.hypot(node.x - offsetX, node.y - offsetY) < 20);
+
+        if (nodeIndex === -1) {
+            // Add new node
+            nodes.push({x: offsetX, y: offsetY});
+            drawGraph();
+        } else {
+            // Start drawing an edge from the selected node
+            startNodeIndex = nodeIndex;
+            isDrawing = true;
+        }
+    });
+
+    // Handle mousemove event
+    canvas.addEventListener('mousemove', (e) => {
+        if (isDrawing && startNodeIndex !== null) {
+            const {offsetX, offsetY} = e;
+            drawGraph();  // Redraw everything
+            ctx.beginPath();
+            ctx.moveTo(nodes[startNodeIndex].x, nodes[startNodeIndex].y);
+            ctx.lineTo(offsetX, offsetY);
+            ctx.stroke();
+        }
+    });
+
+    // Handle mouseup event
+    canvas.addEventListener('mouseup', (e) => {
+        const {offsetX, offsetY} = e;
+        if (isDrawing && startNodeIndex !== null) {
+            const endNodeIndex = nodes.findIndex(node => Math.hypot(node.x - offsetX, node.y - offsetY) < 20);
+            if (endNodeIndex !== -1 && endNodeIndex !== startNodeIndex) {
+                // Store the edge
+                edges.push({startNodeIndex, endNodeIndex});
+                drawGraph(); // Redraw the graph with the new edge
+            }
+            isDrawing = false;
+            startNodeIndex = null;
+        }
+    });
+
+    // Draw the nodes and edges on the canvas
+    function drawGraph() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        // Draw edges
+        edges.forEach(edge => {
+            ctx.beginPath();
+            ctx.moveTo(nodes[edge.startNodeIndex].x, nodes[edge.startNodeIndex].y);
+            ctx.lineTo(nodes[edge.endNodeIndex].x, nodes[edge.endNodeIndex].y);
+            ctx.stroke();
+        });
+        // Draw nodes
+        nodes.forEach(node => {
+            ctx.beginPath();
+            ctx.arc(node.x, node.y, 20, 0, Math.PI * 2);
+            ctx.fillStyle = 'lightblue';
+            ctx.fill();
+            ctx.stroke();
+        });
+    }
+</script>
+
   <div class="forum-container">
     <h1>Discussion Forum</h1>
 
