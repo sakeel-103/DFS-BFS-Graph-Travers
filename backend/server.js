@@ -6,6 +6,8 @@ const dotenv = require('dotenv');
 const { validationResult } = require('express-validator');
 const bcrypt = require('bcrypt');
 const session = require('express-session');
+const multer = require('multer');  // For file uploads
+const fs = require('fs');  // For reading file contents
 const User = require('./models/User');
 const { validateSignup } = require('./middlewares/validation');
 const authenticateSession = require('./middlewares/authenticate');
@@ -38,7 +40,51 @@ mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTop
     .then(() => console.log('MongoDB connected'))
     .catch(err => console.error('MongoDB connection error:', err));
 
-// User registration and login endpoints...
+// Multer setup for file uploads
+const upload = multer({ dest: 'uploads/' });
+
+// Endpoint for uploading and parsing the graph file
+app.post('/api/upload-graph', upload.single('graphFile'), (req, res) => {
+    if (!req.file) {
+        return res.status(400).json({ message: 'No file uploaded' });
+    }
+
+    const filePath = req.file.path;
+
+    // Read the file content
+    fs.readFile(filePath, 'utf8', (err, data) => {
+        if (err) {
+            console.error('Error reading file:', err);
+            return res.status(500).json({ message: 'Error reading file' });
+        }
+
+        try {
+            // Parse the file into an adjacency list or matrix (depending on format)
+            const graph = parseGraph(data);
+            res.json({ graph });
+        } catch (err) {
+            console.error('Error parsing graph:', err);
+            res.status(500).json({ message: 'Error parsing graph' });
+        }
+    });
+});
+
+// Utility function to parse graph from file (Adjacency list)
+function parseGraph(data) {
+    const lines = data.split('\n');
+    const graph = {};
+
+    lines.forEach(line => {
+        const nodes = line.trim().split(/\s+/);
+        if (nodes.length > 0) {
+            const node = nodes[0];
+            const edges = nodes.slice(1);
+            graph[node] = edges;
+        }
+    });
+
+    return graph;
+}
 
 // Socket.IO event for real-time collaboration
 io.on('connection', (socket) => {
