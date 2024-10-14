@@ -1,0 +1,22 @@
+<app-navbar></app-navbar>
+<div class="question-bank-container">
+    <header>
+        <h1>Practice Your Skills</h1>
+        <p class="intro">
+            Sharpen your coding skills with hundreds of algorithm problems to practice.
+        </p>
+    </header>
+
+    <div class="search-container">
+        <input type="text" [(ngModel)]="searchTerm" (input)="filterQuestions()" placeholder="Search problems..."
+            class="search-input">
+    </div>
+
+    <div class="question-grid">
+        <div *ngFor="let question of filteredQuestions" class="question-card">
+            <h2>{{ question.title }}</h2>
+            <p>{{ question.description }}</p>
+            <a [href]="question.link" class="start-solving-button" target="_blank">Start Solving</a>
+        </div>
+    </div>
+</div>
