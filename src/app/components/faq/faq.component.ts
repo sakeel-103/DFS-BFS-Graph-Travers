@@ -1,9 +1,10 @@
 import { Component, AfterViewInit } from '@angular/core';
+import { NavbarComponent } from '../navbar/navbar.component';
 
 @Component({
   selector: 'app-faq',
   standalone: true,
-  imports: [],
+  imports: [NavbarComponent],
   templateUrl: './faq.component.html',
   styleUrls: ['./faq.component.css']
 })
