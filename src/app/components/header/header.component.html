@@ -32,7 +32,7 @@
         <a class="nav-item" href="/faq" data-i18n="faq">FAQ</a>
         <a class="nav-item" href="/quiz" data-i18n="faq">quiz</a>
         <a class="nav-item" href="/questions" data-i18n="faq">Questions</a>
-      
+
         <a class="nav-item" href="https://github.com/sakeel-103/DFS-BFS-Graph-Travers" target="_blank"
           class="github-link">
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="#ffffff">
@@ -262,18 +262,39 @@
     // Initial load of threads
     displayThreads();
   </script>
-  
+
 
   <footer class="footer">
     <div class="container">
       <div class="footer-content">
         <p>&copy; 2024 GraphExplorer Pro. All rights reserved.</p>
+        <div style="max-width: 600px; margin: 20px auto; padding: 10px; text-align: center;">
+          <h2 style="color: #d392c4;">Newsletter</h2>
+
+          <!-- Newsletter Form -->
+          <form id="newsletterForm" style="justify-content: center; align-items: center;" onsubmit="return handleSubmit(event)">
+            <input
+              id="emailInput"
+              type="email"
+              placeholder="Enter your email"
+              style="padding: 10px; font-size: 14px; border: 1px solid #ccc; border-radius: 4px; width: 300px; box-sizing: border-box;"
+              required
+            />
+            <button
+              type="submit"
+              style="padding: 10px 20px; background-color: #1a73e8; color: white; border: none; border-radius: 4px; cursor: pointer;"
+            >
+              Subscribe
+            </button>
+          </form>
+        </div>
         <div class="footer-links">
           <a href="#" id="contactUsBtn" data-i18n="contact-us">Contact Us</a> |
           <a href="https://x.com/" data-i18n="twitter">Twitter</a> |
           <a href="https://www.facebook.com/" data-i18n="facebook">Facebook</a> |
           <a href="https://www.linkedin.com/" data-i18n="linkedin">LinkedIn</a>
         </div>
+
       </div>
     </div>
   </footer>
