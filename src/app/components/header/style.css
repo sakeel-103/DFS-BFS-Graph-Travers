@@ -18,6 +18,55 @@ body {
   margin: 0 auto;
   padding: 0 2rem;
 }
+.forum-container {
+  max-width: 800px;
+  margin: 50px auto;
+  padding: 20px;
+  background: white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.new-thread {
+  margin-bottom: 30px;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+}
+
+button {
+  padding: 10px 15px;
+  background-color: #5cb85c;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #4cae4c;
+}
+
+.thread {
+  margin-bottom: 20px;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 10px;
+}
+
+.reply-container {
+  margin-top: 10px;
+  padding: 10px;
+  background-color: #f9f9f9;
+}
+
+.reply {
+  padding: 5px;
+  background-color: #e9ecef;
+  margin-bottom: 5px;
+}
+
 
 /* Header Styling */
 header {
