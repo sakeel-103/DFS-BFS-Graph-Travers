@@ -13,6 +13,7 @@ import { RealworldComponent } from './components/realworld/realworld.component';
 import { QuestionBankComponent } from './components/practice/practice.component';
 import { ResourcesComponent } from './components/resources/resources.component';
 import { ContactUsComponent } from './components/contact-us/contact-us.component';
+import { ContributorsComponent } from './components/contributors/contributors.component';
 
 export const routes: Routes = [
   {
@@ -66,6 +67,10 @@ export const routes: Routes = [
   {
     path: 'resources',
     component: ResourcesComponent,
+  },
+  {
+    path: 'contributors',
+    component: ContributorsComponent,
   },
   {
     path: '**',
