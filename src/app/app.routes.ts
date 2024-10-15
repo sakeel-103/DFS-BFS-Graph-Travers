@@ -11,6 +11,7 @@ import { FaqComponent } from './components/faq/faq.component';
 import { QuizComponent } from './components/quiz/quiz.component';
 import { RealworldComponent } from './components/realworld/realworld.component';
 import { QuestionBankComponent } from './components/practice/practice.component';
+import { ResourcesComponent } from './components/resources/resources.component';
 
 export const routes: Routes = [
   {
@@ -56,6 +57,10 @@ export const routes: Routes = [
   {
     path: 'questions',
     component: QuestionBankComponent,
+  },
+  {
+    path: 'resources',
+    component: ResourcesComponent,
   },
   {
     path: '**',

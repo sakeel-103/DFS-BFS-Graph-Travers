@@ -1,0 +1,46 @@
+<app-navbar></app-navbar>
+<div class="resources-container">
+    <header>
+        <h1>Learning Resources for Graph Theory</h1>
+        <p class="intro">
+            Enhance your understanding of graph theory with our curated resources, including video tutorials and helpful
+            articles.
+        </p>
+    </header>
+
+    <div class="search-filter-container">
+        <input type="text" [(ngModel)]="searchTerm" (input)="applyFilters()" placeholder="Search resources..."
+            class="search-input">
+        <div class="category-filter">
+            <button *ngFor="let category of categories" (click)="filterByCategory(category)"
+                [class.active]="category === selectedCategory">
+                {{ category }}
+            </button>
+        </div>
+    </div>
+
+    <div class="video-grid">
+        <div *ngFor="let video of filteredVideos" class="video-card" (click)="goToVideo(video.link)">
+            <div class="card-thumbnail">
+                <img [src]="video.thumbnail" alt="{{ video.title }}">
+            </div>
+            <h2>{{ video.title }}</h2>
+        </div>
+    </div>
+
+    <div *ngIf="filteredVideos.length === 0" class="no-results">
+        <p>No videos found. Please try adjusting your search or filters.</p>
+    </div>
+
+    <div class="resources-list">
+        <h3>Additional Resources:</h3>
+        <div class="resource-item" *ngFor="let resource of resources">
+            <h4>{{ resource.title }}</h4>
+            <a [href]="resource.link" target="_blank">Visit Resource</a>
+        </div>
+    </div>
+
+    <footer>
+        <p>Continue exploring graph theory through our selected resources and video tutorials!</p>
+    </footer>
+</div>
