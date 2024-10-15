@@ -43,6 +43,18 @@ mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTop
 // Multer setup for file uploads
 const upload = multer({ dest: 'uploads/' });
 
+
+app.post('/api/contact', (req, res) => {
+    const { email, question, feedback, suggestion } = req.body;
+
+    // Process the contact form data (e.g., save to a database or send an email)
+    console.log('Contact form submitted:', req.body);
+    
+    // Respond with a success message
+    res.status(200).json({ message: 'Contact form submitted successfully' });
+});
+
+
 // Endpoint for uploading and parsing the graph file
 app.post('/api/upload-graph', upload.single('graphFile'), (req, res) => {
     if (!req.file) {
