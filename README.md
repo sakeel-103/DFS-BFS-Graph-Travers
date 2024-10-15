@@ -11,12 +11,14 @@ This project implements **Depth-First Search (DFS)** and **Breadth-First Search 
 5. ⚙️ [Prerequisites](#-prerequisites)
 6. 🚀 [How to Set Up and Run the Project](#-how-to-set-up-and-run-the-project)
 7. 🧪 [Testing Instructions](#-testing-instructions)
-8. 🔐 [Login and Signup Pages](#-login-and-signup-pages)
-9. 🖥️ [How the Server Works](#-how-the-server-works)
-10. 📊 [Graph Feature](#-how-the-graph-feature-works)
-11. 🗺️ [Roadmap](#-roadmap)
-12. 🤝 [Contributing](#-contributing)
-13. 👥 [Contributors](#-our-contributors)
+8. 📚 [API Documentation](#-api-documentation)
+9. 🔐 [Login and Signup Pages](#-login-and-signup-pages)
+10. 🖥️ [How the Server Works](#-how-the-server-works)
+11. 📊 [Graph Feature](#-how-the-graph-feature-works)
+12. 🗺️ [Roadmap](#-roadmap)
+13. 🤝 [Contributing](#-contributing)
+14. 👥 [Contributors](#-our-contributors)
+15. 📜 [License](#-license)
 ---
 
 ## 🌟 Features
@@ -168,6 +170,85 @@ To ensure the reliability and functionality of the project, follow these testing
 
 ---
 
+## 📚 API Documentation
+
+### Base URL
+[http://localhost:PORT/api]
+*Replace `PORT` with the port number your backend is running on (default is usually 3000).*
+
+### Endpoints
+
+#### 1. **User Authentication**
+
+- **Signup**
+  - **URL**: `/signup`
+  - **Method**: `POST`
+  - **Request Body**:
+    ```json
+    {
+      "username": "string",
+      "password": "string"
+    }
+    ```
+  - **Response**:
+    - **201 Created**: User registered successfully.
+    - **400 Bad Request**: Invalid input or username already exists.
+
+- **Login**
+  - **URL**: `/login`
+  - **Method**: `POST`
+  - **Request Body**:
+    ```json
+    {
+      "username": "string",
+      "password": "string"
+    }
+    ```
+  - **Response**:
+    - **200 OK**: User logged in successfully, returns user details.
+    - **401 Unauthorized**: Invalid credentials.
+
+#### 2. **Graph Traversal**
+
+- **DFS Traversal**
+  - **URL**: `/traverse/dfs`
+  - **Method**: `POST`
+  - **Request Body**:
+    ```json
+    {
+      "nodes": ["string"],
+      "edges": ["string"]
+    }
+    ```
+  - **Response**:
+    - **200 OK**: Returns the order of nodes visited in DFS traversal.
+
+- **BFS Traversal**
+  - **URL**: `/traverse/bfs`
+  - **Method**: `POST`
+  - **Request Body**:
+    ```json
+    {
+      "nodes": ["string"],
+      "edges": ["string"]
+    }
+    ```
+  - **Response**:
+    - **200 OK**: Returns the order of nodes visited in BFS traversal.
+
+### Example Request
+
+**DFS Traversal Request Example**:
+```bash
+curl -X POST http://localhost:3000/api/traverse/dfs \
+-H "Content-Type: application/json" \
+-d '{
+  "nodes": ["A", "B", "C", "D"],
+  "edges": ["A-B", "A-C", "B-D"]
+}'
+```
+
+---
 ## 🔐 Login and Signup Pages
 
 - The **Signup Page** allows users to register by entering a username and password, which is stored in **LocalStorage**.
@@ -229,6 +310,10 @@ We welcome contributions from developers of all experience levels. Please refer 
   </a>
 </div>
 
+---
+## 📜 License
+
+This project is licensed under the [MIT License](LICENSE). You are free to use, modify, and distribute this software under the terms of the license. 
 ---
 
 ### 📬 Feel free to contribute or open issues if you find any bugs!
