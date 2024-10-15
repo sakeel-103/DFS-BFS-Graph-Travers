@@ -96,6 +96,42 @@ Your frontend will be running at `http://localhost:5000` 🌐.
 
 ---
 
+## 🧪 Testing Instructions
+
+To ensure the reliability and functionality of the project, follow these testing instructions:
+
+### Unit Testing
+
+1. **Navigate to the frontend directory**:
+   ```bash
+   cd src
+   ```
+2. **Run the unit tests:**
+   ```bash
+   ng test
+   ```
+### End-to-End Testing
+
+1. **Install Protractor (if not already installed)**:
+   ```bash
+   npm install -g protractor
+   ```
+2. **Start the Protractor server**:
+   ```bash
+   webdriver-manager update
+   webdriver-manager start
+   ```
+3. **Run the end-to-end tests**:
+   ```bash
+   ng e2e
+   ```
+### Manual Testing
+
+- After running the application, perform manual testing by interacting with the **Login** and **Signup** pages to ensure functionality.
+- Test the **graph traversal features** by creating graphs with various nodes and edges, checking for expected behavior.
+
+---
+
 ## 🔐 Login and Signup Pages
 
 - The **Signup Page** allows users to register by entering a username and password, which is stored in **LocalStorage**.
