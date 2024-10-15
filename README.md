@@ -96,20 +96,6 @@ Your frontend will be running at `http://localhost:5000` 🌐.
 
 ---
 
-## 🔐 Login and Signup Pages
-
-- The **Signup Page** allows users to register by entering a username and password, which is stored in **LocalStorage**.
-- The **Login Page** checks credentials against the data stored in LocalStorage.
-
-### 🛠️ How to Access Signup Details from LocalStorage
-
-1. 🖱️ Right-click on the **Signup page** and select **Inspect**.
-2. 🧰 Navigate to the **Application** tab in the developer tools.
-3. 📂 Under **Storage**, expand **LocalStorage**.
-4. 🔍 You’ll find the stored signup details there.
-
----
-
 ## 🧪 Testing Instructions
 
 To ensure the reliability and functionality of the project, follow these testing instructions:
@@ -143,6 +129,22 @@ To ensure the reliability and functionality of the project, follow these testing
 
 - After running the application, perform manual testing by interacting with the **Login** and **Signup** pages to ensure functionality.
 - Test the **graph traversal features** by creating graphs with various nodes and edges, checking for expected behavior.
+
+---
+
+## 🔐 Login and Signup Pages
+
+- The **Signup Page** allows users to register by entering a username and password, which is stored in **LocalStorage**.
+- The **Login Page** checks credentials against the data stored in LocalStorage.
+
+### 🛠️ How to Access Signup Details from LocalStorage
+
+1. 🖱️ Right-click on the **Signup page** and select **Inspect**.
+2. 🧰 Navigate to the **Application** tab in the developer tools.
+3. 📂 Under **Storage**, expand **LocalStorage**.
+4. 🔍 You’ll find the stored signup details there.
+
+---
 
 ## 🖥️ How the Server Works
 
