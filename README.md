@@ -30,12 +30,14 @@ This project implements **Depth-First Search (DFS)** and **Breadth-First Search 
 ---
 ## 🛠️ Technical Stack
 
-- **Frontend**: Angular 🅰️
-- **Backend**: Node.js 🟢, Express.js ⚙️
-- **Authentication**: LocalStorage 🔒 (with plans to integrate OAuth 🔑)
-- **Database**: LocalStorage for user data 💾 (future plans for database integration 📊)
-- **Graph Algorithms**: DFS and BFS implemented for traversal 📈
-- **Deployment**: Netlify configuration for frontend 🌐
+| **Component**        | **Technology**                             | **Emoji**   |
+|----------------------|-------------------------------------------|-------------|
+| **Frontend**         | Angular                                   | 🅰️          |
+| **Backend**          | Node.js, Express.js                      | 🟢, ⚙️       |
+| **Authentication**   | LocalStorage (with plans to integrate OAuth) | 🔒, 🔑       |
+| **Database**         | LocalStorage for user data (future plans for database integration) | 💾, 📊       |
+| **Graph Algorithms** | DFS and BFS implemented for traversal     | 📈          |
+| **Deployment**       | Netlify configuration for frontend         | 🌐          |
 
 ---
 
@@ -45,6 +47,7 @@ This project implements **Depth-First Search (DFS)** and **Breadth-First Search 
 - Implemented **DFS** and **BFS** graph traversal algorithms. 🔍
 - Added **Login** and **Signup** pages with user data stored in **LocalStorage**. 🔑
 - Basic project structure setup with Angular for the frontend and Node.js/Express.js for the backend. 🏗️
+
 
 ---
 
