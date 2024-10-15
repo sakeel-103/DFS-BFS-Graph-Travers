@@ -1,8 +1,13 @@
-# 🧭 DFS-BFS Graph Traversal
+<a id="top"></a>
+<h1 align="center">🧭 DFS-BFS Graph Traversal</h1>
 
 This project implements **Depth-First Search (DFS)** and **Breadth-First Search (BFS)** algorithms for graph traversal. The backend includes user authentication functionality with a **Login** and **Signup** page. The project currently stores user data in **local storage**.
 
-## 📑 Table of Contents
+<hr>
+
+
+ <details>
+   <summary><h2>📑 Table of Contents</h2></summary>
 
 1. 🌟 [Features](#-features)
 2. 🛠️ [Technical Stack](#-technical-stack)
@@ -17,7 +22,10 @@ This project implements **Depth-First Search (DFS)** and **Breadth-First Search 
 11. 🗺️ [Roadmap](#-roadmap)
 12. 🤝 [Contributing](#-contributing)
 13. 👥 [Contributors](#-our-contributors)
----
+
+</details>
+
+<hr>
 
 ## 🌟 Features
 
@@ -83,7 +91,9 @@ Make sure you have the following installed before running the project:
 
 ---
 
-## 🚀 How to Set Up and Run the Project
+
+ <details>
+   <summary><h2>🚀 How to Set Up and Run the Project</h2></summary>
 
 ### 🛠️ Step 1: Clone the Repository
 
@@ -130,9 +140,14 @@ ng serve
 
 Your frontend will be running at `http://localhost:5000` 🌐.
 
----
 
-## 🧪 Testing Instructions
+</details>
+
+<hr>
+
+<details>
+   <summary><h2>🧪 Testing Instructions</h2></summary>
+
 
 To ensure the reliability and functionality of the project, follow these testing instructions:
 
@@ -166,7 +181,11 @@ To ensure the reliability and functionality of the project, follow these testing
 - After running the application, perform manual testing by interacting with the **Login** and **Signup** pages to ensure functionality.
 - Test the **graph traversal features** by creating graphs with various nodes and edges, checking for expected behavior.
 
----
+
+
+</details>
+
+<hr>
 
 ## 🔐 Login and Signup Pages
 
@@ -195,14 +214,20 @@ The backend server, built with **Node.js** and **Express.js**, handles:
 - Input your edges. **Make sure it is in the [to]-[from] format. Eg: 0-1**
 - Click on **create custom graph** button 🔵
 - See how the magic happens
+ 
 
-Example: 
+<details>
+   <summary><h3>Example: </h3></summary>
 
 ![alt text](image.png)
 
 Output:
 
 ![alt text](image-1.png)
+
+</details>
+
+<hr>
 
 ## 🗺️ Roadmap
 
@@ -216,9 +241,12 @@ Output:
 
 
 ## Contributing
+
 We welcome contributions from developers of all experience levels. Please refer to the [CONTRIBUTING.md](CONTRIBUTING.md) file for guidelines.
 
-## 👀 Our Contributors
+<hr>
+
+<h2 align = "center">Our Contributors ❤️</h2>
 
 - We extend our heartfelt gratitude for your invaluable contribution to our project! Your efforts play a pivotal role in elevating this project to greater heights.
 - Make sure you show some love by giving ⭐ to our repository.
@@ -232,4 +260,16 @@ We welcome contributions from developers of all experience levels. Please refer 
 ---
 
 ### 📬 Feel free to contribute or open issues if you find any bugs!
+
+
+<hr>
+<div>
+  <h2><img src="https://fonts.gstatic.com/s/e/notoemoji/latest/1f64f_1f3fb/512.webp" width="35" height="35"> Support </h2>
+</div>
+
+<div>
+  Don't forget to leave a star<img src="https://fonts.gstatic.com/s/e/notoemoji/latest/1f31f/512.webp" width="35" height="30"> for this project!
+</div> <br>
+
+<a href="#top" style="position: fixed; bottom: 20px; right: 20px; background-color: black ; color: white; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; border-radius: 5px; font-family: Arial; font-size: 16px;">Go to Top</a>
 
