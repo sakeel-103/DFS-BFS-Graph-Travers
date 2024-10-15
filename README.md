@@ -4,20 +4,20 @@ This project implements **Depth-First Search (DFS)** and **Breadth-First Search 
 
 ## 📑 Table of Contents
 
-1. [Features](#-features)
-2. [Technical Stack](#-technical-stack)
-3. [Changelog](#-changelog)
-4. [Project Structure](#-project-structure)
-5. [Prerequisites](#-prerequisites)
-6. [How to Set Up and Run the Project](#-how-to-set-up-and-run-the-project)
-7. [Testing Instructions](#-testing-instructions)
-8. [Login and Signup Pages](#-login-and-signup-pages)
-9. [How the Server Works](#-how-the-server-works)
-10. [Graph Feature](#-how-the-graph-feature-works)
-11. [Roadmap](#-roadmap)
-12. [Contributing](#-contributing)
-13. [Contributors](#-our-contributors)
-
+1. 🌟 [Features](#-features)
+2. 🛠️ [Technical Stack](#-technical-stack)
+3. 📝 [Changelog](#-changelog)
+4. 📂 [Project Structure](#-project-structure)
+5. ⚙️ [Prerequisites](#-prerequisites)
+6. 🚀 [How to Set Up and Run the Project](#-how-to-set-up-and-run-the-project)
+7. 🧪 [Testing Instructions](#-testing-instructions)
+8. 🔐 [Login and Signup Pages](#-login-and-signup-pages)
+9. 🖥️ [How the Server Works](#-how-the-server-works)
+10. 📊 [Graph Feature](#-how-the-graph-feature-works)
+11. 🗺️ [Roadmap](#-roadmap)
+12. 🤝 [Contributing](#-contributing)
+13. 👥 [Contributors](#-our-contributors)
+---
 
 ## 🌟 Features
 
