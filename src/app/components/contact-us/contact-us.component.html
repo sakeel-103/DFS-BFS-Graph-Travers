@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+  <link href="contact-us.component.css" rel="stylesheet" />
+ 
+</head>
+
+<body>
+  <div class="div-first">
+    <h2>CONTACT US</h2>
+  </div>
+  <div class="container">
+    <div class="box">
+      <div class="left">
+        <h1>We Value Your Feedback!</h1>
+        <p>Use this form to ask questions, give feedback, or suggest improvements.</p>
+      </div>
+      <div class="right">
+        <h2>Get in Touch</h2>
+        <!-- Cross Button -->
+        
+        <form [formGroup]="contactForm" id="contactForm" (ngSubmit)="onSubmit()">
+          <div class="input-box">
+            <i class="bx bxs-envelope"></i>
+            <input type="email" id="email" placeholder="Your Email" formControlName="email" required />
+          </div>
+          <div class="input-box">
+            <i class="bx bx-help-circle"></i>
+            <textarea id="question" placeholder="Your Question" formControlName="question" required></textarea>
+          </div>
+          <div class="input-box">
+            <i class="bx bx-comment"></i>
+            <textarea id="feedback" placeholder="Your Feedback" formControlName="feedback"></textarea>
+          </div>
+          <div class="input-box">
+            <i class="bx bx-lightbulb"></i>
+            <textarea id="suggestion" placeholder="Suggestions for Development" formControlName="suggestion"></textarea>
+          </div>
+
+          <button type="submit" class="btn" [disabled]="!contactForm.valid">
+            Submit
+          </button>
+          <p class="contact-text">
+            Need help? <a routerLink="/help">Visit our Help Center</a>
+          </p>
+        </form>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
