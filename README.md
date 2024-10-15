@@ -1,8 +1,23 @@
-
-
 # 🧭 DFS-BFS Graph Traversal
 
 This project implements **Depth-First Search (DFS)** and **Breadth-First Search (BFS)** algorithms for graph traversal. The backend includes user authentication functionality with a **Login** and **Signup** page. The project currently stores user data in **local storage**.
+
+## 📑 Table of Contents
+
+1. 🌟 [Features](#-features)
+2. 🛠️ [Technical Stack](#-technical-stack)
+3. 📝 [Changelog](#-changelog)
+4. 📂 [Project Structure](#-project-structure)
+5. ⚙️ [Prerequisites](#-prerequisites)
+6. 🚀 [How to Set Up and Run the Project](#-how-to-set-up-and-run-the-project)
+7. 🧪 [Testing Instructions](#-testing-instructions)
+8. 🔐 [Login and Signup Pages](#-login-and-signup-pages)
+9. 🖥️ [How the Server Works](#-how-the-server-works)
+10. 📊 [Graph Feature](#-how-the-graph-feature-works)
+11. 🗺️ [Roadmap](#-roadmap)
+12. 🤝 [Contributing](#-contributing)
+13. 👥 [Contributors](#-our-contributors)
+---
 
 ## 🌟 Features
 
@@ -11,6 +26,27 @@ This project implements **Depth-First Search (DFS)** and **Breadth-First Search 
 - 💾 Data persistence using **LocalStorage**
 - 🖥️ Frontend built with **Angular**
 - 🔧 Backend using **Node.js** with **Express.js**
+
+---
+## 🛠️ Technical Stack
+
+| **Component**        | **Technology**                                                                 |
+|----------------------|-------------------------------------------------------------------------------|
+| **Frontend**         | Angular 🅰️                                                                    |
+| **Backend**          | Node.js 🟢, Express.js ⚙️                                                    |
+| **Authentication**   | LocalStorage 🔒 (with plans to integrate OAuth 🔑)                            |
+| **Database**         | LocalStorage for user data 💾 (future plans for database integration 📊)      |
+| **Graph Algorithms** | DFS and BFS implemented for traversal 📈                                      |
+| **Deployment**       | Netlify configuration for frontend 🌐 
+---
+
+## 📝 Changelog
+
+### Version 1.0.0 (Initial Release)
+- Implemented **DFS** and **BFS** graph traversal algorithms. 🔍
+- Added **Login** and **Signup** pages with user data stored in **LocalStorage**. 🔑
+- Basic project structure setup with Angular for the frontend and Node.js/Express.js for the backend. 🏗️
+
 
 ---
 
