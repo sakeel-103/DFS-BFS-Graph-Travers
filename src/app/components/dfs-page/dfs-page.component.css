@@ -134,6 +134,7 @@ button:active {
 #stack-label,
 #processed-label,
 #queue-label,
+#path-label,
 #processing-label {
   font-weight: 600;
   margin-bottom: 0.5rem;

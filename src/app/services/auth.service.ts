@@ -26,7 +26,9 @@ export class AuthService {
       // On successful login, you could manage user session here if needed
     }));
   }
-
+  submitContactForm(contactData: any): Observable<any> {
+    return this.http.post<any>(this.apiUrl, contactData);
+  }
   getAllUsers(): Observable<any> {
     return this.http.get(`${this.apiUrl}/users`);
   }

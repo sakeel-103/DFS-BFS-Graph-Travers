@@ -5,7 +5,6 @@ This project implements **Depth-First Search (DFS)** and **Breadth-First Search 
 
 <hr>
 
-
  <details>
    <summary><h2>📑 Table of Contents</h2></summary>
 

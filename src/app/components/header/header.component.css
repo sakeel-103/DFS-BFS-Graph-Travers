@@ -10,13 +10,6 @@ html {
   font-family: 'Poppins', sans-serif;
   line-height: 1.6;
 }
-/*canvas*/
-.canvas_1
-{
-  text-align: center;
-  color: blueviolet;
-}
-
 
 /* Header Styling */
 header {
@@ -208,7 +201,7 @@ a.nav-item {
   .menu-icon{
     display: flex;
   }
-  
+
   .active-navbar{
     position: absolute;
     display: flex !important;
@@ -226,4 +219,3 @@ a.nav-item {
     padding: 0 !important;
   }
 }
-

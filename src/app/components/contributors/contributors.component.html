@@ -1,0 +1,19 @@
+<app-navbar></app-navbar>
+<div class="contributors-container">
+    <h1 class="text-center">🤝 GitHub Contributors</h1>
+    <div *ngIf="loading" class="loader-container">
+        <div class="loader"></div>
+    </div>
+    <div class="contributor-subContainer" *ngIf="!loading">
+        <div *ngFor="let contributor of contributors" class="contributor-card"
+            (click)="goToProfile(contributor.html_url)">
+            <div class="contributor-details">
+                <img [src]="contributor.avatar_url" [alt]="contributor.login + ' avatar'" class="contributor-avatar" />
+                <div class="contributor-info">
+                    <h2>{{ contributor.login }}</h2>
+                </div>
+                <p class="contribution">{{ contributor.contributions }} contributions</p>
+            </div>
+        </div>
+    </div>
+</div>

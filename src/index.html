@@ -6,7 +6,7 @@
   <title>EccomPRJ - Real-Time Collaboration</title>
   <base href="/" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="icon" type="image/x-icon" href="favicon.ico" />
+  <link rel="icon" type="image/x-icon" href="https://shorturl.at/sOORn" />
 
   <style>
     .scrollToTop {
@@ -73,10 +73,143 @@
   <!-- Add the GTranslate wrapper -->
   <div class="gtranslate_wrapper"></div>
 
-  <div class="real-time-updates">
-    <h3>Real-Time Collaboration Updates</h3>
-    <ul id="updatesList"></ul>
+
+  <style>
+    /* General Footer Styling */
+    .footer {
+      background-color: #2a2a2a;
+      color: white;
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    /* Footer Links Styling */
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-bottom: 20px;
+    }
+
+    .footer-links a {
+      text-decoration: none;
+      color: #b0b0b0;
+      font-size: 16px;
+      transition: color 0.3s ease, transform 0.3s ease;
+    }
+
+    .footer-links a:hover {
+      color: #4caf50;
+      transform: scale(1.1);
+    }
+
+    /* Newsletter Section */
+    .newsletter-title {
+      color: #4caf50;
+      font-weight: bold;
+      margin-bottom: 5px;
+      opacity: 0;
+      animation: fadeIn 1s forwards;
+    }
+
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+      }
+    }
+
+    .newsletter-title:hover {
+      transform: scale(1.05);
+    }
+
+    /* Input Styling */
+    input {
+      padding: 10px;
+      font-size: 14px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      width: 300px;
+      margin-right: 10px;
+      transition: border-color 0.3s, box-shadow 0.3s;
+    }
+
+    input:focus {
+      border-color: #4caf50;
+      box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
+    }
+
+    /* Button Styling */
+    button {
+      padding: 10px 20px;
+      background-color: #4caf50;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: box-shadow 0.3s;
+    }
+
+    button:hover {
+      box-shadow: 0 0 10px #4caf50, 0 0 20px #81c784;
+    }
+  </style>
+</head>
+<body>
+  <div class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <!-- Platform Links Section -->
+        <div class="footer-links">
+          <a href="#about">About DFS-BFS</a> |
+          <a href="#courses">Courses</a> |
+          <a href="#blogs">Blogs</a> |
+          <a href="#contact">Contact Us</a> |
+          <a href="https://x.com/dfs-bfs" target="_blank">Twitter</a> |
+          <a href="https://www.linkedin.com/company/dfs-bfs" target="_blank">LinkedIn</a>
+        </div>
+
+        <!-- Newsletter Section -->
+        <div class="newsletter-container">
+          <h2 class="newsletter-title">Stay Updated with DFS-BFS</h2>
+          <p>Subscribe to our newsletter for the latest on algorithms, tips, and coding challenges.</p>
+          <form onsubmit="handleSubmit(event)">
+            <input
+              type="email"
+              placeholder="Enter your email"
+              id="emailInput"
+              required
+              name="email"
+            />
+            <button type="submit">Subscribe</button>
+          </form>
+        </div>
+
+        <!-- Copyright Section -->
+        <p class="copyright">
+          &copy; 2024 DFS-BFS Learning Platform. Empowering coders with mastery over Data Structures and Algorithms.
+        </p>
+      </div>
+    </div>
   </div>
+
+  <script>
+    function handleSubmit(event) {
+      event.preventDefault();
+      const emailInput = document.getElementById('emailInput');
+      const email = emailInput.value.trim();
+
+      if (email) {
+        alert(`Thank you for subscribing, ${email}! Stay tuned for DSA updates.`);
+        emailInput.value = ''; // Clear input after submission
+      }
+    }
+  </script>
+
 
   <script>
     window.embeddedChatbotConfig = {

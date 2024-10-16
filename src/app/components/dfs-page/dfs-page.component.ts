@@ -7,7 +7,7 @@ import { NavbarComponent } from '../navbar/navbar.component';
 @Component({
   selector: 'app-dfs-page',
   standalone: true,
-  imports: [RouterModule, FormsModule,NavbarComponent],
+  imports: [RouterModule, FormsModule, NavbarComponent],
   templateUrl: './dfs-page.component.html',
   styleUrls: ['./dfs-page.component.css'],
 })
@@ -18,6 +18,7 @@ export class DfsPageComponent implements AfterViewInit, OnInit {
   private dfsTimeout: any;
   private dfsCanvas!: HTMLCanvasElement; // Use '!' to indicate it's definitely assigned later
   private maxDepth: number = 0; // New property to track maximum depth
+  private finalPath: number[] = []; // New property to track the final path
 
   customNodeInput: string = '';
   customEdgeInput: string = '';
@@ -53,7 +54,7 @@ export class DfsPageComponent implements AfterViewInit, OnInit {
   }
 
   private positionNodes(): void {
-    const root = 0; // Assume BFS starts at node 0 or any other root node
+    const root = 0; // Assume DFS starts at node 0 or any other root node
     const levelGap = 80; // Vertical gap between levels
     const nodeGap = 80; // Horizontal gap between nodes in the same level
     const levels: { [key: number]: number[] } = {}; // Store nodes per level
@@ -161,58 +162,110 @@ export class DfsPageComponent implements AfterViewInit, OnInit {
     const stackElement = document.getElementById('stack-content') as HTMLElement;
     const processingElement = document.getElementById('processing-content') as HTMLElement;
     const processedElement = document.getElementById('processed-content') as HTMLElement;
+    const pathContentElement = document.getElementById('path-content') as HTMLElement;
 
     stackElement.innerHTML = '';
     processingElement.innerHTML = '';
     processedElement.innerHTML = '';
+    pathContentElement.innerHTML = ''; // Clear previous path content
 
     const visited: number[] = [];
-    const stack: number[] = [0];  // Start DFS with the root node (node 0)
+    const stack: number[] = [0]; // Start DFS with the root node (node 0)
+    let currentPath: number[] = []; // Array to track the current path
 
     stackElement.innerHTML = this.nodes[0]?.label || '';  // Show initial stack with root
 
     const processNextNode = (): void => {
-      if (stack.length > 0) {
-        const node: number = stack.pop()!;  // DFS pops from the stack (LIFO behavior)
+        if (stack.length > 0) {
+            const node: number = stack.pop()!;  // DFS pops from the stack (LIFO behavior)
 
-        // If the node is already visited, backtrack by moving to the next node in the stack
-        if (!visited.includes(node)) {
-          processingElement.innerHTML = this.nodes[node].label;  // Show the current processing node
-          this.drawGraph(ctx, stack, node, visited);  // Update the graph visualization
+            if (!visited.includes(node)) {
+                // Update current path
+                currentPath.push(node);
+                pathContentElement.innerHTML = currentPath
+                    .map(index => this.nodes[index].label)
+                    .join(' => '); // Update path content in the UI
 
-          this.dfsTimeout = setTimeout(() => {
-            visited.push(node);  // Mark node as visited
-            processedElement.innerHTML = visited
-              .map((index) => this.nodes[index].label)
-              .join(', ');  // Update processed nodes list
-            stackElement.innerHTML = stack
-              .map((index) => this.nodes[index].label)
-              .join(' -> ');  // Update stack visualization
+                processingElement.innerHTML = this.nodes[node].label;  // Show the current processing node
+                this.drawGraph(ctx, stack, node, visited);  // Update the graph visualization
 
-            // Get all unvisited neighbors and add them to the stack
-            const neighbors: number[] = this.edges
-              .filter((edge) => edge[0] === node && !visited.includes(edge[1]))
-              .map((edge) => edge[1]);
+                this.dfsTimeout = setTimeout(() => {
+                    visited.push(node);  // Mark node as visited
+                    processedElement.innerHTML = visited
+                        .map((index) => this.nodes[index].label)
+                        .join(', ');  // Update processed nodes list
+                    stackElement.innerHTML = stack
+                        .map((index) => this.nodes[index].label)
+                        .join(' => ');  // Update stack visualization
 
-            if (neighbors.length > 0) {
-              // Push neighbors in reverse to explore deeper before backtracking
-              stack.push(...neighbors.reverse());
+                    // Get all unvisited neighbors and add them to the stack
+                    const neighbors: number[] = this.edges
+                        .filter((edge) => edge[0] === node && !visited.includes(edge[1]))
+                        .map((edge) => edge[1]);
+
+                    if (neighbors.length > 0) {
+                        stack.push(...neighbors.reverse());
+                    }
+
+                    this.drawGraph(ctx, stack, node, visited);  // Redraw the graph after updating the stack
+
+                    // Continue to the next node in DFS order after processing current node
+                    this.dfsTimeout = setTimeout(processNextNode, 2000);
+                }, 1500);
+            } else {
+                // Backtrack if the node was already visited
+                currentPath.pop(); // Remove the last node from the current path
+                processNextNode();  // Continue with the next node in the stack
             }
-
-            this.drawGraph(ctx, stack, node, visited);  // Redraw the graph after updating the stack
-
-            // Continue to the next node in DFS order after processing current node
-            this.dfsTimeout = setTimeout(processNextNode, 2000);
-          }, 1500);
         } else {
-          // Node already visited, so backtrack by calling the next node in the stack
-          processNextNode();  // Skip visited nodes and backtrack
+            // Final path highlighting at the end of the traversal
+            this.finalPath = visited; // Store the visited path
+            this.highlightFinalPath(ctx); // Highlight the final path taken
         }
-      }
     };
 
     processNextNode();  // Start the DFS process
   }
+
+
+  private highlightFinalPath(ctx: CanvasRenderingContext2D): void {
+    ctx.strokeStyle = 'orange'; // Distinct color for the final path
+    ctx.lineWidth = 3;
+
+    // Update path content in the UI
+    const pathContentElement = document.getElementById('path-content') as HTMLElement;
+    pathContentElement.innerHTML = this.finalPath
+      .map(index => this.nodes[index].label)
+      .join(' => '); // Show the path as "A -> B -> C"
+
+    // Draw the path taken
+    for (let i = 0; i < this.finalPath.length - 1; i++) {
+      const from = this.finalPath[i];
+      const to = this.finalPath[i + 1];
+
+      ctx.beginPath();
+      ctx.moveTo(this.nodes[from].x, this.nodes[from].y);
+      ctx.lineTo(this.nodes[to].x, this.nodes[to].y);
+      ctx.stroke();
+    }
+
+    // Highlight the final path nodes and draw their labels
+    this.finalPath.forEach((index) => {
+      // Draw the node
+      ctx.beginPath();
+      ctx.arc(this.nodes[index].x, this.nodes[index].y, 20, 0, 2 * Math.PI);
+      ctx.fillStyle = 'orange'; // Color for final path nodes
+      ctx.fill();
+      ctx.stroke();
+
+      // Draw node label
+      ctx.fillStyle = 'black';
+      ctx.fillText(this.nodes[index].label, this.nodes[index].x - 5, this.nodes[index].y + 5);
+    });
+
+    this.finalPath = []; // Reset the final path
+  }
+
 
   public onLogout(): void {
     this.authService.logout(); // Call the logout method from AuthService
@@ -224,6 +277,8 @@ export class DfsPageComponent implements AfterViewInit, OnInit {
     document.getElementById('stack-content')!.innerHTML = '';
     document.getElementById('processing-content')!.innerHTML = '';
     document.getElementById('processed-content')!.innerHTML = '';
+
+    this.finalPath = []; // Reset final path
 
     if (this.dfsTimeout) {
       clearTimeout(this.dfsTimeout);
@@ -237,7 +292,7 @@ export class DfsPageComponent implements AfterViewInit, OnInit {
   toggleDFSCard() {
     const dfsCard = document.getElementById('dfs-card');
     if (dfsCard) {
-      dfsCard.classList.toggle('hidden');  // Toggle the hidden class
+      dfsCard.classList.toggle('hidden');
     }
   }
 
@@ -249,102 +304,90 @@ export class DfsPageComponent implements AfterViewInit, OnInit {
 
   // New Methods for Custom Graph Input
   public handleCustomGraphInput(): void {
-  if (this.validateCustomNodes() && this.validateCustomEdges()) {
-    this.parseCustomNodes();
-    this.parseCustomEdges();
-    this.positionNodes();
-    this.adjustCanvasSize();
-    const dfsCtx = this.dfsCanvas.getContext('2d')!;
-    this.drawGraph(dfsCtx);
-    this.dfsCanvas.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  }
-}
-
-private validateCustomNodes(): boolean {
-  const nodeInput = this.customNodeInput.trim().split(',');
-
-  // Check for empty input or empty labels
-  if (nodeInput.length === 0 || nodeInput.some(label => label.trim() === '')) {
-    alert('Node input is invalid. Ensure all nodes have non-empty labels.');
-    return false;
+    if (this.validateCustomNodes() && this.validateCustomEdges()) {
+      this.parseCustomNodes();
+      this.parseCustomEdges();
+      this.positionNodes();
+      this.adjustCanvasSize();
+      const dfsCtx = this.dfsCanvas.getContext('2d')!;
+      this.drawGraph(dfsCtx);
+      this.dfsCanvas.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
   }
 
-  // Check for duplicate labels
-  const uniqueLabels = new Set(nodeInput.map(label => label.trim()));
-  if (uniqueLabels.size !== nodeInput.length) {
-    alert('Node input contains duplicate labels. Ensure all nodes have unique labels.');
-    return false;
-  }
+  private validateCustomNodes(): boolean {
+    const nodeInput = this.customNodeInput.trim().split(',');
 
-  return true;
-}
-
-private validateCustomEdges(): boolean {
-  const edgeInput = this.customEdgeInput.trim().split(';');
-
-  // Check for proper edge formatting (must contain at least one '-')
-  for (const edge of edgeInput) {
-    const nodes = edge.split('-');
-    if (nodes.length !== 2 || isNaN(Number(nodes[0])) || isNaN(Number(nodes[1]))) {
-      alert(`Invalid edge format: ${edge}. Edges should be formatted as 'from-to', where 'from' and 'to' are valid node indices.`);
+    if (nodeInput.length === 0 || nodeInput.some(label => label.trim() === '')) {
+      alert('Node input is invalid. Ensure all nodes have non-empty labels.');
       return false;
     }
 
-    // Check if the node indices are within bounds
-    const from = Number(nodes[0]);
-    const to = Number(nodes[1]);
+    const uniqueLabels = new Set(nodeInput.map(label => label.trim()));
+    if (uniqueLabels.size !== nodeInput.length) {
+      alert('Node input contains duplicate labels. Ensure all nodes have unique labels.');
+      return false;
+    }
 
-
+    return true;
   }
 
-  return true;
-}
+  private validateCustomEdges(): boolean {
+    const edgeInput = this.customEdgeInput.trim().split(';');
 
-private parseCustomNodes(): void {
-  const nodeInput = this.customNodeInput.trim().split(',');
+    for (const edge of edgeInput) {
+      const nodes = edge.split('-');
+      if (nodes.length !== 2 || isNaN(Number(nodes[0])) || isNaN(Number(nodes[1]))) {
+        alert(`Invalid edge format: ${edge}. Edges should be formatted as 'from-to', where 'from' and 'to' are valid node indices.`);
+        return false;
+      }
 
-  // Check for empty input or invalid formats
-  if (nodeInput.length === 0 || nodeInput.some(label => label.trim() === '')) {
-    alert('Invalid node input format. Please enter valid node labels separated by commas.');
-    this.nodes = []; // Reset nodes to avoid further issues
-    return;
+      const from = Number(nodes[0]);
+      const to = Number(nodes[1]);
+    }
+
+    return true;
   }
 
-  this.nodes = nodeInput.map((label, index) => {
-    return {
-      label: label.trim(),
-      x: 100 + 100 * (index % 5),
-      y: 100 + 100 * Math.floor(index / 5),
-    };
-  });
-}
+  private parseCustomNodes(): void {
+    const nodeInput = this.customNodeInput.trim().split(',');
 
-private parseCustomEdges(): void {
-  const edgeInput = this.customEdgeInput.trim().split(';');
-
-  // Check for empty input or invalid formats
-  if (edgeInput.length === 0 || edgeInput.some(edge => edge.trim() === '')) {
-    alert('Invalid edge input format. Please enter valid edges in the format "from-to" separated by semicolons.');
-    this.edges = []; // Reset edges to avoid further issues
-    return;
-  }
-
-  // Validate edge format and update edges
-  const newEdges: [number, number][] = [];
-  for (const edge of edgeInput) {
-    const [from, to] = edge.split('-').map(Number);
-
-    // Check for valid number conversion
-    if (isNaN(from) || isNaN(to) || from < 0 || to < 0 || from >= this.nodes.length || to >= this.nodes.length) {
-      alert(`Invalid edge: ${edge}. Please ensure both nodes are valid indices.`);
-      this.edges = []; // Reset edges if any edge is invalid
+    if (nodeInput.length === 0 || nodeInput.some(label => label.trim() === '')) {
+      alert('Invalid node input format. Please enter valid node labels separated by commas.');
+      this.nodes = [];
       return;
     }
-    newEdges.push([from, to]);
+
+    this.nodes = nodeInput.map((label, index) => {
+      return {
+        label: label.trim(),
+        x: 100 + 100 * (index % 5),
+        y: 100 + 100 * Math.floor(index / 5),
+      };
+    });
   }
 
-  this.edges = newEdges;
+  private parseCustomEdges(): void {
+    const edgeInput = this.customEdgeInput.trim().split(';');
 
+    if (edgeInput.length === 0 || edgeInput.some(edge => edge.trim() === '')) {
+      alert('Invalid edge input format. Please enter valid edges in the format "from-to" separated by semicolons.');
+      this.edges = [];
+      return;
+    }
 
-}
+    const newEdges: [number, number][] = [];
+    for (const edge of edgeInput) {
+      const [from, to] = edge.split('-').map(Number);
+
+      if (isNaN(from) || isNaN(to) || from < 0 || to < 0 || from >= this.nodes.length || to >= this.nodes.length) {
+        alert(`Invalid edge: ${edge}. Please ensure both nodes are valid indices.`);
+        this.edges = [];
+        return;
+      }
+      newEdges.push([from, to]);
+    }
+
+    this.edges = newEdges;
+  }
 }

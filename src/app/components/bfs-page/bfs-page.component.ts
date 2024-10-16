@@ -7,14 +7,13 @@ import { NavbarComponent } from '../navbar/navbar.component';
 @Component({
   selector: 'app-bfs-page',
   standalone: true,
-  imports: [RouterModule, FormsModule,NavbarComponent],
+  imports: [RouterModule, FormsModule, NavbarComponent],
   templateUrl: './bfs-page.component.html',
   styleUrls: ['./bfs-page.component.css'],
 })
 export class BfsPageComponent implements AfterViewInit, OnInit {
   private nodes: { label: string; x: number; y: number }[] = [];
   private edges: [number, number][] = [];
-
   private bfsTimeout: any;
 
   private bfsCanvas!: HTMLCanvasElement; // Use '!' to indicate it's definitely assigned later
@@ -23,16 +22,16 @@ export class BfsPageComponent implements AfterViewInit, OnInit {
   customNodeInput: string = '';
   customEdgeInput: string = '';
   isDropdownOpen: boolean = false;
+  private finalPath: number[] = []; // To store the final path taken
+
   constructor(private authService: AuthService) {}
 
-  ngOnInit(): void {
-
-  }
+  ngOnInit(): void {}
 
   ngAfterViewInit(): void {
     this.bfsCanvas = document.getElementById('bfs-canvas') as HTMLCanvasElement;
     const bfsCtx = this.bfsCanvas.getContext('2d')!;
-    this.adjustCanvasSize(); // Adjust size first
+    this.adjustCanvasSize();
     this.drawGraph(bfsCtx);
   }
 
@@ -41,13 +40,13 @@ export class BfsPageComponent implements AfterViewInit, OnInit {
   }
 
   private adjustCanvasSize(): void {
-    const height = Math.max(400, this.maxDepth * 75); // Maximum height of 600, calculated from depth
+    const height = Math.max(400, this.maxDepth * 75);
     this.bfsCanvas.height = height;
   }
 
   public startBFSTraversal(): void {
     const bfsCtx = this.bfsCanvas.getContext('2d')!;
-    this.positionNodes();  // New: Position nodes before drawing
+    this.positionNodes();
     this.bfsTraversalVisualization(bfsCtx);
   }
 
@@ -157,22 +156,20 @@ export class BfsPageComponent implements AfterViewInit, OnInit {
   }
 
   private bfsTraversalVisualization(ctx: CanvasRenderingContext2D): void {
-    const queueElement = document.getElementById(
-      'queue-content'
-    ) as HTMLElement;
-    const processingElement = document.getElementById(
-      'processing-content'
-    ) as HTMLElement;
-    const processedElement = document.getElementById(
-      'processed-content'
-    ) as HTMLElement;
+    const queueElement = document.getElementById('queue-content') as HTMLElement;
+    const processingElement = document.getElementById('processing-content') as HTMLElement;
+    const processedElement = document.getElementById('processed-content') as HTMLElement;
+    const pathContentElement = document.getElementById('path-content') as HTMLElement;
 
     queueElement.innerHTML = '';
     processingElement.innerHTML = '';
     processedElement.innerHTML = '';
+    pathContentElement.innerHTML = '';
 
     const visited: number[] = [];
     const queue: number[] = [0];
+    let currentPath: number[] = [];
+
     queueElement.innerHTML = this.nodes[0]?.label || '';
 
     const processNextNode = (): void => {
@@ -180,6 +177,11 @@ export class BfsPageComponent implements AfterViewInit, OnInit {
         const node: number = queue.shift()!;
 
         if (!visited.includes(node)) {
+          currentPath.push(node);
+          pathContentElement.innerHTML = currentPath
+            .map(index => this.nodes[index].label)
+            .join(' => ');
+
           processingElement.innerHTML = this.nodes[node].label;
           this.drawGraph(ctx, queue, node, visited);
 
@@ -190,7 +192,7 @@ export class BfsPageComponent implements AfterViewInit, OnInit {
               .join(', ');
             queueElement.innerHTML = queue
               .map((index) => this.nodes[index].label)
-              .join(' -> ');
+              .join(' => ');
 
             const neighbors: number[] = this.edges
               .filter((edge) => edge[0] === node && !visited.includes(edge[1]))
@@ -202,28 +204,62 @@ export class BfsPageComponent implements AfterViewInit, OnInit {
             this.bfsTimeout = setTimeout(processNextNode, 2000);
           }, 1500);
         } else {
+          currentPath.pop();
           processNextNode();
         }
+      } else {
+        this.finalPath = visited;
+        this.highlightFinalPath(ctx);
       }
     };
 
     processNextNode();
   }
 
+  private highlightFinalPath(ctx: CanvasRenderingContext2D): void {
+    ctx.strokeStyle = 'orange';
+    ctx.lineWidth = 3;
+
+    const pathContentElement = document.getElementById('path-content') as HTMLElement;
+    pathContentElement.innerHTML = this.finalPath
+      .map(index => this.nodes[index].label)
+      .join(' => ');
+
+    for (let i = 0; i < this.finalPath.length - 1; i++) {
+      const from = this.finalPath[i];
+      const to = this.finalPath[i + 1];
+
+      ctx.beginPath();
+      ctx.moveTo(this.nodes[from].x, this.nodes[from].y);
+      ctx.lineTo(this.nodes[to].x, this.nodes[to].y);
+      ctx.stroke();
+    }
+
+    this.finalPath.forEach((index) => {
+      ctx.beginPath();
+      ctx.arc(this.nodes[index].x, this.nodes[index].y, 20, 0, 2 * Math.PI);
+      ctx.fillStyle = 'orange';
+      ctx.fill();
+      ctx.stroke();
+      ctx.fillStyle = 'black';
+      ctx.fillText(this.nodes[index].label, this.nodes[index].x - 5, this.nodes[index].y + 5);
+    });
+
+    this.finalPath = [];
+  }
+
   public onLogout(): void {
-    this.authService.logout(); // Call the logout method from AuthService
+    this.authService.logout();
   }
 
   public resetBFS(): void {
-    const bfsCanvas = document.getElementById(
-      'bfs-canvas'
-    ) as HTMLCanvasElement;
+    const bfsCanvas = document.getElementById('bfs-canvas') as HTMLCanvasElement;
     const bfsCtx = bfsCanvas.getContext('2d')!;
-    // Clear the entire canvas
     bfsCtx.clearRect(0, 0, bfsCanvas.width, bfsCanvas.height);
     document.getElementById('queue-content')!.innerHTML = '';
     document.getElementById('processing-content')!.innerHTML = '';
     document.getElementById('processed-content')!.innerHTML = '';
+    document.getElementById('path-content')!.innerHTML = '';
 
     if (this.bfsTimeout) {
       clearTimeout(this.bfsTimeout);
@@ -237,7 +273,7 @@ export class BfsPageComponent implements AfterViewInit, OnInit {
   toggleBFSCard() {
     const bfsCard = document.getElementById('bfs-card');
     if (bfsCard) {
-      bfsCard.classList.toggle('hidden');  // Toggle the hidden class
+      bfsCard.classList.toggle('hidden');
     }
   }
 
@@ -292,8 +328,6 @@ export class BfsPageComponent implements AfterViewInit, OnInit {
       // Check if the node indices are within bounds
       const from = Number(nodes[0]);
       const to = Number(nodes[1]);
-
-
     }
 
     return true;
@@ -344,4 +378,4 @@ export class BfsPageComponent implements AfterViewInit, OnInit {
 
     this.edges = newEdges;
   }
-  }
+}
