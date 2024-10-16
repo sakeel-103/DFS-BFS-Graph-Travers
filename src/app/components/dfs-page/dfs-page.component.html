@@ -26,7 +26,7 @@
   <div>
     <button style="margin: 10px;" (click)="startDFSTraversal()">Start DFS</button>
     <button style="margin: 10px;" (click)="resetDFS()">Reset DFS</button>
-    <button style="margin: 10px;" (click)="toggleDFSCard()">Algorithm Description</button> <!-- New button -->
+    <button style="margin: 10px;" (click)="toggleDFSCard()">Algorithm Description</button>
   </div>
 
   <!-- DFS Description Card (Initially Hidden) -->
@@ -44,13 +44,19 @@
       <div id="stack-label">Stack:</div>
       <div id="stack-content"></div>
     </div>
-    <div id="dfs-processing" class="box">
+    <div id="dfs-processing" class="box" style="margin-left: 10px;">
       <div id="processing-label">Processing:</div>
       <div id="processing-content"></div>
     </div>
-    <div id="dfs-processed" class="box">
+    <div id="dfs-processed" class="box" style="margin-left: 10px;">
       <div id="processed-label">Processed:</div>
       <div id="processed-content"></div>
     </div>
+  </div>
+
+  <!-- Path Visualization -->
+  <div id="dfs-path" class="box" style="margin-top: 20px;">
+    <div id="path-label">Path Taken:</div>
+    <div id="path-content"></div>
   </div>
 </div>
