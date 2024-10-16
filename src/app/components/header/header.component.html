@@ -7,6 +7,7 @@
   <title>GraphExplorer Pro</title>
   <link href="./style.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
 </head>
@@ -114,7 +115,7 @@
       <h2>Master Key Graph Algorithms</h2>
       <div class="algorithm-tabs">
         <button class="tab-button active" data-tab="dfs">DFS</button>
-        <button class="tab-button" data-tab="bfs">BFS</button>
+        <button class="tab-button active" data-tab="bfs">BFS</button>
         <button class="tab-button" data-tab="dijkstra">Dijkstra's</button>
       </div>
       <div class="tab-content">
@@ -127,8 +128,10 @@
             <li>Pathfinding in mazes</li>
             <li>Topological sorting</li>
           </ul>
+         <a href="./Algorithms/dfs.html"> <button type="submit" class="btn btn-primary">Explore</button></a>
         </div>
       </div>
+
     </div>
   </section>
 
@@ -160,16 +163,11 @@
 
           <!-- Newsletter Form -->
           <form style="display: flex; justify-content: center; align-items: center; gap: 10px;">
-            <input
-              type="email"
-              placeholder="Enter your email"
+            <input type="email" placeholder="Enter your email"
               style="padding: 10px; font-size: 14px; border: 1px solid #ccc; border-radius: 4px; width: 300px;"
-              required
-            />
-            <button
-              type="submit"
-              style="padding: 10px 20px; background-color: #1a73e8; color: white; border: none; border-radius: 4px; cursor: pointer;"
-            >
+              required />
+            <button type="submit"
+              style="padding: 10px 20px; background-color: #1a73e8; color: white; border: none; border-radius: 4px; cursor: pointer;">
               Subscribe
             </button>
           </form>
@@ -194,21 +192,24 @@
                      <li>Detecting cycles in graphs</li>
                      <li>Pathfinding in mazes</li>
                      <li>Topological sorting</li>
-                 </ul>`,
+                 </ul>
+                  <a href="./Algorithms/dfs.html"> <button type="submit" class="btn btn-primary">Explore</button></a>`,
         "bfs": `<h3>Breadth-First Search (BFS)</h3>
                  <p>BFS is a graph traversal algorithm that explores neighbors before moving to the next level. It's commonly used for:</p>
                  <ul>
                      <li>Finding the shortest path in unweighted graphs</li>
                      <li>Level-order traversal in trees</li>
                      <li>Networking and web crawlers</li>
-                 </ul>`,
+                 </ul>
+                  <a href="./Algorithms/bfs.html"> <button type="submit" class="btn btn-primary">Explore</button></a>`,
         "dijkstra": `<h3>Dijkstra's Algorithm</h3>
                  <p>Dijkstra's is a shortest path algorithm for finding the shortest paths between nodes in a graph, particularly useful for:</p>
                  <ul>
                      <li>GPS Navigation Systems</li>
                      <li>Network routing</li>
                      <li>Optimal decision-making paths</li>
-                 </ul>`
+                 </ul>
+                  <a href="./Algorithms/dfs.html"> <button type="submit" class="btn btn-primary">Explore</button></a>`
       };
 
       tabs.forEach(tab => {

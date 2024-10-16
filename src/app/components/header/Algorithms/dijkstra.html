@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dijkstra Algorithm</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+  <div class="container mt-5">
+    <h1 class="text-center">Dijkstra's Algorithm</h1>
+    <p>Dijkstra's Algorithm is used to find the shortest paths between nodes in a graph, which may represent, for example, road networks. It works for graphs with non-negative weights.</p>
+
+    <h3>How Dijkstra's Algorithm works:</h3>
+    <ul>
+      <li>Set the starting node's distance to 0 and all other nodes' distances to infinity.</li>
+      <li>Mark all nodes as unvisited. Set the starting node as the current node.</li>
+      <li>For the current node, consider all its unvisited neighbors and calculate their tentative distances. Compare the newly calculated tentative distance to the current assigned value and assign the smaller one.</li>
+      <li>Once all neighbors are considered, mark the current node as visited.</li>
+      <li>Select the unvisited node with the smallest tentative distance as the new current node and repeat.</li>
+    </ul>
+
+    <h3>Applications:</h3>
+    <ul>
+      <li>Network routing algorithms.</li>
+      <li>GPS navigation systems.</li>
+      <li>Shortest path algorithms in road maps.</li>
+    </ul>
+
+    <a href="../header.component.html" class="btn btn-primary mt-4">Back to Home</a>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
