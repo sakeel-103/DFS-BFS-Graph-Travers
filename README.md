@@ -2,6 +2,11 @@
 
 Welcome to the **DFS-BFS Graph Traversal** project—a place where graphs come to life! Whether you're a curious student, an algorithm enthusiast, or a graph geek, this project will be your gateway to understanding the magical world of graph traversal using **Depth-First Search (DFS)** and **Breadth-First Search (BFS)**. 🌟
 
+<div style="text-align: center;">
+  <img src="https://raw.githubusercontent.com/alo7lika/DFS-BFS-Graph-Travers/refs/heads/master/DALL%C2%B7E%202024-10-16%2010.59.04%20-%20A%20project%20diagram%20showcasing%20the%20structure%20of%20a%20web%20application%20for%20DFS-BFS%20Graph%20Traversal.%20The%20diagram%20includes%20key%20components%20such%20as%20a%20user%20interf.webp" alt="Project Diagram" width="500">
+</div>
+
+
 ### 🚀 What Makes This Special?
 This isn't just another graph tool. Along with offering powerful graph traversal algorithms, the project features a smooth and secure **Login** and **Signup** system, making sure your data is always safe and sound 🔐. Right now, user data is stored in **LocalStorage**, but don't worry—big plans are on the horizon with **OAuth integration** for easy login via Google and more!
 
