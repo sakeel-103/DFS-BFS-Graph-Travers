@@ -131,24 +131,40 @@
     <div class="container">
       <h2 data-i18n="master-key-algorithms">Master Key Graph Algorithms</h2>
       <div class="algorithm-tabs">
-        <button class="tab-button active" data-tab="dfs" data-i18n="dfs">DFS</button>
-        <button class="tab-button" data-tab="bfs" data-i18n="bfs">BFS</button>
-        <button class="tab-button" data-tab="dijkstra" data-i18n="dijkstra">Dijkstra's</button>
+        <button class="tab-button" [class.active]="activeTab === 'dfs'" (click)="setActiveTab('dfs')" data-i18n="dfs">DFS</button>
+        <button class="tab-button" [class.active]="activeTab === 'bfs'" (click)="setActiveTab('bfs')" data-i18n="bfs">BFS</button>
+        <button class="tab-button" [class.active]="activeTab === 'dijkstra'" (click)="setActiveTab('dijkstra')" data-i18n="dijkstra">Dijkstra's</button>
       </div>
       <div class="tab-content">
-        <div id="dfs-content">
+        <div *ngIf="activeTab === 'dfs'" id="dfs-content">
           <h3 data-i18n="dfs-full">Depth-First Search (DFS)</h3>
-          <p data-i18n="dfs-description">DFS is a graph traversal algorithm that explores as far as possible along each
-            branch before backtracking. It's excellent for:</p>
+          <p data-i18n="dfs-description">DFS is a graph traversal algorithm that explores as far as possible along each branch before backtracking. It's excellent for:</p>
           <ul>
             <li data-i18n="dfs-use-1">Detecting cycles in graphs</li>
             <li data-i18n="dfs-use-2">Pathfinding in mazes</li>
             <li data-i18n="dfs-use-3">Topological sorting</li>
           </ul>
         </div>
+        <div *ngIf="activeTab === 'bfs'" id="bfs-content">
+          <h3 data-i18n="bfs-full">Breadth-First Search (BFS)</h3>
+          <p data-i18n="bfs-description">BFS is a graph traversal algorithm that explores all neighbors at the present depth prior to moving on to nodes at the next depth level. It's used for:</p>
+          <ul>
+            <li data-i18n="bfs-use-1">Finding the shortest path in unweighted graphs</li>
+            <li data-i18n="bfs-use-2">Broadcasting in networks</li>
+          </ul>
+        </div>
+        <div *ngIf="activeTab === 'dijkstra'" id="dijkstra-content">
+          <h3 data-i18n="dijkstra-full">Dijkstra's Algorithm</h3>
+          <p data-i18n="dijkstra-description">Dijkstra's algorithm finds the shortest path from a source node to all other nodes in a weighted graph. It's widely used for:</p>
+          <ul>
+            <li data-i18n="dijkstra-use-1">GPS navigation systems</li>
+            <li data-i18n="dijkstra-use-2">Network routing protocols</li>
+          </ul>
+        </div>
       </div>
     </div>
-  </section>
+</section>
+
 
   <section id="visualizer" class="visualizer">
     <div class="container">
