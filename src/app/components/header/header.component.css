@@ -227,25 +227,3 @@ a.nav-item {
   }
 }
 
-.tab-button {
-  padding: 10px;
-  cursor: pointer;
-  border: none;
-  background-color: #f1f1f1;
-  margin-right: 5px;
-  border-radius: 5px;
-}
-
-
-
-.tab {
-  display: none; /* Hide all tabs by default */
-}
-
-.tab.active {
-  display: block; /* Show the active tab */
-}
-
-.container {
-  margin: 20px;
-}
