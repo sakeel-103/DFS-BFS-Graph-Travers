@@ -14,7 +14,7 @@ import { QuestionBankComponent } from './components/practice/practice.component'
 import { ResourcesComponent } from './components/resources/resources.component';
 import { ContactUsComponent } from './components/contact-us/contact-us.component';
 import { ContributorsComponent } from './components/contributors/contributors.component';
-
+import { CodeEditorComponent } from './components/code-editor/code-editor.component';
 export const routes: Routes = [
   {
     path: '',
@@ -71,6 +71,10 @@ export const routes: Routes = [
   {
     path: 'contributors',
     component: ContributorsComponent,
+  },
+  {
+    path: 'editor',
+    component: CodeEditorComponent,
   },
   {
     path: '**',
