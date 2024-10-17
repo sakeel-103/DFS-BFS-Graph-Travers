@@ -52,6 +52,19 @@
       position: relative;
       /* Make the box relative so go-back stays inside */
     }
+    
+      .checkbox-input {
+        padding: 10px;
+    font-size: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+     width: 10px; 
+    margin-right: 10px;
+    transition: border-color 0.3s, box-shadow 0.3s 
+ 
+}
+   
+    
   </style>
 </head>
 
@@ -77,8 +90,10 @@
               style="cursor: pointer; position: absolute; right: 10px; top: 50%; transform: translateY(-50%);"></i>
           </div>
           <div class="checkbox-container">
-            <input type="checkbox" id="remember" name="remember">
+            <input type="checkbox" id="remember" name="remember" class="checkbox-input" >
             <label for="remember">Remember Me</label>
+           
+           
         </div>
 
           <button type="submit" [routerLink]="['/mainIndex']" class="btn">Login</button>
