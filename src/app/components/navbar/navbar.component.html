@@ -1,36 +1,32 @@
 <div class="navbar">
     <div class="nav-left">
-        <p>GRAPH-TRAVERSAL</p>
+      <a routerLink="/mainIndex" class="nav-link">GRAPH-TRAVERSAL</a>
     </div>
-    <div style="display: flex;">
-        <div class="div-new">
-            <a href="/dfsPage" class="btn btn-dark me-3">DFS</a>
-            <a href="/bfsPage" class="btn btn-dark me-3">BFS</a>
-        </div>
-        <!-- Profile Section with Dropdown -->
-        <div class="profile-dropdown">
-            <img src="https://as1.ftcdn.net/v2/jpg/07/77/92/08/1000_F_777920887_JNV7hglZmyROgiZjGb6x9DP4Qfu5gyg0.jpg"
-                alt="Profile" class="profile-img" (click)="toggleDropdown()">
-            <div class="dropdown-content" [class.show]="isDropdownOpen">
-                <a href="/mainIndex" class="dropdown-item">Home</a>
-                <a href="/aboutUs" class="dropdown-item btn btn-dark me-3">About Us</a>
-                <a href="/faq" class="dropdown-item btn btn-dark me-3">FAQ</a>
-                <a href="/quiz" class="dropdown-item btn btn-dark me-3">Quiz</a>
-                <a href="/real-world" class="dropdown-item btn btn-dark me-3">Real World Graph Scenario</a>
-                <a href="/questions" class="dropdown-item btn btn-dark me-3">Questions</a>
-                <a href="/resources" class="dropdown-item btn btn-dark me-3">Resources</a>
-                <a href="/contactUs" class="dropdown-item btn btn-dark me-3">ContactUs</a>
-                <a href="/contributors" class="dropdown-item btn btn-dark me-3">Contributors</a>
-                <a href="/" (click)="onLogout()" class="dropdown-item">Logout</a>
-            </div>
-        </div>
+    <div class="nav-right">
+      <div class="div-new">
+        <a routerLink="/dfsPage" class="btn btn-dark">DFS</a>
+        <a routerLink="/bfsPage" class="btn btn-dark">BFS</a>
+      </div>
+      <div class="nav-items">
+        <a routerLink="/aboutUs" class="btn btn-dark" [class.active]="isActive('/aboutUs')">About Us</a>
+        <a routerLink="/faq" class="btn btn-dark" [class.active]="isActive('/faq')">FAQ</a>
+        <a routerLink="/quiz" class="btn btn-dark" [class.active]="isActive('/quiz')">Quiz</a>
+        <a routerLink="/real-world" class="btn btn-dark" [class.active]="isActive('/real-world')">Real World Graph Scenario</a>
+        <a routerLink="/questions" class="btn btn-dark" [class.active]="isActive('/questions')">Questions</a>
+        <a routerLink="/resources" class="btn btn-dark" [class.active]="isActive('/resources')">Resources</a>
+        <a routerLink="/contactUs" class="btn btn-dark" [class.active]="isActive('/contactUs')">Contact Us</a>
+        <a routerLink="/contributors" class="btn btn-dark" [class.active]="isActive('/contributors')">Contributors</a>
+        <a routerLink="/" class="btn btn-danger" (click)="onLogout()">Logout</a>
+      </div>
     </div>
-    <script>
-        window.embeddedChatbotConfig = {
-            chatbotId: "oA_rXZ5BFgXbM-YwcC0vx",
-            domain: "www.chatbase.co"
-        }
-    </script>
-    <script src="https://www.chatbase.co/embed.min.js" chatbotId="oA_rXZ5BFgXbM-YwcC0vx" domain="www.chatbase.co" defer>
-    </script>
-</div>
+  </div>
+  
+  <!-- Embedded Chatbot -->
+  <script>
+    window.embeddedChatbotConfig = {
+      chatbotId: "oA_rXZ5BFgXbM-YwcC0vx",
+      domain: "www.chatbase.co"
+    };
+  </script>
+  <script src="https://www.chatbase.co/embed.min.js" chatbotId="oA_rXZ5BFgXbM-YwcC0vx" domain="www.chatbase.co" defer></script>
+  

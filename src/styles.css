@@ -30,3 +30,36 @@ html {
     scrollbar-width: thin;
     scrollbar-color: #888 #00292f;
 }
+
+/* Reset margins, paddings, and box-sizing globally */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  html, body {
+    width: 100%;
+    height: 100%;
+    font-family: Arial, sans-serif;
+  }
+  
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background-color: #333;
+    color: #fff;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+  }
+  
+  /* Ensure consistent layout on every page */
+  main {
+    padding-top: 80px; /* Adjust based on navbar height */
+  }
+  
