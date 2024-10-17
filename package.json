@@ -21,6 +21,7 @@
     "@angular/platform-browser-dynamic": "^18.2.0",
     "@angular/router": "^18.2.0",
     "@netlify/angular-runtime": "^2.1.0",
+    "ace-builds": "^1.36.2",
     "eccom-prj": "file:",
     "express-validator": "^7.2.0",
     "ngx-toastr": "^19.0.0",

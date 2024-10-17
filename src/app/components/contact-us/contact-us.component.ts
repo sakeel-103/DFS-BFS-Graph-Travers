@@ -1,6 +1,11 @@
 import { Component, Inject } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import {  OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { NavbarComponent } from '../navbar/navbar.component';
+
 import {
   ReactiveFormsModule,
   FormBuilder,
@@ -8,7 +13,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { Router } from '@angular/router';
-import { CommonModule } from '@angular/common'; // Import CommonModule
+ // Import CommonModule
 import { AuthService } from '../../services/auth.service';
 
 @Component({
@@ -16,7 +21,7 @@ import { AuthService } from '../../services/auth.service';
   standalone: true,
   templateUrl: './contact-us.component.html',
   styleUrls: ['./contact-us.component.css'],
-  imports: [RouterModule, ReactiveFormsModule, CommonModule], // Add CommonModule here
+  imports: [RouterModule, ReactiveFormsModule, CommonModule,NavbarComponent,FormsModule], // Add CommonModule here
 })
 export class ContactUsComponent {
   contactForm: FormGroup;

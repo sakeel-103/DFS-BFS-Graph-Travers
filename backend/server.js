@@ -13,6 +13,25 @@ const { validateSignup } = require('./middlewares/validation');
 const authenticateSession = require('./middlewares/authenticate');
 const http = require('http');
 const { Server } = require('socket.io');
+const WebSocket = require('ws');
+
+const wss = new WebSocket.Server({ port: 5001 });
+
+wss.on('connection', (ws) => {
+    console.log('Client connected');
+
+    ws.on('message', (message) => {
+        console.log('Received: %s', message);
+        ws.send('Hello from server!');
+    });
+
+    ws.on('close', () => {
+        console.log('Client disconnected');
+    });
+});
+
+console.log('WebSocket server is running on ws://localhost:5000/');
+
 
 dotenv.config();
 const app = express();

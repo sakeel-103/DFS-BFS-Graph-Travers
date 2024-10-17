@@ -1,17 +1,22 @@
 import { Component, AfterViewInit, OnDestroy } from '@angular/core';
 import { RouterModule } from '@angular/router';
-
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [RouterModule,],
+  imports: [RouterModule,  CommonModule],
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css'],
 })
 export class HeaderComponent implements AfterViewInit, OnDestroy {
   private resizeListener: (() => void) | null = null; // Initialize as null
+  activeTab: string = 'dfs'; // Default tab is 'dfs'
 
+  // Function to set the active tab
+  setActiveTab(tab: string) {
+    this.activeTab = tab;
+  }
   ngAfterViewInit() {
     const openNav = document.getElementById('menu-icon');
     const navLinks = document.getElementById('nav-links');
