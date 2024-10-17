@@ -378,4 +378,11 @@ export class BfsPageComponent implements AfterViewInit, OnInit {
 
     this.edges = newEdges;
   }
+
+  public downloadCanvas(): void {
+    const link = document.createElement('a');
+    link.download = 'bfs-canvas.png'; // Name for the downloaded file
+    link.href = this.bfsCanvas.toDataURL(); // Get the data URL of the canvas
+    link.click(); // Trigger the download
+  }
 }
