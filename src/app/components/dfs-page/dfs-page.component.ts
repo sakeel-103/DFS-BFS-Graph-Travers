@@ -37,7 +37,7 @@ export class DfsPageComponent implements AfterViewInit, OnInit {
     this.adjustCanvasSize(); // Adjust size first
     this.drawGraph(dfsCtx);  // Then draw
   }
-  
+
   toggleDropdown(): void {
     this.isDropdownOpen = !this.isDropdownOpen;
   }
@@ -389,5 +389,11 @@ export class DfsPageComponent implements AfterViewInit, OnInit {
     }
 
     this.edges = newEdges;
+  }
+  public downloadCanvas(): void {
+    const link = document.createElement('a');
+    link.download = 'dfs-canvas.png'; // Name for the downloaded file
+    link.href = this.dfsCanvas.toDataURL(); // Get the data URL of the canvas
+    link.click(); // Trigger the download
   }
 }
