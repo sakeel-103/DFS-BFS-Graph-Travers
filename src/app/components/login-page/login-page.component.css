@@ -166,6 +166,54 @@ body {
   margin-right: 10px;
 }
 
+/* Add css */
+.checkbox-container {
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+}
+
+.styled-checkbox {
+    display: none; /* Hide the default checkbox */
+}
+
+.checkbox-label {
+    position: relative;
+    padding-left: 30px;
+    cursor: pointer;
+    font-size: 16px;
+    color: #333;
+}
+
+.checkbox-label::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+    border: 2px solid #007bff;
+    border-radius: 4px;
+    background: white;
+    transition: background 0.3s, border-color 0.3s;
+}
+
+.styled-checkbox:checked + .checkbox-label::before {
+    background: #007bff;
+    border-color: #0056b3;
+}
+
+.styled-checkbox:checked + .checkbox-label::after {
+    content: '✓'; /* Tick mark */
+    position: absolute;
+    left: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: white; /* Change to match the background color */
+    font-size: 16px;
+}
+
 @media (max-width:926px){
     .container{
         width: 450px;
