@@ -76,13 +76,14 @@
             <i class="bx" [ngClass]="passwordVisible ? 'bx bx-show' : 'bx bx-hide'" (click)="togglePasswordVisibility()"
               style="cursor: pointer; position: absolute; right: 10px; top: 50%; transform: translateY(-50%);"></i>
           </div>
+
           <div class="checkbox-container">
-            <input type="checkbox" id="remember" name="remember">
-            <label for="remember">Remember Me</label>
-        </div>
+            <input type="checkbox" id="remember" name="remember" class="styled-checkbox">
+            <label for="remember" class="checkbox-label">Remember Me</label>
+          </div>
 
           <button type="submit" [routerLink]="['/mainIndex']" class="btn">Login</button>
-          
+
           <!-- Add Google login button -->
           <button type="button" class="btn google-btn" (click)="loginWithGoogle()">
             <i class="fab fa-google"></i> Login with Google
