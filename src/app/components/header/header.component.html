@@ -12,15 +12,18 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/i18next/21.6.10/i18next.min.js"></script>
   <style>
     .canvas_1 {
-        color: #333;
-        text-align: center;
-        margin-bottom: 20px;
+      color: #333;
+      text-align: center;
+      margin-bottom: 20px;
     }
+
     canvas {
-        border: 1px solid #ccc; /* Adding a border to visualize the canvas */
-        background-color: #f9f9f9; /* Optional: background color for better visibility */
+      border: 1px solid #ccc;
+      /* Adding a border to visualize the canvas */
+      background-color: #f9f9f9;
+      /* Optional: background color for better visibility */
     }
-</style>
+  </style>
 </head>
 
 <body>
@@ -81,31 +84,34 @@
           <span class="block text-2xl md:text-3xl mt-2 text-indigo-200">Visualized & Simplified</span>
         </h1>
         <p class="text-xl text-indigo-100 max-w-2xl">
-          Master advanced graph theory through interactive visualizations and hands-on exploration with GraphExplorer Pro.
+          Master advanced graph theory through interactive visualizations and hands-on exploration with GraphExplorer
+          Pro.
         </p>
         <div class="flex gap-4">
-          <button class="bg-white text-indigo-600 px-8 py-3 rounded-full font-semibold flex items-center gap-2 hover:bg-indigo-50 transition-colors">
+          <button
+            class="bg-white text-indigo-600 px-8 py-3 rounded-full font-semibold flex items-center gap-2 hover:bg-indigo-50 transition-colors">
             Start Exploring <span class="arrow-right-icon">→</span>
           </button>
-          <button class="border-2 border-white text-white px-8 py-3 rounded-full font-semibold flex items-center gap-2 hover:bg-white/10 transition-colors">
+          <button
+            class="border-2 border-white text-white px-8 py-3 rounded-full font-semibold flex items-center gap-2 hover:bg-white/10 transition-colors">
             Watch Demo
           </button>
         </div>
       </div>
-  
+
       <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
         <div class="bg-white shadow-lg rounded-2xl p-6 text-gray-800">
           <span class="share-icon text-2xl">📤</span>
           <h3 class="text-xl font-semibold mb-2 mt-4">Interactive Visualization</h3>
           <p class="text-gray-600">Watch algorithms come to life with step-by-step visual demonstrations.</p>
         </div>
-  
+
         <div class="bg-white shadow-lg rounded-2xl p-6 text-gray-800">
           <span class="git-branch-icon text-2xl">🌿</span>
           <h3 class="text-xl font-semibold mb-2 mt-4">Advanced Algorithms</h3>
           <p class="text-gray-600">Learn complex algorithms including DFS, BFS, Dijkstra's, and more.</p>
         </div>
-  
+
         <div class="bg-white shadow-lg rounded-2xl p-6 text-gray-800">
           <span class="zap-icon text-2xl">⚡</span>
           <h3 class="text-xl font-semibold mb-2 mt-4">Real-time Analysis</h3>
@@ -113,7 +119,7 @@
         </div>
       </div>
     </div>
-  
+
     <!-- Decorative Background Elements -->
     <div class="absolute top-0 right-0 w-1/2 h-full opacity-20 pointer-events-none">
       <script>
@@ -139,7 +145,7 @@
       </script>
     </div>
   </div>
-  
+
 
   <!-- Merged LandingPage component ends here -->
 
@@ -207,14 +213,22 @@
     <div class="container">
       <h2 data-i18n="master-key-algorithms">Master Key Graph Algorithms</h2>
       <div class="algorithm-tabs">
-        <button class="tab-button" [class.active]="activeTab === 'dfs'" (click)="setActiveTab('dfs')" data-i18n="dfs">DFS</button>
-        <button class="tab-button" [class.active]="activeTab === 'bfs'" (click)="setActiveTab('bfs')" data-i18n="bfs">BFS</button>
-        <button class="tab-button" [class.active]="activeTab === 'dijkstra'" (click)="setActiveTab('dijkstra')" data-i18n="dijkstra">Dijkstra's</button>
+        <button class="tab-button" [class.active]="activeTab === 'dfs'" (click)="setActiveTab('dfs')"
+          data-i18n="dfs">DFS</button>
+        <button class="tab-button" [class.active]="activeTab === 'bfs'" (click)="setActiveTab('bfs')"
+          data-i18n="bfs">BFS</button>
+        <button class="tab-button" [class.active]="activeTab === 'dijkstra'" (click)="setActiveTab('dijkstra')"
+          data-i18n="dijkstra">Dijkstra's</button>
+        <button class="tab-button" [class.active]="activeTab === 'bellmanFord'" (click)="setActiveTab('bellmanFord')"
+          data-i18n="bellmanFord">Bellman-Ford</button>
+        <button class="tab-button" [class.active]="activeTab === 'floydWarshall'"
+          (click)="setActiveTab('floydWarshall')" data-i18n="floydWarshall">Floyd-Warshall</button>
       </div>
       <div class="tab-content">
         <div *ngIf="activeTab === 'dfs'" id="dfs-content">
           <h3 data-i18n="dfs-full">Depth-First Search (DFS)</h3>
-          <p data-i18n="dfs-description">DFS is a graph traversal algorithm that explores as far as possible along each branch before backtracking. It's excellent for:</p>
+          <p data-i18n="dfs-description">DFS is a graph traversal algorithm that explores as far as possible along each
+            branch before backtracking. It's excellent for:</p>
           <ul>
             <li data-i18n="dfs-use-1">Detecting cycles in graphs</li>
             <li data-i18n="dfs-use-2">Pathfinding in mazes</li>
@@ -223,7 +237,8 @@
         </div>
         <div *ngIf="activeTab === 'bfs'" id="bfs-content">
           <h3 data-i18n="bfs-full">Breadth-First Search (BFS)</h3>
-          <p data-i18n="bfs-description">BFS is a graph traversal algorithm that explores all neighbors at the present depth prior to moving on to nodes at the next depth level. It's used for:</p>
+          <p data-i18n="bfs-description">BFS is a graph traversal algorithm that explores all neighbors at the present
+            depth prior to moving on to nodes at the next depth level. It's used for:</p>
           <ul>
             <li data-i18n="bfs-use-1">Finding the shortest path in unweighted graphs</li>
             <li data-i18n="bfs-use-2">Broadcasting in networks</li>
@@ -231,15 +246,40 @@
         </div>
         <div *ngIf="activeTab === 'dijkstra'" id="dijkstra-content">
           <h3 data-i18n="dijkstra-full">Dijkstra's Algorithm</h3>
-          <p data-i18n="dijkstra-description">Dijkstra's algorithm finds the shortest path from a source node to all other nodes in a weighted graph. It's widely used for:</p>
+          <p data-i18n="dijkstra-description">Dijkstra's algorithm finds the shortest path from a source node to all
+            other nodes in a weighted graph. It's widely used for:</p>
           <ul>
             <li data-i18n="dijkstra-use-1">GPS navigation systems</li>
             <li data-i18n="dijkstra-use-2">Network routing protocols</li>
           </ul>
         </div>
+        <div *ngIf="activeTab === 'bellmanFord'" id="bellmanFord-content">
+          <h3 data-i18n="bellmanFord-full">Bellman-Ford Algorithm</h3>
+          <p data-i18n="bellmanFord-description">The Bellman-Ford algorithm computes the shortest path from a source
+            node to all
+            other nodes in a weighted graph, handling negative weight edges and detecting negative cycles. It's commonly
+            used
+            for:</p>
+          <ul>
+            <li data-i18n="bellmanFord-use-1">Financial arbitrage detection</li>
+            <li data-i18n="bellmanFord-use-2">Graphs with negative weight edges</li>
+          </ul>
+        </div>
+        <div *ngIf="activeTab === 'floydWarshall'" id="floydWarshall-content">
+          <h3 data-i18n="floydWarshall-full">Floyd-Warshall Algorithm</h3>
+          <p data-i18n="floydWarshall-description">The Floyd-Warshall algorithm finds shortest paths between all pairs
+            of nodes
+            in a weighted graph. It efficiently handles graphs with negative weights and detects negative cycles. It's
+            widely
+            used for:</p>
+          <ul>
+            <li data-i18n="floydWarshall-use-1">Network routing</li>
+            <li data-i18n="floydWarshall-use-2">Transitive closure computation</li>
+          </ul>
+        </div>
       </div>
     </div>
-</section>
+  </section>
 
 
   <section id="visualizer" class="visualizer">
@@ -263,9 +303,9 @@
   <h1 class="canvas_1" style="color: #40444b;">CANVAS</h1>
 
   <canvas id="graphCanvas" width="1500" height="600"></canvas>
-  
- 
-  
+
+
+
   <div class="forum-container">
     <h1 style="color: #40444b;">Discussion Forum</h1>
 
@@ -289,7 +329,7 @@
     // Interface for thread structure
     // Converted to plain JavaScript as browsers don't natively support TypeScript
     let threads = JSON.parse(localStorage.getItem('threads') || '[]');
-console.log("this is discussion")
+    console.log("this is discussion")
     // Function to create a new thread
     function createThread() {
       const titleInput = document.getElementById('thread-title');
@@ -363,7 +403,7 @@ console.log("this is discussion")
   </script>
 
 
- 
+
   <!-- Add the contact form modal -->
   <div id="contactModal" class="modal">
     <div class="modal-content">
@@ -854,81 +894,81 @@ console.log("this is discussion")
       /* Slight opacity change on hover for visual feedback */
     }
   </style>
-   <script>
+  <script>
     console.log("Script is running");
-      const canvas = document.getElementById('graphCanvas');
-      const ctx = canvas.getContext('2d');
-      let nodes = []; // Store nodes as {x, y}
-      let edges = []; // Store edges as [{startNodeIndex, endNodeIndex}]
-      let isDrawing = false;
-      let startNodeIndex = null;
-  
-      // Handle mousedown event
-      canvas.addEventListener('mousedown', (e) => {
-    console.log("Mouse down event triggered"); // Add this line
-    const {offsetX, offsetY} = e;
-    const nodeIndex = nodes.findIndex(node => Math.hypot(node.x - offsetX, node.y - offsetY) < 20);
+    const canvas = document.getElementById('graphCanvas');
+    const ctx = canvas.getContext('2d');
+    let nodes = []; // Store nodes as {x, y}
+    let edges = []; // Store edges as [{startNodeIndex, endNodeIndex}]
+    let isDrawing = false;
+    let startNodeIndex = null;
 
-    if (nodeIndex === -1) {
+    // Handle mousedown event
+    canvas.addEventListener('mousedown', (e) => {
+      console.log("Mouse down event triggered"); // Add this line
+      const { offsetX, offsetY } = e;
+      const nodeIndex = nodes.findIndex(node => Math.hypot(node.x - offsetX, node.y - offsetY) < 20);
+
+      if (nodeIndex === -1) {
         // Add new node
-        nodes.push({x: offsetX, y: offsetY});
+        nodes.push({ x: offsetX, y: offsetY });
         drawGraph();
-    } else {
+      } else {
         // Start drawing an edge from the selected node
         startNodeIndex = nodeIndex;
         isDrawing = true;
-    }
-});
-
-  
-      // Handle mousemove event
-      canvas.addEventListener('mousemove', (e) => {
-          if (isDrawing && startNodeIndex !== null) {
-              const {offsetX, offsetY} = e;
-              drawGraph();  // Redraw everything
-              ctx.beginPath();
-              ctx.moveTo(nodes[startNodeIndex].x, nodes[startNodeIndex].y);
-              ctx.lineTo(offsetX, offsetY);
-              ctx.stroke();
-          }
-      });
-  
-      // Handle mouseup event
-      canvas.addEventListener('mouseup', (e) => {
-          const {offsetX, offsetY} = e;
-          if (isDrawing && startNodeIndex !== null) {
-              const endNodeIndex = nodes.findIndex(node => Math.hypot(node.x - offsetX, node.y - offsetY) < 20);
-              if (endNodeIndex !== -1 && endNodeIndex !== startNodeIndex) {
-                  // Store the edge
-                  edges.push({startNodeIndex, endNodeIndex});
-                  drawGraph(); // Redraw the graph with the new edge
-              }
-              isDrawing = false;
-              startNodeIndex = null;
-          }
-      });
-  
-      // Draw the nodes and edges on the canvas
-      function drawGraph() {
-          ctx.clearRect(0, 0, canvas.width, canvas.height);
-          // Draw edges
-          edges.forEach(edge => {
-              ctx.beginPath();
-              ctx.moveTo(nodes[edge.startNodeIndex].x, nodes[edge.startNodeIndex].y);
-              ctx.lineTo(nodes[edge.endNodeIndex].x, nodes[edge.endNodeIndex].y);
-              ctx.stroke();
-          });
-          // Draw nodes
-          nodes.forEach(node => {
-              ctx.beginPath();
-              ctx.arc(node.x, node.y, 20, 0, Math.PI * 2);
-              ctx.fillStyle = 'lightblue';
-              ctx.fill();
-              ctx.stroke();
-          });
       }
+    });
+
+
+    // Handle mousemove event
+    canvas.addEventListener('mousemove', (e) => {
+      if (isDrawing && startNodeIndex !== null) {
+        const { offsetX, offsetY } = e;
+        drawGraph();  // Redraw everything
+        ctx.beginPath();
+        ctx.moveTo(nodes[startNodeIndex].x, nodes[startNodeIndex].y);
+        ctx.lineTo(offsetX, offsetY);
+        ctx.stroke();
+      }
+    });
+
+    // Handle mouseup event
+    canvas.addEventListener('mouseup', (e) => {
+      const { offsetX, offsetY } = e;
+      if (isDrawing && startNodeIndex !== null) {
+        const endNodeIndex = nodes.findIndex(node => Math.hypot(node.x - offsetX, node.y - offsetY) < 20);
+        if (endNodeIndex !== -1 && endNodeIndex !== startNodeIndex) {
+          // Store the edge
+          edges.push({ startNodeIndex, endNodeIndex });
+          drawGraph(); // Redraw the graph with the new edge
+        }
+        isDrawing = false;
+        startNodeIndex = null;
+      }
+    });
+
+    // Draw the nodes and edges on the canvas
+    function drawGraph() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      // Draw edges
+      edges.forEach(edge => {
+        ctx.beginPath();
+        ctx.moveTo(nodes[edge.startNodeIndex].x, nodes[edge.startNodeIndex].y);
+        ctx.lineTo(nodes[edge.endNodeIndex].x, nodes[edge.endNodeIndex].y);
+        ctx.stroke();
+      });
+      // Draw nodes
+      nodes.forEach(node => {
+        ctx.beginPath();
+        ctx.arc(node.x, node.y, 20, 0, Math.PI * 2);
+        ctx.fillStyle = 'lightblue';
+        ctx.fill();
+        ctx.stroke();
+      });
+    }
   </script>
-  
+
 </body>
 
 </html>
