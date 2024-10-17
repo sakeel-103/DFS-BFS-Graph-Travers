@@ -230,7 +230,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(to bottom right, #e5e5ea, #ab93d5, #af7eaf);
+  background: linear-gradient(to bottom right, #f0f0f1, #efeef0, #f8f7f8);
 }
 
 /* Container and Text Alignment */
@@ -286,7 +286,7 @@ h1 span {
 
 p {
   font-size: 1.125rem;
-  color: #d1d5db;
+  color: #70a3f1;
   max-width: 640px;
   margin-top: 0.5rem;
 }
@@ -341,7 +341,7 @@ button.border-2:hover {
 }
 
 p.text-indigo-100 {
-  color: #e0e7ff;
+  color: #424346;
 }
 
 .share-icon,
