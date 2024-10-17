@@ -1,0 +1,43 @@
+<app-navbar></app-navbar>
+<div class="review-container">
+    <h1 class="text-center">📝 Graph Traversal Discussions</h1>
+    <div *ngIf="loading" class="loader-container">
+        <div class="loader"></div>
+    </div>
+    <div class="review-subContainer" *ngIf="!loading">
+        <div class="review-form">
+            <h2>Submit a Discussion</h2>
+            <input [(ngModel)]="newReview.author" placeholder="Your Name" />
+            <textarea [(ngModel)]="newReview.content" placeholder="Your Thoughts on Graph Traversal"></textarea>
+            <button (click)="submitReview()">Submit</button>
+        </div>
+        <div *ngFor="let review of reviews" class="review-card">
+            <div class="review-details">
+                <h2>{{ review.author }}</h2>
+                <p>{{ review.content }}</p>
+            </div>
+            <div class="questions">
+                <div *ngFor="let question of review.questions" class="question-card">
+                    <h3>{{ question.author }} asked:</h3>
+                    <p>{{ question.content }}</p>
+                    <div class="replies">
+                        <div *ngFor="let reply of question.replies" class="reply-card">
+                            <h4>{{ reply.author }} replied:</h4>
+                            <p>{{ reply.content }}</p>
+                        </div>
+                    </div>
+                    <div class="reply-form">
+                        <input [(ngModel)]="newReply.author" placeholder="Your Name" />
+                        <input [(ngModel)]="newReply.content" placeholder="Your Reply" />
+                        <button (click)="submitReply(review.id, question.id)">Reply</button>
+                    </div>
+                </div>
+            </div>
+            <div class="question-form">
+                <input [(ngModel)]="newQuestion.author" placeholder="Your Name" />
+                <input [(ngModel)]="newQuestion.content" placeholder="Your Question" />
+                <button (click)="submitQuestion(review.id)">Ask Question</button>
+            </div>
+        </div>
+    </div>
+</div>
