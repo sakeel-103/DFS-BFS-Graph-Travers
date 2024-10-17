@@ -254,7 +254,7 @@
 
     // Real-time WebSocket logic for collaboration
     const protocol = window.location.protocol === 'https:' ? 'wss' : 'ws';
-    const socket = new WebSocket(`${protocol}://localhost:5000`); // Change to your server address
+    const socket = new WebSocket(`${protocol}://localhost:5001`); // Change to your server address
 
     socket.addEventListener('open', function (event) {
       console.log('Connected to WebSocket server');

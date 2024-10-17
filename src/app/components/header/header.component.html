@@ -10,6 +10,17 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/i18next/21.6.10/i18next.min.js"></script>
+  <style>
+    .canvas_1 {
+        color: #333;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    canvas {
+        border: 1px solid #ccc; /* Adding a border to visualize the canvas */
+        background-color: #f9f9f9; /* Optional: background color for better visibility */
+    }
+</style>
 </head>
 
 <body>
@@ -62,9 +73,7 @@
       <div class="edge" style="width: 120px; top: 65%; left: 40%; transform: rotate(40deg);"></div>
     </div>
   </section>
-
-  <!-- Merged LandingPage component starts here -->
-  <div class="min-h-screen bg-gradient-to-br from-indigo-600 via-purple-600 to-pink-500">
+  <div class="min-h-screen">
     <div class="container mx-auto px-4 py-16">
       <div class="flex flex-col items-center text-center space-y-8 mb-16">
         <h1 class="text-5xl md:text-7xl font-bold text-white tracking-tight">
@@ -83,53 +92,55 @@
           </button>
         </div>
       </div>
-
+  
       <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-        <div class="bg-white/10 backdrop-blur-lg rounded-2xl p-6 text-white">
-          <span class="share-icon">📤</span>
-          <h3 class="text-xl font-semibold mb-2">Interactive Visualization</h3>
-          <p class="text-indigo-100">Watch algorithms come to life with step-by-step visual demonstrations.</p>
+        <div class="bg-white shadow-lg rounded-2xl p-6 text-gray-800">
+          <span class="share-icon text-2xl">📤</span>
+          <h3 class="text-xl font-semibold mb-2 mt-4">Interactive Visualization</h3>
+          <p class="text-gray-600">Watch algorithms come to life with step-by-step visual demonstrations.</p>
         </div>
-
-        <div class="bg-white/10 backdrop-blur-lg rounded-2xl p-6 text-white">
-          <span class="git-branch-icon">🌿</span>
-          <h3 class="text-xl font-semibold mb-2">Advanced Algorithms</h3>
-          <p class="text-indigo-100">Learn complex algorithms including DFS, BFS, Dijkstra's, and more.</p>
+  
+        <div class="bg-white shadow-lg rounded-2xl p-6 text-gray-800">
+          <span class="git-branch-icon text-2xl">🌿</span>
+          <h3 class="text-xl font-semibold mb-2 mt-4">Advanced Algorithms</h3>
+          <p class="text-gray-600">Learn complex algorithms including DFS, BFS, Dijkstra's, and more.</p>
         </div>
-
-        <div class="bg-white/10 backdrop-blur-lg rounded-2xl p-6 text-white">
-          <span class="zap-icon">⚡</span>
-          <h3 class="text-xl font-semibold mb-2">Real-time Analysis</h3>
-          <p class="text-indigo-100">Get instant feedback and performance metrics as you explore.</p>
+  
+        <div class="bg-white shadow-lg rounded-2xl p-6 text-gray-800">
+          <span class="zap-icon text-2xl">⚡</span>
+          <h3 class="text-xl font-semibold mb-2 mt-4">Real-time Analysis</h3>
+          <p class="text-gray-600">Get instant feedback and performance metrics as you explore.</p>
         </div>
-      </div>
-
-      <div class="absolute top-0 right-0 w-1/2 h-full opacity-20 pointer-events-none">
-        <script>
-          // Generate background elements
-          for (let i = 0; i < 5; i++) {
-            const dot = document.createElement('div');
-            dot.className = 'absolute rounded-full bg-white';
-            dot.style.width = '12px';
-            dot.style.height = '12px';
-            dot.style.top = `${Math.random() * 100}%`;
-            dot.style.left = `${Math.random() * 100}%`;
-            document.body.appendChild(dot);
-          }
-          for (let i = 0; i < 4; i++) {
-            const line = document.createElement('div');
-            line.className = 'absolute bg-white/30';
-            line.style.height = '2px';
-            line.style.width = '100px';
-            line.style.transform = `rotate(${Math.random() * 360}deg)`;
-            line.style.top = `${Math.random() * 100}%`;
-            line.style.left = `${Math.random() * 100}%`;
-            document.body.appendChild(line);
-          }
-        </script>
       </div>
     </div>
+  
+    <!-- Decorative Background Elements -->
+    <div class="absolute top-0 right-0 w-1/2 h-full opacity-20 pointer-events-none">
+      <script>
+        for (let i = 0; i < 5; i++) {
+          const dot = document.createElement('div');
+          dot.className = 'absolute rounded-full bg-white';
+          dot.style.width = '12px';
+          dot.style.height = '12px';
+          dot.style.top = `${Math.random() * 100}%`;
+          dot.style.left = `${Math.random() * 100}%`;
+          document.body.appendChild(dot);
+        }
+        for (let i = 0; i < 4; i++) {
+          const line = document.createElement('div');
+          line.className = 'absolute bg-white/30';
+          line.style.height = '2px';
+          line.style.width = '100px';
+          line.style.transform = `rotate(${Math.random() * 360}deg)`;
+          line.style.top = `${Math.random() * 100}%`;
+          line.style.left = `${Math.random() * 100}%`;
+          document.body.appendChild(line);
+        }
+      </script>
+    </div>
   </div>
+  
+
   <!-- Merged LandingPage component ends here -->
 
   <section id="features" class="features">
@@ -249,84 +260,14 @@
       </div>
     </div>
   </section>
-  <h1 class="canvas_1">CANVAS</h1>
+  <h1 class="canvas_1" style="color: #40444b;">CANVAS</h1>
 
   <canvas id="graphCanvas" width="1500" height="600"></canvas>
   
-<script>
-    const canvas = document.getElementById('graphCanvas');
-    const ctx = canvas.getContext('2d');
-    let nodes = []; // Store nodes as {x, y}
-    let edges = []; // Store edges as [{startNodeIndex, endNodeIndex}]
-    let isDrawing = false;
-    let startNodeIndex = null;
-
-    // Handle mousedown event
-    canvas.addEventListener('mousedown', (e) => {
-        const {offsetX, offsetY} = e;
-        const nodeIndex = nodes.findIndex(node => Math.hypot(node.x - offsetX, node.y - offsetY) < 20);
-
-        if (nodeIndex === -1) {
-            // Add new node
-            nodes.push({x: offsetX, y: offsetY});
-            drawGraph();
-        } else {
-            // Start drawing an edge from the selected node
-            startNodeIndex = nodeIndex;
-            isDrawing = true;
-        }
-    });
-
-    // Handle mousemove event
-    canvas.addEventListener('mousemove', (e) => {
-        if (isDrawing && startNodeIndex !== null) {
-            const {offsetX, offsetY} = e;
-            drawGraph();  // Redraw everything
-            ctx.beginPath();
-            ctx.moveTo(nodes[startNodeIndex].x, nodes[startNodeIndex].y);
-            ctx.lineTo(offsetX, offsetY);
-            ctx.stroke();
-        }
-    });
-
-    // Handle mouseup event
-    canvas.addEventListener('mouseup', (e) => {
-        const {offsetX, offsetY} = e;
-        if (isDrawing && startNodeIndex !== null) {
-            const endNodeIndex = nodes.findIndex(node => Math.hypot(node.x - offsetX, node.y - offsetY) < 20);
-            if (endNodeIndex !== -1 && endNodeIndex !== startNodeIndex) {
-                // Store the edge
-                edges.push({startNodeIndex, endNodeIndex});
-                drawGraph(); // Redraw the graph with the new edge
-            }
-            isDrawing = false;
-            startNodeIndex = null;
-        }
-    });
-
-    // Draw the nodes and edges on the canvas
-    function drawGraph() {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        // Draw edges
-        edges.forEach(edge => {
-            ctx.beginPath();
-            ctx.moveTo(nodes[edge.startNodeIndex].x, nodes[edge.startNodeIndex].y);
-            ctx.lineTo(nodes[edge.endNodeIndex].x, nodes[edge.endNodeIndex].y);
-            ctx.stroke();
-        });
-        // Draw nodes
-        nodes.forEach(node => {
-            ctx.beginPath();
-            ctx.arc(node.x, node.y, 20, 0, Math.PI * 2);
-            ctx.fillStyle = 'lightblue';
-            ctx.fill();
-            ctx.stroke();
-        });
-    }
-</script>
-
+ 
+  
   <div class="forum-container">
-    <h1>Discussion Forum</h1>
+    <h1 style="color: #40444b;">Discussion Forum</h1>
 
     <!-- Create New Thread Form -->
     <div class="new-thread">
@@ -348,7 +289,7 @@
     // Interface for thread structure
     // Converted to plain JavaScript as browsers don't natively support TypeScript
     let threads = JSON.parse(localStorage.getItem('threads') || '[]');
-
+console.log("this is discussion")
     // Function to create a new thread
     function createThread() {
       const titleInput = document.getElementById('thread-title');
@@ -913,6 +854,81 @@
       /* Slight opacity change on hover for visual feedback */
     }
   </style>
+   <script>
+    console.log("Script is running");
+      const canvas = document.getElementById('graphCanvas');
+      const ctx = canvas.getContext('2d');
+      let nodes = []; // Store nodes as {x, y}
+      let edges = []; // Store edges as [{startNodeIndex, endNodeIndex}]
+      let isDrawing = false;
+      let startNodeIndex = null;
+  
+      // Handle mousedown event
+      canvas.addEventListener('mousedown', (e) => {
+    console.log("Mouse down event triggered"); // Add this line
+    const {offsetX, offsetY} = e;
+    const nodeIndex = nodes.findIndex(node => Math.hypot(node.x - offsetX, node.y - offsetY) < 20);
+
+    if (nodeIndex === -1) {
+        // Add new node
+        nodes.push({x: offsetX, y: offsetY});
+        drawGraph();
+    } else {
+        // Start drawing an edge from the selected node
+        startNodeIndex = nodeIndex;
+        isDrawing = true;
+    }
+});
+
+  
+      // Handle mousemove event
+      canvas.addEventListener('mousemove', (e) => {
+          if (isDrawing && startNodeIndex !== null) {
+              const {offsetX, offsetY} = e;
+              drawGraph();  // Redraw everything
+              ctx.beginPath();
+              ctx.moveTo(nodes[startNodeIndex].x, nodes[startNodeIndex].y);
+              ctx.lineTo(offsetX, offsetY);
+              ctx.stroke();
+          }
+      });
+  
+      // Handle mouseup event
+      canvas.addEventListener('mouseup', (e) => {
+          const {offsetX, offsetY} = e;
+          if (isDrawing && startNodeIndex !== null) {
+              const endNodeIndex = nodes.findIndex(node => Math.hypot(node.x - offsetX, node.y - offsetY) < 20);
+              if (endNodeIndex !== -1 && endNodeIndex !== startNodeIndex) {
+                  // Store the edge
+                  edges.push({startNodeIndex, endNodeIndex});
+                  drawGraph(); // Redraw the graph with the new edge
+              }
+              isDrawing = false;
+              startNodeIndex = null;
+          }
+      });
+  
+      // Draw the nodes and edges on the canvas
+      function drawGraph() {
+          ctx.clearRect(0, 0, canvas.width, canvas.height);
+          // Draw edges
+          edges.forEach(edge => {
+              ctx.beginPath();
+              ctx.moveTo(nodes[edge.startNodeIndex].x, nodes[edge.startNodeIndex].y);
+              ctx.lineTo(nodes[edge.endNodeIndex].x, nodes[edge.endNodeIndex].y);
+              ctx.stroke();
+          });
+          // Draw nodes
+          nodes.forEach(node => {
+              ctx.beginPath();
+              ctx.arc(node.x, node.y, 20, 0, Math.PI * 2);
+              ctx.fillStyle = 'lightblue';
+              ctx.fill();
+              ctx.stroke();
+          });
+      }
+  </script>
+  
 </body>
 
 </html>
