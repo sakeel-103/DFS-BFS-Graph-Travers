@@ -62,9 +62,7 @@
       <div class="edge" style="width: 120px; top: 65%; left: 40%; transform: rotate(40deg);"></div>
     </div>
   </section>
-
-  <!-- Merged LandingPage component starts here -->
-  <div class="min-h-screen bg-gradient-to-br from-indigo-600 via-purple-600 to-pink-500">
+  <div class="min-h-screen">
     <div class="container mx-auto px-4 py-16">
       <div class="flex flex-col items-center text-center space-y-8 mb-16">
         <h1 class="text-5xl md:text-7xl font-bold text-white tracking-tight">
@@ -83,53 +81,55 @@
           </button>
         </div>
       </div>
-
+  
       <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-        <div class="bg-white/10 backdrop-blur-lg rounded-2xl p-6 text-white">
-          <span class="share-icon">📤</span>
-          <h3 class="text-xl font-semibold mb-2">Interactive Visualization</h3>
-          <p class="text-indigo-100">Watch algorithms come to life with step-by-step visual demonstrations.</p>
+        <div class="bg-white shadow-lg rounded-2xl p-6 text-gray-800">
+          <span class="share-icon text-2xl">📤</span>
+          <h3 class="text-xl font-semibold mb-2 mt-4">Interactive Visualization</h3>
+          <p class="text-gray-600">Watch algorithms come to life with step-by-step visual demonstrations.</p>
         </div>
-
-        <div class="bg-white/10 backdrop-blur-lg rounded-2xl p-6 text-white">
-          <span class="git-branch-icon">🌿</span>
-          <h3 class="text-xl font-semibold mb-2">Advanced Algorithms</h3>
-          <p class="text-indigo-100">Learn complex algorithms including DFS, BFS, Dijkstra's, and more.</p>
+  
+        <div class="bg-white shadow-lg rounded-2xl p-6 text-gray-800">
+          <span class="git-branch-icon text-2xl">🌿</span>
+          <h3 class="text-xl font-semibold mb-2 mt-4">Advanced Algorithms</h3>
+          <p class="text-gray-600">Learn complex algorithms including DFS, BFS, Dijkstra's, and more.</p>
         </div>
-
-        <div class="bg-white/10 backdrop-blur-lg rounded-2xl p-6 text-white">
-          <span class="zap-icon">⚡</span>
-          <h3 class="text-xl font-semibold mb-2">Real-time Analysis</h3>
-          <p class="text-indigo-100">Get instant feedback and performance metrics as you explore.</p>
+  
+        <div class="bg-white shadow-lg rounded-2xl p-6 text-gray-800">
+          <span class="zap-icon text-2xl">⚡</span>
+          <h3 class="text-xl font-semibold mb-2 mt-4">Real-time Analysis</h3>
+          <p class="text-gray-600">Get instant feedback and performance metrics as you explore.</p>
         </div>
-      </div>
-
-      <div class="absolute top-0 right-0 w-1/2 h-full opacity-20 pointer-events-none">
-        <script>
-          // Generate background elements
-          for (let i = 0; i < 5; i++) {
-            const dot = document.createElement('div');
-            dot.className = 'absolute rounded-full bg-white';
-            dot.style.width = '12px';
-            dot.style.height = '12px';
-            dot.style.top = `${Math.random() * 100}%`;
-            dot.style.left = `${Math.random() * 100}%`;
-            document.body.appendChild(dot);
-          }
-          for (let i = 0; i < 4; i++) {
-            const line = document.createElement('div');
-            line.className = 'absolute bg-white/30';
-            line.style.height = '2px';
-            line.style.width = '100px';
-            line.style.transform = `rotate(${Math.random() * 360}deg)`;
-            line.style.top = `${Math.random() * 100}%`;
-            line.style.left = `${Math.random() * 100}%`;
-            document.body.appendChild(line);
-          }
-        </script>
       </div>
     </div>
+  
+    <!-- Decorative Background Elements -->
+    <div class="absolute top-0 right-0 w-1/2 h-full opacity-20 pointer-events-none">
+      <script>
+        for (let i = 0; i < 5; i++) {
+          const dot = document.createElement('div');
+          dot.className = 'absolute rounded-full bg-white';
+          dot.style.width = '12px';
+          dot.style.height = '12px';
+          dot.style.top = `${Math.random() * 100}%`;
+          dot.style.left = `${Math.random() * 100}%`;
+          document.body.appendChild(dot);
+        }
+        for (let i = 0; i < 4; i++) {
+          const line = document.createElement('div');
+          line.className = 'absolute bg-white/30';
+          line.style.height = '2px';
+          line.style.width = '100px';
+          line.style.transform = `rotate(${Math.random() * 360}deg)`;
+          line.style.top = `${Math.random() * 100}%`;
+          line.style.left = `${Math.random() * 100}%`;
+          document.body.appendChild(line);
+        }
+      </script>
+    </div>
   </div>
+  
+
   <!-- Merged LandingPage component ends here -->
 
   <section id="features" class="features">
