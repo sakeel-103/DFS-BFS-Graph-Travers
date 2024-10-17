@@ -13,6 +13,25 @@
     border-radius: 10px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   }
+  .div-first {
+    margin-top: 80px;
+    padding-top: 80px; /* Ensures visibility under the navbar */
+    text-align: center;
+   
+    background-color: #040507; /* Blue background to highlight the section */
+    padding: 20px 0;
+   
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .div-first h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: white;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    margin: 0;
+  }
+  
   
   .left {
     flex: 1;
