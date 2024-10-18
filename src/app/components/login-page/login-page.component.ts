@@ -25,21 +25,17 @@ export class LoginPageComponent {
       this.toastr.error('Please fill in valid credentials.', 'Validation Error');
       return;
     }
-
-    const { username, password } = form.value;
-    const isSuccess = this.authenticate(username, password);
-
-    if (isSuccess) {
-      this.toastr.success('Login Successfully', 'Success');
+    else{
       this.router.navigate(['/mainIndex']);
-    } else {
-      this.toastr.error('Invalid username or password', 'Error');
     }
+
+   
+   
+
+    
   }
 
-  private authenticate(username: string, password: string): boolean {
-    return username === 'test' && password === 'Password123!';
-  }
+  
 
   togglePasswordVisibility() {
     this.passwordVisible = !this.passwordVisible;
