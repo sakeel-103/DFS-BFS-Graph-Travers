@@ -1,6 +1,6 @@
 body {
-  background-color: black;
-  color: white;
+  background-color: white; /* Change background to white */
+  color: black; /* Change text color to black */
 }
 
 .contributors-container {
@@ -8,12 +8,12 @@ body {
   margin: 56px auto;
   padding: 2rem;
   font-family: "Roboto", sans-serif;
-  background-color: black;
+  background-color: #f8f9fa; /* Light grey background for the container */
 }
 
 .text-center {
   text-align: center;
-  color: white;
+  color: black; /* Change header text color to black */
   margin-bottom: 2rem;
 }
 
@@ -25,8 +25,8 @@ body {
 }
 
 .loader {
-  border: 8px solid #f3f3f3;
-  border-top: 8px solid #3498db;
+  border: 8px solid #e0e0e0; /* Change the loader's base color */
+  border-top: 8px solid #3498db; /* Keep the top color blue */
   border-radius: 50%;
   width: 60px;
   height: 60px;
@@ -50,17 +50,17 @@ body {
 .contributor-card {
   display: flex;
   align-items: center;
-  background-color: white;
+  background-color: white; /* Keep card background white */
   border-radius: 8px;
   padding: 1rem;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Light shadow */
   margin-bottom: 1rem;
   cursor: pointer;
   transition: transform 0.3s, box-shadow 0.3s, border 0.3s;
 }
 
 .contributor-card:hover {
-  border: 2px solid white;
+  border: 2px solid #3498db; /* Change border color on hover */
   transform: translateY(-5px);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
@@ -80,12 +80,12 @@ body {
 
 .contributor-info h2 {
   font-size: 1.25rem;
-  color: black;
+  color: black; /* Keep contributor name in black */
   margin: 0;
 }
 
 .contribution {
-  color: darkgreen;
+  color: #2e8b57; /* Change contribution text color to a darker green */
   font-weight: bold;
   text-align: right;
   margin-left: auto;

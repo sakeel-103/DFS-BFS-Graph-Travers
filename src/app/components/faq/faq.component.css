@@ -2,8 +2,8 @@ body {
   font-family: "Inter", sans-serif;
   margin: 0;
   padding: 0;
-  background-color: #000;
-  color: #fff;
+  background-color:#f0f4f8; /* Light background color */
+  color: #333; /* Dark text color for readability */
 }
 
 .container {
@@ -13,27 +13,28 @@ body {
 }
 
 .faq {
-  background-color: #111;
+  background-color: #fff; /* White background for the FAQ section */
   padding: 20px;
   border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Lighter shadow */
 }
 
 .faq h1 {
   font-size: 2rem;
   margin-bottom: 20px;
   text-align: center;
+  color: #2c3e50; /* Darker title color */
 }
 
 .faq-item {
   margin-bottom: 15px;
-  border-bottom: 1px solid #444;
+  border-bottom: 1px solid #ddd; /* Light border for separation */
   padding-bottom: 10px;
 }
 
 .faq-question {
-  background-color: #222;
-  color: #fff;
+  background-color: #1c1e1f; /* Blue background for questions */
+  color: #fff; /* White text for questions */
   border: none;
   padding: 15px;
   width: 100%;
@@ -47,7 +48,7 @@ body {
 }
 
 .faq-question:hover {
-  background-color: #333;
+  background-color: #111213; /* Darker blue on hover */
 }
 
 .faq-answer {
@@ -55,11 +56,12 @@ body {
   overflow: hidden;
   transition: max-height 0.3s ease;
   padding: 0 15px;
-  background-color: #1a1a1a;
+  background-color: #f1f1f1; /* Light gray for answer background */
   border-radius: 4px;
   margin-top: 10px;
 }
 
 .faq-answer p {
   margin: 10px 0;
+  color: #333; /* Dark text color for answers */
 }
