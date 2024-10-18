@@ -16,6 +16,12 @@
     font-weight: bold;
     color: #333;
 }
+.error {
+    color: red;
+    font-size: 0.9em;
+    margin-top: 5px;
+  }
+  
 
 body {
     display: flex;
@@ -32,7 +38,7 @@ body {
     overflow: hidden;
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
     width: 900px;
-    height: 500px;
+    height: 550px;
 }
 
 .box {
@@ -58,7 +64,7 @@ body {
 .input-box {
     display: flex;
     align-items: center;
-    margin-bottom: 20px;
+   margin-top: 30px;
     border-bottom: 1px solid #ccc;
 }
 
@@ -171,6 +177,7 @@ body {
     display: flex;
     align-items: center;
     margin: 10px 0;
+    margin-top: 30px;
 }
 
 .styled-checkbox {
