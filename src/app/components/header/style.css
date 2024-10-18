@@ -396,3 +396,14 @@ nav {
   transform: scale(1.025);
 
 }
+
+.graph-a{
+margin-top: 6rem;
+font-size: 70px;
+font-weight: bold;
+background: linear-gradient(45deg , #4d33d4 , #ff6584);
+-webkit-background-clip: text;
+background-clip: text;
+color: transparent;
+}
+
