@@ -383,3 +383,16 @@ nav {
     padding: 0.6rem 1.2rem;
   }
 }
+
+/* add some hover effect and improving  styling  */
+.box-g{
+  padding: 12px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  
+}
+
+.box-g:hover{
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  transform: scale(1.025);
+
+}
