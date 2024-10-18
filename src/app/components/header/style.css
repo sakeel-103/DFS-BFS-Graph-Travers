@@ -19,12 +19,48 @@ body {
   padding: 0 2rem;
 }
 .forum-container {
+  background: #1a202c;
+  border-radius: 2rem;
   max-width: 800px;
   margin: 50px auto;
   padding: 20px;
-  background: white;
+
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
+
+.forum-container h1{
+  text-align: center;
+  color: white;
+  margin: 8px;
+}
+
+.new-thread h2{
+  color: white;
+  margin: 5px;
+}
+
+#thread-title{
+  font-size: 25px;
+  margin: 10px auto;
+  border-radius: 1rem;
+  background: white;
+}
+
+#thread-content{
+  font-size: 18px;
+  height: 233px;
+  border-radius: 1rem;
+}
+
+#thread-button{
+font-weight: 700;
+background-color: #a05db4;
+}
+
+.threads h2{
+  color: white;
+}
+
 
 .new-thread {
   margin-bottom: 30px;
@@ -39,7 +75,7 @@ input, textarea {
 
 button {
   padding: 10px 15px;
-  background-color: #5cb85c;
+ 
   color: white;
   border: none;
   cursor: pointer;
