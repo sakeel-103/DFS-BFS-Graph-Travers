@@ -64,31 +64,61 @@
     <div class="box">
       <div class="left">
         <h2>Login</h2>
-        <form id="loginForm" (ngSubmit)="login(loginForm)" #loginForm="ngForm">
+        <form id="loginForm" #loginForm="ngForm" (ngSubmit)="login(loginForm)">
           <div class="input-box">
             <i class="bx bx-user"></i>
-            <input type="text" id="username" placeholder="Username" required />
+            <input
+              type="text"
+              id="username"
+              placeholder="Username"
+              required
+              minlength="3"
+              #username="ngModel"
+              name="username"
+              [(ngModel)]="loginData.username"
+            />
+           
           </div>
+          <p *ngIf="username.invalid && username.touched" class="error">
+            Username is required (min 3 characters).
+          </p>
           <div class="input-box" style="position: relative;">
             <i class="bx bx-lock-alt"></i>
-            <input type="password" id="password" placeholder="Password" required
-              [type]="passwordVisible ? 'text' : 'password'" />
-            <i class="bx" [ngClass]="passwordVisible ? 'bx bx-show' : 'bx bx-hide'" (click)="togglePasswordVisibility()"
-              style="cursor: pointer; position: absolute; right: 10px; top: 50%; transform: translateY(-50%);"></i>
+            <input
+              id="password"
+              placeholder="Password"
+              required
+              name="password"
+              #password="ngModel"
+              [(ngModel)]="loginData.password"
+              [type]="passwordVisible ? 'text' : 'password'"
+             
+            />
+            <i
+              class="bx"
+              [ngClass]="passwordVisible ? 'bx bx-show' : 'bx bx-hide'"
+              (click)="togglePasswordVisibility()"
+              style="cursor: pointer; position: absolute; right: 10px; top: 50%; transform: translateY(-50%);"
+            ></i>
+           
           </div>
-
+          <p *ngIf="password.invalid && password.touched" class="error">
+            Password must have at least 10 characters, 1 uppercase, 1 digit, and 1 special character.
+          </p>
           <div class="checkbox-container">
             <input type="checkbox" id="remember" name="remember" class="styled-checkbox">
             <label for="remember" class="checkbox-label">Remember Me</label>
           </div>
+          
+          <button type="submit" class="btn" [disabled]="loginForm.invalid">Login</button>
 
-          <button type="submit" [routerLink]="['/mainIndex']" class="btn">Login</button>
 
+          
           <!-- Add Google login button -->
           <button type="button" class="btn google-btn" (click)="loginWithGoogle()">
             <i class="fab fa-google"></i> Login with Google
           </button>
-
+          
           <div class="social-icons">
             <a href="https://www.linkedin.com/in/mdsakeel103/" class="social-icon" title="LinkedIn"><i
                 class="fab fa-linkedin"></i></a>
@@ -96,11 +126,12 @@
             <a href="https://sakeel-103.github.io/My_Portfolio_new/" class="social-icon" title="Portfolio"><i
                 class="fas fa-laptop"></i></a>
           </div>
-
+          
           <p class="signup-text">
             Don't have an account? <a routerLink="/signup">Sign Up</a>
           </p>
         </form>
+        
         <!-- Go Back Container in the bottom left -->
         <div class="go-back-container" (click)="goBack()">
           <span class="go-back-text">
@@ -116,3 +147,4 @@
 </body>
 
 </html>
+
