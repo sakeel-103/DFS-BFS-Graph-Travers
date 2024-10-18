@@ -1,19 +1,12 @@
-# 🌐 DFS-BFS Graph Traversal: Dive into Graph Adventures!
+<a id="top"></a>
+<h1 align="center">🧭 DFS-BFS Graph Traversal</h1>
 
-Welcome to the **DFS-BFS Graph Traversal** project—a place where graphs come to life! Whether you're a curious student, an algorithm enthusiast, or a graph geek, this project will be your gateway to understanding the magical world of graph traversal using **Depth-First Search (DFS)** and **Breadth-First Search (BFS)**. 🌟
+This project implements **Depth-First Search (DFS)** and **Breadth-First Search (BFS)** algorithms for graph traversal. The backend includes user authentication functionality with a **Login** and **Signup** page. The project currently stores user data in **local storage**.
 
-<div style="text-align: center;">
-  <img src="https://raw.githubusercontent.com/alo7lika/DFS-BFS-Graph-Travers/refs/heads/master/DALL%C2%B7E%202024-10-16%2010.59.04%20-%20A%20project%20diagram%20showcasing%20the%20structure%20of%20a%20web%20application%20for%20DFS-BFS%20Graph%20Traversal.%20The%20diagram%20includes%20key%20components%20such%20as%20a%20user%20interf.webp" alt="Project Diagram" width="500">
-</div>
+<hr>
 
-
-### 🚀 What Makes This Special?
-This isn't just another graph tool. Along with offering powerful graph traversal algorithms, the project features a smooth and secure **Login** and **Signup** system, making sure your data is always safe and sound 🔐. Right now, user data is stored in **LocalStorage**, but don't worry—big plans are on the horizon with **OAuth integration** for easy login via Google and more!
-
-### 🔧 Why You'll Love It
-- 💡 **Interactive Graph Creation**: Create custom graphs with just a few clicks! Add nodes and edges, and watch as DFS and BFS algorithms traverse through your data.
-- 🔍 **Instant Visual Feedback**: See real-time graph traversal with visual results, so you know exactly how your data is flowing.
-- 🖥️ **Full-Stack Powerhouse**: The frontend is built using **Angular** for a seamless experience, while the backend is powered by **Node.js** and **Express.js**, ensuring you get top-notch performance and scalability.
+ <details>
+   <summary><h2>📑 Table of Contents</h2></summary>
 
 ### 🔮 Future Upgrades Await
 This is just the beginning! With plans to incorporate advanced algorithms (Dijkstra's, A*) 🧠, user dashboards 📊, and mobile-friendly features 📱, we’re on the path to making this project an indispensable tool for graph lovers everywhere.
@@ -38,6 +31,7 @@ This is just the beginning! With plans to incorporate advanced algorithms (Dijks
 
 ## 📑 Table of Contents
 
+
 1. 🌟 [Features](#-features)
 2. 🛠️ [Technical Stack](#-technical-stack)
 3. 📝 [Changelog](#-changelog)
@@ -45,15 +39,16 @@ This is just the beginning! With plans to incorporate advanced algorithms (Dijks
 5. ⚙️ [Prerequisites](#-prerequisites)
 6. 🚀 [How to Set Up and Run the Project](#-how-to-set-up-and-run-the-project)
 7. 🧪 [Testing Instructions](#-testing-instructions)
-8. 📚 [API Documentation](#-api-documentation)
-9. 🔐 [Login and Signup Pages](#-login-and-signup-pages)
-10. 🖥️ [How the Server Works](#-how-the-server-works)
-11. 📊 [Graph Feature](#-how-the-graph-feature-works)
-12. 🗺️ [Roadmap](#-roadmap)
-13. 🤝 [Contributing](#-contributing)
-14. 👥 [Contributors](#-our-contributors)
-15. 📜 [License](#-license)
----
+8. 🔐 [Login and Signup Pages](#-login-and-signup-pages)
+9. 🖥️ [How the Server Works](#-how-the-server-works)
+10. 📊 [Graph Feature](#-how-the-graph-feature-works)
+11. 🗺️ [Roadmap](#-roadmap)
+12. 🤝 [Contributing](#-contributing)
+13. 👥 [Contributors](#-our-contributors)
+
+</details>
+
+<hr>
 
 ## 🌟 Features
 
@@ -119,7 +114,9 @@ Make sure you have the following installed before running the project:
 
 ---
 
-## 🚀 How to Set Up and Run the Project
+
+ <details>
+   <summary><h2>🚀 How to Set Up and Run the Project</h2></summary>
 
 ### 🛠️ Step 1: Clone the Repository
 
@@ -166,9 +163,14 @@ ng serve
 
 Your frontend will be running at `http://localhost:5000` 🌐.
 
----
 
-## 🧪 Testing Instructions
+</details>
+
+<hr>
+
+<details>
+   <summary><h2>🧪 Testing Instructions</h2></summary>
+
 
 To ensure the reliability and functionality of the project, follow these testing instructions:
 
@@ -202,87 +204,12 @@ To ensure the reliability and functionality of the project, follow these testing
 - After running the application, perform manual testing by interacting with the **Login** and **Signup** pages to ensure functionality.
 - Test the **graph traversal features** by creating graphs with various nodes and edges, checking for expected behavior.
 
----
 
-## 📚 API Documentation
 
-### Base URL
-[http://localhost:PORT/api]
-*Replace `PORT` with the port number your backend is running on (default is usually 3000).*
+</details>
 
-### Endpoints
+<hr>
 
-#### 1. **User Authentication**
-
-- **Signup**
-  - **URL**: `/signup`
-  - **Method**: `POST`
-  - **Request Body**:
-    ```json
-    {
-      "username": "string",
-      "password": "string"
-    }
-    ```
-  - **Response**:
-    - **201 Created**: User registered successfully.
-    - **400 Bad Request**: Invalid input or username already exists.
-
-- **Login**
-  - **URL**: `/login`
-  - **Method**: `POST`
-  - **Request Body**:
-    ```json
-    {
-      "username": "string",
-      "password": "string"
-    }
-    ```
-  - **Response**:
-    - **200 OK**: User logged in successfully, returns user details.
-    - **401 Unauthorized**: Invalid credentials.
-
-#### 2. **Graph Traversal**
-
-- **DFS Traversal**
-  - **URL**: `/traverse/dfs`
-  - **Method**: `POST`
-  - **Request Body**:
-    ```json
-    {
-      "nodes": ["string"],
-      "edges": ["string"]
-    }
-    ```
-  - **Response**:
-    - **200 OK**: Returns the order of nodes visited in DFS traversal.
-
-- **BFS Traversal**
-  - **URL**: `/traverse/bfs`
-  - **Method**: `POST`
-  - **Request Body**:
-    ```json
-    {
-      "nodes": ["string"],
-      "edges": ["string"]
-    }
-    ```
-  - **Response**:
-    - **200 OK**: Returns the order of nodes visited in BFS traversal.
-
-### Example Request
-
-**DFS Traversal Request Example**:
-```bash
-curl -X POST http://localhost:3000/api/traverse/dfs \
--H "Content-Type: application/json" \
--d '{
-  "nodes": ["A", "B", "C", "D"],
-  "edges": ["A-B", "A-C", "B-D"]
-}'
-```
-
----
 ## 🔐 Login and Signup Pages
 
 - The **Signup Page** allows users to register by entering a username and password, which is stored in **LocalStorage**.
@@ -310,14 +237,20 @@ The backend server, built with **Node.js** and **Express.js**, handles:
 - Input your edges. **Make sure it is in the [to]-[from] format. Eg: 0-1**
 - Click on **create custom graph** button 🔵
 - See how the magic happens
+ 
 
-Example: 
+<details>
+   <summary><h3>Example: </h3></summary>
 
 ![alt text](image.png)
 
 Output:
 
 ![alt text](image-1.png)
+
+</details>
+
+<hr>
 
 ## 🗺️ Roadmap
 
@@ -331,9 +264,12 @@ Output:
 
 
 ## Contributing
+
 We welcome contributions from developers of all experience levels. Please refer to the [CONTRIBUTING.md](CONTRIBUTING.md) file for guidelines.
 
-## 👀 Our Contributors
+<hr>
+
+<h2 align = "center">Our Contributors ❤️</h2>
 
 - We extend our heartfelt gratitude for your invaluable contribution to our project! Your efforts play a pivotal role in elevating this project to greater heights.
 - Make sure you show some love by giving ⭐ to our repository.
@@ -345,10 +281,19 @@ We welcome contributions from developers of all experience levels. Please refer 
 </div>
 
 ---
-## 📜 License
-
-This project is licensed under the [MIT License](LICENSE). You are free to use, modify, and distribute this software under the terms of the license. 
----
 
 ### 📬 Feel free to contribute or open issues if you find any bugs!
+
+
+<hr>
+<div>
+  <h2><img src="https://fonts.gstatic.com/s/e/notoemoji/latest/1f64f_1f3fb/512.webp" width="35" height="35"> Support </h2>
+</div>
+
+<div>
+  Don't forget to leave a star<img src="https://fonts.gstatic.com/s/e/notoemoji/latest/1f31f/512.webp" width="35" height="30"> for this project!
+</div> 
+<hr>
+
+<a href="#top" style="position: fixed; bottom: 20px; right: 20px; background-color: black ; color: white; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; border-radius: 5px; font-family: Arial; font-size: 16px;">Go to Top</a>
 
