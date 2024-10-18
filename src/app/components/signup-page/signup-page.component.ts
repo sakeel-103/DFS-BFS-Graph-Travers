@@ -8,7 +8,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { Router } from '@angular/router';
-import { CommonModule } from '@angular/common'; // Import CommonModule
+import { CommonModule } from '@angular/common';
 import { AuthService } from '../../services/auth.service';
 
 @Component({
@@ -16,7 +16,7 @@ import { AuthService } from '../../services/auth.service';
   standalone: true,
   templateUrl: './signup-page.component.html',
   styleUrls: ['./signup-page.component.css'],
-  imports: [RouterModule, ReactiveFormsModule, CommonModule], // Add CommonModule here
+  imports: [RouterModule, ReactiveFormsModule, CommonModule],
 })
 export class SignupComponent {
   signupForm: FormGroup;
@@ -36,37 +36,22 @@ export class SignupComponent {
   }
 
   SignUp() {
-    const signupData = this.signupForm.value;
-
     if (this.signupForm.valid) {
-      const localusers = localStorage.getItem('users');
-      let users: any[] = localusers ? JSON.parse(localusers) : [];
+      const signupData = this.signupForm.value;
 
-      const existingUser = users.find(
-        (user) => user.email === signupData.email
-      );
-      if (existingUser) {
-        this.toastr.error("User already exists. Please use a different email.", 'error');
-        return;
-      }
-
-      const userIdentifier = { email: signupData.email };
-      users.push(userIdentifier);
-      localStorage.setItem('users', JSON.stringify(users));
-
-      this.toastr.success("Sign-up successful! You can now log in.", 'Success');
-      this.router.navigate(['/login']);
+      // Call the signup service
       this.authService.signUp(signupData).subscribe(
         (response: any) => {
-          this.router.navigate(['/main-index']);
+          this.toastr.success("Sign-up successful! You can now log in.", 'Success');
+          this.router.navigate(['/login']);
         },
         (error: any) => {
           console.error('Error during sign-up:', error);
-          this.toastr.error("Sign-up failed. Please try again.", 'error');
+          this.toastr.error("Sign-up failed. Please try again.", 'Error');
         }
       );
     } else {
-      this.toastr.error("Please fill out the form correctly.", 'error');
+      this.toastr.error("Please fill out the form correctly.", 'Error');
     }
   }
 
@@ -79,6 +64,6 @@ export class SignupComponent {
   }
 
   togglePasswordVisibility() {
-    this.passwordVisible = !this.passwordVisible; // Toggle the password visibility
+    this.passwordVisible = !this.passwordVisible; // Toggle password visibility
   }
 }
