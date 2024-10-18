@@ -350,131 +350,26 @@ p.text-indigo-100 {
   font-size: 2rem;
   margin-bottom: 1rem;
 }
-/* Styling for header and logo */
-header {
-  background-color: #333; /* Dark background */
-  padding: 15px 0;
+.logo img {
+  width: 60px;
+  height: 60px;
+  margin-right: 10px;
+  border-radius: 50%;
 }
 
-.container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
+/* Logo Styles */
 .logo {
   display: flex;
   align-items: center;
 }
-
-.logo img {
-  width: 70px; /* Adjust size as needed */
-  height: 70px;
-  margin-right: 10px; /* Space between logo and text */
-  border-radius: 50%; /* Makes the logo round */
-  transition: transform 0.3s ease-in-out;
-}
-
-.logo img:hover {
-  transform: scale(1.1); /* Slight zoom on hover */
-}
-
 .logo a {
-  color: #fff;
-  font-size: 24px;
+  text-decoration: none;
+  font-size: 1.5rem;
   font-weight: bold;
-  text-decoration: none;
-  transition: color 0.3s ease-in-out;
-}
-
-.logo a:hover {
-  color: #4CAF50; /* Greenish hover effect */
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .logo a {
-    font-size: 20px;
-  }
-
-  .logo img {
-    width: 100px;
-    height: 100px;
-  }
-}
-/* Header and navigation styling */
-header {
-  background-color: #333;
-  padding: 15px 0;
-}
-
-.container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  position: relative;
-}
-
-/* Logo link outside the div */
-.logo-link {
-  position: absolute;
-  left: 15px;
-  display: flex;
-  align-items: center;
-}
-
-.logo-link img {
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  transition: transform 0.3s ease-in-out;
-}
-
-.logo-link img:hover {
-  transform: scale(1.1);
-}
-
-/* Styling the logo text */
-.logo a {
-  color: #fff;
-  font-size: 24px;
-  font-weight: bold;
-  text-decoration: none;
-  margin-left: 60px; /* Space to avoid overlap with the image */
-}
-
-.logo a:hover {
-  color: #4CAF50;
-}
-
-/* Menu icon and navigation links styling */
-.menu-icon {
-  display: none; /* Adjust for mobile if needed */
-}
-
-.nav-links a {
-  color: #fff;
-  text-decoration: none;
-  margin: 0 10px;
+  color: white;
   transition: color 0.3s ease;
 }
 
-.nav-links a:hover {
-  color: #4CAF50;
-}
-
-/* Responsive layout */
-@media (max-width: 768px) {
-  .logo a {
-    font-size: 20px;
-  }
-
-  .logo-link img {
-    width: 30px;
-    height: 30px;
-  }
-
-  .menu-icon {
-    display: block;
-  }
+.logo a:hover {
+  color: #ffa500;
 }

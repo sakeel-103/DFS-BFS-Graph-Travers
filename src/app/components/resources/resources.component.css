@@ -135,3 +135,49 @@ footer {
     grid-template-columns: 1fr;
   }
 }
+/* Additional Resources Styles */
+.resources-list {
+  background-color: #ffffff; /* Classic white background for contrast */
+  border: 1px solid #bdc3c7; /* Light border for definition */
+  padding: 2rem; /* Increased padding for spaciousness */
+  border-radius: 10px; /* Slightly more rounded corners for a classic look */
+  margin-bottom: 3rem; /* Consistent margin */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+}
+
+.resources-list h3 {
+  font-size: 1.8rem; /* Slightly larger heading */
+  color: #2c3e50; /* Consistent color with the main header */
+  margin-bottom: 1.5rem; /* More spacing below the heading */
+  border-bottom: 2px solid #3498db; /* Underline for emphasis */
+  padding-bottom: 0.5rem; /* Padding for spacing below the line */
+}
+
+.resource-item {
+  background-color: #f9f9f9; /* Light background for resource items */
+  padding: 1rem; /* Padding for each resource item */
+  border-radius: 5px; /* Soft corners for resource items */
+  border: 1px solid #bdc3c7; /* Border for definition */
+  transition: background-color 0.3s ease; /* Smooth transition for hover */
+}
+
+.resource-item:hover {
+  background-color: #ecf0f1; /* Hover effect for interactivity */
+}
+
+.resource-item h4 {
+  font-size: 1.2rem; /* Clear and readable title size */
+  color: #2c3e50; /* Consistent color with headings */
+  margin-bottom: 0.5rem; /* Space between title and link */
+}
+
+.resource-item a {
+  text-decoration: none; /* No underline for links */
+  color: #3498db; /* Classic link color */
+  font-weight: bold; /* Emphasized link text */
+  transition: color 0.3s ease; /* Smooth transition for hover */
+}
+
+.resource-item a:hover {
+  color: #2980b9; /* Darker color on hover for emphasis */
+}
