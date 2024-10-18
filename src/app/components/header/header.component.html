@@ -45,6 +45,7 @@
         <a class="nav-item" href="/faq" data-i18n="faq">FAQ</a>
         <a class="nav-item" href="/quiz" data-i18n="faq">Quiz</a>
         <a class="nav-item" href="/questions" data-i18n="faq">Questions</a>
+        <a class="nav-item" href="/review" data-i18n="faq">Reviews</a>
 
         <a class="nav-item" href="https://github.com/sakeel-103/DFS-BFS-Graph-Travers" target="_blank"
           class="github-link">
@@ -219,10 +220,6 @@
           data-i18n="bfs">BFS</button>
         <button class="tab-button" [class.active]="activeTab === 'dijkstra'" (click)="setActiveTab('dijkstra')"
           data-i18n="dijkstra">Dijkstra's</button>
-        <button class="tab-button" [class.active]="activeTab === 'bellmanFord'" (click)="setActiveTab('bellmanFord')"
-          data-i18n="bellmanFord">Bellman-Ford</button>
-        <button class="tab-button" [class.active]="activeTab === 'floydWarshall'"
-          (click)="setActiveTab('floydWarshall')" data-i18n="floydWarshall">Floyd-Warshall</button>
       </div>
       <div class="tab-content">
         <div *ngIf="activeTab === 'dfs'" id="dfs-content">

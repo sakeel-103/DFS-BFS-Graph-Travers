@@ -15,6 +15,7 @@ import { ResourcesComponent } from './components/resources/resources.component';
 import { ContactUsComponent } from './components/contact-us/contact-us.component';
 import { ContributorsComponent } from './components/contributors/contributors.component';
 import { CodeEditorComponent } from './components/code-editor/code-editor.component';
+import { ReviewComponent } from './components/reviews/reviews.component';
 export const routes: Routes = [
   {
     path: '',
@@ -75,6 +76,10 @@ export const routes: Routes = [
   {
     path: 'editor',
     component: CodeEditorComponent,
+  },
+  {
+    path: 'review',
+    component: ReviewComponent,
   },
   {
     path: '**',
