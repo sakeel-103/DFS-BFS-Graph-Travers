@@ -12,7 +12,7 @@ import { CommonModule } from '@angular/common';
 export class HeaderComponent implements AfterViewInit, OnDestroy {
   private resizeListener: (() => void) | null = null; // Initialize as null
   activeTab: string = 'dfs'; // Default tab is 'dfs'
-
+  showGif: boolean = false;
   // Function to set the active tab
   setActiveTab(tab: string) {
     this.activeTab = tab;
@@ -52,5 +52,9 @@ export class HeaderComponent implements AfterViewInit, OnDestroy {
     if (this.resizeListener) {
       window.removeEventListener('resize', this.resizeListener);
     }
+  }
+  startBFS() {
+    this.showGif = !this.showGif; // Toggle the visibility
+    console.log("BFS Started: ", this.showGif); // Debugging
   }
 }

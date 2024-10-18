@@ -289,22 +289,20 @@
 
   <section id="visualizer" class="visualizer">
     <div class="container">
-      <h2 data-i18n="interactive-graph-visualizer">Interactive Graph Visualizer</h2>
-      <p data-i18n="visualizer-description">See graph algorithms in action! Experiment with different graph structures
-        and watch as the algorithms traverse them step by step.</p>
-      <div class="graph-container">
-        <div class="graph-node" style="top: 20%; left: 20%;">1</div>
-        <div class="graph-node" style="top: 60%; left: 30%;">2</div>
-        <div class="graph-node" style="top: 40%; left: 60%;">3</div>
-        <div class="graph-node" style="top: 80%; left: 70%;">4</div>
-        <div class="graph-edge" style="width: 150px; top: 25%; left: 25%; transform: rotate(30deg);"></div>
-        <div class="graph-edge" style="width: 150px; top: 25%; left: 25%; transform: rotate(30deg);"></div>
-        <div class="graph-edge" style="width: 150px; top: 25%; left: 25%; transform: rotate(30deg);"></div>
-        <div class="graph-edge" style="width: 180px; top: 50%; left: 35%; transform: rotate(-20deg);"></div>
-        <div class="graph-edge" style="width: 130px; top: 75%; left: 40%; transform: rotate(40deg);"></div>
-      </div>
+        <h2 data-i18n="interactive-graph-visualizer" >Interactive Graph Visualizer</h2>
+        <p class="description"style="text-align: center;">
+          Click the BFS button to see the BFS algorithm in action!
+      </p>
+        <!-- GIF Visualization -->
+        <div *ngIf="showGif" class="gif-container">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/5/5d/Breadth-First-Search-Algorithm.gif" alt="BFS Algorithm Visualization" />
+        </div>
+
+        <button (click)="startBFS()">Start BFS</button>
     </div>
-  </section>
+</section>
+
+
   <h1 class="canvas_1" style="color: #40444b;">CANVAS</h1>
 
   <canvas id="graphCanvas" width="1500" height="600"></canvas>
