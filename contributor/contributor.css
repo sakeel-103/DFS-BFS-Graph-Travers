@@ -26,6 +26,7 @@ body {
   justify-content: center;
   text-align: center;
   position: relative;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
 }
 
 .contributor-hero::before {
@@ -47,6 +48,7 @@ body {
 .contributor-hero h1 {
   font-size: 3.5rem;
   margin-bottom: 1rem;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
 }
 
 .contributor-hero p {
@@ -63,11 +65,13 @@ body {
   font-size: 1rem;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .contributor-btn-primary {
   background-color: #fff;
   color: #333;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
 }
 
 .contributor-btn-primary:hover {
@@ -77,6 +81,7 @@ body {
 .contributor-btn-secondary {
   background-color: #333;
   color: #fff;
+  box-shadow: 0 0 15px rgba(51, 51, 51, 0.3);
 }
 
 .contributor-btn-secondary:hover {
@@ -108,11 +113,18 @@ body {
   border-radius: 10px;
   padding: 1.5rem;
   text-align: center;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
+}
+
+.contributor-stat-card:hover {
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
 }
 
 .contributor-stat-card .contributor-icon {
   font-size: 2rem;
   margin-bottom: 1rem;
+  text-shadow: 0 0 10px rgba(51, 51, 51, 0.2);
 }
 
 .contributor-stat-card h3 {
@@ -149,11 +161,12 @@ body {
   border-radius: 10px;
   overflow: hidden;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
 .contributor-contributor-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
 }
 
 .contributor-contributor-card img {
@@ -163,6 +176,7 @@ body {
   margin: 1.5rem auto;
   display: block;
   border: 4px solid #f0f0f0;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
 }
 
 .contributor-contributor-card h3 {
@@ -230,11 +244,13 @@ body {
   color: #fff;
   padding: 4rem 0;
   text-align: center;
+  box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.2);
 }
 
 .contributor-cta h2 {
   font-size: 2rem;
   margin-bottom: 1rem;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
 }
 
 .contributor-cta p {
@@ -255,6 +271,7 @@ body {
   border: none;
   border-radius: 5px;
   width: 300px;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
 }
 
 .contributor-notification {
@@ -263,6 +280,17 @@ body {
   padding: 1rem;
   border-radius: 5px;
   margin-top: 1rem;
+  box-shadow: 0 0 20px rgba(51, 51, 51, 0.3);
+  animation: glow 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+  from {
+    box-shadow: 0 0 5px rgba(51, 51, 51, 0.3);
+  }
+  to {
+    box-shadow: 0 0 20px rgba(51, 51, 51, 0.6);
+  }
 }
 
 .contributor-hidden {

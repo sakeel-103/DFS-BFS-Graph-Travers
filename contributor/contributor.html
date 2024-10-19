@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BuddyTrail Contributors</title>
+    <title>DFS-BFS-Graph-Travers Contributors</title>
     <link rel="stylesheet" href="/style.css">
     <link rel="stylesheet" href="contributor.css">
     <style>
@@ -61,10 +61,23 @@
             <input type="email" id="emailInput" placeholder="Enter your email" required>
             <button type="submit" class="contributor-btn contributor-btn-secondary">Get Started</button>
         </form>
-        <div id="notification" class="contributor-notification contributor-hidden"></div>
+        <div id="notification" class="contributor-notification contributor-hidden" style="background-color: #333333; color: white;"></div>
     </section>
   </div>
 
     <script src="contributor.js"></script>
+    <script>
+        document.getElementById('subscribeForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            var email = document.getElementById('emailInput').value;
+            var notification = document.getElementById('notification');
+            notification.textContent = 'Thank you for subscribing! We\'ll be in touch soon.';
+            notification.classList.remove('contributor-hidden');
+            setTimeout(function() {
+                notification.classList.add('contributor-hidden');
+            }, 3000);
+            document.getElementById('emailInput').value = '';
+        });
+    </script>
 </body>
 </html>
