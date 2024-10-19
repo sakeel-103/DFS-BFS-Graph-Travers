@@ -27,16 +27,18 @@
 </head>
 
 <body>
- 
+
   <header>
-    
+
     <nav class="container">
       <!-- <a href="#hero" class="logo-link">
         <img src="../../../../public/Icon.jpg" alt="Logo">
       </a> -->
       <div class="logo">
-       
-        <img src="https://img.freepik.com/free-vector/wireframe-connecting-earth-sphere_1284-52863.jpg?w=740&t=st=1729246267~exp=1729246867~hmac=94824360aa23edc006545118dac0d6c47ef0b21728346613e6e2403dc3a4e88b"  alt="Logo">
+
+        <img
+          src="https://img.freepik.com/free-vector/wireframe-connecting-earth-sphere_1284-52863.jpg?w=740&t=st=1729246267~exp=1729246867~hmac=94824360aa23edc006545118dac0d6c47ef0b21728346613e6e2403dc3a4e88b"
+          alt="Logo">
         <a href="#hero">GraphExplorer Pro</a>
       </div>
       <div class="menu-icon" id="menu-icon">
@@ -54,7 +56,7 @@
         <a class="nav-item" href="/questions" data-i18n="faq">Questions</a>
         <a class="nav-item" href="/review" data-i18n="faq">Reviews</a>
 
-        <a class="nav-item" id="github-link" href="https://github.com/sakeel-103/DFS-BFS-Graph-Travers" target="_blank"
+        <a class="nav-item" href="https://github.com/sakeel-103/DFS-BFS-Graph-Travers" target="_blank"
           class="github-link">
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="#ffffff">
             <path
@@ -88,9 +90,10 @@
     <div class="container mx-auto px-4 py-16">
       <div class="flex flex-col items-center text-center space-y-8 mb-16">
         <h1 class="text-5xl md:text-7xl font-bold text-white tracking-tight graph-a">
-         
+
           Graph Algorithms
-          <span class="block text-2xl md:text-3xl mt-2 text-indigo-200" style=" color: #7b95ff;">Visualized & Simplified</span>
+          <span class="block text-2xl md:text-3xl mt-2 text-indigo-200" style=" color: #7b95ff;">Visualized &
+            Simplified</span>
         </h1>
         <p class="text-xl text-indigo-100 max-w-2xl">
           Master advanced graph theory through interactive visualizations and hands-on exploration with GraphExplorer
@@ -228,8 +231,14 @@
           data-i18n="bfs">BFS</button>
         <button class="tab-button" [class.active]="activeTab === 'dijkstra'" (click)="setActiveTab('dijkstra')"
           data-i18n="dijkstra">Dijkstra's</button>
+        <button class="tab-button" [class.active]="activeTab === 'bellmanFord'" (click)="setActiveTab('bellmanFord')"
+          data-i18n="bellmanFord">Bellman-Ford</button>
+        <button class="tab-button" [class.active]="activeTab === 'floydWarshall'"
+          (click)="setActiveTab('floydWarshall')" data-i18n="floydWarshall">Floyd-Warshall</button>
       </div>
+
       <div class="tab-content">
+        <!-- DFS Content -->
         <div *ngIf="activeTab === 'dfs'" id="dfs-content">
           <h3 data-i18n="dfs-full">Depth-First Search (DFS)</h3>
           <p data-i18n="dfs-description">DFS is a graph traversal algorithm that explores as far as possible along each
@@ -240,6 +249,8 @@
             <li data-i18n="dfs-use-3">Topological sorting</li>
           </ul>
         </div>
+
+        <!-- BFS Content -->
         <div *ngIf="activeTab === 'bfs'" id="bfs-content">
           <h3 data-i18n="bfs-full">Breadth-First Search (BFS)</h3>
           <p data-i18n="bfs-description">BFS is a graph traversal algorithm that explores all neighbors at the present
@@ -249,6 +260,8 @@
             <li data-i18n="bfs-use-2">Broadcasting in networks</li>
           </ul>
         </div>
+
+        <!-- Dijkstra Content -->
         <div *ngIf="activeTab === 'dijkstra'" id="dijkstra-content">
           <h3 data-i18n="dijkstra-full">Dijkstra's Algorithm</h3>
           <p data-i18n="dijkstra-description">Dijkstra's algorithm finds the shortest path from a source node to all
@@ -258,6 +271,8 @@
             <li data-i18n="dijkstra-use-2">Network routing protocols</li>
           </ul>
         </div>
+
+        <!-- BellmanFord Content -->
         <div *ngIf="activeTab === 'bellmanFord'" id="bellmanFord-content">
           <h3 data-i18n="bellmanFord-full">Bellman-Ford Algorithm</h3>
           <p data-i18n="bellmanFord-description">The Bellman-Ford algorithm computes the shortest path from a source
@@ -270,6 +285,8 @@
             <li data-i18n="bellmanFord-use-2">Graphs with negative weight edges</li>
           </ul>
         </div>
+
+        <!-- FloydWarshall Content -->
         <div *ngIf="activeTab === 'floydWarshall'" id="floydWarshall-content">
           <h3 data-i18n="floydWarshall-full">Floyd-Warshall Algorithm</h3>
           <p data-i18n="floydWarshall-description">The Floyd-Warshall algorithm finds shortest paths between all pairs
@@ -286,11 +303,11 @@
     </div>
   </section>
 
-
   <section id="visualizer" class="visualizer">
     <div class="container">
-        <h2 data-i18n="interactive-graph-visualizer" style="font-size:40px;">Interactive Graph Visualizer</h2>
-       
+
+<!--         <h2 data-i18n="interactive-graph-visualizer" style="font-size:40px;">Interactive Graph Visualizer</h2> -->
+         <h2 data-i18n="interactive-graph-visualizer">Interactive Graph Visualizer</h2>
       <div></div>
         <!-- GIF Visualization -->
         <div *ngIf="showGif" class="gif-container">
@@ -300,8 +317,34 @@
           Click the BFS button to see the BFS algorithm in action!
       </p>
         <button (click)="startBFS()" style="display:  inline-block; margin-top: 20px;">Start BFS</button>
+
+      <!-- Visualizer for DFS or BFS -->
+      <div *ngIf="activeTab === 'bfs'" class="gif-container">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/5/5d/Breadth-First-Search-Algorithm.gif"
+          alt="BFS Algorithm Visualization" />
+      </div>
+      <div *ngIf="activeTab === 'dfs'" class="gif-container">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/7/7f/Depth-First-Search.gif"
+          alt="DFS Algorithm Visualization">
+      </div>
+      <div *ngIf="activeTab === 'dijkstra'" class="gif-container">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/5/57/Dijkstra_Animation.gif"
+          alt=" Dijkstra Algorithm Visualization">
+      </div>
+      <div *ngIf="activeTab === 'bellmanFord'" class="gif-container">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/7/77/Bellman%E2%80%93Ford_algorithm_example.gif"
+          alt=" BellmanFord Algorithm Visualization">
+      </div>
+      <div *ngIf="activeTab === 'floydWarshall'" class="gif-container">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/0/0f/Floyd_warshall_gif.gif"
+          alt=" FloydWarshall Algorithm Visualization">
+      </div>
+      <!-- Add additional visualizations if needed -->
+
     </div>
-</section>
+  </section>
+
+
 
 
   <h1 class="canvas_1" style="color: #40444b;">CANVAS</h1>
@@ -309,71 +352,67 @@
   <canvas id="graphCanvas" width="1500" height="600"></canvas>
 
 
-<div class="forum-container">
-  <h1>Discussion Forum</h1>
 
-  <!-- Create New Thread Form -->
-  <div class="new-thread">
-    <h2>Create a New Thread</h2>
-    <input id="thread-title" type="text" placeholder="Thread Title" required>
-    <textarea id="thread-content" placeholder="Write your thread content" required></textarea>
-    <button id="thread-button">Post Thread</button>
+  <div class="forum-container">
+    <h1 style="color: #40444b;">Discussion Forum</h1>
+
+    <!-- Create New Thread Form -->
+    <div class="new-thread">
+      <h2>Create a New Thread</h2>
+      <input id="thread-title" type="text" placeholder="Thread Title" required>
+      <textarea id="thread-content" placeholder="Write your thread content" required></textarea>
+      <button onclick="createThread()" id="thread-button">Post Thread</button>
+    </div>
+
+    <!-- Display All Threads -->
+    <div id="threads" class="threads">
+      <h2>All Threads</h2>
+      <!-- Threads will be injected here -->
+    </div>
   </div>
 
-  <!-- Display All Threads -->
-  <div id="threads" class="threads">
-    <h2>All Threads</h2>
-  </div>
+  <!-- Inline JavaScript code (previously TypeScript) -->
+  <script>
+    // Interface for thread structure
+    // Converted to plain JavaScript as browsers don't natively support TypeScript
+    let threads = JSON.parse(localStorage.getItem('threads') || '[]');
+    console.log("this is discussion")
+    // Function to create a new thread
+    function createThread() {
+      const titleInput = document.getElementById('thread-title');
+      const contentInput = document.getElementById('thread-content');
 
-  <!-- Sorting and Filters -->
-  <div class="sorting-container">
-    <label for="sort-threads">Sort By:</label>
-    <select id="sort-threads" onchange="sortThreads()">
-      <option value="recent">Most Recent</option>
-      <option value="popular">Most Popular</option>
-      <option value="alphabetical">Alphabetical</option>
-    </select>
-  </div>
-</div>
+      const title = titleInput.value;
+      const content = contentInput.value;
 
-<!-- Script at the end of the body -->
-<script>
-  // Initialize or fetch threads from localStorage
-  let threads = JSON.parse(localStorage.getItem('threads')) || [];
+      if (title && content) {
+        const newThread = {
+          title,
+          content,
+          replies: []
+        };
 
-  // Function to create a new thread
-  function createThread() {
-    const titleInput = document.getElementById('thread-title');
-    const contentInput = document.getElementById('thread-content');
-    console.log("In thread")
+        threads.push(newThread);
+        localStorage.setItem('threads', JSON.stringify(threads));
 
-    const title = titleInput.value;
-    const content = contentInput.value;
+        // Clear the input fields
+        titleInput.value = '';
+        contentInput.value = '';
 
-    if (title && content) {
-      const newThread = { title, content, replies: [] };
-      threads.push(newThread);
-      localStorage.setItem('threads', JSON.stringify(threads));
-
-      // Clear input fields
-      titleInput.value = '';
-      contentInput.value = '';
-
-      displayThreads(); // Reload threads
-    } else {
-      alert("Please fill in both title and content.");
+        // Reload the threads
+        displayThreads();
+      }
     }
-  }
 
-  // Function to display threads
-  function displayThreads() {
-    const threadsContainer = document.getElementById('threads');
-    threadsContainer.innerHTML = ''; // Clear existing threads
+    // Function to display all threads
+    function displayThreads() {
+      const threadsContainer = document.getElementById('threads');
+      threadsContainer.innerHTML = ''; // Clear existing threads
 
-    threads.forEach((thread, index) => {
-      const threadDiv = document.createElement('div');
-      threadDiv.classList.add('thread');
-      threadDiv.innerHTML = `
+      threads.forEach((thread, index) => {
+        const threadDiv = document.createElement('div');
+        threadDiv.classList.add('thread');
+        threadDiv.innerHTML = `
           <h3>${thread.title}</h3>
           <p>${thread.content}</p>
           <button onclick="toggleReplies(${index})">View Replies</button>
@@ -383,40 +422,32 @@
             <button onclick="addReply(${index})">Post Reply</button>
           </div>
         `;
-      threadsContainer.appendChild(threadDiv);
-    });
-  }
-
-  // Function to add a reply
-  function addReply(threadIndex) {
-    const replyInput = document.getElementById(`reply-input-${threadIndex}`);
-    const replyContent = replyInput.value;
-
-    if (replyContent) {
-      threads[threadIndex].replies.push(replyContent);
-      localStorage.setItem('threads', JSON.stringify(threads));
-      replyInput.value = ''; // Clear the input
-
-      displayThreads(); // Refresh the threads
-      toggleReplies(threadIndex); // Keep the replies section open
+        threadsContainer.appendChild(threadDiv);
+      });
     }
-  }
 
-  // Function to toggle replies visibility
-  function toggleReplies(threadIndex) {
-    const repliesContainer = document.getElementById(`replies-${threadIndex}`);
-    const displayStyle = repliesContainer.style.display;
+    // Function to add a reply to a thread
+    function addReply(threadIndex) {
+      const replyInput = document.getElementById(`reply-input-${threadIndex}`);
+      const replyContent = replyInput.value;
 
-    repliesContainer.style.display = displayStyle === 'none' || displayStyle === '' ? 'block' : 'none';
-  }
+      if (replyContent) {
+        threads[threadIndex].replies.push(replyContent);
+        localStorage.setItem('threads', JSON.stringify(threads));
+        replyInput.value = ''; // Clear the reply input
+        displayThreads(); // Reload the threads with new replies
+      }
+    }
 
-  // Initial thread load
-  displayThreads();
+    // Function to toggle the visibility of replies
+    function toggleReplies(threadIndex) {
+      const repliesContainer = document.getElementById(`replies-${threadIndex}`);
+      repliesContainer.style.display = repliesContainer.style.display === 'none' ? 'block' : 'none';
+    }
 
-  // Bind createThread to the button after DOM loads
-  document.getElementById('thread-button').addEventListener('click', createThread);
-</script>
-
+    // Initial load of threads
+    displayThreads();
+  </script>
 
 
 
