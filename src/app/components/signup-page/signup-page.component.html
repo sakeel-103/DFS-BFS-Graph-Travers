@@ -19,22 +19,30 @@
         <p>Login/Signup Form To perform or Visualize the Graph Traversal</p>
       </div>
       <div class="right">
-        <h2>Sign Up</h2>
+        <h2 class="signup-title">Create Your Account</h2>
         <!-- Cross Button -->
         <button type="button" class="cross-button" (click)="goHome()">&times;</button>
         <form [formGroup]="signupForm" id="signupForm" (ngSubmit)="SignUp()">
           <div class="input-box">
             <i class="bx bxs-user"></i>
-            <input type="text" id="username" placeholder="Username" formControlName="username" />
+            <input type="text" id="username" placeholder="Username" formControlName="username" required />
           </div>
-          <div class="input-box">
-            <i class="bx bxs-envelope"></i>
-            <input type="email" id="email" placeholder="Email" formControlName="email" />
+          <div class="input-box-em" style="position: relative;">
+            <div class="em">
+              <i class="bx bxs-envelope"></i>
+              <input type="email" id="email" placeholder="Email" formControlName="email"
+                [class.invalid]="signupForm.get('email')?.invalid && (signupForm.get('email')?.touched || signupForm.get('email')?.dirty)" />
+            </div>
+            <div *ngIf="signupForm.get('email')?.invalid && (signupForm.get('email')?.touched || signupForm.get('email')?.dirty)"
+              class="error-message">
+              <small *ngIf="signupForm.get('email')?.errors?.['required']">Email is required.</small>
+              <small *ngIf="signupForm.get('email')?.errors?.['email']">Please enter a valid email address.</small>
+            </div>
           </div>
           <div class="input-box" style="position: relative;">
             <i class="bx bx-lock-alt"></i>
             <input type="password" id="password" placeholder="Password" formControlName="password"
-              [type]="passwordVisible ? 'text' : 'password'" />
+              [type]="passwordVisible ? 'text' : 'password'" required />
             <i class="bx" [ngClass]="passwordVisible ? 'bx bx-show' : 'bx bx-hide'" (click)="togglePasswordVisibility()"
               style="cursor: pointer; position: absolute; right: 10px; top: 50%; transform: translateY(-50%);"></i>
           </div>
