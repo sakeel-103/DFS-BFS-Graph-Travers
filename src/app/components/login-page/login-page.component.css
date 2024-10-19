@@ -4,6 +4,57 @@
     box-sizing: border-box;
     font-family: Arial, sans-serif;
 } */
+.welcome-heading {
+    width: 100%;
+    text-align: center;
+    background-color: #3498db;
+    /* Background color */
+    padding: 20px 0;
+    /* Padding for top and bottom */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    /* Subtle shadow */
+    position: fixed;
+    /* Fixes the heading at the top */
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    /* Ensures it stays above other elements */
+}
+
+.welcome-heading h2 {
+    color: white;
+    /* Text color */
+    font-size: 28px;
+    /* Font size */
+    font-weight: bold;
+    /* Font weight */
+    margin: 0;
+    /* Remove default margin */
+    text-transform: uppercase;
+    /* Transform text to uppercase */
+    letter-spacing: 1px;
+    /* Add letter spacing for readability */
+    transition: color 0.3s;
+    /* Transition effect for hover */
+}
+
+.welcome-heading h2:hover {
+    color: #f39c12;
+    /* Change color on hover */
+}
+
+body {
+    padding-top: 70px;
+    /* Adjust this value based on the height of your welcome heading */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+}
+
+/* Rest of your CSS styles remain unchanged */
 
 .id {
     position: absolute;
