@@ -192,31 +192,56 @@
 
   <section id="graph-types" class="graph-types">
     <div class="container">
-      <h2 data-i18n="explore-graph-types">Explore Various Graph Types</h2>
-      <div class="graph-grid">
-        <div class="graph-item">
-          <div class="graph-icon">→</div>
-          <h3 data-i18n="directed-graphs">Directed Graphs</h3>
+        <h2>Explore Various Graph Types</h2>
+        <div class="graph-grid">
+            <div class="graph-item">
+                <div class="graph-content">
+                    <div class="graph-icon">→</div>
+                    <h3>Directed Graphs</h3>
+                </div>
+                <div class="graph-info">
+                    <p>Directed graphs are graphs in which the edges have a direction.</p>
+                </div>
+            </div>
+            <div class="graph-item">
+                <div class="graph-content">
+                    <div class="graph-icon">⇔</div>
+                    <h3>Undirected Graphs</h3>
+                </div>
+                <div class="graph-info">
+                    <p>Undirected graphs are graphs where edges do not have a direction.</p>
+                </div>
+            </div>
+            <div class="graph-item">
+                <div class="graph-content">
+                    <div class="graph-icon">⚖️</div>
+                    <h3>Weighted Graphs</h3>
+                </div>
+                <div class="graph-info">
+                    <p>Weighted graphs assign a weight to each edge, representing cost or distance.</p>
+                </div>
+            </div>
+            <div class="graph-item">
+                <div class="graph-content">
+                    <div class="graph-icon">🌳</div>
+                    <h3>Trees</h3>
+                </div>
+                <div class="graph-info">
+                    <p>Trees are connected, acyclic graphs.</p>
+                </div>
+            </div>
+            <div class="graph-item">
+                <div class="graph-content">
+                    <div class="graph-icon">⇉</div>
+                    <h3>Directed Acyclic Graphs</h3>
+                </div>
+                <div class="graph-info">
+                    <p>Directed acyclic graphs (DAGs) have directed edges and no cycles.</p>
+                </div>
+            </div>
         </div>
-        <div class="graph-item">
-          <div class="graph-icon">⇔</div>
-          <h3 data-i18n="undirected-graphs">Undirected Graphs</h3>
-        </div>
-        <div class="graph-item">
-          <div class="graph-icon">⚖️</div>
-          <h3 data-i18n="weighted-graphs">Weighted Graphs</h3>
-        </div>
-        <div class="graph-item">
-          <div class="graph-icon">🌳</div>
-          <h3 data-i18n="trees">Trees</h3>
-        </div>
-        <div class="graph-item">
-          <div class="graph-icon">⇉</div>
-          <h3 data-i18n="directed-acyclic-graphs">Directed Acyclic Graphs</h3>
-        </div>
-      </div>
     </div>
-  </section>
+</section>
 
   <section id="algorithms" class="algorithms">
     <div class="container">
@@ -981,6 +1006,24 @@
         ctx.fill();
         ctx.stroke();
       });
+    }
+
+    function showInfo(graphType) {
+        const infoDiv = document.getElementById('graph-info');
+        const infoText = {
+            directed: "Directed graphs are graphs in which the edges have a direction.",
+            undirected: "Undirected graphs are graphs where edges do not have a direction.",
+            weighted: "Weighted graphs assign a weight to each edge, representing cost or distance.",
+            trees: "Trees are connected, acyclic graphs.",
+            directedAcyclic: "Directed acyclic graphs (DAGs) have directed edges and no cycles."
+        };
+
+        infoDiv.innerHTML = `<p>${infoText[graphType]}</p>`;
+    }
+
+    function hideInfo() {
+        const infoDiv = document.getElementById('graph-info');
+        infoDiv.innerHTML = `<p>Select a graph type to see more info.</p>`;
     }
   </script>
 

@@ -328,6 +328,10 @@ button.border-2:hover {
   gap: 2rem;
 }
 
+.graph-item{
+  cursor: pointer;
+}
+
 @media (min-width: 768px) {
   .grid {
     grid-template-columns: repeat(3, 1fr);
@@ -374,4 +378,60 @@ p.text-indigo-100 {
 
 .logo a:hover {
   color: #ffa500;
+}
+ 
+/*Graph card styling*/
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.graph-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.graph-item {
+  width: 100%;
+  height: 200px;
+  position: relative;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.graph-item .graph-content {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: opacity 0.3s;
+}
+
+.graph-item .graph-info {
+  opacity: 0;
+  text-align: center;
+  background-color: transparent;
+  text-align: left;
+  color: rgb(255, 255, 255);
+  padding: 10px;
+}
+
+.graph-item:hover .graph-info {
+  opacity: 1;
+}
+
+.graph-item:hover .graph-content {
+  opacity: 0; /* Hide the original content */
 }
