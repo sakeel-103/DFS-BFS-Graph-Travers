@@ -154,7 +154,6 @@ nav ul li a:hover {
 }
 
 a.nav-item {
-  border-radius: 23px;
   text-decoration: none;
   color: #fff;
   text-transform: capitalize;
@@ -162,7 +161,6 @@ a.nav-item {
   flex-direction: column;
   padding: 10px;
 }
-
 
 .menu-icon div {
   width: 100%;
@@ -375,3 +373,91 @@ p.text-indigo-100 {
 .logo a:hover {
   color: #ffa500;
 }
+
+
+/* Visualizer Section Styling */
+.visualizer {
+  padding: 40px 0;
+  background-color: #f8f9fa;
+  /* Match background with the upper section */
+  text-align: center;
+}
+
+.visualizer h2 {
+  font-size: 28px;
+  font-weight: bold;
+  color: #ffffff;
+  /* Consistent dark text color */
+  margin-bottom: 20px;
+}
+
+.visualizer .description {
+  font-size: 18px;
+  color: #555;
+  /* Subtle description color */
+  margin-bottom: 25px;
+}
+
+.gif-container {
+  max-width: 400px;
+  /* Adjust width for consistency */
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  background: white;
+  /* Add background to the GIF area */
+  border-radius: 10px;
+  /* Smooth borders */
+  padding: 15px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+  /* Add a shadow for depth */
+}
+
+.gif-container img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.visualizer button {
+  padding: 10px 20px;
+  margin: 10px 10px 30px;
+  /* More space between buttons and GIF */
+  background-color: #007bff;
+  /* Button color (Bootstrap's primary color) */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.visualizer button:hover {
+  background-color: #0056b3;
+  /* Darker blue on hover */
+}
+
+@media (max-width: 768px) {
+  .visualizer {
+    padding: 20px;
+  }
+
+  .visualizer h2 {
+    font-size: 24px;
+    /* Smaller heading on mobile */
+  }
+
+  .gif-container {
+    max-width: 90%;
+    /* Allow more room for the GIF on smaller screens */
+  }
+
+  .visualizer button {
+    width: 100%;
+    /* Full-width buttons on mobile */
+    font-size: 14px;
+    /* Adjust font size on buttons */
+  }
+}
+
