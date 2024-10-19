@@ -133,15 +133,13 @@ nav {
   align-items: center;
 }
 
-.nav-links a {
-  color: #ffffff;
-  text-decoration: none;
-  font-weight: 500;
-  transition: color 0.3s ease;
-}
-
 .nav-links a:hover {
+  background-color: white;
   color: #6c63ff;
+}
+#github-link:hover {
+  background-color: transparent;
+  color: #ffffff;
 }
 
 /* Hero Section Styling */
