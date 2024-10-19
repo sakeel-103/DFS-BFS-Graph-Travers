@@ -154,6 +154,7 @@ nav ul li a:hover {
 }
 
 a.nav-item {
+  border-radius: 23px;
   text-decoration: none;
   color: #fff;
   text-transform: capitalize;
@@ -161,6 +162,7 @@ a.nav-item {
   flex-direction: column;
   padding: 10px;
 }
+
 
 .menu-icon div {
   width: 100%;

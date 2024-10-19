@@ -54,7 +54,7 @@
         <a class="nav-item" href="/questions" data-i18n="faq">Questions</a>
         <a class="nav-item" href="/review" data-i18n="faq">Reviews</a>
 
-        <a class="nav-item" href="https://github.com/sakeel-103/DFS-BFS-Graph-Travers" target="_blank"
+        <a class="nav-item" id="github-link" href="https://github.com/sakeel-103/DFS-BFS-Graph-Travers" target="_blank"
           class="github-link">
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="#ffffff">
             <path
@@ -308,67 +308,71 @@
   <canvas id="graphCanvas" width="1500" height="600"></canvas>
 
 
+<div class="forum-container">
+  <h1>Discussion Forum</h1>
 
-  <div class="forum-container">
-    <h1 style="color: #40444b;">Discussion Forum</h1>
-
-    <!-- Create New Thread Form -->
-    <div class="new-thread">
-      <h2>Create a New Thread</h2>
-      <input id="thread-title" type="text" placeholder="Thread Title" required>
-      <textarea id="thread-content" placeholder="Write your thread content" required></textarea>
-      <button onclick="createThread()" id="thread-button">Post Thread</button>
-    </div>
-
-    <!-- Display All Threads -->
-    <div id="threads" class="threads">
-      <h2>All Threads</h2>
-      <!-- Threads will be injected here -->
-    </div>
+  <!-- Create New Thread Form -->
+  <div class="new-thread">
+    <h2>Create a New Thread</h2>
+    <input id="thread-title" type="text" placeholder="Thread Title" required>
+    <textarea id="thread-content" placeholder="Write your thread content" required></textarea>
+    <button id="thread-button">Post Thread</button>
   </div>
 
-  <!-- Inline JavaScript code (previously TypeScript) -->
-  <script>
-    // Interface for thread structure
-    // Converted to plain JavaScript as browsers don't natively support TypeScript
-    let threads = JSON.parse(localStorage.getItem('threads') || '[]');
-    console.log("this is discussion")
-    // Function to create a new thread
-    function createThread() {
-      const titleInput = document.getElementById('thread-title');
-      const contentInput = document.getElementById('thread-content');
+  <!-- Display All Threads -->
+  <div id="threads" class="threads">
+    <h2>All Threads</h2>
+  </div>
 
-      const title = titleInput.value;
-      const content = contentInput.value;
+  <!-- Sorting and Filters -->
+  <div class="sorting-container">
+    <label for="sort-threads">Sort By:</label>
+    <select id="sort-threads" onchange="sortThreads()">
+      <option value="recent">Most Recent</option>
+      <option value="popular">Most Popular</option>
+      <option value="alphabetical">Alphabetical</option>
+    </select>
+  </div>
+</div>
 
-      if (title && content) {
-        const newThread = {
-          title,
-          content,
-          replies: []
-        };
+<!-- Script at the end of the body -->
+<script>
+  // Initialize or fetch threads from localStorage
+  let threads = JSON.parse(localStorage.getItem('threads')) || [];
 
-        threads.push(newThread);
-        localStorage.setItem('threads', JSON.stringify(threads));
+  // Function to create a new thread
+  function createThread() {
+    const titleInput = document.getElementById('thread-title');
+    const contentInput = document.getElementById('thread-content');
+    console.log("In thread")
 
-        // Clear the input fields
-        titleInput.value = '';
-        contentInput.value = '';
+    const title = titleInput.value;
+    const content = contentInput.value;
 
-        // Reload the threads
-        displayThreads();
-      }
+    if (title && content) {
+      const newThread = { title, content, replies: [] };
+      threads.push(newThread);
+      localStorage.setItem('threads', JSON.stringify(threads));
+
+      // Clear input fields
+      titleInput.value = '';
+      contentInput.value = '';
+
+      displayThreads(); // Reload threads
+    } else {
+      alert("Please fill in both title and content.");
     }
+  }
 
-    // Function to display all threads
-    function displayThreads() {
-      const threadsContainer = document.getElementById('threads');
-      threadsContainer.innerHTML = ''; // Clear existing threads
+  // Function to display threads
+  function displayThreads() {
+    const threadsContainer = document.getElementById('threads');
+    threadsContainer.innerHTML = ''; // Clear existing threads
 
-      threads.forEach((thread, index) => {
-        const threadDiv = document.createElement('div');
-        threadDiv.classList.add('thread');
-        threadDiv.innerHTML = `
+    threads.forEach((thread, index) => {
+      const threadDiv = document.createElement('div');
+      threadDiv.classList.add('thread');
+      threadDiv.innerHTML = `
           <h3>${thread.title}</h3>
           <p>${thread.content}</p>
           <button onclick="toggleReplies(${index})">View Replies</button>
@@ -378,32 +382,40 @@
             <button onclick="addReply(${index})">Post Reply</button>
           </div>
         `;
-        threadsContainer.appendChild(threadDiv);
-      });
+      threadsContainer.appendChild(threadDiv);
+    });
+  }
+
+  // Function to add a reply
+  function addReply(threadIndex) {
+    const replyInput = document.getElementById(`reply-input-${threadIndex}`);
+    const replyContent = replyInput.value;
+
+    if (replyContent) {
+      threads[threadIndex].replies.push(replyContent);
+      localStorage.setItem('threads', JSON.stringify(threads));
+      replyInput.value = ''; // Clear the input
+
+      displayThreads(); // Refresh the threads
+      toggleReplies(threadIndex); // Keep the replies section open
     }
+  }
 
-    // Function to add a reply to a thread
-    function addReply(threadIndex) {
-      const replyInput = document.getElementById(`reply-input-${threadIndex}`);
-      const replyContent = replyInput.value;
+  // Function to toggle replies visibility
+  function toggleReplies(threadIndex) {
+    const repliesContainer = document.getElementById(`replies-${threadIndex}`);
+    const displayStyle = repliesContainer.style.display;
 
-      if (replyContent) {
-        threads[threadIndex].replies.push(replyContent);
-        localStorage.setItem('threads', JSON.stringify(threads));
-        replyInput.value = ''; // Clear the reply input
-        displayThreads(); // Reload the threads with new replies
-      }
-    }
+    repliesContainer.style.display = displayStyle === 'none' || displayStyle === '' ? 'block' : 'none';
+  }
 
-    // Function to toggle the visibility of replies
-    function toggleReplies(threadIndex) {
-      const repliesContainer = document.getElementById(`replies-${threadIndex}`);
-      repliesContainer.style.display = repliesContainer.style.display === 'none' ? 'block' : 'none';
-    }
+  // Initial thread load
+  displayThreads();
 
-    // Initial load of threads
-    displayThreads();
-  </script>
+  // Bind createThread to the button after DOM loads
+  document.getElementById('thread-button').addEventListener('click', createThread);
+</script>
+
 
 
 

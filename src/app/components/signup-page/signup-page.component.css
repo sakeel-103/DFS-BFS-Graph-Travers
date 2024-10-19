@@ -6,14 +6,47 @@
 }
 
 .div-first {
-    position: absolute;
-    top: 0;
     width: 100%;
     text-align: center;
-    background-color: #f0f0f0;
+    background-color: #3498db;
+    /* Change to a vibrant blue */
     padding: 20px 0;
-    font-size: 20px;
+    /* Adjusted padding for top and bottom */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    /* Add a subtle shadow */
+    position: relative;
+    /* Allow for absolute positioning of any child elements */
+}
+
+.div-first h2 {
+    color: white;
+    /* Set the text color to white for contrast */
+    font-size: 28px;
+    /* Increase font size for prominence */
     font-weight: bold;
+    /* Make the font bold */
+    margin: 0;
+    /* Remove default margin */
+    text-transform: uppercase;
+    /* Transform text to uppercase */
+    letter-spacing: 1px;
+    /* Add some letter spacing for readability */
+    transition: color 0.3s;
+    /* Add a transition effect for hover */
+}
+
+/* Optional hover effect */
+.div-first h2:hover {
+    color: #f39c12;
+    /* Change color on hover */
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 600px) {
+    .div-first h2 {
+        font-size: 24px;
+        /* Adjust font size for smaller screens */
+    }
 }
 
 body {
@@ -33,12 +66,13 @@ body {
     border-radius: 15px;
     overflow: hidden;
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
-    width: 900px;
+    width: 90%;
+    max-width: 900px;
     height: 500px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    position: relative;
+    /* Changed to relative for better layout control */
+    margin: auto;
+    /* Centering the container */
 }
 
 .box {
@@ -53,7 +87,8 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 0 50px;
+    padding: 20px;
+    /* Adjusted padding for better spacing */
 }
 
 .left h1 {
@@ -71,13 +106,16 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 0 50px;
+    padding: 20px;
+    /* Adjusted padding for better spacing */
 }
 
-.right h2 {
+.right h2.signup-title {
     font-size: 28px;
     margin-bottom: 30px;
     text-align: center;
+    color: #000;
+    /* Added color for the title */
 }
 
 .input-box {
@@ -87,6 +125,8 @@ body {
     padding: 10px;
     margin-bottom: 20px;
     border-radius: 5px;
+    transition: border-color 0.3s;
+    /* Added transition for interaction */
 }
 
 .input-box i {
@@ -103,6 +143,11 @@ body {
 
 .input-box input::placeholder {
     color: #999;
+}
+
+.input-box input:focus {
+    border-color: #3498db;
+    /* Changed border color on focus */
 }
 
 .btn {
@@ -140,36 +185,117 @@ form p a {
 form p a:hover {
     text-decoration: underline;
 }
+
 .cross-button {
-    background-color: transparent; /* Transparent background */
-    border: none; /* No border */
-    color: black; /* Black color for the cross */
-    font-size: 30px; /* Adjust the size of the cross */
-    cursor: pointer; /* Change cursor to pointer on hover */
-    position: absolute; /* Positioning */
-    top: 20px; /* Distance from the top */
-    right: 20px; /* Distance from the right */
-  }
-  
-  .cross-button:hover {
-    color: red; /* Change color on hover */
-  }
-  
-  @media (max-width:926px){
-    .container{
-        width: 450px;
+    background-color: transparent;
+    /* Transparent background */
+    border: none;
+    /* No border */
+    color: black;
+    /* Black color for the cross */
+    font-size: 30px;
+    /* Adjust the size of the cross */
+    cursor: pointer;
+    /* Change cursor to pointer on hover */
+    position: absolute;
+    /* Positioning */
+    top: 20px;
+    /* Distance from the top */
+    right: 20px;
+    /* Distance from the right */
+}
+
+.cross-button:hover {
+    color: red;
+    /* Change color on hover */
+}
+
+/* Responsive Design */
+@media (max-width: 926px) {
+    .container {
+        width: 90%;
+        /* Full width on smaller screens */
+        height: auto;
+        /* Adjust height for responsiveness */
+        flex-direction: column;
+        /* Stack elements vertically */
     }
-    .right{
-        width: 100%;
-    }
-    .left{
+
+    .left {
         display: none;
-        width: 0;
+        /* Hide the left section on small screens */
+    }
+
+    .right {
+        width: 100%;
+        /* Full width for the right section */
     }
 }
 
-@media (max-width:460px){
-    .container{
-        width: 400px;
+@media (max-width: 460px) {
+    .container {
+        width: 95%;
+        /* Further adjust width on very small screens */
     }
+
+    .right h2.signup-title {
+        font-size: 24px;
+        /* Adjust title font size */
+    }
+
+    .input-box input {
+        font-size: 14px;
+        /* Adjust input font size */
+    }
+
+    .btn {
+        font-size: 16px;
+        /* Adjust button font size */
+    }
+}
+.invalid {
+    border: 1px solid red;
+    /* Highlight the border in red for invalid input */
+}
+
+.error-message {
+    color: red;
+    /* Style for error messages */
+    font-size: 12px;
+    /* Smaller font for error messages */
+    margin-top: 4px;
+    /* Space between input and error message */
+}
+.input-box-em{
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    transition: border-color 0.3s;
+}
+.input-box-em i {
+    margin-right: 10px;
+    color: #666;
+}
+
+.input-box-em input {
+    width: 100%;
+    border: none;
+    outline: none;
+    font-size: 16px;
+}
+
+.input-box-em input::placeholder {
+    color: #999;
+}
+
+.input-box-em input:focus {
+    border-color: #3498db;
+    /* Changed border color on focus */
+}
+.em{
+    display: flex;
 }

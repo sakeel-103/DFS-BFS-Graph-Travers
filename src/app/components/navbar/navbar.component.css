@@ -55,6 +55,8 @@ body {
 
 /* Link Styles */
 .div-new a {
+  border-radius: 19px;
+  padding: 8px 10px;
   color: #fff;
   margin-left: 1rem;
   text-decoration: none;
@@ -63,8 +65,8 @@ body {
 }
 
 .div-new a:hover {
-  color: #f1f1f1;
-  text-decoration: underline;
+  background-color: white;
+  color: #6c63ff;
 }
 
 /* Profile Image and Dropdown */

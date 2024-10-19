@@ -42,16 +42,19 @@ export class SignupComponent {
       // Call the signup service
       this.authService.signUp(signupData).subscribe(
         (response: any) => {
-          this.toastr.success("Sign-up successful! You can now log in.", 'Success');
+          this.toastr.success(
+            'Sign-up successful! You can now log in.',
+            'Success'
+          );
           this.router.navigate(['/login']);
         },
         (error: any) => {
           console.error('Error during sign-up:', error);
-          this.toastr.error("Sign-up failed. Please try again.", 'Error');
+          this.toastr.error('Sign-up failed. Please try again.', 'Error');
         }
       );
     } else {
-      this.toastr.error("Please fill out the form correctly.", 'Error');
+      this.toastr.error('Please fill out the form correctly.', 'Error');
     }
   }
 
@@ -65,5 +68,17 @@ export class SignupComponent {
 
   togglePasswordVisibility() {
     this.passwordVisible = !this.passwordVisible; // Toggle password visibility
+  }
+
+  // Check if email is valid
+  checkEmail() {
+    // Mark the email control as touched to trigger validation
+    this.signupForm.get('email')?.markAsTouched();
+  }
+
+  // Method to determine if the email field is invalid
+  emailInvalid(): boolean {
+    const emailControl = this.signupForm.get('email');
+    return emailControl?.touched && emailControl?.invalid ? true : false;
   }
 }
