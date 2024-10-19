@@ -46,7 +46,7 @@ export class SignupComponent {
             'Sign-up successful! You can now log in.',
             'Success'
           );
-          this.router.navigate(['/login']);
+          this.router.navigate(['/mainIndex']);
         },
         (error: any) => {
           console.error('Error during sign-up:', error);
