@@ -17,12 +17,21 @@ body {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 2rem;
+
+  display: flex;
+  flex-direction: column;
+  place-items: center;
+  gap: 1.5rem;
 }
 
+.container h2{
+  font-size: 3.75rem;
+}
 
 button {
-  padding: 10px 15px;
- 
+  
+  
+ padding: 12px 20px;
   color: white;
   border: none;
   cursor: pointer;
