@@ -1,0 +1,66 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [14.x]
+
+    steps:
+    # Checkout the code
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    # Setup Node.js
+    - name: Setup Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v2
+      with:
+        node-version: ${{ matrix.node-version }}
+
+    # Install dependencies for backend and frontend
+    - name: Install backend dependencies
+      run: |
+        cd backend
+        npm install
+
+    - name: Install frontend dependencies
+      run: |
+        npm install
+
+    # Build the Angular app
+    - name: Build Angular app
+      run: |
+        npm run build
+
+    # Run tests for frontend and backend
+    - name: Run backend tests
+      run: |
+        cd backend
+        npm test
+
+    - name: Run frontend tests
+      run: |
+        npm run test -- --watch=false
+
+    # Netlify deployment (optional)
+    - name: Deploy to Netlify
+      if: github.ref == 'refs/heads/main'
+      run: |
+        npm install -g netlify-cli
+        netlify deploy --prod --dir=dist/<your-angular-app> --auth=$NETLIFY_AUTH_TOKEN --site=$NETLIFY_SITE_ID
+
+  # Cache dependencies
+  cache:
+    paths:
+      - ~/.npm
