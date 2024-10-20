@@ -1,0 +1,43 @@
+.algorithm-comparison-container {
+  max-width: 100%;
+  margin: 56px auto;
+  padding: 2rem;
+  font-family: "Roboto", sans-serif;
+  background-color: #f8f9fa;
+}
+
+.text-center {
+  text-align: center;
+  color: black;
+  margin-bottom: 2rem;
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+
+.chart-container {
+  margin-bottom: 2rem;
+}
+
+.input-container {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.traversal-steps {
+  max-width: 600px;
+  margin: 0 auto;
+  background-color: #ffffff;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.traversal-steps ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.traversal-steps li {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #e0e0e0;
+}
