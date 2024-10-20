@@ -339,9 +339,11 @@ We welcome contributions from developers of all experience levels. Please refer 
 - Make sure you show some love by giving ⭐ to our repository.
 
 <div align="center">
-  <a href="https://github.com/sakeel-103/DFS-BFS-Graph-Travers">
-    <img src="https://contrib.rocks/image?repo=sakeel-103/DFS-BFS-Graph-Travers&&max=100" />
-  </a>
+
+| Contributors | GitHub Links |
+|--------------|--------------|
+| <a href="https://github.com/sakeel-103"><img src="https://contrib.rocks/image?repo=sakeel-103/DFS-BFS-Graph-Travers&&max=100" /></a> | [Sakeel](https://github.com/sakeel-103) |
+
 </div>
 
 ---
