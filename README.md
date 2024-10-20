@@ -3,11 +3,6 @@
 
 This project implements **Depth-First Search (DFS)** and **Breadth-First Search (BFS)** algorithms for graph traversal. The backend includes user authentication functionality with a **Login** and **Signup** page. The project currently stores user data in **local storage**.
 
-<hr>
-
- <details>
-   <summary><h2>📑 Table of Contents</h2></summary>
-
 ### 🔮 Future Upgrades Await
 This is just the beginning! With plans to incorporate advanced algorithms (Dijkstra's, A*) 🧠, user dashboards 📊, and mobile-friendly features 📱, we’re on the path to making this project an indispensable tool for graph lovers everywhere.
 
@@ -43,12 +38,10 @@ This is just the beginning! With plans to incorporate advanced algorithms (Dijks
 9. 🖥️ [How the Server Works](#-how-the-server-works)
 10. 📊 [Graph Feature](#-how-the-graph-feature-works)
 11. 🗺️ [Roadmap](#-roadmap)
-12. 🤝 [Contributing](#-contributing)
-13. 👥 [Contributors](#-our-contributors)
+12. 🤝 [Contribution Guide](#-contribution-guide)
+13. 👥 [Our Contributors](#-our-contributors)
+14. 📜 [License](#-license)
 
-</details>
-
-<hr>
 
 ## 🌟 Features
 
@@ -263,9 +256,39 @@ Output:
 |                | **Q4 2025**                    | 🌐 **Multilingual Support**: Add support for multiple languages to enhance accessibility. Enable user-selectable language options in the application settings. |
 
 
-## Contributing
+## 🤝 Contribution Guide
 
-We welcome contributions from developers of all experience levels. Please refer to the [CONTRIBUTING.md](CONTRIBUTING.md) file for guidelines.
+We welcome contributions of all kinds—whether it’s fixing bugs, adding new features, or improving documentation. Before you start contributing, please take a moment to review our guidelines to ensure smooth collaboration.
+
+### Getting Started
+
+To contribute to this project, follow these steps:
+
+1. **Read the Contributing Guide**: We’ve provided a detailed guide to help you get started with contributing. It includes all the steps you need to follow, from setting up the repository to submitting a pull request.
+   
+   👉 **[Check out the Contributing Guide](./CONTRIBUTING.md)**
+
+2. **Fork the Repository**: Fork the project repository to your GitHub account, so you can make changes without affecting the original project.
+
+3. **Make Meaningful Changes**: Whether you’re adding a new feature, fixing bugs, or improving documentation, ensure that your contributions are significant and add value to the project.
+
+4. **Write Clean Code**: Follow the code style and best practices outlined in the project. Clean, readable, and well-documented code helps keep the project maintainable and easier to review.
+
+5. **Testing**: If you're adding a feature or fixing a bug, ensure you write relevant tests to maintain the integrity of the project’s functionality.
+
+### Submitting a Pull Request
+
+Once your changes are ready, you can submit a pull request by following these steps:
+
+1. **Commit Your Changes**: Write descriptive commit messages that explain the changes you’ve made.
+   
+2. **Push to Your Fork**: Push the changes to your forked repository and create a new branch for your feature or fix.
+
+3. **Open a Pull Request**: Navigate to the original repository and create a pull request, describing your changes in detail and why they are necessary.
+
+By following these guidelines, you’ll ensure that your contributions align with the project’s goals and maintain a high standard. We appreciate your efforts in making this project better! 😊
+
+For more detailed instructions, please refer to our full **[Contributing Guide](./CONTRIBUTING.md)**.
 
 <hr>
 
@@ -290,6 +313,12 @@ We welcome contributions from developers of all experience levels. Please refer 
 </div>
 
 
+---
+## 📜 License
+
+This project is licensed under the MIT License – see the [LICENSE](./LICENSE) file for details.
+
+By contributing to this repository, you agree that your contributions will be licensed under its MIT License.
 ---
 
 ### 📬 Feel free to contribute or open issues if you find any bugs!
