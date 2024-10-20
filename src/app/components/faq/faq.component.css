@@ -1,67 +1,68 @@
+
+
+
 body {
-  font-family: "Inter", sans-serif;
-  margin: 0;
-  padding: 0;
-  background-color:#f0f4f8; /* Light background color */
-  color: #333; /* Dark text color for readability */
+font-family: Arial, sans-serif;  
+  /* max-width: 800px; */
+  width: 100vw;
+  margin:auto 0;
+  display:flex;
+  margin-top:30px
 }
 
-.container {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 20px;
+.faq{
+  width: 800px;
+  margin-top: 5rem !important;
+}
+/*start styles*/
+.accordion {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
 }
 
-.faq {
-  background-color: #fff; /* White background for the FAQ section */
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Lighter shadow */
+.accordion__item {
+    border: 2px solid #cad8df;
+    border-radius: 10px;
+    overflow: hidden;
 }
 
-.faq h1 {
-  font-size: 2rem;
-  margin-bottom: 20px;
-  text-align: center;
-  color: #2c3e50; /* Darker title color */
+.accordion__header {
+padding: 20px 25px;
+    font-weight: 600;
+    cursor: pointer;
+    position: relative;
 }
 
-.faq-item {
-  margin-bottom: 15px;
-  border-bottom: 1px solid #ddd; /* Light border for separation */
-  padding-bottom: 10px;
+.accordion__header::after {
+    content: '';
+    background: url(https://www.svgrepo.com/show/357035/angle-down.svg) no-repeat center;
+    width: 20px;
+    height: 20px;
+    transition: .4s;
+    display: inline-block;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    z-index: 1;
 }
 
-.faq-question {
-  background-color: #1c1e1f; /* Blue background for questions */
-  color: #fff; /* White text for questions */
-  border: none;
-  padding: 15px;
-  width: 100%;
-  text-align: left;
-  font-size: 1.2rem;
-  cursor: pointer;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-radius: 4px;
+.accordion__header.active {
+    background: #e5f3fa;
 }
 
-.faq-question:hover {
-  background-color: #111213; /* Darker blue on hover */
+.accordion__header.active::after {
+    transform: rotateX(180deg);
 }
 
-.faq-answer {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.3s ease;
-  padding: 0 15px;
-  background-color: #f1f1f1; /* Light gray for answer background */
-  border-radius: 4px;
-  margin-top: 10px;
+.accordion__item .accordion__content {
+    padding: 0;
+    max-height: 0;
+    transition: .5s;
+    overflow: hidden;
 }
 
-.faq-answer p {
-  margin: 10px 0;
-  color: #333; /* Dark text color for answers */
+p{
+  padding: 25px;
 }
