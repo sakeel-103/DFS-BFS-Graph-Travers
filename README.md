@@ -342,12 +342,13 @@ We welcome contributions from developers of all experience levels. Please refer 
 
 | Contributor          | Contributor          | Contributor          | Contributor          |
 |----------------------|----------------------|----------------------|----------------------|
-| [Shubham Agarwal](https://github.com/shubhagarwal1)  | [Mehul Prajapati](https://github.com/mehul-m-prajapati)  | [Sakeel](https://github.com/sakeel-103)           | [Jashwanth R](https://github.com/Jashwanth-rit)      |
-| [Ananya Gupta](https://github.com/ananyag309)        | [Alolika Bhowmik](https://github.com/alo7lika)        | [Muskan Sharma](https://github.com/muskan171105)   | [Aditya Kalburgi](https://github.com/adityakalburgi) |
-| [Life Hashed](https://github.com/LifeHashed)        | [Varsha](https://github.com/Varsha567)               | [Viv](https://github.com/09viv)                     | [Shariq](https://github.com/Shariq2003)              |
-| [Himanshu Kumar](https://github.com/Himanshu-kumar025) | [Avisha](https://github.com/avisha191)              | [Mausumi](https://github.com/Mausumi134)          | [Bindu](https://github.com/itbindu)                  |
+| ![Shubham Agarwal](https://avatars.githubusercontent.com/u/12345678) <br> [Shubham Agarwal](https://github.com/shubhagarwal1)  | ![Mehul Prajapati](https://avatars.githubusercontent.com/u/87654321) <br> [Mehul Prajapati](https://github.com/mehul-m-prajapati)  | ![Sakeel](https://avatars.githubusercontent.com/u/23456789) <br> [Sakeel](https://github.com/sakeel-103)           | ![Jashwanth R](https://avatars.githubusercontent.com/u/34567890) <br> [Jashwanth R](https://github.com/Jashwanth-rit)      |
+| ![Ananya Gupta](https://avatars.githubusercontent.com/u/45678901) <br> [Ananya Gupta](https://github.com/ananyag309)        | ![Alolika Bhowmik](https://avatars.githubusercontent.com/u/56789012) <br> [Alolika Bhowmik](https://github.com/alo7lika)        | ![Muskan Sharma](https://avatars.githubusercontent.com/u/67890123) <br> [Muskan Sharma](https://github.com/muskan171105)   | ![Aditya Kalburgi](https://avatars.githubusercontent.com/u/78901234) <br> [Aditya Kalburgi](https://github.com/adityakalburgi) |
+| ![Life Hashed](https://avatars.githubusercontent.com/u/89012345) <br> [Life Hashed](https://github.com/LifeHashed)        | ![Varsha](https://avatars.githubusercontent.com/u/90123456) <br> [Varsha](https://github.com/Varsha567)               | ![Viv](https://avatars.githubusercontent.com/u/01234567) <br> [Viv](https://github.com/09viv)                     | ![Shariq](https://avatars.githubusercontent.com/u/12345679) <br> [Shariq](https://github.com/Shariq2003)              |
+| ![Himanshu Kumar](https://avatars.githubusercontent.com/u/23456780) <br> [Himanshu Kumar](https://github.com/Himanshu-kumar025) | ![Avisha](https://avatars.githubusercontent.com/u/34567891) <br> [Avisha](https://github.com/avisha191)              | ![Mausumi](https://avatars.githubusercontent.com/u/45678902) <br> [Mausumi](https://github.com/Mausumi134)          | ![Bindu](https://avatars.githubusercontent.com/u/56789013) <br> [Bindu](https://github.com/itbindu)                  |
 
 </div>
+
 
 
 ---
