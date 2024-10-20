@@ -9,14 +9,36 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
-  <!-- Add this line to include i18next library for translations -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/i18next/21.6.10/i18next.min.js"></script>
+  <style>
+    .canvas_1 {
+      color: #333;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    canvas {
+      border: 1px solid #ccc;
+      /* Adding a border to visualize the canvas */
+      background-color: #f9f9f9;
+      /* Optional: background color for better visibility */
+    }
+  </style>
 </head>
 
 <body>
+
   <header>
+
     <nav class="container">
+      <!-- <a href="#hero" class="logo-link">
+        <img src="../../../../public/Icon.jpg" alt="Logo">
+      </a> -->
       <div class="logo">
+
+        <img
+          src="https://img.freepik.com/free-vector/wireframe-connecting-earth-sphere_1284-52863.jpg?w=740&t=st=1729246267~exp=1729246867~hmac=94824360aa23edc006545118dac0d6c47ef0b21728346613e6e2403dc3a4e88b"
+          alt="Logo">
         <a href="#hero">GraphExplorer Pro</a>
       </div>
       <div class="menu-icon" id="menu-icon">
@@ -24,14 +46,15 @@
         <div class="bar2"></div>
         <div class="bar3"></div>
       </div>
-      <div class=" nav-links" id="nav-links">
+      <div class="nav-links" id="nav-links">
         <a class="nav-item" href="#features" data-i18n="features">Features</a>
         <a class="nav-item" href="#graph-types" data-i18n="graph-types">Graph Types</a>
         <a class="nav-item" href="#algorithms" data-i18n="algorithms">Algorithms</a>
         <a class="nav-item" href="#visualizer" data-i18n="visualizer">Visualizer</a>
         <a class="nav-item" href="/faq" data-i18n="faq">FAQ</a>
-        <a class="nav-item" href="/quiz" data-i18n="faq">quiz</a>
+        <a class="nav-item" href="/quiz" data-i18n="faq">Quiz</a>
         <a class="nav-item" href="/questions" data-i18n="faq">Questions</a>
+        <a class="nav-item" href="/review" data-i18n="faq">Reviews</a>
 
         <a class="nav-item" href="https://github.com/sakeel-103/DFS-BFS-Graph-Travers" target="_blank"
           class="github-link">
@@ -49,10 +72,8 @@
       <div class="hero-content">
         <h1 data-i18n="hero-title">Unlock the Power of Graph Algorithms</h1>
         <p data-i18n="hero-description">Dive into the fascinating world of graph theory and master advanced traversal
-          techniques with GraphExplorer
-          Pro.</p>
-        <a href="#features" [routerLink]="['/signup']" class="cta-button" data-i18n="start-exploring">Start
-          Exploring</a>
+          techniques with GraphExplorer Pro.</p>
+        <a href="/signup" class="cta-button" data-i18n="start-exploring">Start Exploring</a>
       </div>
     </div>
     <div class="graph-visual">
@@ -65,6 +86,80 @@
       <div class="edge" style="width: 120px; top: 65%; left: 40%; transform: rotate(40deg);"></div>
     </div>
   </section>
+  <div class="min-h-screen">
+    <div class="container mx-auto px-4 py-16">
+      <div class="flex flex-col items-center text-center space-y-8 mb-16">
+        <h1 class="text-5xl md:text-7xl font-bold text-white tracking-tight graph-a">
+
+          Graph Algorithms
+          <span class="block text-2xl md:text-3xl mt-2 text-indigo-200" style=" color: #7b95ff;">Visualized &
+            Simplified</span>
+        </h1>
+        <p class="text-xl text-indigo-100 max-w-2xl">
+          Master advanced graph theory through interactive visualizations and hands-on exploration with GraphExplorer
+          Pro.
+        </p>
+        <div class="flex gap-4">
+          <button
+            class="bg-white text-indigo-600 px-8 py-3 rounded-full font-semibold flex items-center gap-2 hover:bg-indigo-50 transition-colors">
+            Start Exploring <span class="arrow-right-icon">→</span>
+          </button>
+          <button
+            class="border-2 border-white text-white px-8 py-3 rounded-full font-semibold flex items-center gap-2 hover:bg-white/10 transition-colors">
+            Watch Demo
+          </button>
+        </div>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+        <div class="bg-white shadow-lg rounded-2xl p-6 text-gray-800 box-g">
+          <span class="share-icon text-2xl">📤</span>
+          <h3 class="text-xl font-semibold mb-2 mt-4">Interactive Visualization</h3>
+          <p class="text-gray-600">Watch algorithms come to life with step-by-step visual demonstrations.</p>
+        </div>
+
+        <div class="bg-white shadow-lg rounded-2xl p-6 text-gray-800 box-g">
+          <span class="git-branch-icon text-2xl">🌿</span>
+          <h3 class="text-xl font-semibold mb-2 mt-4">Advanced Algorithms</h3>
+          <p class="text-gray-600">Learn complex algorithms including DFS, BFS, Dijkstra's, and more.</p>
+        </div>
+
+        <div class="bg-white shadow-lg rounded-2xl p-6 text-gray-800 box-g">
+          <span class="zap-icon text-2xl">⚡</span>
+          <h3 class="text-xl font-semibold mb-2 mt-4">Real-time Analysis</h3>
+          <p class="text-gray-600">Get instant feedback and performance metrics as you explore.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Decorative Background Elements -->
+    <div class="absolute top-0 right-0 w-1/2 h-full opacity-20 pointer-events-none">
+      <script>
+        for (let i = 0; i < 5; i++) {
+          const dot = document.createElement('div');
+          dot.className = 'absolute rounded-full bg-white';
+          dot.style.width = '12px';
+          dot.style.height = '12px';
+          dot.style.top = `${Math.random() * 100}%`;
+          dot.style.left = `${Math.random() * 100}%`;
+          document.body.appendChild(dot);
+        }
+        for (let i = 0; i < 4; i++) {
+          const line = document.createElement('div');
+          line.className = 'absolute bg-white/30';
+          line.style.height = '2px';
+          line.style.width = '100px';
+          line.style.transform = `rotate(${Math.random() * 360}deg)`;
+          line.style.top = `${Math.random() * 100}%`;
+          line.style.left = `${Math.random() * 100}%`;
+          document.body.appendChild(line);
+        }
+      </script>
+    </div>
+  </div>
+
+
+  <!-- Merged LandingPage component ends here -->
 
   <section id="features" class="features">
     <div class="container">
@@ -130,12 +225,21 @@
     <div class="container">
       <h2 data-i18n="master-key-algorithms">Master Key Graph Algorithms</h2>
       <div class="algorithm-tabs">
-        <button class="tab-button active" data-tab="dfs" data-i18n="dfs">DFS</button>
-        <button class="tab-button" data-tab="bfs" data-i18n="bfs">BFS</button>
-        <button class="tab-button" data-tab="dijkstra" data-i18n="dijkstra">Dijkstra's</button>
+        <button class="tab-button" [class.active]="activeTab === 'dfs'" (click)="setActiveTab('dfs')"
+          data-i18n="dfs">DFS</button>
+        <button class="tab-button" [class.active]="activeTab === 'bfs'" (click)="setActiveTab('bfs')"
+          data-i18n="bfs">BFS</button>
+        <button class="tab-button" [class.active]="activeTab === 'dijkstra'" (click)="setActiveTab('dijkstra')"
+          data-i18n="dijkstra">Dijkstra's</button>
+        <button class="tab-button" [class.active]="activeTab === 'bellmanFord'" (click)="setActiveTab('bellmanFord')"
+          data-i18n="bellmanFord">Bellman-Ford</button>
+        <button class="tab-button" [class.active]="activeTab === 'floydWarshall'"
+          (click)="setActiveTab('floydWarshall')" data-i18n="floydWarshall">Floyd-Warshall</button>
       </div>
+
       <div class="tab-content">
-        <div id="dfs-content">
+        <!-- DFS Content -->
+        <div *ngIf="activeTab === 'dfs'" id="dfs-content">
           <h3 data-i18n="dfs-full">Depth-First Search (DFS)</h3>
           <p data-i18n="dfs-description">DFS is a graph traversal algorithm that explores as far as possible along each
             branch before backtracking. It's excellent for:</p>
@@ -145,113 +249,119 @@
             <li data-i18n="dfs-use-3">Topological sorting</li>
           </ul>
         </div>
+
+        <!-- BFS Content -->
+        <div *ngIf="activeTab === 'bfs'" id="bfs-content">
+          <h3 data-i18n="bfs-full">Breadth-First Search (BFS)</h3>
+          <p data-i18n="bfs-description">BFS is a graph traversal algorithm that explores all neighbors at the present
+            depth prior to moving on to nodes at the next depth level. It's used for:</p>
+          <ul>
+            <li data-i18n="bfs-use-1">Finding the shortest path in unweighted graphs</li>
+            <li data-i18n="bfs-use-2">Broadcasting in networks</li>
+          </ul>
+        </div>
+
+        <!-- Dijkstra Content -->
+        <div *ngIf="activeTab === 'dijkstra'" id="dijkstra-content">
+          <h3 data-i18n="dijkstra-full">Dijkstra's Algorithm</h3>
+          <p data-i18n="dijkstra-description">Dijkstra's algorithm finds the shortest path from a source node to all
+            other nodes in a weighted graph. It's widely used for:</p>
+          <ul>
+            <li data-i18n="dijkstra-use-1">GPS navigation systems</li>
+            <li data-i18n="dijkstra-use-2">Network routing protocols</li>
+          </ul>
+        </div>
+
+        <!-- BellmanFord Content -->
+        <div *ngIf="activeTab === 'bellmanFord'" id="bellmanFord-content">
+          <h3 data-i18n="bellmanFord-full">Bellman-Ford Algorithm</h3>
+          <p data-i18n="bellmanFord-description">The Bellman-Ford algorithm computes the shortest path from a source
+            node to all
+            other nodes in a weighted graph, handling negative weight edges and detecting negative cycles. It's commonly
+            used
+            for:</p>
+          <ul>
+            <li data-i18n="bellmanFord-use-1">Financial arbitrage detection</li>
+            <li data-i18n="bellmanFord-use-2">Graphs with negative weight edges</li>
+          </ul>
+        </div>
+
+        <!-- FloydWarshall Content -->
+        <div *ngIf="activeTab === 'floydWarshall'" id="floydWarshall-content">
+          <h3 data-i18n="floydWarshall-full">Floyd-Warshall Algorithm</h3>
+          <p data-i18n="floydWarshall-description">The Floyd-Warshall algorithm finds shortest paths between all pairs
+            of nodes
+            in a weighted graph. It efficiently handles graphs with negative weights and detects negative cycles. It's
+            widely
+            used for:</p>
+          <ul>
+            <li data-i18n="floydWarshall-use-1">Network routing</li>
+            <li data-i18n="floydWarshall-use-2">Transitive closure computation</li>
+          </ul>
+        </div>
       </div>
     </div>
   </section>
 
   <section id="visualizer" class="visualizer">
-    <div class="container">
-      <h2 data-i18n="interactive-graph-visualizer">Interactive Graph Visualizer</h2>
-      <p data-i18n="visualizer-description">See graph algorithms in action! Experiment with different graph structures
-        and watch as the algorithms traverse them step by step.</p>
-      <div class="graph-container">
-        <div class="graph-node" style="top: 20%; left: 20%;">1</div>
-        <div class="graph-node" style="top: 60%; left: 30%;">2</div>
-        <div class="graph-node" style="top: 40%; left: 60%;">3</div>
-        <div class="graph-node" style="top: 80%; left: 70%;">4</div>
-        <div class="graph-edge" style="width: 150px; top: 25%; left: 25%; transform: rotate(30deg);"></div>
-        <div class="graph-edge" style="width: 150px; top: 25%; left: 25%; transform: rotate(30deg);"></div>
-        <div class="graph-edge" style="width: 150px; top: 25%; left: 25%; transform: rotate(30deg);"></div>
-        <div class="graph-edge" style="width: 180px; top: 50%; left: 35%; transform: rotate(-20deg);"></div>
-        <div class="graph-edge" style="width: 130px; top: 75%; left: 40%; transform: rotate(40deg);"></div>
+    <div class="container" id="container">
+
+<!--         <h2 data-i18n="interactive-graph-visualizer" style="font-size:40px;">Interactive Graph Visualizer</h2> -->
+         <h2 data-i18n="interactive-graph-visualizer">Interactive Graph Visualizer</h2>
+      <div></div>
+        <!-- GIF Visualization -->
+        <div *ngIf="showGif" class="gif-container">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/5/5d/Breadth-First-Search-Algorithm.gif" alt="BFS Algorithm Visualization" />
+        </div>
+        <p class="description" style="margin-left:255px; margin-top: 50px; text-align: center; font-size: 1.4rem;">
+          Click the BFS button to see the BFS algorithm in action!
+      </p>
+        <button (click)="startBFS()" style="display:  inline-block; margin-top: 20px;">Start BFS</button>
+
+      <!-- Visualizer for DFS or BFS -->
+      <div *ngIf="activeTab === 'bfs'" class="gif-container">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/5/5d/Breadth-First-Search-Algorithm.gif"
+          alt="BFS Algorithm Visualization" />
       </div>
+      <div *ngIf="activeTab === 'dfs'" class="gif-container">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/7/7f/Depth-First-Search.gif"
+          alt="DFS Algorithm Visualization">
+      </div>
+      <div *ngIf="activeTab === 'dijkstra'" class="gif-container">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/5/57/Dijkstra_Animation.gif"
+          alt=" Dijkstra Algorithm Visualization">
+      </div>
+      <div *ngIf="activeTab === 'bellmanFord'" class="gif-container">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/7/77/Bellman%E2%80%93Ford_algorithm_example.gif"
+          alt=" BellmanFord Algorithm Visualization">
+      </div>
+      <div *ngIf="activeTab === 'floydWarshall'" class="gif-container">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/0/0f/Floyd_warshall_gif.gif"
+          alt=" FloydWarshall Algorithm Visualization">
+      </div>
+      <!-- Add additional visualizations if needed -->
+
     </div>
   </section>
-  <h1 class="canvas_1">CANVAS</h1>
+
+
+
+
+  <h1 class="canvas_1" style="color: #40444b;">CANVAS</h1>
 
   <canvas id="graphCanvas" width="1500" height="600"></canvas>
-  
-<script>
-    const canvas = document.getElementById('graphCanvas');
-    const ctx = canvas.getContext('2d');
-    let nodes = []; // Store nodes as {x, y}
-    let edges = []; // Store edges as [{startNodeIndex, endNodeIndex}]
-    let isDrawing = false;
-    let startNodeIndex = null;
 
-    // Handle mousedown event
-    canvas.addEventListener('mousedown', (e) => {
-        const {offsetX, offsetY} = e;
-        const nodeIndex = nodes.findIndex(node => Math.hypot(node.x - offsetX, node.y - offsetY) < 20);
 
-        if (nodeIndex === -1) {
-            // Add new node
-            nodes.push({x: offsetX, y: offsetY});
-            drawGraph();
-        } else {
-            // Start drawing an edge from the selected node
-            startNodeIndex = nodeIndex;
-            isDrawing = true;
-        }
-    });
-
-    // Handle mousemove event
-    canvas.addEventListener('mousemove', (e) => {
-        if (isDrawing && startNodeIndex !== null) {
-            const {offsetX, offsetY} = e;
-            drawGraph();  // Redraw everything
-            ctx.beginPath();
-            ctx.moveTo(nodes[startNodeIndex].x, nodes[startNodeIndex].y);
-            ctx.lineTo(offsetX, offsetY);
-            ctx.stroke();
-        }
-    });
-
-    // Handle mouseup event
-    canvas.addEventListener('mouseup', (e) => {
-        const {offsetX, offsetY} = e;
-        if (isDrawing && startNodeIndex !== null) {
-            const endNodeIndex = nodes.findIndex(node => Math.hypot(node.x - offsetX, node.y - offsetY) < 20);
-            if (endNodeIndex !== -1 && endNodeIndex !== startNodeIndex) {
-                // Store the edge
-                edges.push({startNodeIndex, endNodeIndex});
-                drawGraph(); // Redraw the graph with the new edge
-            }
-            isDrawing = false;
-            startNodeIndex = null;
-        }
-    });
-
-    // Draw the nodes and edges on the canvas
-    function drawGraph() {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        // Draw edges
-        edges.forEach(edge => {
-            ctx.beginPath();
-            ctx.moveTo(nodes[edge.startNodeIndex].x, nodes[edge.startNodeIndex].y);
-            ctx.lineTo(nodes[edge.endNodeIndex].x, nodes[edge.endNodeIndex].y);
-            ctx.stroke();
-        });
-        // Draw nodes
-        nodes.forEach(node => {
-            ctx.beginPath();
-            ctx.arc(node.x, node.y, 20, 0, Math.PI * 2);
-            ctx.fillStyle = 'lightblue';
-            ctx.fill();
-            ctx.stroke();
-        });
-    }
-</script>
 
   <div class="forum-container">
-    <h1>Discussion Forum</h1>
+    <h1 style="color: #40444b;">Discussion Forum</h1>
 
     <!-- Create New Thread Form -->
     <div class="new-thread">
       <h2>Create a New Thread</h2>
       <input id="thread-title" type="text" placeholder="Thread Title" required>
       <textarea id="thread-content" placeholder="Write your thread content" required></textarea>
-      <button onclick="createThread()">Post Thread</button>
+      <button onclick="createThread()" id="thread-button">Post Thread</button>
     </div>
 
     <!-- Display All Threads -->
@@ -266,7 +376,7 @@
     // Interface for thread structure
     // Converted to plain JavaScript as browsers don't natively support TypeScript
     let threads = JSON.parse(localStorage.getItem('threads') || '[]');
-
+    console.log("this is discussion")
     // Function to create a new thread
     function createThread() {
       const titleInput = document.getElementById('thread-title');
@@ -340,41 +450,6 @@
   </script>
 
 
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-content">
-        <p>&copy; 2024 GraphExplorer Pro. All rights reserved.</p>
-        <div style="max-width: 600px; margin: 20px auto; padding: 10px; text-align: center;">
-          <h2 style="color: #d392c4;">Newsletter</h2>
-
-          <!-- Newsletter Form -->
-          <form id="newsletterForm" style="justify-content: center; align-items: center;" onsubmit="return handleSubmit(event)">
-            <input
-              id="emailInput"
-              type="email"
-              placeholder="Enter your email"
-              style="padding: 10px; font-size: 14px; border: 1px solid #ccc; border-radius: 4px; width: 300px; box-sizing: border-box;"
-              required
-            />
-            <button
-              type="submit"
-              style="padding: 10px 20px; background-color: #1a73e8; color: white; border: none; border-radius: 4px; cursor: pointer;"
-            >
-              Subscribe
-            </button>
-          </form>
-        </div>
-        <div class="footer-links">
-          <a href="feedback.html" id="feedbackBtn" data-i18n="contact-us">Feedback</a> |
-          <a href="#" id="contactUsBtn" data-i18n="contact-us">Contact Us</a> |
-          <a href="https://x.com/" data-i18n="twitter">Twitter</a> |
-          <a href="https://www.facebook.com/" data-i18n="facebook">Facebook</a> |
-          <a href="https://www.linkedin.com/" data-i18n="linkedin">LinkedIn</a>
-        </div>
-
-      </div>
-    </div>
-  </footer>
 
   <!-- Add the contact form modal -->
   <div id="contactModal" class="modal">
@@ -866,6 +941,81 @@
       /* Slight opacity change on hover for visual feedback */
     }
   </style>
+  <script>
+    console.log("Script is running");
+    const canvas = document.getElementById('graphCanvas');
+    const ctx = canvas.getContext('2d');
+    let nodes = []; // Store nodes as {x, y}
+    let edges = []; // Store edges as [{startNodeIndex, endNodeIndex}]
+    let isDrawing = false;
+    let startNodeIndex = null;
+
+    // Handle mousedown event
+    canvas.addEventListener('mousedown', (e) => {
+      console.log("Mouse down event triggered"); // Add this line
+      const { offsetX, offsetY } = e;
+      const nodeIndex = nodes.findIndex(node => Math.hypot(node.x - offsetX, node.y - offsetY) < 20);
+
+      if (nodeIndex === -1) {
+        // Add new node
+        nodes.push({ x: offsetX, y: offsetY });
+        drawGraph();
+      } else {
+        // Start drawing an edge from the selected node
+        startNodeIndex = nodeIndex;
+        isDrawing = true;
+      }
+    });
+
+
+    // Handle mousemove event
+    canvas.addEventListener('mousemove', (e) => {
+      if (isDrawing && startNodeIndex !== null) {
+        const { offsetX, offsetY } = e;
+        drawGraph();  // Redraw everything
+        ctx.beginPath();
+        ctx.moveTo(nodes[startNodeIndex].x, nodes[startNodeIndex].y);
+        ctx.lineTo(offsetX, offsetY);
+        ctx.stroke();
+      }
+    });
+
+    // Handle mouseup event
+    canvas.addEventListener('mouseup', (e) => {
+      const { offsetX, offsetY } = e;
+      if (isDrawing && startNodeIndex !== null) {
+        const endNodeIndex = nodes.findIndex(node => Math.hypot(node.x - offsetX, node.y - offsetY) < 20);
+        if (endNodeIndex !== -1 && endNodeIndex !== startNodeIndex) {
+          // Store the edge
+          edges.push({ startNodeIndex, endNodeIndex });
+          drawGraph(); // Redraw the graph with the new edge
+        }
+        isDrawing = false;
+        startNodeIndex = null;
+      }
+    });
+
+    // Draw the nodes and edges on the canvas
+    function drawGraph() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      // Draw edges
+      edges.forEach(edge => {
+        ctx.beginPath();
+        ctx.moveTo(nodes[edge.startNodeIndex].x, nodes[edge.startNodeIndex].y);
+        ctx.lineTo(nodes[edge.endNodeIndex].x, nodes[edge.endNodeIndex].y);
+        ctx.stroke();
+      });
+      // Draw nodes
+      nodes.forEach(node => {
+        ctx.beginPath();
+        ctx.arc(node.x, node.y, 20, 0, Math.PI * 2);
+        ctx.fillStyle = 'lightblue';
+        ctx.fill();
+        ctx.stroke();
+      });
+    }
+  </script>
+
 </body>
 
 </html>

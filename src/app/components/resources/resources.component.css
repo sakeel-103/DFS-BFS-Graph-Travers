@@ -1,0 +1,183 @@
+:host {
+  display: block;
+  background-color: #f0f4f8;
+  min-height: 100vh;
+  padding: 2rem 0;
+}
+
+.resources-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  margin-top: 4rem;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+h1 {
+  color: #2c3e50;
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.intro {
+  color: #34495e;
+  font-size: 1.2rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.search-filter-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.search-input {
+  width: 100%;
+  max-width: 500px;
+  padding: 0.8rem;
+  font-size: 1rem;
+  border: 2px solid #bdc3c7;
+  border-radius: 25px;
+  margin-bottom: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: #3498db;
+}
+
+.category-filter {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.category-filter button {
+  background-color: #ecf0f1;
+  color:#3498db ;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.category-filter button.active,
+.category-filter button:hover {
+  background-color: #3498db;
+  color: white;
+}
+
+.video-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.video-card {
+  background-color: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  padding: 1rem;
+  cursor: pointer;
+}
+
+.video-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.card-thumbnail img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+.resources-list {
+  background-color: #f9f9f9;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 3rem;
+}
+
+.resource-item {
+  margin-bottom: 1rem;
+}
+
+footer {
+  text-align: center;
+  margin-top: 3rem;
+  color: #7f8c8d;
+}
+
+@media (max-width: 768px) {
+  .resources-container {
+    padding: 0 1rem;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  .video-grid {
+    grid-template-columns: 1fr;
+  }
+}
+/* Additional Resources Styles */
+.resources-list {
+  background-color: #ffffff; /* Classic white background for contrast */
+  border: 1px solid #bdc3c7; /* Light border for definition */
+  padding: 2rem; /* Increased padding for spaciousness */
+  border-radius: 10px; /* Slightly more rounded corners for a classic look */
+  margin-bottom: 3rem; /* Consistent margin */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+}
+
+.resources-list h3 {
+  font-size: 1.8rem; /* Slightly larger heading */
+  color: #2c3e50; /* Consistent color with the main header */
+  margin-bottom: 1.5rem; /* More spacing below the heading */
+  border-bottom: 2px solid #3498db; /* Underline for emphasis */
+  padding-bottom: 0.5rem; /* Padding for spacing below the line */
+}
+
+.resource-item {
+  background-color: #f9f9f9; /* Light background for resource items */
+  padding: 1rem; /* Padding for each resource item */
+  border-radius: 5px; /* Soft corners for resource items */
+  border: 1px solid #bdc3c7; /* Border for definition */
+  transition: background-color 0.3s ease; /* Smooth transition for hover */
+}
+
+.resource-item:hover {
+  background-color: #ecf0f1; /* Hover effect for interactivity */
+}
+
+.resource-item h4 {
+  font-size: 1.2rem; /* Clear and readable title size */
+  color: #2c3e50; /* Consistent color with headings */
+  margin-bottom: 0.5rem; /* Space between title and link */
+}
+
+.resource-item a {
+  text-decoration: none; /* No underline for links */
+  color: #3498db; /* Classic link color */
+  font-weight: bold; /* Emphasized link text */
+  transition: color 0.3s ease; /* Smooth transition for hover */
+}
+
+.resource-item a:hover {
+  color: #2980b9; /* Darker color on hover for emphasis */
+}

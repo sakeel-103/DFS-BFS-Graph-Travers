@@ -11,7 +11,12 @@ import { FaqComponent } from './components/faq/faq.component';
 import { QuizComponent } from './components/quiz/quiz.component';
 import { RealworldComponent } from './components/realworld/realworld.component';
 import { QuestionBankComponent } from './components/practice/practice.component';
-
+import { ResourcesComponent } from './components/resources/resources.component';
+import { ContactUsComponent } from './components/contact-us/contact-us.component';
+import { ContributorsComponent } from './components/contributors/contributors.component';
+import { CodeEditorComponent } from './components/code-editor/code-editor.component';
+import { ReviewComponent } from './components/reviews/reviews.component';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 export const routes: Routes = [
   {
     path: '',
@@ -28,6 +33,10 @@ export const routes: Routes = [
   {
     path: 'aboutUs',
     component: AboutUsComponent,
+  },
+  {
+    path: 'contactUs',
+    component: ContactUsComponent,
   },
   {
     path: 'mainIndex',
@@ -56,6 +65,26 @@ export const routes: Routes = [
   {
     path: 'questions',
     component: QuestionBankComponent,
+  },
+  {
+    path: 'resources',
+    component: ResourcesComponent,
+  },
+  {
+    path: 'contributors',
+    component: ContributorsComponent,
+  },
+  {
+    path: 'editor',
+    component: CodeEditorComponent,
+  },
+  {
+    path: 'review',
+    component: ReviewComponent,
+  },
+  {
+    path: 'pagenotfound',
+    component: PageNotFoundComponent,
   },
   {
     path: '**',

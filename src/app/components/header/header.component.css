@@ -10,13 +10,6 @@ html {
   font-family: 'Poppins', sans-serif;
   line-height: 1.6;
 }
-/*canvas*/
-.canvas_1
-{
-  text-align: center;
-  color: blueviolet;
-}
-
 
 /* Header Styling */
 header {
@@ -161,6 +154,7 @@ nav ul li a:hover {
 }
 
 a.nav-item {
+  border-radius: 23px;
   text-decoration: none;
   color: #fff;
   text-transform: capitalize;
@@ -168,6 +162,7 @@ a.nav-item {
   flex-direction: column;
   padding: 10px;
 }
+
 
 .menu-icon div {
   width: 100%;
@@ -208,7 +203,7 @@ a.nav-item {
   .menu-icon{
     display: flex;
   }
-  
+
   .active-navbar{
     position: absolute;
     display: flex !important;
@@ -226,4 +221,157 @@ a.nav-item {
     padding: 0 !important;
   }
 }
+/* General Styles */
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+}
 
+.min-h-screen {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(to bottom right, #f0f0f1, #efeef0, #f8f7f8);
+}
+
+/* Container and Text Alignment */
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 16px;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.space-y-8 > * + * {
+  margin-top: 2rem;
+}
+
+.mb-16 {
+  margin-bottom: 4rem;
+}
+
+/* Title and Subtitle Styles */
+h1 {
+  font-size: 3rem;
+  font-weight: bold;
+  line-height: 1.2;
+  color: white;
+  text-transform: uppercase;
+}
+
+@media (min-width: 768px) {
+  h1 {
+    font-size: 4.5rem;
+  }
+}
+
+h1 span {
+  margin-top: 0.5rem;
+  color: #c7d2fe;
+}
+
+p {
+  font-size: 1.125rem;
+  color: #70a3f1;
+  max-width: 640px;
+  margin-top: 0.5rem;
+}
+
+/* Buttons Styling */
+button {
+  padding: 0.75rem 2rem;
+  font-size: 1rem;
+  border-radius: 9999px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: background-color 0.3s ease;
+}
+
+button.bg-white {
+  background-color: white;
+  color: #4f46e5;
+}
+
+button.bg-white:hover {
+  background-color: #eef2ff;
+}
+
+button.border-2 {
+  border: 2px solid white;
+}
+
+button.border-2:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Grid Cards */
+.grid {
+  display: grid;
+  gap: 2rem;
+}
+
+@media (min-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.backdrop-blur-lg {
+  backdrop-filter: blur(10px);
+}
+
+.rounded-2xl {
+  border-radius: 1rem;
+}
+
+p.text-indigo-100 {
+  color: #424346;
+}
+
+.share-icon,
+.git-branch-icon,
+.zap-icon {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+.logo img {
+  width: 60px;
+  height: 60px;
+  margin-right: 10px;
+  border-radius: 50%;
+}
+
+/* Logo Styles */
+.logo {
+  display: flex;
+  align-items: center;
+}
+.logo a {
+  text-decoration: none;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: white;
+  transition: color 0.3s ease;
+}
+
+.logo a:hover {
+  color: #ffa500;
+}

@@ -22,6 +22,7 @@
   <div class="scrollable-container" style="height: 200px;">
     <canvas #bfsCanvas id="bfs-canvas" width="600" height="200"></canvas>
   </div>
+  <button style="margin: 10px;" (click)="downloadCanvas()">Download</button>
 
   <div>
     <button style="margin: 10px;" (click)="startBFSTraversal()">Start BFS</button>
@@ -44,13 +45,19 @@
       <div id="queue-label">Queue:</div>
       <div id="queue-content"></div>
     </div>
-    <div id="bfs-processing" class="box">
+    <div id="bfs-processing" class="box" style="margin-left: 10px;">
       <div id="processing-label">Processing:</div>
       <div id="processing-content"></div>
     </div>
-    <div id="bfs-processed" class="box">
+    <div id="bfs-processed" class="box" style="margin-left: 10px;">
       <div id="processed-label">Processed:</div>
       <div id="processed-content"></div>
     </div>
   </div>
+
+    <!-- Path Visualization -->
+    <div id="bfs-path" class="box" style="margin-top: 10px;">
+        <div id="path-label">Path Taken:</div>
+        <div id="path-content"></div>
+    </div>
 </div>
