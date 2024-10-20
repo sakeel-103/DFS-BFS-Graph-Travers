@@ -3,11 +3,6 @@
 
 This project implements **Depth-First Search (DFS)** and **Breadth-First Search (BFS)** algorithms for graph traversal. The backend includes user authentication functionality with a **Login** and **Signup** page. The project currently stores user data in **local storage**.
 
-<hr>
-
- <details>
-   <summary><h2>📑 Table of Contents</h2></summary>
-
 ### 🔮 Future Upgrades Await
 This is just the beginning! With plans to incorporate advanced algorithms (Dijkstra's, A*) 🧠, user dashboards 📊, and mobile-friendly features 📱, we’re on the path to making this project an indispensable tool for graph lovers everywhere.
 
