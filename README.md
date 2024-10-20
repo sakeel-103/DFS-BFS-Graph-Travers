@@ -314,6 +314,12 @@ For more detailed instructions, please refer to our full **[Contributing Guide](
 
 
 ---
+## 📜 License
+
+This project is licensed under the MIT License – see the [LICENSE](./LICENSE) file for details.
+
+By contributing to this repository, you agree that your contributions will be licensed under its MIT License.
+---
 
 ### 📬 Feel free to contribute or open issues if you find any bugs!
 
