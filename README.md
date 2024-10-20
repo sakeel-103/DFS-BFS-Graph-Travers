@@ -340,40 +340,12 @@ We welcome contributions from developers of all experience levels. Please refer 
 
 <div align="center">
 
-| Rank | Contributor                       | Avatar                                                         |
-|------|----------------------------------|----------------------------------------------------------------|
-| 1    | [Shubham Agarwal](https://github.com/shubhagarwal1)      | ![Shubham Agarwal](https://github.com/shubhagarwal1.png)      |
-| 2    | [Mehul Prajapati](https://github.com/mehul-m-prajapati)   | ![Mehul Prajapati](https://github.com/mehul-m-prajapati.png)   |
-| 3    | [Sakeel](https://github.com/sakeel-103)                  | ![Sakeel](https://github.com/sakeel-103.png)                   |
-| 4    | [Jashwanth R](https://github.com/Jashwanth-rit)          | ![Jashwanth R](https://github.com/Jashwanth-rit.png)           |
-| 5    | [Ananya Gupta](https://github.com/ananyag309)            | ![Ananya Gupta](https://github.com/ananyag309.png)             |
-| 6    | [Alolika Bhowmik](https://github.com/alo7lika)           | ![Alolika Bhowmik](https://github.com/alo7lika.png)            |
-| 7    | [Muskan Sharma](https://github.com/muskan171105)         | ![Muskan Sharma](https://github.com/muskan171105.png)          |
-| 8    | [Aditya Kalburgi](https://github.com/adityakalburgi)     | ![Aditya Kalburgi](https://github.com/adityakalburgi.png)      |
-| 9    | [Life Hashed](https://github.com/LifeHashed)             | ![Life Hashed](https://github.com/LifeHashed.png)              |
-| 10   | [Varsha](https://github.com/Varsha567)                    | ![Varsha](https://github.com/Varsha567.png)                    |
-| 11   | [Viv](https://github.com/09viv)                           | ![Viv](https://github.com/09viv.png)                            |
-| 12   | [Shariq](https://github.com/Shariq2003)                  | ![Shariq](https://github.com/Shariq2003.png)                   |
-| 13   | [Himanshu Kumar](https://github.com/Himanshu-kumar025)   | ![Himanshu Kumar](https://github.com/Himanshu-kumar025.png)   |
-| 14   | [Avisha](https://github.com/avisha191)                    | ![Avisha](https://github.com/avisha191.png)                    |
-| 15   | [Mausumi](https://github.com/Mausumi134)                  | ![Mausumi](https://github.com/Mausumi134.png)                  |
-| 16   | [Bindu](https://github.com/itbindu)                       | ![Bindu](https://github.com/itbindu.png)                       |
-| 17   | [Dipesh](https://github.com/dipkulkhandelwal21)          | ![Dipesh](https://github.com/dipkulkhandelwal21.png)          |
-| 18   | [Mahaveer Gurjar](https://github.com/mahaveergurjar)     | ![Mahaveer Gurjar](https://github.com/mahaveergurjar.png)     |
-| 19   | [Rudra Pratap](https://github.com/rudrapratap63)          | ![Rudra Pratap](https://github.com/rudrapratap63.png)          |
-| 20   | [Sawan Kushwah](https://github.com/Sawan-Kushwah)         | ![Sawan Kushwah](https://github.com/Sawan-Kushwah.png)         |
-| 21   | [Rahul Prabhu](https://github.com/T-Rahul-prabhu-38)      | ![Rahul Prabhu](https://github.com/T-Rahul-prabhu-38.png)     |
-| 22   | [Aditi Jain](https://github.com/Aditijainnn)              | ![Aditi Jain](https://github.com/Aditijainnn.png)              |
-| 23   | [Saurabh](https://github.com/saurabh-dev-vns)            | ![Saurabh](https://github.com/saurabh-dev-vns.png)            |
-| 24   | [Smog Root](https://github.com/smog-root)                 | ![Smog Root](https://github.com/smog-root.png)                 |
-| 25   | [Endless](https://github.com/iamendless10)                | ![Endless](https://github.com/iamendless10.png)                |
-| 26   | [Aswani Bolisetti](https://github.com/AswaniBolisetti)    | ![Aswani Bolisetti](https://github.com/AswaniBolisetti.png)    |
-| 27   | [Supratit Datta](https://github.com/SupratitDatta)        | ![Supratit Datta](https://github.com/SupratitDatta.png)        |
-| 28   | [Khurshed](https://github.com/khurshed07)                 | ![Khurshed](https://github.com/khurshed07.png)                 |
-| 29   | [Mani](https://github.com/devxMani)                        | ![Mani](https://github.com/devxMani.png)                        |
-| 30   | [Dipu](https://github.com/Dipu2552003)                    | ![Dipu](https://github.com/Dipu2552003.png)                    |
-| 31   | [Sandi Gupta](https://github.com/Sandigupta)              | ![Sandi Gupta](https://github.com/Sandigupta.png)              |
-| 32   | [Thunder Shadows](https://github.com/ThunderShadows)      | ![Thunder Shadows](https://github.com/ThunderShadows.png)      |
+| Contributor          | Contributor          | Contributor          | Contributor          |
+|----------------------|----------------------|----------------------|----------------------|
+| [Shubham Agarwal](https://github.com/shubhagarwal1)  | [Mehul Prajapati](https://github.com/mehul-m-prajapati)  | [Sakeel](https://github.com/sakeel-103)           | [Jashwanth R](https://github.com/Jashwanth-rit)      |
+| [Ananya Gupta](https://github.com/ananyag309)        | [Alolika Bhowmik](https://github.com/alo7lika)        | [Muskan Sharma](https://github.com/muskan171105)   | [Aditya Kalburgi](https://github.com/adityakalburgi) |
+| [Life Hashed](https://github.com/LifeHashed)        | [Varsha](https://github.com/Varsha567)               | [Viv](https://github.com/09viv)                     | [Shariq](https://github.com/Shariq2003)              |
+| [Himanshu Kumar](https://github.com/Himanshu-kumar025) | [Avisha](https://github.com/avisha191)              | [Mausumi](https://github.com/Mausumi134)          | [Bindu](https://github.com/itbindu)                  |
 
 </div>
 
