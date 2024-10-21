@@ -1,0 +1,24 @@
+<app-navbar></app-navbar>
+<div class="historical-context-container">
+    <h1 class="text-center">Time Machine: Journey Through the History of Graph Theory</h1>
+    <div class="time-machine">
+        <div class="time-controls">
+            <button class="time-button" (click)="goToPreviousEvent()" [disabled]="currentEventIndex === 0">
+                &#8592; Previous
+            </button>
+            <button class="time-button" (click)="goToNextEvent()" [disabled]="currentEventIndex === events.length - 1">
+                Next &#8594;
+            </button>
+        </div>
+        <div class="timeline-event" *ngIf="events.length > 0">
+            <div class="event-content">
+                <h2>{{ events[currentEventIndex].title }}</h2>
+                <span class="badge">{{ events[currentEventIndex].badge }}</span>
+                <p>{{ events[currentEventIndex].description }}</p>
+                <div class="fun-fact">
+                    <strong>Fun Fact:</strong> {{ events[currentEventIndex].funFact }}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
