@@ -304,48 +304,44 @@
   </section>
 
   <section id="visualizer" class="visualizer">
+      <div class="container">
+        <h2 data-i18n="interactive-graph-visualizer">
+          Interactive Graph Visualizer
+        </h2>
+        <p class="description" style="text-align: center">
+          Click the buttons to see the respective algorithms in action!
+        </p>
+  <section id="visualizer" class="visualizer">
     <div class="container" id="container">
 
-<!--         <h2 data-i18n="interactive-graph-visualizer" style="font-size:40px;">Interactive Graph Visualizer</h2> -->
-         <h2 data-i18n="interactive-graph-visualizer">Interactive Graph Visualizer</h2>
-      <div></div>
-        <!-- GIF Visualization -->
-        <div *ngIf="showGif" class="gif-container">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/5/5d/Breadth-First-Search-Algorithm.gif" alt="BFS Algorithm Visualization" />
+        <!-- BFS Button -->
+        <button (click)="startBFS()">Start BFS</button>
+        <div *ngIf="showBFSGif" class="gif-container">
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/5/5d/Breadth-First-Search-Algorithm.gif"
+            alt="BFS Algorithm Visualization"
+          />
         </div>
-        <p class="description" style="margin-left:255px; margin-top: 50px; text-align: center; font-size: 1.4rem;">
-          Click the BFS button to see the BFS algorithm in action!
-      </p>
-        <button (click)="startBFS()" style="display:  inline-block; margin-top: 20px;">Start BFS</button>
 
-      <!-- Visualizer for DFS or BFS -->
-      <div *ngIf="activeTab === 'bfs'" class="gif-container">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/5/5d/Breadth-First-Search-Algorithm.gif"
-          alt="BFS Algorithm Visualization" />
-      </div>
-      <div *ngIf="activeTab === 'dfs'" class="gif-container">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/7/7f/Depth-First-Search.gif"
-          alt="DFS Algorithm Visualization">
-      </div>
-      <div *ngIf="activeTab === 'dijkstra'" class="gif-container">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/5/57/Dijkstra_Animation.gif"
-          alt=" Dijkstra Algorithm Visualization">
-      </div>
-      <div *ngIf="activeTab === 'bellmanFord'" class="gif-container">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/7/77/Bellman%E2%80%93Ford_algorithm_example.gif"
-          alt=" BellmanFord Algorithm Visualization">
-      </div>
-      <div *ngIf="activeTab === 'floydWarshall'" class="gif-container">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/0/0f/Floyd_warshall_gif.gif"
-          alt=" FloydWarshall Algorithm Visualization">
-      </div>
-      <!-- Add additional visualizations if needed -->
+        <!-- DFS Button -->
+        <button (click)="startDFS()">Start DFS</button>
+        <div *ngIf="showDFSGif" class="gif-container">
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/7/7f/Depth-First-Search.gif"
+            alt="DFS Algorithm Visualization"
+          />
+        </div>
 
-    </div>
-  </section>
-
-
-
+        <!-- Dijkstra Button -->
+        <button (click)="startDijkstra()">Start Dijkstra</button>
+        <div *ngIf="showDijkstraGif" class="gif-container">
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/5/57/Dijkstra_Animation.gif"
+            alt="Dijkstra Algorithm Visualization"
+          />
+        </div>
+      </div>
+    </section>
 
   <h1 class="canvas_1" style="color: #40444b;">CANVAS</h1>
 

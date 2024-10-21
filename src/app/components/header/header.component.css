@@ -289,7 +289,6 @@ h1 span {
 p {
   font-size: 1.125rem;
   color: #70a3f1;
-  max-width: 640px;
   margin-top: 0.5rem;
 }
 
@@ -303,6 +302,7 @@ button {
   align-items: center;
   gap: 0.5rem;
   transition: background-color 0.3s ease;
+  margin-bottom: 5px;
 }
 
 button.bg-white {
