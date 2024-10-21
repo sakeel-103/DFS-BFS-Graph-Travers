@@ -3,11 +3,6 @@
 
 This project implements **Depth-First Search (DFS)** and **Breadth-First Search (BFS)** algorithms for graph traversal. The backend includes user authentication functionality with a **Login** and **Signup** page. The project currently stores user data in **local storage**.
 
-<hr>
-
- <details>
-   <summary><h2>📑 Table of Contents</h2></summary>
-
 ### 🔮 Future Upgrades Await
 This is just the beginning! With plans to incorporate advanced algorithms (Dijkstra's, A*) 🧠, user dashboards 📊, and mobile-friendly features 📱, we’re on the path to making this project an indispensable tool for graph lovers everywhere.
 
@@ -43,12 +38,10 @@ This is just the beginning! With plans to incorporate advanced algorithms (Dijks
 9. 🖥️ [How the Server Works](#-how-the-server-works)
 10. 📊 [Graph Feature](#-how-the-graph-feature-works)
 11. 🗺️ [Roadmap](#-roadmap)
-12. 🤝 [Contributing](#-contributing)
-13. 👥 [Contributors](#-our-contributors)
+12. 🤝 [Contribution Guide](#-contribution-guide)
+13. 👥 [Our Contributors](#-our-contributors)
+14. 📜 [License](#-license)
 
-</details>
-
-<hr>
 
 ## 🌟 Features
 
@@ -263,9 +256,39 @@ Output:
 |                | **Q4 2025**                    | 🌐 **Multilingual Support**: Add support for multiple languages to enhance accessibility. Enable user-selectable language options in the application settings. |
 
 
-## Contributing
+## 🤝 Contribution Guide
 
-We welcome contributions from developers of all experience levels. Please refer to the [CONTRIBUTING.md](CONTRIBUTING.md) file for guidelines.
+We welcome contributions of all kinds—whether it’s fixing bugs, adding new features, or improving documentation. Before you start contributing, please take a moment to review our guidelines to ensure smooth collaboration.
+
+### Getting Started
+
+To contribute to this project, follow these steps:
+
+1. **Read the Contributing Guide**: We’ve provided a detailed guide to help you get started with contributing. It includes all the steps you need to follow, from setting up the repository to submitting a pull request.
+   
+   👉 **[Check out the Contributing Guide](./CONTRIBUTING.md)**
+
+2. **Fork the Repository**: Fork the project repository to your GitHub account, so you can make changes without affecting the original project.
+
+3. **Make Meaningful Changes**: Whether you’re adding a new feature, fixing bugs, or improving documentation, ensure that your contributions are significant and add value to the project.
+
+4. **Write Clean Code**: Follow the code style and best practices outlined in the project. Clean, readable, and well-documented code helps keep the project maintainable and easier to review.
+
+5. **Testing**: If you're adding a feature or fixing a bug, ensure you write relevant tests to maintain the integrity of the project’s functionality.
+
+### Submitting a Pull Request
+
+Once your changes are ready, you can submit a pull request by following these steps:
+
+1. **Commit Your Changes**: Write descriptive commit messages that explain the changes you’ve made.
+   
+2. **Push to Your Fork**: Push the changes to your forked repository and create a new branch for your feature or fix.
+
+3. **Open a Pull Request**: Navigate to the original repository and create a pull request, describing your changes in detail and why they are necessary.
+
+By following these guidelines, you’ll ensure that your contributions align with the project’s goals and maintain a high standard. We appreciate your efforts in making this project better! 😊
+
+For more detailed instructions, please refer to our full **[Contributing Guide](./CONTRIBUTING.md)**.
 
 <hr>
 
@@ -275,11 +298,27 @@ We welcome contributions from developers of all experience levels. Please refer 
 - Make sure you show some love by giving ⭐ to our repository.
 
 <div align="center">
-  <a href="https://github.com/sakeel-103/DFS-BFS-Graph-Travers">
-    <img src="https://contrib.rocks/image?repo=sakeel-103/DFS-BFS-Graph-Travers&&max=100" />
-  </a>
+
+| Contributor          | Contributor          | Contributor          | Contributor          |
+|----------------------|----------------------|----------------------|----------------------|
+| <img src="https://github.com/shubhagarwal1.png" alt="Shubham Agarwal" width="100" height="100"> <br> <div align="center">[Shubham Agarwal](https://github.com/shubhagarwal1)</div>  | <img src="https://github.com/mehul-m-prajapati.png" alt="Mehul Prajapati" width="100" height="100"> <br> <div align="center">[Mehul Prajapati](https://github.com/mehul-m-prajapati)</div>  | <img src="https://github.com/sakeel-103.png" alt="Sakeel" width="100" height="100"> <br> <div align="center">[Sakeel](https://github.com/sakeel-103)</div>           | <img src="https://github.com/Jashwanth-rit.png" alt="Jashwanth R" width="100" height="100"> <br> <div align="center">[Jashwanth R](https://github.com/Jashwanth-rit)</div>      |
+| <img src="https://github.com/ananyag309.png" alt="Ananya Gupta" width="100" height="100"> <br> <div align="center">[Ananya Gupta](https://github.com/ananyag309)</div>        | <img src="https://github.com/alo7lika.png" alt="Alolika Bhowmik" width="100" height="100"> <br> <div align="center">[Alolika Bhowmik](https://github.com/alo7lika)</div>        | <img src="https://github.com/muskan171105.png" alt="Muskan Sharma" width="100" height="100"> <br> <div align="center">[Muskan Sharma](https://github.com/muskan171105)</div>   | <img src="https://github.com/adityakalburgi.png" alt="Aditya Kalburgi" width="100" height="100"> <br> <div align="center">[Aditya Kalburgi](https://github.com/adityakalburgi)</div> |
+| <img src="https://github.com/LifeHashed.png" alt="Life Hashed" width="100" height="100"> <br> <div align="center">[Life Hashed](https://github.com/LifeHashed)</div>        | <img src="https://github.com/Varsha567.png" alt="Varsha" width="100" height="100"> <br> <div align="center">[Varsha](https://github.com/Varsha567)</div>               | <img src="https://github.com/09viv.png" alt="Viv" width="100" height="100"> <br> <div align="center">[Viv](https://github.com/09viv)</div>                     | <img src="https://github.com/Shariq2003.png" alt="Shariq" width="100" height="100"> <br> <div align="center">[Shariq](https://github.com/Shariq2003)</div>              |
+| <img src="https://github.com/Himanshu-kumar025.png" alt="Himanshu Kumar" width="100" height="100"> <br> <div align="center">[Himanshu Kumar](https://github.com/Himanshu-kumar025)</div> | <img src="https://github.com/avisha191.png" alt="Avisha" width="100" height="100"> <br> <div align="center">[Avisha](https://github.com/avisha191)</div>              | <img src="https://github.com/Mausumi134.png" alt="Mausumi" width="100" height="100"> <br> <div align="center">[Mausumi](https://github.com/Mausumi134)</div>          | <img src="https://github.com/itbindu.png" alt="Bindu" width="100" height="100"> <br> <div align="center">[Bindu](https://github.com/itbindu)</div>                  |
+| <img src="https://github.com/dipkulkhandelwal21.png" alt="Dipesh Kulkhandewal" width="100" height="100"> <br> <div align="center">[Dipesh Kulkhandewal](https://github.com/dipkulkhandelwal21)</div> | <img src="https://github.com/mahaveergurjar.png" alt="Mahaveer Gurjar" width="100" height="100"> <br> <div align="center">[Mahaveer Gurjar](https://github.com/mahaveergurjar)</div>            | <img src="https://github.com/rudrapratap63.png" alt="Rudra Pratap" width="100" height="100"> <br> <div align="center">[Rudra Pratap](https://github.com/rudrapratap63)</div>        | <img src="https://github.com/Sawan-Kushwah.png" alt="Sawan Kushwah" width="100" height="100"> <br> <div align="center">[Sawan Kushwah](https://github.com/Sawan-Kushwah)</div>     |
+| <img src="https://github.com/T-Rahul-prabhu-38.png" alt="T Rahul Prabhu" width="100" height="100"> <br> <div align="center">[T Rahul Prabhu](https://github.com/T-Rahul-prabhu-38)</div> | <img src="https://github.com/Aditijainnn.png" alt="Aditi Jain" width="100" height="100"> <br> <div align="center">[Aditi Jain](https://github.com/Aditijainnn)</div>         | <img src="https://github.com/saurabh-dev-vns.png" alt="Saurabh" width="100" height="100"> <br> <div align="center">[Saurabh](https://github.com/saurabh-dev-vns)</div>             | <img src="https://github.com/smog-root.png" alt="Smog Root" width="100" height="100"> <br> <div align="center">[Smog Root](https://github.com/smog-root)</div>            |
+| <img src="https://github.com/iamendless10.png" alt="I Am Endless" width="100" height="100"> <br> <div align="center">[I Am Endless](https://github.com/iamendless10)</div>       | <img src="https://github.com/AswaniBolisetti.png" alt="Aswani Bolisetti" width="100" height="100"> <br> <div align="center">[Aswani Bolisetti](https://github.com/AswaniBolisetti)</div> | <img src="https://github.com/SupratitDatta.png" alt="Supratit Datta" width="100" height="100"> <br> <div align="center">[Supratit Datta](https://github.com/SupratitDatta)</div>   | <img src="https://github.com/khurshed07.png" alt="Khurshed" width="100" height="100"> <br> <div align="center">[Khurshed](https://github.com/khurshed07)</div>              |
+| <img src="https://github.com/devxMani.png" alt="Devx Mani" width="100" height="100"> <br> <div align="center">[Devx Mani](https://github.com/devxMani)</div>               | <img src="https://github.com/Dipu2552003.png" alt="Dipu" width="100" height="100"> <br> <div align="center">[Dipu](https://github.com/Dipu2552003)</div>                     | <img src="https://github.com/Sandigupta.png" alt="Sandi Gupta" width="100" height="100"> <br> <div align="center">[Sandi Gupta](https://github.com/Sandigupta)</div>        | <img src="https://github.com/ThunderShadows.png" alt="Thunder Shadows" width="100" height="100"> <br> <div align="center">[Thunder Shadows](https://github.com/ThunderShadows)</div>  |
+
 </div>
 
+
+---
+## 📜 License
+
+This project is licensed under the MIT License – see the [LICENSE](./LICENSE) file for details.
+
+By contributing to this repository, you agree that your contributions will be licensed under its MIT License.
 ---
 
 ### 📬 Feel free to contribute or open issues if you find any bugs!

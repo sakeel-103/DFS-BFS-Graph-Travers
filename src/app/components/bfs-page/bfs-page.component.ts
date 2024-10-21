@@ -300,14 +300,14 @@ export class BfsPageComponent implements AfterViewInit, OnInit {
 
     // Check for empty input or empty labels
     if (nodeInput.length === 0 || nodeInput.some(label => label.trim() === '')) {
-      alert('Node input is invalid. Ensure all nodes have non-empty labels.');
+      this.showToast('Node input is invalid. Ensure all nodes have non-empty labels.'); // Changed alert to toast
       return false;
     }
 
     // Check for duplicate labels
     const uniqueLabels = new Set(nodeInput.map(label => label.trim()));
     if (uniqueLabels.size !== nodeInput.length) {
-      alert('Node input contains duplicate labels. Ensure all nodes have unique labels.');
+      this.showToast('Node input contains duplicate labels. Ensure all nodes have unique labels.'); // Changed alert to toast
       return false;
     }
 
@@ -321,7 +321,7 @@ export class BfsPageComponent implements AfterViewInit, OnInit {
     for (const edge of edgeInput) {
       const nodes = edge.split('-');
       if (nodes.length !== 2 || isNaN(Number(nodes[0])) || isNaN(Number(nodes[1]))) {
-        alert(`Invalid edge format: ${edge}. Edges should be formatted as 'from-to', where 'from' and 'to' are valid node indices.`);
+        this.showToast(`Invalid edge format: ${edge}. Edges should be formatted as 'from-to', where 'from' and 'to' are valid node indices.`); // Changed alert to toast
         return false;
       }
 
@@ -338,7 +338,7 @@ export class BfsPageComponent implements AfterViewInit, OnInit {
 
     // Check for empty input or invalid formats
     if (nodeInput.length === 0 || nodeInput.some(label => label.trim() === '')) {
-      alert('Invalid node input format. Please enter valid node labels separated by commas.');
+      this.showToast('Invalid node input format. Please enter valid node labels separated by commas.'); // Changed alert to toast
       this.nodes = []; // Reset nodes to avoid further issues
       return;
     }
@@ -357,7 +357,7 @@ export class BfsPageComponent implements AfterViewInit, OnInit {
 
     // Check for empty input or invalid formats
     if (edgeInput.length === 0 || edgeInput.some(edge => edge.trim() === '')) {
-      alert('Invalid edge input format. Please enter valid edges in the format "from-to" separated by semicolons.');
+      this.showToast('Invalid edge input format. Please enter valid edges in the format "from-to" separated by semicolons.'); // Changed alert to toast
       this.edges = []; // Reset edges to avoid further issues
       return;
     }
@@ -369,7 +369,7 @@ export class BfsPageComponent implements AfterViewInit, OnInit {
 
       // Check for valid number conversion
       if (isNaN(from) || isNaN(to) || from < 0 || to < 0 || from >= this.nodes.length || to >= this.nodes.length) {
-        alert(`Invalid edge: ${edge}. Please ensure both nodes are valid indices.`);
+        this.showToast(`Invalid edge: ${edge}. Please ensure both nodes are valid indices.`); // Changed alert to toast
         this.edges = []; // Reset edges if any edge is invalid
         return;
       }
@@ -384,5 +384,10 @@ export class BfsPageComponent implements AfterViewInit, OnInit {
     link.download = 'bfs-canvas.png'; // Name for the downloaded file
     link.href = this.bfsCanvas.toDataURL(); // Get the data URL of the canvas
     link.click(); // Trigger the download
+  }
+
+  private showToast(message: string): void {
+    // Implement your toast notification logic here
+    console.log(message); // Placeholder for actual toast implementation
   }
 }
