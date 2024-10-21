@@ -358,6 +358,7 @@
       <input id="thread-title" type="text" placeholder="Thread Title" required>
       <textarea id="thread-content" placeholder="Write your thread content" required></textarea>
       <button onclick="createThread()" id="thread-button">Post Thread</button>
+      <div id="confirmationMessage" class="confirmation-message" style="display:none; color: green; margin-top: 10px;"></div>
     </div>
 
     <!-- Display All Threads -->
@@ -369,14 +370,14 @@
 
   <!-- Inline JavaScript code (previously TypeScript) -->
   <script>
-    // Interface for thread structure
-    // Converted to plain JavaScript as browsers don't natively support TypeScript
+    // Initialize threads from local storage
     let threads = JSON.parse(localStorage.getItem('threads') || '[]');
-    console.log("this is discussion")
+
     // Function to create a new thread
     function createThread() {
       const titleInput = document.getElementById('thread-title');
       const contentInput = document.getElementById('thread-content');
+      const confirmationMessage = document.getElementById('confirmationMessage');
 
       const title = titleInput.value;
       const content = contentInput.value;
@@ -394,6 +395,15 @@
         // Clear the input fields
         titleInput.value = '';
         contentInput.value = '';
+
+        // Display confirmation message
+        confirmationMessage.textContent = "Thread posted successfully!";
+        confirmationMessage.style.display = "block";
+
+        // Hide confirmation message after 3 seconds
+        setTimeout(() => {
+          confirmationMessage.style.display = "none";
+        }, 3000);
 
         // Reload the threads
         displayThreads();
