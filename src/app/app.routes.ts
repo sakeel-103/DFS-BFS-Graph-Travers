@@ -17,7 +17,11 @@ import { ContributorsComponent } from './components/contributors/contributors.co
 import { CodeEditorComponent } from './components/code-editor/code-editor.component';
 import { ReviewComponent } from './components/reviews/reviews.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+<<<<<<< HEAD
 import { AlgorithmComparisonComponent } from './components/algocompare/algocompare.component';
+=======
+import { ProfileDashboardPageComponent } from './components/profile/profile.component';
+>>>>>>> aea5214 (add profile)
 export const routes: Routes = [
   {
     path: '',
