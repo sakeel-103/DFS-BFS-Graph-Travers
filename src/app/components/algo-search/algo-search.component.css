@@ -1,0 +1,79 @@
+.algorithm-library-container {
+  max-width: 100%;
+  margin: 56px auto;
+  padding: 2rem;
+  font-family: "Roboto", sans-serif;
+  background-color: #f8f9fa;
+}
+
+.text-center {
+  text-align: center;
+  color: black;
+  margin-bottom: 2rem;
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+
+.search-bar-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.search-bar {
+  width: 50%;
+  padding: 0.8rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+.search-bar:focus {
+  border-color: #4ecdc4;
+}
+
+.algorithm-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.algorithm-card {
+  background-color: #ffffff;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+}
+
+.algorithm-card:hover {
+  transform: translateY(-10px);
+}
+
+.algorithm-card h2 {
+  font-size: 1.8rem;
+  color: #ff6b6b;
+  margin-bottom: 1rem;
+}
+
+.algorithm-card p {
+  font-size: 1.2rem;
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+.use-cases {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 1.5rem;
+}
+
+.code-snippet {
+  background-color: #f0f0f0;
+  padding: 1rem;
+  border-radius: 8px;
+  overflow-x: auto;
+  font-family: monospace;
+}

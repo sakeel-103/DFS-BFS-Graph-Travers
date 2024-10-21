@@ -1,0 +1,18 @@
+<app-navbar></app-navbar>
+<div class="algorithm-library-container">
+    <h1 class="text-center">Searchable Graph Algorithm Library</h1>
+    <div class="search-bar-container">
+        <input type="text" [(ngModel)]="searchTerm" (input)="filterAlgorithms()" placeholder="Search algorithms..."
+            class="search-bar" />
+    </div>
+    <div class="algorithm-list">
+        <div *ngFor="let algorithm of filteredAlgorithms" class="algorithm-card">
+            <h2>{{ algorithm.name }}</h2>
+            <p>{{ algorithm.description }}</p>
+            <div class="use-cases">
+                <strong>Use Cases:</strong> {{ algorithm.useCases }}
+            </div>
+            <pre class="code-snippet"><code>{{ algorithm.codeSnippet }}</code></pre>
+        </div>
+    </div>
+</div>
