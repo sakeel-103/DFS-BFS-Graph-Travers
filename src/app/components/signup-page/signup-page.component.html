@@ -10,14 +10,14 @@
 
 <body>
   <div class="div-first">
-    <h2>WELCOME TO THE GRAPH TRAVERSAL!</h2>
+    <h2>WELCOME TO GRAPH EXPLORER PRO!</h2>
   </div>
   <div class="container">
     <div class="box">
-      <div class="left">
+      <!-- <div class="left">
         <h1>WELCOME BACK!</h1>
         <p>Login/Signup Form To perform or Visualize the Graph Traversal</p>
-      </div>
+      </div> -->
       <div class="right">
         <h2 class="signup-title">Create Your Account</h2>
         <!-- Cross Button -->
@@ -27,12 +27,12 @@
             <i class="bx bxs-user"></i>
             <input type="text" id="username" placeholder="Username" formControlName="username" required />
           </div>
-          <div class="input-box-em" style="position: relative;">
-            <div class="em">
-              <i class="bx bxs-envelope"></i>
-              <input type="email" id="email" placeholder="Email" formControlName="email"
-                [class.invalid]="signupForm.get('email')?.invalid && (signupForm.get('email')?.touched || signupForm.get('email')?.dirty)" />
-            </div>
+          <div class="input-box" style="position: relative;">
+            <!-- <div class="em">
+            </div> -->
+            <i class="bx bxs-envelope"></i>
+            <input type="email" id="email" placeholder="Email" formControlName="email"
+              [class.invalid]="signupForm.get('email')?.invalid && (signupForm.get('email')?.touched || signupForm.get('email')?.dirty)" />
             <div *ngIf="signupForm.get('email')?.invalid && (signupForm.get('email')?.touched || signupForm.get('email')?.dirty)"
               class="error-message">
               <small *ngIf="signupForm.get('email')?.errors?.['required']">Email is required.</small>
