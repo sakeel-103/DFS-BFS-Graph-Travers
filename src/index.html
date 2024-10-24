@@ -206,9 +206,7 @@
       z-index: 1001;
     }
 
-    .toast.show {
-
-    }
+   
 
     /* Testimonials Section Styles */
     .testimonials {
@@ -611,6 +609,56 @@ window.gtranslateSettings = {
 
 <!-- Add custom CSS for GTranslate -->
 <style>
+/* Global scrollbar styling for Firefox */
+html {
+  scrollbar-width: auto; /* Firefox: auto for normal width */
+  scrollbar-color: #ff66b2 #f0f0f0; /* Initial color of the thumb and track */
+}
+
+/* For WebKit browsers (Chrome, Safari) */
+html::-webkit-scrollbar {
+  width: 24px; /* Width of the scrollbar */
+  height: 24px; /* Height of the scrollbar (for horizontal scrollbar) */
+}
+
+html::-webkit-scrollbar-thumb {
+  background-color: #ff66b2; /* Initial color of the scrollbar thumb */
+  border-radius: 12px; /* Rounded corners for the scrollbar thumb */
+  transition: background-color 0.3s; /* Smooth transition for hover effect */
+}
+
+html::-webkit-scrollbar-track {
+  background-color: #f0f0f0; /* Initial color of the scrollbar track */
+  border-radius: 12px; /* Rounded corners for the scrollbar track */
+}
+
+/* Hover effect for scrollbar thumb */
+html::-webkit-scrollbar-thumb:hover {
+  background-color: #ff3399; /* Change thumb color on hover */
+}
+
+/* Hover effect for scrollbar track */
+html::-webkit-scrollbar-track:hover {
+  background-color: #e0e0e0; /* Change track color on hover */
+}
+
+
+/* Dark mode or night-time styling (optional) */
+@media (prefers-color-scheme: dark) {
+    html {
+        scrollbar-color: #6911a8 #df50e1a4; /* Change scrollbar color for dark mode (Firefox) */
+    }
+
+    ::-webkit-scrollbar-track {
+        background: hsl(222, 81%, 47%); /* Dark gray track in dark mode */
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: linear-gradient(180deg, #ff66b2, #8a2be2); /* Gradient works in dark mode too */
+    }
+}
+
+
 .gtranslate_wrapper {
   position: fixed !important;
   left: 10px !important;

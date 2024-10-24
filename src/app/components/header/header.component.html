@@ -71,6 +71,40 @@ nav.container {
   height: 25px;
   width: 25px;
 }
+  * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            height: 100%; /* Ensure full height */
+            overflow: hidden; /* Prevent body scrolling */
+        }
+
+        /* For WebKit browsers (Chrome, Safari, Edge) */
+        ::-webkit-scrollbar {
+            width: 12px; /* Width of the scrollbar */
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f0f0f0; /* Background of the track */
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(180deg, #ff66b2, #8a2be2); /* Pink to Violet gradient */
+            border-radius: 10px; /* Rounded corners for the scrollbar thumb */
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(180deg, #ff99cc, #9b59b6); /* Lighter gradient on hover */
+        }
+
+        /* For Firefox */
+        html {
+            scrollbar-width: thin; /* Makes the scrollbar thin */
+            scrollbar-color: #ff66b2 #800ab3; /* Color of the thumb and track */
+        }
 
 
   </style>
