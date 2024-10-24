@@ -7,7 +7,9 @@
 .welcome-heading {
     width: 100%;
     text-align: center;
-    background-color: #3498db;
+    /* background-color: #3498db; */
+    background-color: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(10px);
     /* Background color */
     padding: 20px 0;
     /* Padding for top and bottom */
@@ -51,7 +53,7 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: #f0f0f0;
+    /* background-color: #f0f0f0; */
 }
 
 /* Rest of your CSS styles remain unchanged */
@@ -79,33 +81,38 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: #f0f0f0;
+    /* background-color: #f0f0f0; */
+    background: linear-gradient(135deg, #6c63ff 0%, #ff6584 100%);
 }
 
 .container {
     display: flex;
-    background-color: white;
+    background-color: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(20px);
     border-radius: 10px;
     overflow: hidden;
+    
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
-    width: 900px;
+    width: 450px;
     height: 550px;
 }
 
 .box {
     display: flex;
     width: 100%;
-    background-color: white;
+    /* width: 100%; */
+    /* background-color: white; */
 }
 
 .left {
-    width: 50%;
+    width: 100%;
     padding: 50px;
-    background-color: #fff;
+    /* background-color: #fff; */
 }
 
 .left h2 {
     margin-bottom: 20px;
+    color: white;
     font-size: 24px;
     font-weight: bold;
     text-transform: uppercase;
@@ -115,7 +122,8 @@ body {
 .input-box {
     display: flex;
     align-items: center;
-   margin-top: 30px;
+    color: rgb(76, 76, 76);
+    margin-top: 30px;
     border-bottom: 1px solid #ccc;
 }
 
@@ -127,6 +135,7 @@ body {
 .input-box input {
     width: 100%;
     padding: 10px;
+    color: rgb(76, 76, 76);
     border: none;
     outline: none;
     background: none;
