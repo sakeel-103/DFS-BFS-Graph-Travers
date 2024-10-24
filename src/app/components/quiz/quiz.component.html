@@ -1,25 +1,47 @@
 <app-navbar></app-navbar>
+
 <div class="quiz-container">
     <header>
         <h1>Ultimate Graph Theory Challenge</h1>
         <div class="progress-bar" [style.width.%]="progressPercentage"></div>
     </header>
 
-    <main *ngIf="!quizCompleted" class="question-container">
+    <!-- Difficulty Selection Section -->
+    <div *ngIf="!quizStarted" class="difficulty-container">
+        <h2>Select Difficulty Level</h2>
+        <div class="difficulty-cards">
+            <div class="difficulty-card" (click)="startQuiz('easy')">
+                <h3>Easy</h3>
+                <button>Start Quiz</button>
+            </div>
+            <div class="difficulty-card" (click)="startQuiz('medium')">
+                <h3>Medium</h3>
+                <button>Start Quiz</button>
+            </div>
+            <div class="difficulty-card" (click)="startQuiz('difficult')">
+                <h3>Difficult</h3>
+                <button>Start Quiz</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Quiz Questions Section -->
+    <main *ngIf="quizStarted && !quizCompleted" class="question-container">
         <div class="question-card" [@cardAnimation]="animationState">
             <h2>Question {{ currentQuestionIndex + 1 }} of {{ questions.length }}</h2>
             <p class="question-text">{{ currentQuestion.text }}</p>
 
             <div class="options">
-                <button *ngFor="let option of currentQuestion.options; let i = index" (click)="selectAnswer(i)"
-                    [class.selected]="selectedAnswerIndex === i" [disabled]="answerSubmitted">
+                <button *ngFor="let option of currentQuestion.options; let i = index" 
+                        (click)="selectAnswer(i)" 
+                        [class.selected]="selectedAnswerIndex === i" 
+                        [disabled]="answerSubmitted">
                     {{ option }}
                 </button>
             </div>
 
             <div class="action-buttons">
-                <button (click)="submitAnswer()" [disabled]="selectedAnswerIndex === null || answerSubmitted">Submit
-                    Answer</button>
+                <button (click)="submitAnswer()" [disabled]="selectedAnswerIndex === null || answerSubmitted">Submit Answer</button>
             </div>
         </div>
     </main>

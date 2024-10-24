@@ -7,7 +7,7 @@ interface Question {
   text: string;
   options: string[];
   correctAnswer: number;
-  image?: string;
+  difficulty: string; // Add difficulty level to the question
 }
 
 @Component({
@@ -32,59 +32,16 @@ interface Question {
 })
 export class QuizComponent implements OnInit {
   questions: Question[] = [
-    {
-      text: "In a complete graph with n vertices, how many edges are there?",
-      options: ["n", "n-1", "n(n-1)/2", "2^n"],
-      correctAnswer: 2,
-      image: "assets/complete-graph.svg"
-    },
-    {
-      text: "What is the chromatic number of a planar graph?",
-      options: ["2", "3", "4", "5"],
-      correctAnswer: 2
-    },
-    {
-      text: "In which type of graph is every vertex connected to every other vertex?",
-      options: ["Tree", "Bipartite", "Complete", "Cyclic"],
-      correctAnswer: 2
-    },
-    {
-      text: "What is the maximum number of edges in a simple graph with n vertices?",
-      options: ["n", "n-1", "n(n-1)/2", "n^2"],
-      correctAnswer: 2
-    },
-    {
-      text: "Which algorithm finds the shortest path between all pairs of vertices in a weighted graph?",
-      options: ["Dijkstra's", "Floyd-Warshall", "Bellman-Ford", "Prim's"],
-      correctAnswer: 1
-    },
-    {
-      text: "What is the time complexity of depth-first search (DFS) for a graph represented as an adjacency list?",
-      options: ["O(V)", "O(E)", "O(V + E)", "O(V * E)"],
-      correctAnswer: 2,
-      image: "assets/dfs-graph.svg"
-    },
-    {
-      text: "In a graph with V vertices and E edges, what is the sum of all vertex degrees?",
-      options: ["V", "E", "2E", "V + E"],
-      correctAnswer: 2
-    },
-    {
-      text: "What is the minimum number of colors needed to color the vertices of any planar graph so that no two adjacent vertices have the same color?",
-      options: ["2", "3", "4", "5"],
-      correctAnswer: 2
-    },
-    {
-      text: "Which of the following is NOT a property of a tree?",
-      options: ["Connected", "Acyclic", "Has exactly V-1 edges", "Has a unique path between any two vertices"],
-      correctAnswer: 3
-    },
-    {
-      text: "What is the maximum number of edges in a bipartite graph with m and n vertices in each partition?",
-      options: ["m + n", "mn", "m * n", "2mn"],
-      correctAnswer: 1,
-      image: "assets/bipartite-graph.svg"
-    }
+    { text: "In a complete graph with n vertices, how many edges are there?", options: ["n", "n-1", "n(n-1)/2", "2^n"], correctAnswer: 2, difficulty: "easy" },
+    { text: "What is the chromatic number of a planar graph?", options: ["2", "3", "4", "5"], correctAnswer: 2, difficulty: "easy" },
+    { text: "In which type of graph is every vertex connected to every other vertex?", options: ["Tree", "Bipartite", "Complete", "Cyclic"], correctAnswer: 2, difficulty: "easy" },
+    { text: "What is the time complexity of depth-first search (DFS)?", options: ["O(V)", "O(E)", "O(V + E)", "O(V * E)"], correctAnswer: 0, difficulty: "easy" },
+    { text: "What is the time complexity of breadth-first search (BFS)?", options: ["O(V)", "O(E)", "O(V + E)", "O(V * E)"], correctAnswer: 1, difficulty: "easy" },
+    { text: "What is the minimum number of colors needed to color the vertices of a bipartite graph?", options: ["1", "2", "3", "4"], correctAnswer: 1, difficulty: "easy" },
+    { text: "Which of the following is true about trees?", options: ["They are cyclic", "They have exactly V-1 edges", "They have multiple paths between nodes", "They can have more than one root"], correctAnswer: 1, difficulty: "easy" },
+    { text: "What is a complete graph?", options: ["A graph with no edges", "A graph where every pair of vertices is connected", "A graph with a single cycle", "A disconnected graph"], correctAnswer: 1, difficulty: "easy" },
+    { text: "Which algorithm can be used to check if a graph is connected?", options: ["Dijkstra's", "DFS", "BFS", "Prim's"], correctAnswer: 1, difficulty: "easy" },
+    { text: "How many edges does a tree with n vertices have?", options: ["n-1", "n", "n+1", "2n"], correctAnswer: 0, difficulty: "easy" },
   ];
 
   currentQuestionIndex: number = 0;
@@ -92,6 +49,7 @@ export class QuizComponent implements OnInit {
   answerSubmitted: boolean = false;
   score: number = 0;
   quizCompleted: boolean = false;
+  quizStarted: boolean = false; // Track whether the quiz has started
   animationState: string = 'normal';
 
   ngOnInit() {
@@ -113,13 +71,22 @@ export class QuizComponent implements OnInit {
     }
   }
 
+  startQuiz(difficulty: string) {
+    this.quizStarted = true;
+    this.questions = this.questions.filter(q => q.difficulty === difficulty);
+    this.currentQuestionIndex = 0;
+    this.selectedAnswerIndex = null;
+    this.answerSubmitted = false;
+    this.score = 0;
+  }
+
   selectAnswer(index: number) {
     this.selectedAnswerIndex = index;
   }
 
   submitAnswer() {
     if (this.selectedAnswerIndex === null) return;
-    
+
     this.answerSubmitted = true;
     this.animationState = 'flipped';
 
