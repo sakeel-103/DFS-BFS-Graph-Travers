@@ -8,6 +8,29 @@
   border-radius: 10px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
+/* For WebKit browsers (Chrome, Safari) */
+::-webkit-scrollbar {
+  width: 10px; /* Width of the scrollbar */
+}
+
+::-webkit-scrollbar-track {
+  background: #f0f0f0; /* Background of the track */
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #ff66b2, #8a2be2); /* Pink to Violet gradient */
+  border-radius: 10px; /* Rounded corners for the scrollbar thumb */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #ff99cc, #9b59b6); /* Lighter gradient on hover */
+}
+
+/* For Firefox */
+html {
+  scrollbar-width: thin; /* Makes the scrollbar thin */
+  scrollbar-color: #ff66b2 #f0f0f0; /* Color of the thumb and track */
+}
 
 header {
   text-align: center;
