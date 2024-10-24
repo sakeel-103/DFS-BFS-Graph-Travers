@@ -312,8 +312,26 @@ For more detailed instructions, please refer to our full **[Contributing Guide](
 
 </div>
 
+![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
----
+## Stargazers ❤️
+
+<div align='left'>
+
+[![Stargazers repo roster for @sakeel-103/DFS-BFS-Graph-Travers](https://reporoster.com/stars/dark/sakeel-103/DFS-BFS-Graph-Travers)](https://github.com/sakeel-103/DFS-BFS-Graph-Travers/stargazers)
+
+
+</div>
+
+## Forkers ❤️
+
+[![Forkers repo roster for @sakeel-103/DFS-BFS-Graph-Travers](https://reporoster.com/forks/dark/sakeel-103/DFS-BFS-Graph-Travers)](https://github.com/sakeel-103/DFS-BFS-Graph-Travers/network/members)
+
+
+![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
+
+
+
 ## 📜 License
 
 This project is licensed under the MIT License – see the [LICENSE](./LICENSE) file for details.
