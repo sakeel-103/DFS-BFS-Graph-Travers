@@ -1,6 +1,17 @@
 .quiz-container {
-  max-width: 800px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   margin: 0 auto;
+
+  max-width: 800px; /* Maximum width for the quiz */
+  padding: 20px;
+  background-color: #f9f9f9; /* Light background color for the quiz */
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  position: relative; /* Ensure the container is positioned correctly */
+  margin-top: 100px; /* Move the quiz container down */
+
   margin-top: 8rem;
   padding: 2rem;
   font-family: "Roboto", sans-serif;
@@ -35,138 +46,89 @@ html {
 header {
   text-align: center;
   margin-bottom: 2rem;
+
 }
 
-h1 {
-  color: #2c3e50;
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
+.header {
+  margin-bottom: 20px; /* Space below the header */
 }
 
-.progress-bar {
-  height: 6px;
-  background-color: #3498db;
-  border-radius: 3px;
-  transition: width 0.3s ease-in-out;
+.difficulty-container {
+  text-align: center; /* Center text in difficulty section */
+  margin-bottom: 20px; /* Space below difficulty section */
 }
 
-.question-container {
+.difficulty-cards {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 400px;
+  justify-content: space-around; /* Space between cards */
+}
+
+.difficulty-card {
+  width: 200px; /* Fixed width for each card */
+  background-color: #ffffff; /* White background for difficulty cards */
+  border: 1px solid #ccc; /* Border around the card */
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for cards */
+  cursor: pointer; /* Pointer cursor on hover */
+  transition: transform 0.2s; /* Transition effect for hover */
+}
+
+.difficulty-card:hover {
+  transform: scale(1.05); /* Slightly scale card on hover */
 }
 
 .question-card {
-  background-color: white;
+  width: 100%; /* Full width for the question card */
+  background-color: #ffffff; /* White background for the question card */
+  border: 1px solid #ccc; /* Border around the card */
   border-radius: 8px;
-  padding: 2rem;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  width: 100%;
-  max-width: 600px;
-}
-
-h2 {
-  color: #34495e;
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
-  text-align: center;
+  padding: 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px; /* Space below the question card */
 }
 
 .question-text {
-  font-size: 1.2rem;
-  color: #2c3e50;
-  margin-bottom: 1.5rem;
-  text-align: center;
-}
-
-.question-image {
-  text-align: center;
-  margin-bottom: 1.5rem;
-}
-
-.question-image img {
-  max-width: 100%;
-  border-radius: 4px;
+  font-size: 18px;
+  margin-bottom: 20px;
 }
 
 .options {
-  display: grid;
-  gap: 1rem;
-  margin-bottom: 1.5rem;
+  display: flex;
+  flex-direction: column; /* Stack options vertically */
+  gap: 10px; /* Space between options */
 }
 
 button {
-  background-color: #ecf0f1;
-  border: 2px solid #bdc3c7;
-  border-radius: 4px;
-  padding: 0.8rem 1rem;
-  font-size: 1rem;
-  color: #34495e;
-  transition: all 0.3s ease;
+  width: 100%; /* Make buttons full width of option card */
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #007bff; /* Blue button color */
+  color: white;
   cursor: pointer;
+  transition: background-color 0.3s ease; /* Smooth transition for hover effect */
 }
 
-button:hover:not(:disabled) {
-  background-color: #3498db;
-  border-color: #3498db;
-  color: white;
+button:hover {
+  background-color: #0056b3; /* Darker blue on hover */
 }
 
 button.selected {
-  background-color: #2980b9;
-  border-color: #2980b9;
-  color: white;
+  background-color: #28a745; /* Green color for selected option */
 }
 
 button:disabled {
-  opacity: 0.6;
-  cursor: not-allowed;
+  background-color: #ccc; /* Gray for disabled buttons */
+  cursor: not-allowed; /* Change cursor style for disabled buttons */
 }
 
 .action-buttons {
-  display: flex;
-  justify-content: center;
-}
-
-.results-container {
-  text-align: center;
-}
-
-.score-breakdown {
-  background-color: #ecf0f1;
-  height: 20px;
-  border-radius: 10px;
-  margin: 1rem 0;
-  overflow: hidden;
+  margin-top: 20px; /* Space above action buttons */
 }
 
 .score-bar {
-  height: 100%;
-  background-color: #2ecc71;
-  transition: width 0.5s ease-in-out;
-}
-
-footer {
-  margin-top: 2rem;
-  text-align: center;
-  color: #7f8c8d;
-}
-
-@media (max-width: 600px) {
-  .quiz-container {
-    padding: 1rem;
-  }
-
-  h1 {
-    font-size: 2rem;
-  }
-
-  .question-card {
-    padding: 1.5rem;
-  }
-
-  .options {
-    grid-template-columns: 1fr;
-  }
+  height: 10px; /* Height of the score bar */
+  background-color: #007bff; /* Color of the score bar */
+  border-radius: 5px; /* Rounded corners for the score bar */
 }

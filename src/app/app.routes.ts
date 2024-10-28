@@ -18,6 +18,11 @@ import { CodeEditorComponent } from './components/code-editor/code-editor.compon
 import { ReviewComponent } from './components/reviews/reviews.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 
+
+import { AlgorithmComparisonComponent } from './components/algocompare/algocompare.component';
+
+import { ProfileDashboardPageComponent } from './components/profile/profile.component';
+
 export const routes: Routes = [
   {
     path: '',
