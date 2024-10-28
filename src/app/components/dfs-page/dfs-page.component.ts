@@ -3,6 +3,7 @@ import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
 import { NavbarComponent } from '../navbar/navbar.component';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-dfs-page',
@@ -12,6 +13,15 @@ import { NavbarComponent } from '../navbar/navbar.component';
   styleUrls: ['./dfs-page.component.css'],
 })
 export class DfsPageComponent implements AfterViewInit, OnInit {
+
+  // constructor(private titleService: Title) { }
+
+  // ngOnInit(): void {
+    
+  //   this.titleService.setTitle('GraphExplorer | DFS');
+  // }
+
+
   private nodes: { label: string; x: number; y: number }[] = [];
   private edges: [number, number][] = [];
 
@@ -24,10 +34,10 @@ export class DfsPageComponent implements AfterViewInit, OnInit {
   customEdgeInput: string = '';
   isDropdownOpen: boolean = false;
 
-  constructor(private authService: AuthService) {}
+  constructor(private authService: AuthService,private titleService: Title) {}
 
   ngOnInit(): void {
-    // No need to access the canvas here
+    this.titleService.setTitle('GraphExplorer Pro | DFS');
   }
 
   ngAfterViewInit(): void {
