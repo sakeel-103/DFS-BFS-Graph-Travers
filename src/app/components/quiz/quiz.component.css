@@ -1,3 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap');
+.montserrat-unique {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500; /* Medium weight for specific elements */
+  font-style: normal; /* Normal font style */
+}
+
 .quiz-container {
   display: flex;
   flex-direction: column;
