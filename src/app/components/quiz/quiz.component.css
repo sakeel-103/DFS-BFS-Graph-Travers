@@ -3,6 +3,7 @@
   flex-direction: column;
   align-items: center;
   margin: 0 auto;
+
   max-width: 800px; /* Maximum width for the quiz */
   padding: 20px;
   background-color: #f9f9f9; /* Light background color for the quiz */
@@ -10,6 +11,42 @@
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
   position: relative; /* Ensure the container is positioned correctly */
   margin-top: 100px; /* Move the quiz container down */
+
+  margin-top: 8rem;
+  padding: 2rem;
+  font-family: "Roboto", sans-serif;
+  background-color: #13eea9;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+/* For WebKit browsers (Chrome, Safari) */
+::-webkit-scrollbar {
+  width: 10px; /* Width of the scrollbar */
+}
+
+::-webkit-scrollbar-track {
+  background: #f0f0f0; /* Background of the track */
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #ff66b2, #8a2be2); /* Pink to Violet gradient */
+  border-radius: 10px; /* Rounded corners for the scrollbar thumb */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #ff99cc, #9b59b6); /* Lighter gradient on hover */
+}
+
+/* For Firefox */
+html {
+  scrollbar-width: thin; /* Makes the scrollbar thin */
+  scrollbar-color: #ff66b2 #f0f0f0; /* Color of the thumb and track */
+}
+
+header {
+  text-align: center;
+  margin-bottom: 2rem;
+
 }
 
 .header {
