@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { trigger, state, style, animate, transition } from '@angular/animations';
 import { NavbarComponent } from '../navbar/navbar.component';
+import { AuthService } from '../../services/auth.service';
+import { Title } from '@angular/platform-browser';
 
 interface Question {
   text: string;
@@ -31,6 +33,14 @@ interface Question {
   ],
 })
 export class QuizComponent implements OnInit {
+
+
+  constructor(private authService: AuthService,private titleService: Title) {}
+
+  ngOnInit(): void {
+    this.titleService.setTitle('GraphExplorer Pro | Quiz');
+    this.shuffleQuestions();
+  }
   questions: Question[] = [
     { text: "In a complete graph with n vertices, how many edges are there?", options: ["n", "n-1", "n(n-1)/2", "2^n"], correctAnswer: 2, difficulty: "easy" },
     { text: "What is the chromatic number of a planar graph?", options: ["2", "3", "4", "5"], correctAnswer: 2, difficulty: "easy" },
@@ -52,9 +62,7 @@ export class QuizComponent implements OnInit {
   quizStarted: boolean = false; // Track whether the quiz has started
   animationState: string = 'normal';
 
-  ngOnInit() {
-    this.shuffleQuestions();
-  }
+  
 
   get currentQuestion(): Question {
     return this.questions[this.currentQuestionIndex];

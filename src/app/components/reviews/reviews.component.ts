@@ -5,6 +5,8 @@ import { CommonModule } from '@angular/common';
 import { NavbarComponent } from '../navbar/navbar.component';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { Title } from '@angular/platform-browser';
+import { AuthService } from '../../services/auth.service';
 
 interface Review {
   id: number;
@@ -40,10 +42,13 @@ export class ReviewComponent implements OnInit {
   newQuestion: Partial<Question> = {};
   newReply: Partial<Reply> = {};
 
-  constructor(private http: HttpClient) {}
+ 
+  constructor(private http: HttpClient,private authService: AuthService,private titleService: Title) {}
 
-  ngOnInit() {
+  ngOnInit():void {
     this.fetchReviews();
+    this.titleService.setTitle('GraphExplorer Pro | Reviews');
+    
   }
 
   fetchReviews() {
