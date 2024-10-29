@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<html lang="en">
 
 <head>
   <meta charset="UTF-8">
@@ -9,6 +10,12 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/i18next/21.6.10/i18next.min.js"></script>
+  <!-- <iframe
+src="https://www.chatbase.co/chatbot-iframe/L51AYDMWE0tDQxPXKTgeX"
+width="100%"
+style="height: 100%; min-height: 700px"
+frameborder="0"
+></iframe> -->
   <style>
     /* .canvas_1 {
       color: #333;
@@ -70,51 +77,17 @@ nav.container {
   height: 25px;
   width: 25px;
 }
-  * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html, body {
-            height: 100%; /* Ensure full height */
-            overflow: hidden; /* Prevent body scrolling */
-        }
-
-        /* For WebKit browsers (Chrome, Safari, Edge) */
-        ::-webkit-scrollbar {
-            width: 12px; /* Width of the scrollbar */
-        }
-
-        ::-webkit-scrollbar-track {
-            background: #f0f0f0; /* Background of the track */
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: linear-gradient(180deg, #ff66b2, #8a2be2); /* Pink to Violet gradient */
-            border-radius: 10px; /* Rounded corners for the scrollbar thumb */
-        }
-
-        ::-webkit-scrollbar-thumb:hover {
-            background: linear-gradient(180deg, #ff99cc, #9b59b6); /* Lighter gradient on hover */
-        }
-
-        /* For Firefox */
-        html {
-            scrollbar-width: thin; /* Makes the scrollbar thin */
-            scrollbar-color: #ff66b2 #800ab3; /* Color of the thumb and track */
-        }
 
 
   </style>
 </head>
 
+<body>
+
   <header>
     <nav style="display: flex; justify-content: space-between; align-items: center; padding: 10px 0; background-color: #1a1a2e;">
       <div class="logo" style="display: flex; align-items: center;">
-        <img src='/a.png' alt="Logo" 
-        style="height: 70px; width: 75px; border-radius: 50%; margin-right: 10px; object-fit: contain; image-rendering: auto; filter: none;"/>
-
+        <img src="a.png" alt="Logo" style="height: 70px; width: 75px; border-radius: 50%; margin-right: 10px;" />
         <a href="#hero" style="color: white; font-size: 1.5rem; text-decoration: none; white-space: nowrap;">GraphExplorer Pro</a>
       </div>
   
@@ -289,12 +262,10 @@ nav.container {
         </div>
         <div class="graph-item">
           <div class="graph-icon">⚖️</div>
-          <a href="../Graphs/weightedgraph.html">
           <h3 data-i18n="weighted-graphs">Weighted Graphs</h3>
         </div>
         <div class="graph-item">
           <div class="graph-icon">🌳</div>
-          <a href="../Graphs/tree.html">
           <h3 data-i18n="trees">Trees</h3>
         </div>
         <div class="graph-item">
