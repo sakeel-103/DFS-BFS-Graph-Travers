@@ -12,6 +12,11 @@
   position: relative;
   top: 60px;
 }
+.uploaded-image, .image-preview {
+  max-width: 50%; /* Responsive sizing */
+  height: auto;    /* Maintain aspect ratio */
+  margin-top: 10px; /* Space between elements */
+}
 
 .text-center {
   text-align: center;
