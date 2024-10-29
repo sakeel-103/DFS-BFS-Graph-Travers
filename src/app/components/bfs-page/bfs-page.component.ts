@@ -2,6 +2,7 @@ import { Component, AfterViewInit, OnInit } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
+import { Title } from '@angular/platform-browser';
 import { NavbarComponent } from '../navbar/navbar.component';
 
 @Component({
@@ -24,9 +25,11 @@ export class BfsPageComponent implements AfterViewInit, OnInit {
   isDropdownOpen: boolean = false;
   private finalPath: number[] = []; // To store the final path taken
 
-  constructor(private authService: AuthService) {}
+  constructor(private authService: AuthService,private titleService: Title) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.titleService.setTitle('GraphExplorer Pro | BFS');
+  }
 
   ngAfterViewInit(): void {
     this.bfsCanvas = document.getElementById('bfs-canvas') as HTMLCanvasElement;
