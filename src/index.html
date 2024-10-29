@@ -118,33 +118,33 @@
       width: 100%;
       height: 100%;
       overflow: auto;
-      background-color: rgba(0,0,0,0.6);
+      background-color: rgba(0, 0, 0, 0.8);
     }
 
     .modal-content {
       background-color: #2a2a2a;
       margin: 10% auto;
-      padding: 30px;
-      border: 2px solid #FF1493; /* Dark pink border */
-      outline: 1px solid #FF69B4; /* Lighter pink outline */
+      padding: 40px;
+      border: 2px solid #FF1493;
+      outline: 1px solid #FF69B4;
       width: 90%;
-      max-width: 500px;
+      max-width: 600px;
       color: white;
-      border-radius: 8px;
-      box-shadow: 0 4px 20px rgba(255, 20, 147, 0.3); /* Dark pink shadow */
+      border-radius: 12px;
+      box-shadow: 0 4px 30px rgba(255, 20, 147, 0.5);
     }
 
     .close {
-      color: #FF1493; /* Dark pink close button */
+      color: #FF1493;
       float: right;
-      font-size: 28px;
+      font-size: 32px;
       font-weight: bold;
       transition: color 0.3s ease;
     }
 
     .close:hover,
     .close:focus {
-      color: #FF69B4; /* Lighter pink on hover */
+      color: #FF69B4;
       text-decoration: none;
       cursor: pointer;
     }
@@ -154,7 +154,7 @@
       width: 100%;
       padding: 12px;
       margin: 10px 0;
-      border: 1px solid #FF1493; /* Dark pink border */
+      border: 1px solid #FF1493;
       border-radius: 4px;
       box-sizing: border-box;
       background-color: #333;
@@ -164,7 +164,7 @@
 
     .modal-form input:focus,
     .modal-form textarea:focus {
-      border-color: #FF69B4; /* Lighter pink on focus */
+      border-color: #FF69B4;
       box-shadow: 0 0 5px rgba(255, 105, 180, 0.5);
       outline: none;
     }
@@ -172,7 +172,7 @@
     .modal-form button {
       width: 100%;
       padding: 12px;
-      background-color: #FF1493; /* Dark pink button */
+      background-color: #FF1493;
       color: white;
       border: none;
       border-radius: 4px;
@@ -182,12 +182,12 @@
     }
 
     .modal-form button:hover {
-      background-color: #FF69B4; /* Lighter pink on hover */
+      background-color: #FF69B4;
       box-shadow: 0 0 10px rgba(255, 20, 147, 0.5);
     }
 
     .modal h2 {
-      color: #FF1493; /* Dark pink title */
+      color: #FF1493;
       margin-bottom: 20px;
       text-align: center;
 
@@ -438,6 +438,35 @@
             &copy; 2024 DFS-BFS Learning Platform. Empowering coders with mastery over Data Structures and Algorithms.
           </p>
 
+          <div class="footer">
+            <div class="footer-content">
+              <!-- Platform Links Section -->
+              <div class="footer-links">
+                <a href="#about">About DFS-BFS</a>
+                <a href="#courses">Courses</a>
+                <a href="#blogs">Blogs</a>
+                <a href="#contact">Contact Us</a>
+              </div>
+        
+              <!-- Newsletter Section -->
+              <div class="newsletter-container">
+                <h2 class="newsletter-title">Stay Updated with DFS-BFS</h2>
+                <p>Subscribe to our newsletter for the latest on algorithms, tips, and coding challenges.</p>
+                <form onsubmit="handleSubmit(event)">
+                  <input type="email" placeholder="Enter your email" id="emailInput" required name="email" />
+                  <button type="submit">Subscribe</button>
+                </form>
+              </div>
+        
+              <!-- Social Media Section -->
+              <div class="footer-links">
+                <h3>Follow Us</h3>
+                <div class="social-icons">
+                  <a href="https://x.com/dfs-bfs" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
+                  <a href="https://www.linkedin.com/company/dfs-bfs" target="_blank" title="LinkedIn"><i
+                      class="fab fa-linkedin"></i></a>
+                  <a href="../contributor/contributor.html" title="Contributors">Our Contributors</a>
+
           <!-- FAQ Modal -->
           <div id="faqModal" class="modal">
             <div class="modal-content">
@@ -505,44 +534,51 @@
               width: 100%;
               height: 100%;
               overflow: auto;
-              background-color: rgba(0, 0, 0, 0.6);
+              background-color: rgba(0, 0, 0, 0.8);
             }
 
             .modal-content {
               background-color: #2a2a2a;
               margin: 10% auto;
-              padding: 30px;
-              border: 2px solid #FF1493; /* Dark pink border */
-              outline: 1px solid #FF69B4; /* Lighter pink outline */
+              padding: 40px;
+              border: 2px solid #FF1493;
+              outline: 1px solid #FF69B4;
               width: 90%;
-              max-width: 500px;
+              max-width: 600px;
               color: white;
-              border-radius: 8px;
-              box-shadow: 0 4px 20px rgba(255, 20, 147, 0.3); /* Dark pink shadow */
+              border-radius: 12px;
+              box-shadow: 0 4px 30px rgba(255, 20, 147, 0.5);
             }
 
             .close {
-              color: #FF1493; /* Dark pink close button */
+              color: #FF1493;
               float: right;
-              font-size: 28px;
+              font-size: 32px;
               font-weight: bold;
               transition: color 0.3s ease;
             }
 
             .close:hover,
             .close:focus {
-              color: #FF69B4; /* Lighter pink on hover */
+              color: #FF69B4;
               text-decoration: none;
               cursor: pointer;
             }
 
             .faq-item {
-              margin-bottom: 15px;
+              margin-bottom: 20px;
             }
           </style>
         </div>
       </div>
     </div>
+
+
+    <!-- Copyright Section -->
+    <p class="copyright">
+      &copy; 2024 DFS-BFS Learning Platform. Empowering coders with mastery over Data Structures and Algorithms.
+    </p>
+  </div>
 
     <div id="toast" class="toast"></div>
 
