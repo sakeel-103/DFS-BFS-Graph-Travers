@@ -3,14 +3,20 @@
 
 <head>
   <meta charset="utf-8" />
-  <title>EccomPRJ - Real-Time Collaboration</title>
+  <title>GraphExplorer Pro</title>
   <base href="/" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha384-k6RqeWeci5ZR/Lv4MR0sA0FfDOMX86Hc4r4W6t5UM1ZQgqR+8E1fXH1K6WInReU" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Open+Sans:wght@400;700&family=Montserrat:wght@400;700&family=Lato:wght@400;700&family=Source+Code+Pro:wght@400&family=Poppins:wght@400;700&family=Raleway:wght@400;700&family=Avenir:wght@400;700&display=swap" rel="stylesheet">
 
   <link rel="icon" type="image/png" sizes="32x32"
     href="https://img.freepik.com/free-vector/human-group-connecting-topology-concept-background-design_1017-53324.jpg?w=826&t=st=1729248294~exp=1729248894~hmac=3865b1d5630a5be3b7c74044d086d128aeb23412766f39a882e977845f837603">
   <style>
+.montserrat-unique {
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+}
     .scrollToTop {
       position: fixed;
       bottom: 80px;
@@ -120,33 +126,33 @@
       width: 100%;
       height: 100%;
       overflow: auto;
-      background-color: rgba(0,0,0,0.6);
+      background-color: rgba(0, 0, 0, 0.8);
     }
 
     .modal-content {
       background-color: #2a2a2a;
       margin: 10% auto;
-      padding: 30px;
-      border: 2px solid #FF1493; /* Dark pink border */
-      outline: 1px solid #FF69B4; /* Lighter pink outline */
+      padding: 40px;
+      border: 2px solid #FF1493;
+      outline: 1px solid #FF69B4;
       width: 90%;
-      max-width: 500px;
+      max-width: 600px;
       color: white;
-      border-radius: 8px;
-      box-shadow: 0 4px 20px rgba(255, 20, 147, 0.3); /* Dark pink shadow */
+      border-radius: 12px;
+      box-shadow: 0 4px 30px rgba(255, 20, 147, 0.5);
     }
 
     .close {
-      color: #FF1493; /* Dark pink close button */
+      color: #FF1493;
       float: right;
-      font-size: 28px;
+      font-size: 32px;
       font-weight: bold;
       transition: color 0.3s ease;
     }
 
     .close:hover,
     .close:focus {
-      color: #FF69B4; /* Lighter pink on hover */
+      color: #FF69B4;
       text-decoration: none;
       cursor: pointer;
     }
@@ -156,7 +162,7 @@
       width: 100%;
       padding: 12px;
       margin: 10px 0;
-      border: 1px solid #FF1493; /* Dark pink border */
+      border: 1px solid #FF1493;
       border-radius: 4px;
       box-sizing: border-box;
       background-color: #333;
@@ -166,7 +172,7 @@
 
     .modal-form input:focus,
     .modal-form textarea:focus {
-      border-color: #FF69B4; /* Lighter pink on focus */
+      border-color: #FF69B4;
       box-shadow: 0 0 5px rgba(255, 105, 180, 0.5);
       outline: none;
     }
@@ -174,7 +180,7 @@
     .modal-form button {
       width: 100%;
       padding: 12px;
-      background-color: #FF1493; /* Dark pink button */
+      background-color: #FF1493;
       color: white;
       border: none;
       border-radius: 4px;
@@ -184,12 +190,12 @@
     }
 
     .modal-form button:hover {
-      background-color: #FF69B4; /* Lighter pink on hover */
+      background-color: #FF69B4;
       box-shadow: 0 0 10px rgba(255, 20, 147, 0.5);
     }
 
     .modal h2 {
-      color: #FF1493; /* Dark pink title */
+      color: #FF1493;
       margin-bottom: 20px;
       text-align: center;
 
@@ -440,27 +446,27 @@
             &copy; 2024 DFS-BFS Learning Platform. Empowering coders with mastery over Data Structures and Algorithms.
           </p>
 
-  <div class="footer">
-    <div class="footer-content">
-      <!-- Platform Links Section -->
-      <div class="footer-links">
-        <a href="#about">About DFS-BFS</a>
-        <a href="#courses">Courses</a>
-        <a href="#blogs">Blogs</a>
-        <a href="#contact">Contact Us</a>
-      </div>
-  
-      <!-- Newsletter Section -->
-      <div class="newsletter-container">
-        <h2 class="newsletter-title">Stay Updated with DFS-BFS</h2>
-        <p>Subscribe to our newsletter for the latest on algorithms, tips, and coding challenges.</p>
-        <form onsubmit="handleSubmit(event)">
-          <input type="email" placeholder="Enter your email" id="emailInput" required name="email" />
-          <button type="submit">Subscribe</button>
-        </form>
-      </div>
-  
-      <!-- Social Media Section -->
+          <div class="footer">
+            <div class="footer-content">
+              <!-- Platform Links Section -->
+              <div class="footer-links">
+                <a href="#about">About DFS-BFS</a>
+                <a href="#courses">Courses</a>
+                <a href="#blogs">Blogs</a>
+                <a href="#contact">Contact Us</a>
+              </div>
+        
+              <!-- Newsletter Section -->
+              <div class="newsletter-container">
+                <h2 class="newsletter-title">Stay Updated with DFS-BFS</h2>
+                <p>Subscribe to our newsletter for the latest on algorithms, tips, and coding challenges.</p>
+                <form onsubmit="handleSubmit(event)">
+                  <input type="email" placeholder="Enter your email" id="emailInput" required name="email" />
+                  <button type="submit">Subscribe</button>
+                </form>
+              </div>
+        
+               <!-- Social Media Section -->
       <div class="footer-links">
         <h3>Follow Us</h3>
         <div class="social-icons">
@@ -476,7 +482,114 @@
         </div>
       </div>
     </div>
-  
+
+          <!-- FAQ Modal -->
+          <div id="faqModal" class="modal">
+            <div class="modal-content">
+              <span class="close" id="faqClose">&times;</span>
+              <h2>Frequently Asked Questions</h2>
+              <div class="faq-item">
+                <h3>What is DFS-BFS?</h3>
+                <p>DFS-BFS is a learning platform focused on Data Structures and Algorithms, providing interactive courses and real-time collaboration features.</p>
+              </div>
+              <div class="faq-item">
+                <h3>How can I subscribe to the newsletter?</h3>
+                <p>You can subscribe to our newsletter by entering your email address in the subscription form located in the footer.</p>
+              </div>
+              <div class="faq-item">
+                <h3>What types of courses are available?</h3>
+                <p>We offer a variety of courses covering fundamental and advanced topics in algorithms, data structures, and coding challenges.</p>
+              </div>
+              <div class="faq-item">
+                <h3>How can I contact support?</h3>
+                <p>If you have any questions or need assistance, you can contact us using the 'Contact Us' link in the footer.</p>
+              </div>
+              <div class="faq-item">
+                <h3>Can I contribute to the platform?</h3>
+                <p>Yes! We welcome contributions. Please visit the 'Our Contributors' link for more information on how to get involved.</p>
+              </div>
+              <!-- Add more FAQ items as needed -->
+            </div>
+          </div>
+
+          <!-- Add a button to open the FAQ modal -->
+          <button id="faqLink">FAQ</button>
+
+          <script>
+            // FAQ Modal Logic
+            const faqModal = document.getElementById("faqModal");
+            const faqLink = document.getElementById("faqLink");
+            const faqClose = document.getElementById("faqClose");
+
+            // Open the modal
+            faqLink.onclick = function() {
+              faqModal.style.display = "block";
+            }
+
+            // Close the modal when the close button is clicked
+            faqClose.onclick = function() {
+              faqModal.style.display = "none";
+            }
+
+            // Close the modal when clicking outside of the modal content
+            window.onclick = function(event) {
+              if (event.target === faqModal) {
+                faqModal.style.display = "none";
+              }
+            }
+          </script>
+
+          <style>
+            /* FAQ Modal Styles */
+            .modal {
+              display: none; /* Ensure modal is hidden by default */
+              position: fixed;
+              z-index: 1001;
+              left: 0;
+              top: 0;
+              width: 100%;
+              height: 100%;
+              overflow: auto;
+              background-color: rgba(0, 0, 0, 0.8);
+            }
+
+            .modal-content {
+              background-color: #2a2a2a;
+              margin: 10% auto;
+              padding: 40px;
+              border: 2px solid #FF1493;
+              outline: 1px solid #FF69B4;
+              width: 90%;
+              max-width: 600px;
+              color: white;
+              border-radius: 12px;
+              box-shadow: 0 4px 30px rgba(255, 20, 147, 0.5);
+            }
+
+            .close {
+              color: #FF1493;
+              float: right;
+              font-size: 32px;
+              font-weight: bold;
+              transition: color 0.3s ease;
+            }
+
+            .close:hover,
+            .close:focus {
+              color: #FF69B4;
+              text-decoration: none;
+              cursor: pointer;
+            }
+
+            .faq-item {
+              margin-bottom: 20px;
+            }
+          </style>
+        </div>
+      </div>
+    </div>
+
+
     <!-- Copyright Section -->
     <p class="copyright">
       &copy; 2024 DFS-BFS Learning Platform. Empowering coders with mastery over Data Structures and Algorithms.
@@ -522,14 +635,14 @@
     </script>
 
 
-    <script>
-      window.embeddedChatbotConfig = {
-        chatbotId: "oA_rXZ5BFgXbM-YwcC0vx",
-        domain: "www.chatbase.co"
-      }
-    </script>
-    <script src="https://www.chatbase.co/embed.min.js" chatbotId="oA_rXZ5BFgXbM-YwcC0vx" domain="www.chatbase.co"
-      defer></script>
+<script>
+  window.embeddedChatbotConfig = {
+      chatbotId:"L51AYDMWE0tDQxPXKTgeX",
+      domain: "www.chatbase.co"
+  };
+</script>
+<script src="https://www.chatbase.co/embed.min.js" chatbotId="L51AYDMWE0tDQxPXKTgeX" domain="www.chatbase.co"
+  defer></script>
 
     <script>
       const scrollButton = document.getElementById('scrollToTopBtn');
