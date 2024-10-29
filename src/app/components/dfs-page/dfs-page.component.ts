@@ -30,6 +30,8 @@ export class DfsPageComponent implements AfterViewInit, OnInit {
   private maxDepth: number = 0; // New property to track maximum depth
   private finalPath: number[] = []; // New property to track the final path
 
+  public dfs_explaination: string = '';
+
   customNodeInput: string = '';
   customEdgeInput: string = '';
   isDropdownOpen: boolean = false;

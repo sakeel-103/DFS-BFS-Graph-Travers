@@ -16,11 +16,10 @@ body {
   color: #333;
 }
 
-#bfs-container,
 #dfs-container {
   margin-top: 80px;
   padding: 2rem;
-  max-width: 1000px;
+  max-width: 1200px;
   width: 90%;
   margin-left: auto;
   margin-right: auto;
@@ -162,6 +161,23 @@ button:active {
 
 .hidden {
   display: none;
+}
+
+.sidebar {
+    width: 200px; /* Set a fixed width for the sidebar */
+    height: 50vh; /* Full height */
+    overflow-y: auto; /* Enable vertical scrolling if needed */
+    background-color: white; /* Background color */
+    border-right: 1px solid #ccc; /* Right border for separation */
+    padding: 15px; /* Padding inside the sidebar */
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+#algorithm-explanation {
+    font-size: 18px; /* Increased font size for better visibility */
+    font-weight: bold; /* Make the text bold */
+    line-height: 1.5; /* Line height for spacing */
+    color: #333; /* Text color */
 }
 
 @media (max-width: 768px) {
