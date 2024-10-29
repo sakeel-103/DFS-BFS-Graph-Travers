@@ -86,6 +86,24 @@
             color: #00ffae;
             font-weight: bold;
         }
+
+        #backToTop {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            padding: 10px 15px;
+            background-color: #5a5a5a;
+            color: #e0e0e0;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            display: none; /* Initially hidden */
+        }
+
+        #backToTop:hover {
+            background-color: #7a7a7a;
+        }
     </style>
 </head>
 
@@ -120,6 +138,8 @@
     <div class="section">
         <button onclick="generateGraph()">Regenerate Graph</button>
     </div>
+
+    <button id="backToTop" onclick="scrollToTop()">Back to Top</button>
 
     <script>
         const graphContainer = d3.select('#graphContainer');
@@ -212,7 +232,20 @@
             d.fy = null;
         }
 
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
         generateGraph();
+
+        window.onscroll = function() {
+            const button = document.getElementById("backToTop");
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                button.style.display = "block"; // Show button when scrolled down
+            } else {
+                button.style.display = "none"; // Hide button when at the top
+            }
+        };
     </script>
 </body>
 
