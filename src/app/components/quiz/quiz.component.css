@@ -20,9 +20,10 @@
   margin-top: 100px; /* Move the quiz container down */
 
   margin-top: 8rem;
+  margin-bottom: 3rem;
   padding: 2rem;
   font-family: "Roboto", sans-serif;
-  background-color: #13eea9;
+  background-color: #f1f1f1;
   border-radius: 10px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
@@ -79,6 +80,7 @@ header {
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for cards */
   cursor: pointer; /* Pointer cursor on hover */
   transition: transform 0.2s; /* Transition effect for hover */
+  margin-right: 10px;
 }
 
 .difficulty-card:hover {
@@ -138,4 +140,17 @@ button:disabled {
   height: 10px; /* Height of the score bar */
   background-color: #007bff; /* Color of the score bar */
   border-radius: 5px; /* Rounded corners for the score bar */
+}
+.correct {
+  color: green;
+}
+
+.incorrect {
+  color: red;
+}
+
+.review-card {
+  border: 1px solid #ddd;
+  padding: 10px;
+  margin: 10px 0;
 }
