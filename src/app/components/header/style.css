@@ -53,16 +53,16 @@ body {
 }
 
 button {
-  
-  
  padding: 12px 20px;
   color: white;
   border: none;
   cursor: pointer;
+  background-color: #4cae4c;
 }
 
 button:hover {
-  background-color: #4cae4c;
+  box-shadow: 0 0 10px #4caf50, 0 0 20px #81c784;
+  transform: scale(1.05);
 }
 
 /* Header Styling */
