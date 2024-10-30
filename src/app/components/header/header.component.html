@@ -23,6 +23,31 @@
       background-color: #f9f9f9;
       /* Optional: background color for better visibility */
     }
+    .algo-button {
+  background: linear-gradient(90deg, #6f42c1, #4e9a4d); /* Gradient background */
+  color: white; /* White text color */
+  border: none; /* No border */
+  padding: 15px 25px; /* Padding for button size */
+  border-radius: 10px; /* Rounded corners */
+  font-size: 16px; /* Font size */
+  cursor: pointer; /* Pointer cursor on hover */
+  transition: background 0.3s, transform 0.3s; /* Transition effects */
+  margin: 10px; /* Space between buttons */
+  display: inline-block; /* Align buttons in a line */
+  text-align: center; /* Center text in button */
+}
+
+.algo-button:hover {
+  background: linear-gradient(90deg, #5a2f91, #4e8c4d); /* Darker gradient on hover */
+  transform: scale(1.05); /* Slightly enlarge on hover */
+}
+
+/* Optional: Center the buttons within the container */
+.container {
+  text-align: center; /* Center content in container */
+}
+
+
   </style>
 </head>
 
@@ -310,36 +335,32 @@
   </section>
 
   <section id="visualizer" class="visualizer">
-      <div class="container">
-        <h2 data-i18n="interactive-graph-visualizer">
-          Interactive Graph Visualizer
-        </h2>
-        <p class="description" style="text-align: center">
-          Click the buttons to see the respective algorithms in action!
-        </p>
-  <section id="visualizer" class="visualizer">
-    <div class="container" id="container">
-
+    <div class="container">
+      <h2 data-i18n="interactive-graph-visualizer">Interactive Graph Visualizer</h2>
+      <p class="description" style="text-align: center">
+        Click the buttons to see the respective algorithms in action!
+      </p>
+      <div class="button-container">
         <!-- BFS Button -->
-        <button (click)="startBFS()">Start BFS</button>
+        <button class="algo-button" (click)="startBFS()">Start BFS</button>
         <div *ngIf="showBFSGif" class="gif-container">
           <img
             src="https://upload.wikimedia.org/wikipedia/commons/5/5d/Breadth-First-Search-Algorithm.gif"
             alt="BFS Algorithm Visualization"
           />
         </div>
-
+  
         <!-- DFS Button -->
-        <button (click)="startDFS()">Start DFS</button>
+        <button class="algo-button" (click)="startDFS()">Start DFS</button>
         <div *ngIf="showDFSGif" class="gif-container">
           <img
             src="https://upload.wikimedia.org/wikipedia/commons/7/7f/Depth-First-Search.gif"
             alt="DFS Algorithm Visualization"
           />
         </div>
-
+  
         <!-- Dijkstra Button -->
-        <button (click)="startDijkstra()">Start Dijkstra</button>
+        <button class="algo-button" (click)="startDijkstra()">Start Dijkstra</button>
         <div *ngIf="showDijkstraGif" class="gif-container">
           <img
             src="https://upload.wikimedia.org/wikipedia/commons/5/57/Dijkstra_Animation.gif"
@@ -347,7 +368,9 @@
           />
         </div>
       </div>
-    </section>
+    </div>
+  </section>
+  
 
   <h1 class="canvas_1" style="color: #40444b;">CANVAS</h1>
 
@@ -1028,6 +1051,6 @@
     }
   </script>
 
-</body>
 
-</html>
+
+
