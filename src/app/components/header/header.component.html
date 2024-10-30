@@ -317,6 +317,10 @@ frameborder="0"
           data-i18n="bellmanFord">Bellman-Ford</button>
         <button class="tab-button" [class.active]="activeTab === 'floydWarshall'"
           (click)="setActiveTab('floydWarshall')" data-i18n="floydWarshall">Floyd-Warshall</button>
+        <button class="tab-button" [class.active]="activeTab === 'Tarjans'"
+          (click)="setActiveTab('tarjans')" data-i18n="tarjans">Tarjans's</button>
+        <button class="tab-button" [class.active]="activeTab === 'kruskals'"
+          (click)="setActiveTab('kruskals')" data-i18n="krushkals">Kruskal's</button>
       </div>
 
       <div class="tab-content">
@@ -381,6 +385,30 @@ frameborder="0"
             <li data-i18n="floydWarshall-use-2">Transitive closure computation</li>
           </ul>
         </div>
+         
+        <!-- Tarjan's Algorithm Content -->
+<div *ngIf="activeTab === 'tarjans'" id="tarjan-content">
+  <h3 data-i18n="tarjan-full">Tarjan's Algorithm</h3>
+  <p data-i18n="tarjan-description">Tarjan's algorithm finds the strongly connected components (SCCs) of a directed graph. It uses a depth-first search (DFS) to explore the graph while maintaining discovery times and low-link values.</p>
+  <p data-i18n="tarjan-use">It's widely used for:</p>
+  <ul>
+    <li data-i18n="tarjan-use-1">Identifying cycles in directed graphs</li>
+    <li data-i18n="tarjan-use-2">Analyzing social networks</li>
+  </ul>
+</div>
+
+<!-- Kruskal's Algorithm Content -->
+<div *ngIf="activeTab === 'kruskals'" id="kruskal-content">
+  <h3 data-i18n="kruskal-full">Kruskal's Algorithm</h3>
+  <p data-i18n="kruskal-description">Kruskal's algorithm finds the Minimum Spanning Tree (MST) of a connected, undirected graph. It sorts all edges and adds them one by one to the MST, ensuring no cycles are formed.</p>
+  <p data-i18n="kruskal-use">It's widely used for:</p>
+  <ul>
+    <li data-i18n="kruskal-use-1">Network design</li>
+    <li data-i18n="kruskal-use-2">Cluster analysis</li>
+  </ul>
+</div>
+
+
       </div>
     </div>
   </section>
