@@ -1,6 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { trigger, state, style, animate, transition } from '@angular/animations';
+import {
+  trigger,
+  state,
+  style,
+  animate,
+  transition,
+} from '@angular/animations';
 import { NavbarComponent } from '../navbar/navbar.component';
 import { AuthService } from '../../services/auth.service';
 import { Title } from '@angular/platform-browser';
@@ -33,25 +39,83 @@ interface Question {
   ],
 })
 export class QuizComponent implements OnInit {
-
-
-  constructor(private authService: AuthService,private titleService: Title) {}
+  constructor(private authService: AuthService, private titleService: Title) {}
 
   ngOnInit(): void {
     this.titleService.setTitle('GraphExplorer Pro | Quiz');
     this.shuffleQuestions();
   }
   questions: Question[] = [
-    { text: "In a complete graph with n vertices, how many edges are there?", options: ["n", "n-1", "n(n-1)/2", "2^n"], correctAnswer: 2, difficulty: "easy" },
-    { text: "What is the chromatic number of a planar graph?", options: ["2", "3", "4", "5"], correctAnswer: 2, difficulty: "easy" },
-    { text: "In which type of graph is every vertex connected to every other vertex?", options: ["Tree", "Bipartite", "Complete", "Cyclic"], correctAnswer: 2, difficulty: "easy" },
-    { text: "What is the time complexity of depth-first search (DFS)?", options: ["O(V)", "O(E)", "O(V + E)", "O(V * E)"], correctAnswer: 0, difficulty: "easy" },
-    { text: "What is the time complexity of breadth-first search (BFS)?", options: ["O(V)", "O(E)", "O(V + E)", "O(V * E)"], correctAnswer: 1, difficulty: "easy" },
-    { text: "What is the minimum number of colors needed to color the vertices of a bipartite graph?", options: ["1", "2", "3", "4"], correctAnswer: 1, difficulty: "easy" },
-    { text: "Which of the following is true about trees?", options: ["They are cyclic", "They have exactly V-1 edges", "They have multiple paths between nodes", "They can have more than one root"], correctAnswer: 1, difficulty: "easy" },
-    { text: "What is a complete graph?", options: ["A graph with no edges", "A graph where every pair of vertices is connected", "A graph with a single cycle", "A disconnected graph"], correctAnswer: 1, difficulty: "easy" },
-    { text: "Which algorithm can be used to check if a graph is connected?", options: ["Dijkstra's", "DFS", "BFS", "Prim's"], correctAnswer: 1, difficulty: "easy" },
-    { text: "How many edges does a tree with n vertices have?", options: ["n-1", "n", "n+1", "2n"], correctAnswer: 0, difficulty: "easy" },
+    {
+      text: 'In a complete graph with n vertices, how many edges are there?',
+      options: ['n', 'n-1', 'n(n-1)/2', '2^n'],
+      correctAnswer: 2,
+      difficulty: 'easy',
+    },
+    {
+      text: 'What is the chromatic number of a planar graph?',
+      options: ['2', '3', '4', '5'],
+      correctAnswer: 2,
+      difficulty: 'easy',
+    },
+    {
+      text: 'In which type of graph is every vertex connected to every other vertex?',
+      options: ['Tree', 'Bipartite', 'Complete', 'Cyclic'],
+      correctAnswer: 2,
+      difficulty: 'easy',
+    },
+    {
+      text: 'What is the time complexity of depth-first search (DFS)?',
+      options: ['O(V)', 'O(E)', 'O(V + E)', 'O(V * E)'],
+      correctAnswer: 0,
+      difficulty: 'easy',
+    },
+    {
+      text: 'What is the time complexity of breadth-first search (BFS)?',
+      options: ['O(V)', 'O(E)', 'O(V + E)', 'O(V * E)'],
+      correctAnswer: 1,
+      difficulty: 'easy',
+    },
+    {
+      text: 'What is the minimum number of colors needed to color the vertices of a bipartite graph?',
+      options: ['1', '2', '3', '4'],
+      correctAnswer: 1,
+      difficulty: 'easy',
+    },
+    {
+      text: 'Which of the following is true about trees?',
+      options: [
+        'They are cyclic',
+        'They have exactly V-1 edges',
+        'They have multiple paths between nodes',
+        'They can have more than one root',
+      ],
+      correctAnswer: 1,
+      difficulty: 'easy',
+    },
+    {
+      text: 'What is a complete graph?',
+      options: [
+        'A graph with no edges',
+        'A graph where every pair of vertices is connected',
+        'A graph with a single cycle',
+        'A disconnected graph',
+      ],
+      correctAnswer: 1,
+      difficulty: 'easy',
+    },
+    {
+      text: 'Which algorithm can be used to check if a graph is connected?',
+      options: ["Dijkstra's", 'DFS', 'BFS', "Prim's"],
+      correctAnswer: 1,
+      difficulty: 'easy',
+    },
+    {
+      text: 'How many edges does a tree with n vertices have?',
+      options: ['n-1', 'n', 'n+1', '2n'],
+      correctAnswer: 0,
+      difficulty: 'easy',
+    },
   ];
 
   currentQuestionIndex: number = 0;
@@ -61,8 +125,6 @@ export class QuizComponent implements OnInit {
   quizCompleted: boolean = false;
   quizStarted: boolean = false; // Track whether the quiz has started
   animationState: string = 'normal';
-
-  
 
   get currentQuestion(): Question {
     return this.questions[this.currentQuestionIndex];
@@ -75,13 +137,20 @@ export class QuizComponent implements OnInit {
   shuffleQuestions() {
     for (let i = this.questions.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
-      [this.questions[i], this.questions[j]] = [this.questions[j], this.questions[i]];
+      [this.questions[i], this.questions[j]] = [
+        this.questions[j],
+        this.questions[i],
+      ];
     }
   }
 
+  allQuestions: Question[] = [...this.questions];
+
   startQuiz(difficulty: string) {
     this.quizStarted = true;
-    this.questions = this.questions.filter(q => q.difficulty === difficulty);
+    this.questions = this.allQuestions.filter(
+      (q) => q.difficulty === difficulty
+    );
     this.currentQuestionIndex = 0;
     this.selectedAnswerIndex = null;
     this.answerSubmitted = false;
@@ -119,11 +188,13 @@ export class QuizComponent implements OnInit {
   }
 
   restartQuiz() {
+    this.quizStarted = false;
     this.currentQuestionIndex = 0;
     this.selectedAnswerIndex = null;
     this.answerSubmitted = false;
     this.score = 0;
     this.quizCompleted = false;
+    this.questions = [...this.allQuestions];
     this.shuffleQuestions();
   }
 }
