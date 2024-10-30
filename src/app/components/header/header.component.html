@@ -10,6 +10,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/i18next/21.6.10/i18next.min.js"></script>
+  
   <!-- <iframe
 src="https://www.chatbase.co/chatbot-iframe/L51AYDMWE0tDQxPXKTgeX"
 width="100%"
@@ -475,6 +476,96 @@ frameborder="0"
       <!-- Threads will be injected here -->
     </div>
   </div>
+
+
+
+
+  
+
+  
+    <div class="testimonials-wrap">
+      <div class="container">
+        <div class="heading-section">
+          <span class="sub-heading">Testimonials</span>
+          <h2>Happy Clients &amp; Feedbacks</h2>
+        </div>
+  
+        <div class="carousel-testimonial">
+          <div class="arrow left-arrow" onclick="prevSlide()"><i class="fa fa-arrow-left"></i></div>
+  
+          <div class="testimonial-container">
+            <div class="testimonial-items">
+              <div class="item">
+                <div class="testimonial-box">
+                  <div class="user-img" style="background-image: url(https://randomuser.me/api/portraits/men/82.jpg)"></div>
+                  <div class="text">
+                    <span class="quote"><i class="fa fa-quote-left"></i></span>
+                    <p class="message">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                    <p class="name">Mark Huff</p>
+                    <span class="position">Businessman</span>
+                  </div>
+                </div>
+              </div>
+  
+              <div class="item">
+                <div class="testimonial-box">
+                  <div class="user-img" style="background-image: url(https://randomuser.me/api/portraits/women/79.jpg)"></div>
+                  <div class="text">
+                    <span class="quote"><i class="fa fa-quote-left"></i></span>
+                    <p class="message">Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life.</p>
+                    <p class="name">Anna Kendrick</p>
+                    <span class="position">Designer</span>
+                  </div>
+                </div>
+              </div>
+  
+              <div class="item">
+                <div class="testimonial-box">
+                  <div class="user-img" style="background-image: url(https://randomuser.me/api/portraits/men/88.jpg)"></div>
+                  <div class="text">
+                    <span class="quote"><i class="fa fa-quote-left"></i></span>
+                    <p class="message">When she reached the first hills of the Italic Mountains, she had a last view back on the skyline.</p>
+                    <p class="name">John Smith</p>
+                    <span class="position">Software Engineer</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+  
+          <div class="arrow right-arrow" onclick="nextSlide()"><i class="fa fa-arrow-right"></i></div>
+        </div>
+      </div>
+    </div>
+
+  
+
+  
+   <script>
+let currentIndex = 0;
+const items = document.querySelectorAll('.testimonial-items .item');
+const testimonialItems = document.querySelector('.testimonial-items');
+const totalItems = items.length;
+
+function showSlide(index) {
+  const offset = -index * 100;
+  testimonialItems.style.transform = `translateX(${offset}%)`;
+}
+
+function nextSlide() {
+  currentIndex = (currentIndex + 1) % totalItems;
+  showSlide(currentIndex);
+}
+
+function prevSlide() {
+  currentIndex = (currentIndex - 1 + totalItems) % totalItems;
+  showSlide(currentIndex);
+}
+
+// Initial display
+showSlide(currentIndex);
+
+   </script>
 
   <!-- Inline JavaScript code (previously TypeScript) -->
   <script>

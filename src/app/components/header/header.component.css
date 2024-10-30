@@ -375,3 +375,123 @@ p.text-indigo-100 {
 .logo a:hover {
   color: #ffa500;
 }
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
+}
+
+.testimonials-wrap {
+  text-align: center;
+  padding: 50px 0;
+}
+
+.heading-section {
+  margin-bottom: 30px;
+}
+
+.sub-heading {
+  font-size: 18px;
+  color: #ff5e63;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.heading-section h2 {
+  font-size: 32px;
+  color: #333;
+}
+
+.carousel-testimonial {
+  position: relative;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: #ff5e63;
+  color: #fff;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 50%;
+  z-index: 10;
+}
+
+.left-arrow {
+  left: -30px;
+}
+
+.right-arrow {
+  right: -30px;
+}
+
+.testimonial-container {
+  overflow: hidden;
+  width: 100%;
+}
+
+.testimonial-items {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.item {
+  min-width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.testimonial-box {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  max-width: 500px;
+}
+
+.user-img {
+  width: 80px;                   /* Equal width and height for a perfect circle */
+  height: 80px;
+  background-size: cover;        /* Ensures the image covers the entire area */
+  background-position: center;   /* Centers the image */
+  border-radius: 50%;            /* Makes the image circular */
+  margin-right: 20px;            /* Space between image and text */
+  border: 3px solid #ff5e63;     /* Adds a border to enhance the look */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+  overflow: hidden;              /* Prevents overflow to maintain circular shape */
+}
+
+
+.text {
+  text-align: left;
+}
+
+.quote {
+  font-size: 24px;
+  color: #ff5e63;
+}
+
+.message {
+  font-size: 16px;
+  color: #333;
+  margin: 10px 0;
+}
+
+.name {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.position {
+  font-size: 14px;
+  color: #666;
+}
