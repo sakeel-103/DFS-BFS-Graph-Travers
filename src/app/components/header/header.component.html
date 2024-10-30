@@ -16,70 +16,95 @@ width="100%"
 style="height: 100%; min-height: 700px"
 frameborder="0"
 ></iframe> -->
-  <style>
-    /* .canvas_1 {
-      color: #333;
-      text-align: center;
-      margin-bottom: 20px;
-    }
+<style>
+  /* .canvas_1 {
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+  } */
 
-    canvas {
-      border: 1px solid #ccc;
-      
-    } */
+  canvas {
+    border: 1px solid #ccc;
+    /* Adding a border to visualize the canvas */
+    background-color: #f9f9f9;
+    /* Optional: background color for better visibility */
+  }
 
-    header {
-  background-color: #1a1a2e;
-  padding: 10px;
-}
+  .algo-button {
+    background: linear-gradient(90deg, #6f42c1, #4e9a4d); /* Gradient background */
+    color: white; /* White text color */
+    border: none; /* No border */
+    padding: 15px 25px; /* Padding for button size */
+    border-radius: 10px; /* Rounded corners */
+    font-size: 16px; /* Font size */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background 0.3s, transform 0.3s; /* Transition effects */
+    margin: 10px; /* Space between buttons */
+    display: inline-block; /* Align buttons in a line */
+    text-align: center; /* Center text in button */
+  }
 
-nav.container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
+  .algo-button:hover {
+    background: linear-gradient(90deg, #5a2f91, #4e8c4d); /* Darker gradient on hover */
+    transform: scale(1.05); /* Slightly enlarge on hover */
+  }
 
-.logo {
-  display: flex;
-  align-items: center;
-  gap: 10px; /* Add space between the logo image and text */
-}
+  /* Optional: Center the buttons within the container */
+  .container {
+    text-align: center; /* Center content in container */
+  }
 
-.logo-img {
-  height: 70px;
-  width: 75px;
-  border-radius: 50%;
-}
+  header {
+    background-color: #1a1a2e;
+    padding: 10px;
+  }
 
-.logo-text {
-  font-size: 1.5rem;
-  color: white;
-  text-decoration: none;
-  white-space: nowrap; /* Prevent breaking into two lines */
-}
+  nav.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
 
-.nav-links {
-  display: flex;
-  gap: 20px;
-}
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Add space between the logo image and text */
+  }
 
-.nav-item {
-  color: white;
-  text-decoration: none;
-  font-size: 1rem;
-}
+  .logo-img {
+    height: 70px;
+    width: 75px;
+    border-radius: 50%;
+  }
 
-.nav-item:hover {
-  text-decoration: underline;
-}
+  .logo-text {
+    font-size: 1.5rem;
+    color: white;
+    text-decoration: none;
+    white-space: nowrap; /* Prevent breaking into two lines */
+  }
 
-.github-link img {
-  height: 25px;
-  width: 25px;
-}
+  .nav-links {
+    display: flex;
+    gap: 20px;
+  }
 
+  .nav-item {
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+  }
 
-  </style>
+  .nav-item:hover {
+    text-decoration: underline;
+  }
+
+  .github-link img {
+    height: 25px;
+    width: 25px;
+  }
+</style>
+
 </head>
 
 <body>
@@ -361,36 +386,32 @@ nav.container {
   </section>
 
   <section id="visualizer" class="visualizer">
-      <div class="container">
-        <h2 data-i18n="interactive-graph-visualizer">
-          Interactive Graph Visualizer
-        </h2>
-        <p class="description" style="text-align: center">
-          Click the buttons to see the respective algorithms in action!
-        </p>
-  <section id="visualizer" class="visualizer">
-    <div class="container" id="container">
-
+    <div class="container">
+      <h2 data-i18n="interactive-graph-visualizer">Interactive Graph Visualizer</h2>
+      <p class="description" style="text-align: center">
+        Click the buttons to see the respective algorithms in action!
+      </p>
+      <div class="button-container">
         <!-- BFS Button -->
-        <button (click)="startBFS()">Start BFS</button>
+        <button class="algo-button" (click)="startBFS()">Start BFS</button>
         <div *ngIf="showBFSGif" class="gif-container">
           <img
             src="https://upload.wikimedia.org/wikipedia/commons/5/5d/Breadth-First-Search-Algorithm.gif"
             alt="BFS Algorithm Visualization"
           />
         </div>
-
+  
         <!-- DFS Button -->
-        <button (click)="startDFS()">Start DFS</button>
+        <button class="algo-button" (click)="startDFS()">Start DFS</button>
         <div *ngIf="showDFSGif" class="gif-container">
           <img
             src="https://upload.wikimedia.org/wikipedia/commons/7/7f/Depth-First-Search.gif"
             alt="DFS Algorithm Visualization"
           />
         </div>
-
+  
         <!-- Dijkstra Button -->
-        <button (click)="startDijkstra()">Start Dijkstra</button>
+        <button class="algo-button" (click)="startDijkstra()">Start Dijkstra</button>
         <div *ngIf="showDijkstraGif" class="gif-container">
           <img
             src="https://upload.wikimedia.org/wikipedia/commons/5/57/Dijkstra_Animation.gif"
@@ -398,7 +419,9 @@ nav.container {
           />
         </div>
       </div>
-    </section>
+    </div>
+  </section>
+  
 
   <h1 class="canvas_1" style="color: #40444b;">CANVAS</h1>
 
@@ -1078,5 +1101,3 @@ nav.container {
       });
     }
   </script>
-
-
