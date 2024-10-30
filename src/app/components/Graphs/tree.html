@@ -103,6 +103,14 @@
         .back-to-top:hover {
             background-color: #7a7a7a;
         }
+
+
+        .gtranslate_wrapper {
+            position: fixed; /* Fixed position */
+            bottom: 20px; /* Distance from the bottom */
+            left: 20px; /* Distance from the left */
+            z-index: 1000; /* Ensure it appears above other elements */
+        }
     </style>
 </head>
 
@@ -140,6 +148,17 @@
     </div>
 
     <button class="back-to-top" onclick="scrollToTop()">Back to Top</button>
+
+    <div class="gtranslate_wrapper">
+        <script>
+            window.gtranslateSettings = {
+                "default_language": "en",
+                "detect_browser_language": true,
+                "wrapper_selector": ".gtranslate_wrapper"
+            };
+        </script>
+        <script src="https://cdn.gtranslate.net/widgets/latest/popup.js" defer></script>
+    </div>
 
     <script>
         const treeContainer = d3.select('#treeContainer');
