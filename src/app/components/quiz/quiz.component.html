@@ -50,10 +50,22 @@
         <h2>Quiz Completed!</h2>
         <p>Your score: {{ score }} out of {{ questions.length }}</p>
         <div class="score-breakdown">
-            <div class="score-bar" [style.width.%]="(score / questions.length) * 100"></div>
+          <div class="score-bar" [style.width.%]="(score / questions.length) * 100"></div>
         </div>
+      
+        <h3>Review Your Answers:</h3>
+        <div class="review-container">
+          <div *ngFor="let question of questions; let i = index" class="review-card">
+            <p><strong>Question {{ i + 1 }}:</strong> {{ question.text }}</p>
+            <p><strong>Your Answer:</strong> {{ question.options[selectedAnswers[i]] || 'Not Answered' }}</p>
+            <p [class.correct]="correctAnswers[i]" [class.incorrect]="!correctAnswers[i]">
+              <strong>Correct Answer:</strong> {{ question.options[question.correctAnswer] }}
+            </p>
+          </div>
+        </div>
+      
         <button (click)="restartQuiz()">Retake Quiz</button>
-    </div>
+      </div>
 
     <footer>
         <p>Created by Graph Theory Enthusiasts</p>
