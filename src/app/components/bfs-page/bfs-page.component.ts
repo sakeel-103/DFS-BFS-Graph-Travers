@@ -2,6 +2,7 @@ import { Component, AfterViewInit, OnInit } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
+import { Title } from '@angular/platform-browser';
 import { NavbarComponent } from '../navbar/navbar.component';
 
 @Component({
@@ -15,7 +16,7 @@ export class BfsPageComponent implements AfterViewInit, OnInit {
   private nodes: { label: string; x: number; y: number }[] = [];
   private edges: [number, number][] = [];
   private bfsTimeout: any;
-
+  public explanation: string = '';
   private bfsCanvas!: HTMLCanvasElement; // Use '!' to indicate it's definitely assigned later
   private maxDepth: number = 0; // New property to track maximum depth
 
@@ -24,9 +25,11 @@ export class BfsPageComponent implements AfterViewInit, OnInit {
   isDropdownOpen: boolean = false;
   private finalPath: number[] = []; // To store the final path taken
 
-  constructor(private authService: AuthService) {}
+  constructor(private authService: AuthService,private titleService: Title) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.titleService.setTitle('GraphExplorer Pro | BFS');
+  }
 
   ngAfterViewInit(): void {
     this.bfsCanvas = document.getElementById('bfs-canvas') as HTMLCanvasElement;
@@ -64,8 +67,12 @@ export class BfsPageComponent implements AfterViewInit, OnInit {
 
     let currentLevel = 1;
 
+    this.explanation = `Start Node: ${this.nodes[0].label}`;
+
     while (queue.length > 0) {
       const node = queue.shift()!;
+
+    //this.explanation += `Current: ${this.nodes[node].label}\n`;
 
       // Find the current node level by converting level strings to numbers
       const currentNodeLevel = Object.keys(levels)
@@ -199,6 +206,7 @@ export class BfsPageComponent implements AfterViewInit, OnInit {
               .map((edge) => edge[1]);
 
             queue.push(...neighbors);
+            this.explanation += `<br>Visited: ${this.nodes[node].label}`;
 
             this.drawGraph(ctx, queue, node, visited);
             this.bfsTimeout = setTimeout(processNextNode, 2000);
@@ -210,6 +218,7 @@ export class BfsPageComponent implements AfterViewInit, OnInit {
       } else {
         this.finalPath = visited;
         this.highlightFinalPath(ctx);
+        this.explanation += `<br>Completed traversal`;
       }
     };
 

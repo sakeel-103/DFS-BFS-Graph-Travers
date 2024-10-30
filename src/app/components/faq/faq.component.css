@@ -1,15 +1,43 @@
 
-
-
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap');
+.montserrat-unique {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500; /* Medium weight for specific elements */
+  font-style: normal; /* Normal font style */
+}
 body {
-font-family: Arial, sans-serif;  
-  /* max-width: 800px; */
+  font-family: "Montserrat", sans-serif; /* Apply Montserrat to the body for all text */
+  font-weight: 400; /* Regular weight for body text */
   width: 100vw;
   margin:auto 0;
   display:flex;
   margin-top:30px
 }
 
+/* For WebKit browsers (Chrome, Safari) */
+::-webkit-scrollbar {
+    width: 10px; /* Width of the scrollbar */
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: #f0f0f0; /* Background of the track */
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #ff66b2, #8a2be2); /* Pink to Violet gradient */
+    border-radius: 10px; /* Rounded corners for the scrollbar thumb */
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, #ff99cc, #9b59b6); /* Lighter gradient on hover */
+  }
+  
+  /* For Firefox */
+  html {
+    scrollbar-width: thin; /* Makes the scrollbar thin */
+    scrollbar-color: #ff66b2 #f0f0f0; /* Color of the thumb and track */
+  }
+  
 .faq{
   width: 800px;
   margin-top: 5rem !important;

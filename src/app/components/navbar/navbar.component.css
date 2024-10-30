@@ -1,4 +1,7 @@
 /* Reset and Base Styles */
+
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap');
 body {
   font-family: Arial, sans-serif;
   margin: 0;

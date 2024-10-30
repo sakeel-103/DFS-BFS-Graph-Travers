@@ -1,6 +1,16 @@
 <app-navbar></app-navbar>
 
-<div id="dfs-container">
+<div id="dfs-container" style="display: flex;">
+  <!-- Sidebar for algorithm explanation -->
+  <div id="sidebar" class="sidebar">
+    <h2>DFS Steps</h2>
+    <div id="algorithm-explanation">
+        <p [innerHTML]="dfs_explaination"></p>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <div style="flex: 1; padding: 20px;">
   <!-- Custom Graph Input -->
   <div style="display: flex; justify-content: center;">
     <div class="custom-input">
@@ -60,4 +70,5 @@
     <div id="path-label">Path Taken:</div>
     <div id="path-content"></div>
   </div>
+</div>
 </div>

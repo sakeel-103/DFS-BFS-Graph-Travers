@@ -1,5 +1,7 @@
-import { Component, AfterViewInit } from '@angular/core';
+import { Component, AfterViewInit, OnInit } from '@angular/core';
 import { NavbarComponent } from '../navbar/navbar.component';
+import { Title } from '@angular/platform-browser';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-faq',
@@ -9,6 +11,14 @@ import { NavbarComponent } from '../navbar/navbar.component';
   styleUrls: ['./faq.component.css']
 })
 export class FaqComponent implements AfterViewInit {
+
+  constructor(private authService: AuthService,private titleService: Title) {}
+
+  ngOnInit(): void {
+    this.titleService.setTitle('GraphExplorer Pro | FAQ');
+  }
+
+
   ngAfterViewInit() {
     // const faqItems = document.querySelectorAll<HTMLElement>('.faq-item');
     // faqItems.forEach((item) => {
@@ -27,6 +37,10 @@ export class FaqComponent implements AfterViewInit {
     //     });
     //   }
     // });
+
+
+   
+
     document.addEventListener('DOMContentLoaded', () => {
       const togglers = document.querySelectorAll('[data-toggle]');
       

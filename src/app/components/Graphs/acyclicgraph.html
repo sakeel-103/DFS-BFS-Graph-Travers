@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acyclic Graph Visualization</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.0.0/d3.min.js"></script>
+    <style>
+        /* Professional and Neat Greyish Black and White Theme */
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #2b2b2b;
+            color: #e0e0e0;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        h1 {
+            color: #ffffff;
+            font-size: 26px;
+            margin-bottom: 10px;
+        }
+
+        .section {
+            max-width: 800px;
+            text-align: center;
+            margin-bottom: 25px;
+            font-size: 18px;
+            line-height: 1.7;
+        }
+
+        .section h2 {
+            color: #ffffff;
+            font-size: 22px;
+            margin-bottom: 8px;
+        }
+
+        #graphContainer {
+            width: 100%;
+            max-width: 800px;
+            height: 500px;
+            border-radius: 10px;
+            border: 2px solid #ccc;
+            background-color: #444;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+            position: relative;
+            margin-bottom: 30px;
+        }
+
+        .node {
+            fill: #ccc;
+            stroke: #fff;
+            stroke-width: 1.5px;
+            cursor: grab;
+        }
+
+        .link {
+            stroke: #999;
+            stroke-opacity: 0.8;
+        }
+
+        .node:hover {
+            fill: #ff7f50;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin: 10px;
+            background-color: #5a5a5a;
+            color: #e0e0e0;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #7a7a7a;
+        }
+
+        .highlight {
+            color: #00ffae;
+            font-weight: bold;
+        }
+
+        #backToTop {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            padding: 10px 15px;
+            background-color: #5a5a5a;
+            color: #e0e0e0;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            display: none; /* Initially hidden */
+        }
+
+        #backToTop:hover {
+            background-color: #7a7a7a;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Acyclic Graph Visualization</h1>
+
+    <div class="section">
+        <p>
+            An <span class="highlight">Acyclic Graph</span> is a directed graph with no cycles. It represents a structure where each node points to other nodes, but no path leads back to the starting node.
+        </p>
+    </div>
+
+    <div class="section">
+        <h2>Key Properties of Acyclic Graphs</h2>
+        <ul>
+            <li><strong>Direction:</strong> Each edge has a direction, indicated by arrows from one node to another.</li>
+            <li><strong>Nodes:</strong> The circles represent entities in the graph.</li>
+            <li><strong>Edges:</strong> The arrows represent directed connections between nodes.</li>
+            <li><strong>No Cycles:</strong> Paths in an acyclic graph do not form cycles, meaning no node can loop back to itself.</li>
+            <li><strong>Path:</strong> A sequence of directed edges connecting nodes in a particular direction.</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>Interactive Acyclic Graph</h2>
+        <p>Hover over nodes to see a highlighted effect. Click and drag nodes to reposition them!</p>
+    </div>
+
+    <!-- Container for the graph -->
+    <div id="graphContainer"></div>
+
+    <div class="section">
+        <button onclick="generateGraph()">Regenerate Graph</button>
+    </div>
+
+    <button id="backToTop" onclick="scrollToTop()">Back to Top</button>
+
+    <script>
+        const graphContainer = d3.select('#graphContainer');
+        const width = graphContainer.node().clientWidth;
+        const height = graphContainer.node().clientHeight;
+
+        function generateGraph() {
+            const nodes = [
+                { id: "A" }, { id: "B" }, { id: "C" },
+                { id: "D" }, { id: "E" }, { id: "F" }
+            ];
+            const links = [
+                { source: "A", target: "B" },
+                { source: "A", target: "C" },
+                { source: "B", target: "D" },
+                { source: "C", target: "E" },
+                { source: "D", target: "F" },
+                { source: "E", target: "F" }
+            ];
+
+            graphContainer.select("svg").remove();
+
+            const simulation = d3.forceSimulation(nodes)
+                .force("link", d3.forceLink(links).id(d => d.id).distance(120))
+                .force("charge", d3.forceManyBody().strength(-300))
+                .force("center", d3.forceCenter(width / 2, height / 2));
+
+            const svg = graphContainer.append("svg")
+                .attr("width", width)
+                .attr("height", height);
+
+            svg.append("defs").append("marker")
+                .attr("id", "arrow")
+                .attr("viewBox", [0, 0, 10, 10])
+                .attr("refX", 12)
+                .attr("refY", 5)
+                .attr("markerWidth", 6)
+                .attr("markerHeight", 6)
+                .attr("orient", "auto-start-reverse")
+                .append("path")
+                .attr("d", "M0,0 L10,5 L0,10 Z")
+                .attr("fill", "#999");
+
+            const link = svg.selectAll(".link")
+                .data(links)
+                .enter().append("line")
+                .attr("class", "link")
+                .attr("stroke-width", 2)
+                .attr("marker-end", "url(#arrow)");
+
+            const node = svg.selectAll(".node")
+                .data(nodes)
+                .enter().append("circle")
+                .attr("class", "node")
+                .attr("r", 8)
+                .call(d3.drag()
+                    .on("start", dragstarted)
+                    .on("drag", dragged)
+                    .on("end", dragended));
+
+            simulation.nodes(nodes).on("tick", () => {
+                link
+                    .attr("x1", d => d.source.x)
+                    .attr("y1", d => d.source.y)
+                    .attr("x2", d => d.target.x)
+                    .attr("y2", d => d.target.y);
+
+                node
+                    .attr("cx", d => d.x)
+                    .attr("cy", d => d.y);
+            });
+
+            simulation.force("link").links(links);
+        }
+
+        function dragstarted(event, d) {
+            if (!event.active) simulation.alphaTarget(0.3).restart();
+            d.fx = d.x;
+            d.fy = d.y;
+        }
+
+        function dragged(event, d) {
+            d.fx = event.x;
+            d.fy = event.y;
+        }
+
+        function dragended(event, d) {
+            if (!event.active) simulation.alphaTarget(0);
+            d.fx = null;
+            d.fy = null;
+        }
+
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        generateGraph();
+
+        window.onscroll = function() {
+            const button = document.getElementById("backToTop");
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                button.style.display = "block"; // Show button when scrolled down
+            } else {
+                button.style.display = "none"; // Hide button when at the top
+            }
+        };
+    </script>
+</body>
+
+</html>

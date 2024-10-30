@@ -3,12 +3,20 @@
 
 <head>
   <meta charset="utf-8" />
-  <title>EccomPRJ - Real-Time Collaboration</title>
+  <title>GraphExplorer Pro</title>
   <base href="/" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Open+Sans:wght@400;700&family=Montserrat:wght@400;700&family=Lato:wght@400;700&family=Source+Code+Pro:wght@400&family=Poppins:wght@400;700&family=Raleway:wght@400;700&family=Avenir:wght@400;700&display=swap" rel="stylesheet">
+
   <link rel="icon" type="image/png" sizes="32x32"
     href="https://img.freepik.com/free-vector/human-group-connecting-topology-concept-background-design_1017-53324.jpg?w=826&t=st=1729248294~exp=1729248894~hmac=3865b1d5630a5be3b7c74044d086d128aeb23412766f39a882e977845f837603">
   <style>
+.montserrat-unique {
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+}
     .scrollToTop {
       position: fixed;
       bottom: 80px;
@@ -118,33 +126,33 @@
       width: 100%;
       height: 100%;
       overflow: auto;
-      background-color: rgba(0,0,0,0.6);
+      background-color: rgba(0, 0, 0, 0.8);
     }
 
     .modal-content {
       background-color: #2a2a2a;
       margin: 10% auto;
-      padding: 30px;
-      border: 2px solid #FF1493; /* Dark pink border */
-      outline: 1px solid #FF69B4; /* Lighter pink outline */
+      padding: 40px;
+      border: 2px solid #FF1493;
+      outline: 1px solid #FF69B4;
       width: 90%;
-      max-width: 500px;
+      max-width: 600px;
       color: white;
-      border-radius: 8px;
-      box-shadow: 0 4px 20px rgba(255, 20, 147, 0.3); /* Dark pink shadow */
+      border-radius: 12px;
+      box-shadow: 0 4px 30px rgba(255, 20, 147, 0.5);
     }
 
     .close {
-      color: #FF1493; /* Dark pink close button */
+      color: #FF1493;
       float: right;
-      font-size: 28px;
+      font-size: 32px;
       font-weight: bold;
       transition: color 0.3s ease;
     }
 
     .close:hover,
     .close:focus {
-      color: #FF69B4; /* Lighter pink on hover */
+      color: #FF69B4;
       text-decoration: none;
       cursor: pointer;
     }
@@ -154,7 +162,7 @@
       width: 100%;
       padding: 12px;
       margin: 10px 0;
-      border: 1px solid #FF1493; /* Dark pink border */
+      border: 1px solid #FF1493;
       border-radius: 4px;
       box-sizing: border-box;
       background-color: #333;
@@ -164,7 +172,7 @@
 
     .modal-form input:focus,
     .modal-form textarea:focus {
-      border-color: #FF69B4; /* Lighter pink on focus */
+      border-color: #FF69B4;
       box-shadow: 0 0 5px rgba(255, 105, 180, 0.5);
       outline: none;
     }
@@ -172,7 +180,7 @@
     .modal-form button {
       width: 100%;
       padding: 12px;
-      background-color: #FF1493; /* Dark pink button */
+      background-color: #FF1493;
       color: white;
       border: none;
       border-radius: 4px;
@@ -182,15 +190,15 @@
     }
 
     .modal-form button:hover {
-      background-color: #FF69B4; /* Lighter pink on hover */
+      background-color: #FF69B4;
       box-shadow: 0 0 10px rgba(255, 20, 147, 0.5);
     }
 
     .modal h2 {
-      color: #FF1493; /* Dark pink title */
+      color: #FF1493;
       margin-bottom: 20px;
       text-align: center;
-
+    }
     /* Add this to your existing styles */
     .toast {
       position: fixed;
@@ -206,9 +214,7 @@
       z-index: 1001;
     }
 
-    .toast.show {
-
-    }
+   
 
     /* Testimonials Section Styles */
     .testimonials {
@@ -236,6 +242,8 @@
       color: #333;
     }
   </style>
+  <!-- Add Font Awesome CDN in the <head> section -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 
 <body>
@@ -255,15 +263,11 @@
   text-align: center;
   font-family: 'Arial', sans-serif;
   box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.2);
+  transition: background 0.3s ease; /* Added transition for background */
 }
 
-.footer {
-  background: linear-gradient(145deg, #1c1c1c, #2a2a2a);
-  color: white;
-  padding: 60px 20px 40px;
-  text-align: center;
-  font-family: 'Arial', sans-serif;
-  box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.2);
+.footer:hover {
+  background: linear-gradient(145deg, #2a2a2a, #1c1c1c); /* Darker on hover */
 }
 
 .footer-content {
@@ -300,7 +304,7 @@
   font-size: 16px;
   padding: 5px 10px;
   border-radius: 4px;
-  transition: all 0.3s ease;
+  transition: all 0.3s ease, transform 0.3s ease; /* Added transform transition */
   position: relative;
 }
 
@@ -318,7 +322,8 @@
 
 .footer-links a:hover {
   color: #ffffff;
-  transform: translateY(-2px);
+  transform: translateY(-2px); /* Added lift effect on hover */
+  background-color: rgba(76, 175, 80, 0.2); /* Light background on hover */
 }
 
 .footer-links a:hover::after {
@@ -330,6 +335,7 @@
   .newsletter-container {
     flex: 2;
     text-align: center;
+    margin-top: 20px; /* Added margin for spacing */
   }
 
   .newsletter-title {
@@ -368,12 +374,12 @@
     border-radius: 4px;
     cursor: pointer;
     font-size: 16px;
-    transition: box-shadow 0.3s, transform 0.3s;
+    transition: box-shadow 0.3s, transform 0.3s; /* Added transform transition */
   }
 
   .newsletter-container button:hover {
     box-shadow: 0 0 10px #4caf50, 0 0 20px #81c784;
-    transform: scale(1.05);
+    transform: scale(1.05); /* Added scale effect on hover */
   }
 
   /* Social Icons */
@@ -387,12 +393,12 @@
   .social-icons a {
     color: #b0b0b0;
     font-size: 24px;
-    transition: color 0.3s ease, transform 0.3s ease;
+    transition: color 0.3s ease, transform 0.3s ease; /* Added transform transition */
   }
 
   .social-icons a:hover {
     color: #4caf50;
-    transform: scale(1.2);
+    transform: scale(1.2); /* Added scale effect on hover */
   }
 
   /* Copyright Section */
@@ -400,12 +406,35 @@
     margin-top: 30px;
     font-size: 14px;
     color: #b0b0b0;
+    transition: color 0.3s ease; /* Added transition for color */
+  }
+
+  .copyright:hover {
+    color: #ffffff; /* Change color on hover */
+  }
+  #progressBarContainer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 7px;
+    background-color: #1A1A2E; 
+    z-index: 9999; 
+  }
+  
+  #progressBar {
+    height: 100%;
+    width: 0%; 
+    background: white; 
+    transition: width 0.2s ease;
   }
   </style>
   </head>
 
   <body>
-
+    <div id="progressBarContainer">
+      <div id="progressBar"></div>
+    </div>
     <div class="footer">
       <div class="container">
         <div class="footer-content">
@@ -435,31 +464,35 @@
             &copy; 2024 DFS-BFS Learning Platform. Empowering coders with mastery over Data Structures and Algorithms.
           </p>
 
-  <div class="footer">
-    <div class="footer-content">
-      <!-- Platform Links Section -->
-      <div class="footer-links">
-        <a href="#about">About DFS-BFS</a>
-        <a href="#courses">Courses</a>
-        <a href="#blogs">Blogs</a>
-        <a href="#contact">Contact Us</a>
-      </div>
-  
-      <!-- Newsletter Section -->
-      <div class="newsletter-container">
-        <h2 class="newsletter-title">Stay Updated with DFS-BFS</h2>
-        <p>Subscribe to our newsletter for the latest on algorithms, tips, and coding challenges.</p>
-        <form onsubmit="handleSubmit(event)">
-          <input type="email" placeholder="Enter your email" id="emailInput" required name="email" />
-          <button type="submit">Subscribe</button>
-        </form>
-      </div>
-  
-      <!-- Social Media Section -->
+          <div class="footer">
+            <div class="footer-content">
+              <!-- Platform Links Section -->
+              <div class="footer-links">
+                <a href="#about">About DFS-BFS</a>
+                <a href="#courses">Courses</a>
+                <a href="#blogs">Blogs</a>
+                <a href="#contact">Contact Us</a>
+              </div>
+        
+              <!-- Newsletter Section -->
+              <div class="newsletter-container">
+                <h2 class="newsletter-title">Stay Updated with DFS-BFS</h2>
+                <p>Subscribe to our newsletter for the latest on algorithms, tips, and coding challenges.</p>
+                <form onsubmit="handleSubmit(event)">
+                  <input type="email" placeholder="Enter your email" id="emailInput" required name="email" />
+                  <button type="submit">Subscribe</button>
+                </form>
+              </div>
+        
+               <!-- Social Media Section -->
       <div class="footer-links">
         <h3>Follow Us</h3>
         <div class="social-icons">
-          <a href="https://x.com/dfs-bfs" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
+          <a href="https://x.com/dfs-bfs" target="_blank" title="Twitter">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" style="height: 25px; width: 25px;">
+              <path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z " fill="#B8B8B8"/>
+          </svg>
+        </a>
           <a href="https://www.linkedin.com/company/dfs-bfs" target="_blank" title="LinkedIn"><i
               class="fab fa-linkedin"></i></a>
           <a href="../contributor/contributor.html" title="Contributors">Our Contributors</a>
@@ -467,7 +500,114 @@
         </div>
       </div>
     </div>
-  
+
+          <!-- FAQ Modal -->
+          <div id="faqModal" class="modal">
+            <div class="modal-content">
+              <span class="close" id="faqClose">&times;</span>
+              <h2>Frequently Asked Questions</h2>
+              <div class="faq-item">
+                <h3>What is DFS-BFS?</h3>
+                <p>DFS-BFS is a learning platform focused on Data Structures and Algorithms, providing interactive courses and real-time collaboration features.</p>
+              </div>
+              <div class="faq-item">
+                <h3>How can I subscribe to the newsletter?</h3>
+                <p>You can subscribe to our newsletter by entering your email address in the subscription form located in the footer.</p>
+              </div>
+              <div class="faq-item">
+                <h3>What types of courses are available?</h3>
+                <p>We offer a variety of courses covering fundamental and advanced topics in algorithms, data structures, and coding challenges.</p>
+              </div>
+              <div class="faq-item">
+                <h3>How can I contact support?</h3>
+                <p>If you have any questions or need assistance, you can contact us using the 'Contact Us' link in the footer.</p>
+              </div>
+              <div class="faq-item">
+                <h3>Can I contribute to the platform?</h3>
+                <p>Yes! We welcome contributions. Please visit the 'Our Contributors' link for more information on how to get involved.</p>
+              </div>
+              <!-- Add more FAQ items as needed -->
+            </div>
+          </div>
+
+          <!-- Add a button to open the FAQ modal -->
+          <button id="faqLink">FAQ</button>
+
+          <script>
+            // FAQ Modal Logic
+            const faqModal = document.getElementById("faqModal");
+            const faqLink = document.getElementById("faqLink");
+            const faqClose = document.getElementById("faqClose");
+
+            // Open the modal
+            faqLink.onclick = function() {
+              faqModal.style.display = "block";
+            }
+
+            // Close the modal when the close button is clicked
+            faqClose.onclick = function() {
+              faqModal.style.display = "none";
+            }
+
+            // Close the modal when clicking outside of the modal content
+            window.onclick = function(event) {
+              if (event.target === faqModal) {
+                faqModal.style.display = "none";
+              }
+            }
+          </script>
+
+          <style>
+            /* FAQ Modal Styles */
+            .modal {
+              display: none; /* Ensure modal is hidden by default */
+              position: fixed;
+              z-index: 1001;
+              left: 0;
+              top: 0;
+              width: 100%;
+              height: 100%;
+              overflow: auto;
+              background-color: rgba(0, 0, 0, 0.8);
+            }
+
+            .modal-content {
+              background-color: #2a2a2a;
+              margin: 10% auto;
+              padding: 40px;
+              border: 2px solid #FF1493;
+              outline: 1px solid #FF69B4;
+              width: 90%;
+              max-width: 600px;
+              color: white;
+              border-radius: 12px;
+              box-shadow: 0 4px 30px rgba(255, 20, 147, 0.5);
+            }
+
+            .close {
+              color: #FF1493;
+              float: right;
+              font-size: 32px;
+              font-weight: bold;
+              transition: color 0.3s ease;
+            }
+
+            .close:hover,
+            .close:focus {
+              color: #FF69B4;
+              text-decoration: none;
+              cursor: pointer;
+            }
+
+            .faq-item {
+              margin-bottom: 20px;
+            }
+          </style>
+        </div>
+      </div>
+    </div>
+
+
     <!-- Copyright Section -->
     <p class="copyright">
       &copy; 2024 DFS-BFS Learning Platform. Empowering coders with mastery over Data Structures and Algorithms.
@@ -489,6 +629,21 @@
         </form>
       </div>
     </div>
+
+    <script>
+      window.onscroll = function () {
+          updateProgressBar();
+        };
+
+
+        function updateProgressBar() {
+          var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+          var scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+          var scrollPercent = (scrollTop / scrollHeight) * 100;
+
+          document.getElementById("progressBar").style.width = scrollPercent + "%";
+        }
+    </script>
 
     <script>
       function handleSubmit(event) {
@@ -513,14 +668,14 @@
     </script>
 
 
-    <script>
-      window.embeddedChatbotConfig = {
-        chatbotId: "oA_rXZ5BFgXbM-YwcC0vx",
-        domain: "www.chatbase.co"
-      }
-    </script>
-    <script src="https://www.chatbase.co/embed.min.js" chatbotId="oA_rXZ5BFgXbM-YwcC0vx" domain="www.chatbase.co"
-      defer></script>
+<script>
+  window.embeddedChatbotConfig = {
+      chatbotId:"L51AYDMWE0tDQxPXKTgeX",
+      domain: "www.chatbase.co"
+  };
+</script>
+<script src="https://www.chatbase.co/embed.min.js" chatbotId="L51AYDMWE0tDQxPXKTgeX" domain="www.chatbase.co"
+  defer></script>
 
     <script>
       const scrollButton = document.getElementById('scrollToTopBtn');
@@ -611,6 +766,56 @@ window.gtranslateSettings = {
 
 <!-- Add custom CSS for GTranslate -->
 <style>
+/* Global scrollbar styling for Firefox */
+html {
+  scrollbar-width: auto; /* Firefox: auto for normal width */
+  scrollbar-color: #ff66b2 #f0f0f0; /* Initial color of the thumb and track */
+}
+
+/* For WebKit browsers (Chrome, Safari) */
+html::-webkit-scrollbar {
+  width: 24px; /* Width of the scrollbar */
+  height: 24px; /* Height of the scrollbar (for horizontal scrollbar) */
+}
+
+html::-webkit-scrollbar-thumb {
+  background-color: #ff66b2; /* Initial color of the scrollbar thumb */
+  border-radius: 12px; /* Rounded corners for the scrollbar thumb */
+  transition: background-color 0.3s; /* Smooth transition for hover effect */
+}
+
+html::-webkit-scrollbar-track {
+  background-color: #f0f0f0; /* Initial color of the scrollbar track */
+  border-radius: 12px; /* Rounded corners for the scrollbar track */
+}
+
+/* Hover effect for scrollbar thumb */
+html::-webkit-scrollbar-thumb:hover {
+  background-color: #ff3399; /* Change thumb color on hover */
+}
+
+/* Hover effect for scrollbar track */
+html::-webkit-scrollbar-track:hover {
+  background-color: #e0e0e0; /* Change track color on hover */
+}
+
+
+/* Dark mode or night-time styling (optional) */
+@media (prefers-color-scheme: dark) {
+    html {
+        scrollbar-color: #6911a8 #df50e1a4; /* Change scrollbar color for dark mode (Firefox) */
+    }
+
+    ::-webkit-scrollbar-track {
+        background: hsl(222, 81%, 47%); /* Dark gray track in dark mode */
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: linear-gradient(180deg, #ff66b2, #8a2be2); /* Gradient works in dark mode too */
+    }
+}
+
+
 .gtranslate_wrapper {
   position: fixed !important;
   left: 10px !important;
