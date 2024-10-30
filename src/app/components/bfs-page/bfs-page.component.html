@@ -1,63 +1,74 @@
 <app-navbar></app-navbar>
 
-<div id="bfs-container">
-  <!-- Custom Graph Input -->
-  <div style="display: flex; justify-content: center;">
-    <div class="custom-input">
-      <label for="nodes">Nodes (comma-separated):</label>
-      <input [(ngModel)]="customNodeInput" id="nodes" type="text" placeholder="A,B,C,D,E,F,G" />
-      <br>
-
-      <label for="edges">Edges (format: 0-1;1-2):</label>
-      <input [(ngModel)]="customEdgeInput" id="edges" type="text" placeholder="0-1;0-2;1-3" />
-      <br>
-
-      <button (click)="handleCustomGraphInput()">Create Custom Graph</button>
-      <button class="clear-button" (click)="clearForm()">Clear Form</button>
+<div id="bfs-container" style="display: flex;">
+  <!-- Sidebar for algorithm explanation -->
+  <div id="sidebar" class="sidebar">
+    <h2>BFS Steps</h2>
+    <div id="algorithm-explanation">
+        <p [innerHTML]="explanation"></p>
     </div>
   </div>
 
-  <h2>Breadth First Search</h2>
+  <!-- Main Content -->
+  <div style="flex: 1; padding: 20px;">
+    <!-- Custom Graph Input -->
+    <div style="display: flex; justify-content: center;">
+      <div class="custom-input">
+        <label for="nodes">Nodes (comma-separated):</label>
+        <input [(ngModel)]="customNodeInput" id="nodes" type="text" placeholder="A,B,C,D,E,F,G" />
+        <br>
 
-  <div class="scrollable-container" style="height: 200px;">
-    <canvas #bfsCanvas id="bfs-canvas" width="600" height="200"></canvas>
-  </div>
-  <button style="margin: 10px;" (click)="downloadCanvas()">Download</button>
+        <label for="edges">Edges (format: 0-1;1-2):</label>
+        <input [(ngModel)]="customEdgeInput" id="edges" type="text" placeholder="0-1;0-2;1-3" />
+        <br>
 
-  <div>
-    <button style="margin: 10px;" (click)="startBFSTraversal()">Start BFS</button>
-    <button style="margin: 10px;" (click)="resetBFS()">Reset BFS</button>
-    <button style="margin: 10px;" (click)="toggleBFSCard()">Algorithm Description</button> <!-- New button -->
-  </div>
-
-  <!-- BFS Description Card (Initially Hidden) -->
-  <div id="bfs-card" class="bfs-card hidden">
-    <h3>BFS Algorithm</h3>
-    <p>
-      Breadth First Search (BFS) is an algorithm for traversing or searching tree or graph data structures. The
-      algorithm starts at the root node (or an arbitrary node in the case of a graph) and explores all of its
-      neighboring nodes at the present depth before moving on to nodes at the next depth level.
-    </p>
-  </div>
-
-  <div style="display: flex;">
-    <div id="bfs-queue" class="box">
-      <div id="queue-label">Queue:</div>
-      <div id="queue-content"></div>
+        <button (click)="handleCustomGraphInput()">Create Custom Graph</button>
+        <button class="clear-button" (click)="clearForm()">Clear Form</button>
+      </div>
     </div>
-    <div id="bfs-processing" class="box" style="margin-left: 10px;">
-      <div id="processing-label">Processing:</div>
-      <div id="processing-content"></div>
+
+    <h2>Breadth First Search</h2>
+
+    <div class="scrollable-container" style="height: 200px;">
+      <canvas #bfsCanvas id="bfs-canvas" width="600" height="200"></canvas>
     </div>
-    <div id="bfs-processed" class="box" style="margin-left: 10px;">
-      <div id="processed-label">Processed:</div>
-      <div id="processed-content"></div>
+    <button style="margin: 10px;" (click)="downloadCanvas()">Download</button>
+
+    <div>
+      <button style="margin: 10px;" (click)="startBFSTraversal()">Start BFS</button>
+      <button style="margin: 10px;" (click)="resetBFS()">Reset BFS</button>
+      <button style="margin: 10px;" (click)="toggleBFSCard()">Algorithm Description</button>
     </div>
-  </div>
+
+    <!-- BFS Description Card (Initially Hidden) -->
+    <div id="bfs-card" class="bfs-card hidden">
+      <h3>BFS Algorithm</h3>
+      <p>
+        Breadth First Search (BFS) is an algorithm for traversing or searching tree or graph data structures. The
+        algorithm starts at the root node (or an arbitrary node in the case of a graph) and explores all of its
+        neighboring nodes at the present depth before moving on to nodes at the next depth level.
+      </p>
+    </div>
+
+    <div style="display: flex;">
+      <div id="bfs-queue" class="box">
+        <div id="queue-label">Queue:</div>
+        <div id="queue-content"></div>
+      </div>
+      <div id="bfs-processing" class="box" style="margin-left: 10px;">
+        <div id="processing-label">Processing:</div>
+        <div id="processing-content"></div>
+      </div>
+      <div id="bfs-processed" class="box" style="margin-left: 10px;">
+        <div id="processed-label">Processed:</div>
+        <div id="processed-content"></div>
+      </div>
+    </div>
 
     <!-- Path Visualization -->
     <div id="bfs-path" class="box" style="margin-top: 10px;">
-        <div id="path-label">Path Taken:</div>
-        <div id="path-content"></div>
+      <div id="path-label">Path Taken:</div>
+      <div id="path-content"></div>
     </div>
+  </div>
 </div>

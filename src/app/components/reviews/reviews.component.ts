@@ -1,4 +1,3 @@
-// review.component.ts
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
@@ -20,6 +19,7 @@ interface Question {
   author: string;
   content: string;
   replies: Reply[];
+  file?: File | null; // Optional file property
 }
 
 interface Reply {
@@ -39,7 +39,7 @@ export class ReviewComponent implements OnInit {
   reviews: Review[] = [];
   loading: boolean = true;
   newReview: Partial<Review> = {};
-  newQuestion: Partial<Question> = {};
+  newQuestion: Partial<Question> = { file: null }; // Initialize file property
   newReply: Partial<Reply> = {};
 
  
@@ -88,9 +88,10 @@ export class ReviewComponent implements OnInit {
         author: this.newQuestion.author,
         content: this.newQuestion.content,
         replies: [],
+        file: this.newQuestion.file, // Include the file if it exists
       };
       review.questions.push(question);
-      this.newQuestion = {};
+      this.newQuestion = { file: null }; // Reset the new question including file
       this.saveToCSV();
     }
   }
@@ -117,5 +118,16 @@ export class ReviewComponent implements OnInit {
   saveToCSV() {
     // In a real application, you would send this data to a backend service
     console.log('Saving to CSV:', this.reviews);
+  }
+
+  onFileSelected(event: Event) {
+    const target = event.target as HTMLInputElement;
+    if (target.files && target.files.length > 0) {
+      this.newQuestion.file = target.files[0]; // Store the selected file
+    }
+  }
+
+  getImageUrl(file: File): string {
+    return URL.createObjectURL(file); // Create a temporary URL for the image
   }
 }

@@ -16,7 +16,7 @@ export class BfsPageComponent implements AfterViewInit, OnInit {
   private nodes: { label: string; x: number; y: number }[] = [];
   private edges: [number, number][] = [];
   private bfsTimeout: any;
-
+  public explanation: string = '';
   private bfsCanvas!: HTMLCanvasElement; // Use '!' to indicate it's definitely assigned later
   private maxDepth: number = 0; // New property to track maximum depth
 
@@ -67,8 +67,12 @@ export class BfsPageComponent implements AfterViewInit, OnInit {
 
     let currentLevel = 1;
 
+    this.explanation = `Start Node: ${this.nodes[0].label}`;
+
     while (queue.length > 0) {
       const node = queue.shift()!;
+
+    //this.explanation += `Current: ${this.nodes[node].label}\n`;
 
       // Find the current node level by converting level strings to numbers
       const currentNodeLevel = Object.keys(levels)
@@ -202,6 +206,7 @@ export class BfsPageComponent implements AfterViewInit, OnInit {
               .map((edge) => edge[1]);
 
             queue.push(...neighbors);
+            this.explanation += `<br>Visited: ${this.nodes[node].label}`;
 
             this.drawGraph(ctx, queue, node, visited);
             this.bfsTimeout = setTimeout(processNextNode, 2000);
@@ -213,6 +218,7 @@ export class BfsPageComponent implements AfterViewInit, OnInit {
       } else {
         this.finalPath = visited;
         this.highlightFinalPath(ctx);
+        this.explanation += `<br>Completed traversal`;
       }
     };
 
