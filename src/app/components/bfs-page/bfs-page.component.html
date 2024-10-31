@@ -11,6 +11,16 @@
 
   <!-- Main Content -->
   <div style="flex: 1; padding: 20px;">
+    <!-- Predefined Graph Dropdown -->
+    <div style="display: flex; justify-content: center; margin-bottom: 20px;">
+        <label for="predefined-graphs">Select From Sample Graph:</label>
+        <select id="predefined-graphs" style="margin-left: 5px;" (change)="loadPredefinedGraph($event)">
+          <option value="">-- Options --</option>
+          <option value="graph1">Graph 1</option>
+          <option value="graph2">Graph 2</option>
+          <option value="graph3">Graph 3</option>
+        </select>
+    </div>
     <!-- Custom Graph Input -->
     <div style="display: flex; justify-content: center;">
       <div class="custom-input">
