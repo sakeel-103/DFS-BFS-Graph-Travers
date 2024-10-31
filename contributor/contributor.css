@@ -56,6 +56,28 @@ body {
   margin-bottom: 2rem;
 }
 
+/*Add footer input field with icon of email*/
+.input-flex {
+  display: flex;
+  align-items: center;
+  width: 30%;
+  border: 1px solid #ccc;
+  padding: 8px;
+  border-radius: 4px;
+}
+
+.input-flex i {
+  color: #888;
+  margin-right: 8px;
+}
+
+.input-flex input {
+  border: none;
+  outline: none;
+  flex-grow: 1;
+  font-size: 16px;
+}
+
 /* Buttons */
 .contributor-btn {
   display: inline-block;
@@ -69,23 +91,25 @@ body {
 }
 
 .contributor-btn-primary {
-  background-color: #fff;
-  color: #333;
+  background-color: #2257a0;
+  color: #fff;
   box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
 }
 
 .contributor-btn-primary:hover {
-  background-color: #f0f0f0;
+  background-color: #c94242;
+  transition-duration: 2s;
 }
 
 .contributor-btn-secondary {
-  background-color: #333;
+  background-color: #ca4818;
   color: #fff;
   box-shadow: 0 0 15px rgba(51, 51, 51, 0.3);
 }
 
 .contributor-btn-secondary:hover {
-  background-color: #444;
+  background-color: #3ad71b;
+  transition-duration: 2s;
 }
 
 /* Stats Section */
@@ -315,5 +339,10 @@ body {
   .contributor-cta input[type="email"] {
       width: 100%;
       max-width: 300px;
+  }
+
+  /*add input field width for small screen */
+  .input-flex {
+    width: 50%;
   }
 }
