@@ -13,8 +13,11 @@ export class HeaderComponent implements AfterViewInit, OnDestroy {
   private resizeListener: (() => void) | null = null; // Initialize as null
   activeTab: string = 'dfs'; // Default tab is 'dfs'
   showBFSGif: boolean = false; // Default for BFS visualization
+  isBFSRunning: boolean = false;
   showDFSGif: boolean = false; // Default for DFS visualization
+  isDFSRunning: boolean =false; 
   showDijkstraGif: boolean = false; // Default for Dijkstra visualization
+  isDijkstraRunning: boolean = false; 
 
   setActiveTab(tab: string) {
     this.activeTab = tab;
@@ -52,17 +55,20 @@ export class HeaderComponent implements AfterViewInit, OnDestroy {
   }
 
   startBFS() {
-    this.showBFSGif = !this.showBFSGif; // Toggle the visibility
+    this.isBFSRunning = !this.isBFSRunning; // Toggle the BFS state on/off
+    this.showBFSGif = this.isBFSRunning; // Toggle the visibility
     console.log('BFS Started: ', this.showBFSGif); // Debugging
   }
 
   startDFS() {
-    this.showDFSGif = !this.showDFSGif; // Toggle the visibility
+    this.isDFSRunning = !this.isDFSRunning; // Toggle the DFS state on/off
+    this.showDFSGif = this.isDFSRunning; // Toggle the visibility
     console.log('DFS Started: ', this.showDFSGif); // Debugging
   }
 
   startDijkstra() {
-    this.showDijkstraGif = !this.showDijkstraGif; // Toggle the visibility
+    this.isDijkstraRunning = !this.isDijkstraRunning; // Toggle the Dijkstra state on/off
+    this.showDijkstraGif = this.isDijkstraRunning; // Toggle the visibility
     console.log('Dijkstra Started: ', this.showDijkstraGif); // Debugging
   }
 }

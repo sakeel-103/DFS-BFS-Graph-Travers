@@ -372,7 +372,10 @@ nav.container {
     <div class="container" id="container">
 
         <!-- BFS Button -->
-        <button (click)="startBFS()">Start BFS</button>
+        <button (click)="startBFS()">
+          {{ isBFSRunning ? 'Stop BFS' : 'Start BFS' }}
+        </button>
+        
         <div *ngIf="showBFSGif" class="gif-container">
           <img
             src="https://upload.wikimedia.org/wikipedia/commons/5/5d/Breadth-First-Search-Algorithm.gif"
@@ -381,7 +384,9 @@ nav.container {
         </div>
 
         <!-- DFS Button -->
-        <button (click)="startDFS()">Start DFS</button>
+        <button (click)="startDFS()">
+          {{ isDFSRunning ? 'Stop DFS' : 'Start DFS' }}
+        </button>
         <div *ngIf="showDFSGif" class="gif-container">
           <img
             src="https://upload.wikimedia.org/wikipedia/commons/7/7f/Depth-First-Search.gif"
@@ -390,7 +395,9 @@ nav.container {
         </div>
 
         <!-- Dijkstra Button -->
-        <button (click)="startDijkstra()">Start Dijkstra</button>
+        <button (click)="startDijkstra()">
+          {{ isDijkstraRunning ? 'Stop Dijkstra' : 'Start Dijkstra' }}
+        </button>
         <div *ngIf="showDijkstraGif" class="gif-container">
           <img
             src="https://upload.wikimedia.org/wikipedia/commons/5/57/Dijkstra_Animation.gif"
