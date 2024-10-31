@@ -30,6 +30,8 @@ export class DfsPageComponent implements AfterViewInit, OnInit {
   private maxDepth: number = 0; // New property to track maximum depth
   private finalPath: number[] = []; // New property to track the final path
 
+  public dfs_explaination: string = '';
+
   customNodeInput: string = '';
   customEdgeInput: string = '';
   isDropdownOpen: boolean = false;
@@ -46,6 +48,29 @@ export class DfsPageComponent implements AfterViewInit, OnInit {
 
     this.adjustCanvasSize(); // Adjust size first
     this.drawGraph(dfsCtx);  // Then draw
+  }
+
+  public predefinedGraphs: any = {
+    graph1: {
+      nodes: 'A,B,C,D',
+      edges: '0-1;0-2;1-3',
+    },
+    graph2: {
+      nodes: 'E,F,G,H',
+      edges: '0-1;1-2;2-3',
+    },
+    graph3: {
+      nodes: 'I,J,K,L,M',
+      edges: '0-1;1-2;2-3;3-4;0-2;0-4',
+    },
+  };
+
+  loadPredefinedGraph(event: Event) {
+    const selectedGraph = (event.target as HTMLSelectElement).value;
+    if (selectedGraph && this.predefinedGraphs[selectedGraph]) {
+      this.customNodeInput = this.predefinedGraphs[selectedGraph].nodes;
+      this.customEdgeInput = this.predefinedGraphs[selectedGraph].edges;
+    }
   }
 
   toggleDropdown(): void {

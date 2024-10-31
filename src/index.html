@@ -97,7 +97,7 @@
     }
 
     @-webkit-keyframes fadein {
-      from {bottom: 0; opacity: 0;} 
+      from {bottom: 0; opacity: 0;}
       to {bottom: 30px; opacity: 1;}
     }
 
@@ -107,7 +107,7 @@
     }
 
     @-webkit-keyframes fadeout {
-      from {bottom: 30px; opacity: 1;} 
+      from {bottom: 30px; opacity: 1;}
       to {bottom: 0; opacity: 0;}
     }
 
@@ -214,7 +214,7 @@
       z-index: 1001;
     }
 
-   
+
 
     /* Testimonials Section Styles */
     .testimonials {
@@ -365,6 +365,53 @@
     border-color: #4caf50;
     box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
   }
+  /* Testimonials Section */
+.testimonials {
+  text-align: center;
+  padding: 50px 20px;
+  background-color: #f9f9f9;
+}
+
+.testimonials h2 {
+  font-size: 2em;
+  margin-bottom: 30px;
+  color: #333;
+}
+
+.testimonial-container {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.testimonial-card {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  max-width: 300px;
+  margin: 10px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.testimonial-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.testimonial-text {
+  font-size: 1.1em;
+  color: #555;
+  margin-bottom: 15px;
+  font-style: italic;
+}
+
+.testimonial-user {
+  font-weight: bold;
+  color: #333;
+}
+
 
   .newsletter-container button {
     padding: 12px 20px;
@@ -412,22 +459,42 @@
   .copyright:hover {
     color: #ffffff; /* Change color on hover */
   }
+  #progressBarContainer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 7px;
+    background-color: #1A1A2E;
+    z-index: 9999;
+  }
+
+  #progressBar {
+    height: 100%;
+    width: 0%;
+    background: white;
+    transition: width 0.2s ease;
+  }
   </style>
   </head>
 
   <body>
-
+    <div id="progressBarContainer">
+      <div id="progressBar"></div>
+    </div>
     <div class="footer">
       <div class="container">
         <div class="footer-content">
           <!-- Platform Links Section -->
           <div class="footer-links">
-            <a href="#about">About DFS-BFS</a> |
-            <a href="#courses">Courses</a> |
-            <a href="#blogs">Blogs</a> |
-            <a href="#" id="contactUsLink">Contact Us</a> |
-            <a href="https://x.com/dfs-bfs" target="_blank">Twitter</a> |
-            <a href="https://www.linkedin.com/company/dfs-bfs" target="_blank">LinkedIn</a> |
+            <a href="#about">About DFS-BFS</a>
+            <a href="#courses">Courses</a>
+            <a href="#blog">Blogs</a>
+            <a href="#" id="contactUsLink">Contact Us</a>
+            <a href="#" id="faqLink">FAQ</a>
+
+            <a href="https://x.com/dfs-bfs" target="_blank">Twitter</a>
+            <a href="https://www.linkedin.com/company/dfs-bfs" target="_blank">LinkedIn</a>
             <a href="../contributor/contributor.html">Our Contributors</a>
           </div>
 
@@ -441,32 +508,12 @@
             </form>
           </div>
 
-          <!-- Copyright Section -->
-          <p class="copyright">
-            &copy; 2024 DFS-BFS Learning Platform. Empowering coders with mastery over Data Structures and Algorithms.
-          </p>
+    <!-- Copyright Section -->
+    <p class="copyright">
+        &copy; 2024 DFS-BFS Learning Platform. Empowering coders with mastery over Data Structures and Algorithms.
+    </p>
 
-          <div class="footer">
-            <div class="footer-content">
-              <!-- Platform Links Section -->
-              <div class="footer-links">
-                <a href="#about">About DFS-BFS</a>
-                <a href="#courses">Courses</a>
-                <a href="#blogs">Blogs</a>
-                <a href="#contact">Contact Us</a>
-              </div>
-        
-              <!-- Newsletter Section -->
-              <div class="newsletter-container">
-                <h2 class="newsletter-title">Stay Updated with DFS-BFS</h2>
-                <p>Subscribe to our newsletter for the latest on algorithms, tips, and coding challenges.</p>
-                <form onsubmit="handleSubmit(event)">
-                  <input type="email" placeholder="Enter your email" id="emailInput" required name="email" />
-                  <button type="submit">Subscribe</button>
-                </form>
-              </div>
-        
-               <!-- Social Media Section -->
+    <!-- Social Media Section -->
       <div class="footer-links">
         <h3>Follow Us</h3>
         <div class="social-icons">
@@ -512,8 +559,6 @@
             </div>
           </div>
 
-          <!-- Add a button to open the FAQ modal -->
-          <button id="faqLink">FAQ</button>
 
           <script>
             // FAQ Modal Logic
@@ -611,6 +656,21 @@
         </form>
       </div>
     </div>
+
+    <script>
+      window.onscroll = function () {
+          updateProgressBar();
+        };
+
+
+        function updateProgressBar() {
+          var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+          var scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+          var scrollPercent = (scrollTop / scrollHeight) * 100;
+
+          document.getElementById("progressBar").style.width = scrollPercent + "%";
+        }
+    </script>
 
     <script>
       function handleSubmit(event) {
@@ -921,21 +981,7 @@ html::-webkit-scrollbar-track:hover {
     </script>
 
     <!-- Testimonials Section -->
-    <div class="testimonials">
-      <h2>What Our Users Say</h2>
-      <div class="testimonial">
-        <p>"This platform has transformed my understanding of algorithms!"</p>
-        <p><strong>- User A</strong></p>
-      </div>
-      <div class="testimonial">
-        <p>"The real-time collaboration features are fantastic!"</p>
-        <p><strong>- User B</strong></p>
-      </div>
-      <div class="testimonial">
-        <p>"I love the interactive courses and challenges!"</p>
-        <p><strong>- User C</strong></p>
-      </div>
-    </div>
+
 
   </body>
 

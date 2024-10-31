@@ -105,6 +105,8 @@
             background-color: #7a7a7a;
         }
     </style>
+
+    
 </head>
 
 <body>
@@ -141,6 +143,12 @@
     </div>
 
     <button id="backToTop" onclick="scrollToTop()">Back to Top</button>
+
+    <div style="position: fixed; left: 20px; bottom: 20px; z-index: 1000;">
+        <div class="gtranslate_wrapper"></div>
+        <script>window.gtranslateSettings = {"default_language":"en", "detect_browser_language":true,"wrapper_selector":".gtranslate_wrapper"}</script>
+        <script src="https://cdn.gtranslate.net/widgets/latest/popup.js" defer></script>
+    </div>
 
     <script>
         const graphContainer = d3.select('#graphContainer');

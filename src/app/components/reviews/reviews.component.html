@@ -20,6 +20,8 @@
                 <div *ngFor="let question of review.questions" class="question-card">
                     <h3>{{ question.author }} asked:</h3>
                     <p>{{ question.content }}</p>
+                    <!-- Image Preview -->
+                    <img *ngIf="question.file" [src]="getImageUrl(question.file)" alt="Uploaded Image" class="uploaded-image"/>
                     <div class="replies">
                         <div *ngFor="let reply of question.replies" class="reply-card">
                             <h4>{{ reply.author }} replied:</h4>
@@ -36,6 +38,10 @@
             <div class="question-form">
                 <input [(ngModel)]="newQuestion.author" placeholder="Your Name" />
                 <input [(ngModel)]="newQuestion.content" placeholder="Your Question" />
+                <!-- File Input for Image Upload -->
+                <input type="file" (change)="onFileSelected($event)" />
+                <!-- Display image preview if a file is selected -->
+                <img *ngIf="newQuestion.file" [src]="getImageUrl(newQuestion.file)" alt="Preview" class="image-preview" />
                 <button (click)="submitQuestion(review.id)">Ask Question</button>
             </div>
         </div>
