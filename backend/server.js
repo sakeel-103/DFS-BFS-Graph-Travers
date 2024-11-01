@@ -105,6 +105,12 @@ app.post('/api/signup', validateSignup, async (req, res) => {
     const { username, email, password } = req.body;
 
     try {
+        // Check if a user with the same email or username already exists
+        const existingUser = await User.findOne({ $or: [{ email }, { username }] });
+        if (existingUser) {
+            return res.status(409).json({ message: 'Username or email already exists.' });
+        }
+
         const hashedPassword = await bcrypt.hash(password, 10);
         const newUser = new User({ username, email, password: hashedPassword });
 
@@ -112,8 +118,8 @@ app.post('/api/signup', validateSignup, async (req, res) => {
         req.session.userId = newUser._id; // Set user ID in session
         res.status(201).json({ message: 'User registered successfully' });
     } catch (error) {
-        console.error('Error during signup:', error);
-        res.status(500).json({ message: 'Server error' });
+        console.log('Server Error during signup:', error.message);
+        res.status(500).json({ message: 'Server error. Please try again later.' });
     }
 });
 

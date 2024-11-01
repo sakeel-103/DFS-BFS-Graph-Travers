@@ -10,76 +10,102 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/i18next/21.6.10/i18next.min.js"></script>
+
   <!-- <iframe
 src="https://www.chatbase.co/chatbot-iframe/L51AYDMWE0tDQxPXKTgeX"
 width="100%"
 style="height: 100%; min-height: 700px"
 frameborder="0"
 ></iframe> -->
-  <style>
-    /* .canvas_1 {
-      color: #333;
-      text-align: center;
-      margin-bottom: 20px;
-    }
+<style>
+  /* .canvas_1 {
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+  } */
 
-    canvas {
-      border: 1px solid #ccc;
-      
-    } */
+  canvas {
+    border: 1px solid #ccc;
+    /* Adding a border to visualize the canvas */
+    background-color: #f9f9f9;
+    /* Optional: background color for better visibility */
+  }
 
-    header {
-  background-color: #1a1a2e;
-  padding: 10px;
-}
+  .algo-button {
+    background: linear-gradient(90deg, #6f42c1, #4e9a4d); /* Gradient background */
+    color: white; /* White text color */
+    border: none; /* No border */
+    padding: 15px 25px; /* Padding for button size */
+    border-radius: 10px; /* Rounded corners */
+    font-size: 16px; /* Font size */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background 0.3s, transform 0.3s; /* Transition effects */
+    margin: 10px; /* Space between buttons */
+    display: inline-block; /* Align buttons in a line */
+    text-align: center; /* Center text in button */
+  }
 
-nav.container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
+  .algo-button:hover {
+    background: linear-gradient(90deg, #5a2f91, #4e8c4d); /* Darker gradient on hover */
+    transform: scale(1.05); /* Slightly enlarge on hover */
+  }
 
-.logo {
-  display: flex;
-  align-items: center;
-  gap: 10px; /* Add space between the logo image and text */
-}
+  /* Optional: Center the buttons within the container */
+  .container {
+    text-align: center; /* Center content in container */
+  }
 
-.logo-img {
-  height: 70px;
-  width: 75px;
-  border-radius: 50%;
-}
+  header {
+    background-color: #1a1a2e;
+    padding: 10px;
+  }
 
-.logo-text {
-  font-size: 1.5rem;
-  color: white;
-  text-decoration: none;
-  white-space: nowrap; /* Prevent breaking into two lines */
-}
+  nav.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
 
-.nav-links {
-  display: flex;
-  gap: 20px;
-}
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Add space between the logo image and text */
+  }
 
-.nav-item {
-  color: white;
-  text-decoration: none;
-  font-size: 1rem;
-}
+  .logo-img {
+    height: 70px;
+    width: 75px;
+    border-radius: 50%;
+  }
 
-.nav-item:hover {
-  text-decoration: underline;
-}
+  .logo-text {
+    font-size: 1.5rem;
+    color: white;
+    text-decoration: none;
+    white-space: nowrap; /* Prevent breaking into two lines */
+  }
 
-.github-link img {
-  height: 25px;
-  width: 25px;
-}
+  .nav-links {
+    display: flex;
+    gap: 20px;
+  }
 
+  .nav-item {
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+  }
 
-  </style>
+  .nav-item:hover {
+    text-decoration: underline;
+  }
+
+  .github-link img {
+    height: 25px;
+    width: 25px;
+  }
+</style>
+
 </head>
 
 <body>
@@ -90,13 +116,13 @@ nav.container {
         <img src="a.png" alt="Logo" style="height: 70px; width: 75px; border-radius: 50%; margin-right: 10px;" />
         <a href="#hero" style="color: white; font-size: 1.5rem; text-decoration: none; white-space: nowrap;">GraphExplorer Pro</a>
       </div>
-  
+
       <div class="menu-icon" id="menu-icon" style="display: none;"> <!-- Hidden in this setup -->
         <div class="bar1"></div>
         <div class="bar2"></div>
         <div class="bar3"></div>
       </div>
-  
+
       <div class="nav-links" id="nav-links" style="display: flex; gap: 20px;">
         <a class="nav-item" href="#features" data-i18n="features" style="color: white; text-decoration: none; font-size: 1rem;">⚙️Features</a>
         <a class="nav-item" href="#graph-types" data-i18n="graph-types" style="color: white; text-decoration: none; font-size: 1rem;"> 📈Graph Types</a>
@@ -114,7 +140,7 @@ nav.container {
       </div>
     </nav>
   </header>
-  
+
 
   <section id="hero" class="hero">
     <div class="container">
@@ -139,7 +165,6 @@ nav.container {
     <div class="container mx-auto px-4 py-16">
       <div class="flex flex-col items-center text-center space-y-8 mb-16">
         <h1 class="text-5xl md:text-7xl font-bold text-white tracking-tight graph-a">
-
           Graph Algorithms
           <span class="block text-2xl md:text-3xl mt-2 text-indigo-200" style=" color: #7b95ff;">Visualized &
             Simplified</span>
@@ -148,16 +173,6 @@ nav.container {
           Master advanced graph theory through interactive visualizations and hands-on exploration with GraphExplorer
           Pro.
         </p>
-        <div class="flex gap-4">
-          <button
-            class="bg-white text-indigo-600 px-8 py-3 rounded-full font-semibold flex items-center gap-2 hover:bg-indigo-50 transition-colors">
-            Start Exploring <span class="arrow-right-icon">→</span>
-          </button>
-          <button
-            class="border-2 border-white text-white px-8 py-3 rounded-full font-semibold flex items-center gap-2 hover:bg-white/10 transition-colors">
-            Watch Demo
-          </button>
-        </div>
       </div>
 
       <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
@@ -251,14 +266,14 @@ nav.container {
           <a href="../Graphs/directedgraph.html">
           <h3 data-i18n="directed-graphs">Directed Graphs</h3>
          </a>
-          
+
         </div>
         <div class="graph-item">
           <div class="graph-icon">⇔</div>
           <a href="../Graphs/undirectedgraph.html">
           <h3 data-i18n="undirected-graphs">Undirected Graphs</h3>
         </a>
-     
+
         </div>
         <div class="graph-item">
           <div class="graph-icon">⚖️</div>
@@ -292,6 +307,10 @@ nav.container {
           data-i18n="bellmanFord">Bellman-Ford</button>
         <button class="tab-button" [class.active]="activeTab === 'floydWarshall'"
           (click)="setActiveTab('floydWarshall')" data-i18n="floydWarshall">Floyd-Warshall</button>
+        <button class="tab-button" [class.active]="activeTab === 'Tarjans'"
+          (click)="setActiveTab('tarjans')" data-i18n="tarjans">Tarjans's</button>
+        <button class="tab-button" [class.active]="activeTab === 'kruskals'"
+          (click)="setActiveTab('kruskals')" data-i18n="krushkals">Kruskal's</button>
       </div>
 
       <div class="tab-content">
@@ -356,23 +375,43 @@ nav.container {
             <li data-i18n="floydWarshall-use-2">Transitive closure computation</li>
           </ul>
         </div>
+
+        <!-- Tarjan's Algorithm Content -->
+<div *ngIf="activeTab === 'tarjans'" id="tarjan-content">
+  <h3 data-i18n="tarjan-full">Tarjan's Algorithm</h3>
+  <p data-i18n="tarjan-description">Tarjan's algorithm finds the strongly connected components (SCCs) of a directed graph. It uses a depth-first search (DFS) to explore the graph while maintaining discovery times and low-link values.</p>
+  <p data-i18n="tarjan-use">It's widely used for:</p>
+  <ul>
+    <li data-i18n="tarjan-use-1">Identifying cycles in directed graphs</li>
+    <li data-i18n="tarjan-use-2">Analyzing social networks</li>
+  </ul>
+</div>
+
+<!-- Kruskal's Algorithm Content -->
+<div *ngIf="activeTab === 'kruskals'" id="kruskal-content">
+  <h3 data-i18n="kruskal-full">Kruskal's Algorithm</h3>
+  <p data-i18n="kruskal-description">Kruskal's algorithm finds the Minimum Spanning Tree (MST) of a connected, undirected graph. It sorts all edges and adds them one by one to the MST, ensuring no cycles are formed.</p>
+  <p data-i18n="kruskal-use">It's widely used for:</p>
+  <ul>
+    <li data-i18n="kruskal-use-1">Network design</li>
+    <li data-i18n="kruskal-use-2">Cluster analysis</li>
+  </ul>
+</div>
+
+
       </div>
     </div>
   </section>
 
   <section id="visualizer" class="visualizer">
-      <div class="container">
-        <h2 data-i18n="interactive-graph-visualizer">
-          Interactive Graph Visualizer
-        </h2>
-        <p class="description" style="text-align: center">
-          Click the buttons to see the respective algorithms in action!
-        </p>
-  <section id="visualizer" class="visualizer">
-    <div class="container" id="container">
-
+    <div class="container">
+      <h2 data-i18n="interactive-graph-visualizer">Interactive Graph Visualizer</h2>
+      <p class="description" style="text-align: center">
+        Click the buttons to see the respective algorithms in action!
+      </p>
+      <div class="button-container">
         <!-- BFS Button -->
-        <button (click)="startBFS()">Start BFS</button>
+        <button class="algo-button" (click)="startBFS()">Start BFS</button>
         <div *ngIf="showBFSGif" class="gif-container">
           <img
             src="https://upload.wikimedia.org/wikipedia/commons/5/5d/Breadth-First-Search-Algorithm.gif"
@@ -381,7 +420,7 @@ nav.container {
         </div>
 
         <!-- DFS Button -->
-        <button (click)="startDFS()">Start DFS</button>
+        <button class="algo-button" (click)="startDFS()">Start DFS</button>
         <div *ngIf="showDFSGif" class="gif-container">
           <img
             src="https://upload.wikimedia.org/wikipedia/commons/7/7f/Depth-First-Search.gif"
@@ -390,7 +429,7 @@ nav.container {
         </div>
 
         <!-- Dijkstra Button -->
-        <button (click)="startDijkstra()">Start Dijkstra</button>
+        <button class="algo-button" (click)="startDijkstra()">Start Dijkstra</button>
         <div *ngIf="showDijkstraGif" class="gif-container">
           <img
             src="https://upload.wikimedia.org/wikipedia/commons/5/57/Dijkstra_Animation.gif"
@@ -398,7 +437,9 @@ nav.container {
           />
         </div>
       </div>
-    </section>
+    </div>
+  </section>
+
 
   <h1 class="canvas_1" style="color: #40444b;">CANVAS</h1>
 
@@ -424,6 +465,96 @@ nav.container {
       <!-- Threads will be injected here -->
     </div>
   </div>
+
+
+
+
+
+
+
+    <div class="testimonials-wrap">
+      <div class="container">
+        <div class="heading-section">
+          <span class="sub-heading">Testimonials</span>
+          <h2>Happy Clients &amp; Feedbacks</h2>
+        </div>
+
+        <div class="carousel-testimonial">
+          <div class="arrow left-arrow" onclick="prevSlide()"><i class="fa fa-arrow-left"></i></div>
+
+          <div class="testimonial-container">
+            <div class="testimonial-items">
+              <div class="item">
+                <div class="testimonial-box">
+                  <div class="user-img" style="background-image: url(https://randomuser.me/api/portraits/men/82.jpg)"></div>
+                  <div class="text">
+                    <span class="quote"><i class="fa fa-quote-left"></i></span>
+                    <p class="message">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                    <p class="name">Mark Huff</p>
+                    <span class="position">Businessman</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="item">
+                <div class="testimonial-box">
+                  <div class="user-img" style="background-image: url(https://randomuser.me/api/portraits/women/79.jpg)"></div>
+                  <div class="text">
+                    <span class="quote"><i class="fa fa-quote-left"></i></span>
+                    <p class="message">Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life.</p>
+                    <p class="name">Anna Kendrick</p>
+                    <span class="position">Designer</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="item">
+                <div class="testimonial-box">
+                  <div class="user-img" style="background-image: url(https://randomuser.me/api/portraits/men/88.jpg)"></div>
+                  <div class="text">
+                    <span class="quote"><i class="fa fa-quote-left"></i></span>
+                    <p class="message">When she reached the first hills of the Italic Mountains, she had a last view back on the skyline.</p>
+                    <p class="name">John Smith</p>
+                    <span class="position">Software Engineer</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="arrow right-arrow" onclick="nextSlide()"><i class="fa fa-arrow-right"></i></div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+   <script>
+let currentIndex = 0;
+const items = document.querySelectorAll('.testimonial-items .item');
+const testimonialItems = document.querySelector('.testimonial-items');
+const totalItems = items.length;
+
+function showSlide(index) {
+  const offset = -index * 100;
+  testimonialItems.style.transform = `translateX(${offset}%)`;
+}
+
+function nextSlide() {
+  currentIndex = (currentIndex + 1) % totalItems;
+  showSlide(currentIndex);
+}
+
+function prevSlide() {
+  currentIndex = (currentIndex - 1 + totalItems) % totalItems;
+  showSlide(currentIndex);
+}
+
+// Initial display
+showSlide(currentIndex);
+
+   </script>
 
   <!-- Inline JavaScript code (previously TypeScript) -->
   <script>
@@ -1078,5 +1209,3 @@ nav.container {
       });
     }
   </script>
-
-
