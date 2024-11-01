@@ -263,11 +263,17 @@ frameborder="0"
       <div class="graph-grid">
         <div class="graph-item">
           <div class="graph-icon">→</div>
+          <a href="../Graphs/directedgraph.html">
           <h3 data-i18n="directed-graphs">Directed Graphs</h3>
+         </a>
+
         </div>
         <div class="graph-item">
           <div class="graph-icon">⇔</div>
+          <a href="../Graphs/undirectedgraph.html">
           <h3 data-i18n="undirected-graphs">Undirected Graphs</h3>
+        </a>
+
         </div>
         <div class="graph-item">
           <div class="graph-icon">⚖️</div>
@@ -279,79 +285,123 @@ frameborder="0"
         </div>
         <div class="graph-item">
           <div class="graph-icon">⇉</div>
+           <a href="../Graphs/acyclicgraph.html">
           <h3 data-i18n="directed-acyclic-graphs">Directed Acyclic Graphs</h3>
-        </div>
-        <div class="graph-item">
-          <div class="graph-icon">🔄</div>
-          <h3 data-i18n="cyclic-graphs">Cyclic Graphs</h3>
+          </a>
         </div>
       </div>
     </div>
-</section>
+  </section>
+
+  <section id="algorithms" class="algorithms">
+    <div class="container">
+      <h2 data-i18n="master-key-algorithms">Master Key Graph Algorithms</h2>
+      <div class="algorithm-tabs">
+        <button class="tab-button" [class.active]="activeTab === 'dfs'" (click)="setActiveTab('dfs')"
+          data-i18n="dfs">DFS</button>
+        <button class="tab-button" [class.active]="activeTab === 'bfs'" (click)="setActiveTab('bfs')"
+          data-i18n="bfs">BFS</button>
+        <button class="tab-button" [class.active]="activeTab === 'dijkstra'" (click)="setActiveTab('dijkstra')"
+          data-i18n="dijkstra">Dijkstra's</button>
+        <button class="tab-button" [class.active]="activeTab === 'bellmanFord'" (click)="setActiveTab('bellmanFord')"
+          data-i18n="bellmanFord">Bellman-Ford</button>
+        <button class="tab-button" [class.active]="activeTab === 'floydWarshall'"
+          (click)="setActiveTab('floydWarshall')" data-i18n="floydWarshall">Floyd-Warshall</button>
+        <button class="tab-button" [class.active]="activeTab === 'Tarjans'"
+          (click)="setActiveTab('tarjans')" data-i18n="tarjans">Tarjans's</button>
+        <button class="tab-button" [class.active]="activeTab === 'kruskals'"
+          (click)="setActiveTab('kruskals')" data-i18n="krushkals">Kruskal's</button>
+      </div>
+
+      <div class="tab-content">
+        <!-- DFS Content -->
+        <div *ngIf="activeTab === 'dfs'" id="dfs-content">
+          <h3 data-i18n="dfs-full">Depth-First Search (DFS)</h3>
+          <p data-i18n="dfs-description">DFS is a graph traversal algorithm that explores as far as possible along each
+            branch before backtracking. It's excellent for:</p>
+          <ul>
+            <li data-i18n="dfs-use-1">Detecting cycles in graphs</li>
+            <li data-i18n="dfs-use-2">Pathfinding in mazes</li>
+            <li data-i18n="dfs-use-3">Topological sorting</li>
+          </ul>
+        </div>
+
+        <!-- BFS Content -->
+        <div *ngIf="activeTab === 'bfs'" id="bfs-content">
+          <h3 data-i18n="bfs-full">Breadth-First Search (BFS)</h3>
+          <p data-i18n="bfs-description">BFS is a graph traversal algorithm that explores all neighbors at the present
+            depth prior to moving on to nodes at the next depth level. It's used for:</p>
+          <ul>
+            <li data-i18n="bfs-use-1">Finding the shortest path in unweighted graphs</li>
+            <li data-i18n="bfs-use-2">Broadcasting in networks</li>
+          </ul>
+        </div>
+
+        <!-- Dijkstra Content -->
+        <div *ngIf="activeTab === 'dijkstra'" id="dijkstra-content">
+          <h3 data-i18n="dijkstra-full">Dijkstra's Algorithm</h3>
+          <p data-i18n="dijkstra-description">Dijkstra's algorithm finds the shortest path from a source node to all
+            other nodes in a weighted graph. It's widely used for:</p>
+          <ul>
+            <li data-i18n="dijkstra-use-1">GPS navigation systems</li>
+            <li data-i18n="dijkstra-use-2">Network routing protocols</li>
+          </ul>
+        </div>
+
+        <!-- BellmanFord Content -->
+        <div *ngIf="activeTab === 'bellmanFord'" id="bellmanFord-content">
+          <h3 data-i18n="bellmanFord-full">Bellman-Ford Algorithm</h3>
+          <p data-i18n="bellmanFord-description">The Bellman-Ford algorithm computes the shortest path from a source
+            node to all
+            other nodes in a weighted graph, handling negative weight edges and detecting negative cycles. It's commonly
+            used
+            for:</p>
+          <ul>
+            <li data-i18n="bellmanFord-use-1">Financial arbitrage detection</li>
+            <li data-i18n="bellmanFord-use-2">Graphs with negative weight edges</li>
+          </ul>
+        </div>
+
+        <!-- FloydWarshall Content -->
+        <div *ngIf="activeTab === 'floydWarshall'" id="floydWarshall-content">
+          <h3 data-i18n="floydWarshall-full">Floyd-Warshall Algorithm</h3>
+          <p data-i18n="floydWarshall-description">The Floyd-Warshall algorithm finds shortest paths between all pairs
+            of nodes
+            in a weighted graph. It efficiently handles graphs with negative weights and detects negative cycles. It's
+            widely
+            used for:</p>
+          <ul>
+            <li data-i18n="floydWarshall-use-1">Network routing</li>
+            <li data-i18n="floydWarshall-use-2">Transitive closure computation</li>
+          </ul>
+        </div>
+
+        <!-- Tarjan's Algorithm Content -->
+<div *ngIf="activeTab === 'tarjans'" id="tarjan-content">
+  <h3 data-i18n="tarjan-full">Tarjan's Algorithm</h3>
+  <p data-i18n="tarjan-description">Tarjan's algorithm finds the strongly connected components (SCCs) of a directed graph. It uses a depth-first search (DFS) to explore the graph while maintaining discovery times and low-link values.</p>
+  <p data-i18n="tarjan-use">It's widely used for:</p>
+  <ul>
+    <li data-i18n="tarjan-use-1">Identifying cycles in directed graphs</li>
+    <li data-i18n="tarjan-use-2">Analyzing social networks</li>
+  </ul>
+</div>
+
+<!-- Kruskal's Algorithm Content -->
+<div *ngIf="activeTab === 'kruskals'" id="kruskal-content">
+  <h3 data-i18n="kruskal-full">Kruskal's Algorithm</h3>
+  <p data-i18n="kruskal-description">Kruskal's algorithm finds the Minimum Spanning Tree (MST) of a connected, undirected graph. It sorts all edges and adds them one by one to the MST, ensuring no cycles are formed.</p>
+  <p data-i18n="kruskal-use">It's widely used for:</p>
+  <ul>
+    <li data-i18n="kruskal-use-1">Network design</li>
+    <li data-i18n="kruskal-use-2">Cluster analysis</li>
+  </ul>
+</div>
 
 
-
-
-<style>
- .graph-types {
-  background: linear-gradient(135deg, #6a11cb, #2575fc); /* Gradient background from purple to blue */
-  padding: 40px 20px; /* Add padding for spacing */
-  border-radius: 12px; /* Rounded corners for the section */
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
-}
-
-.container {
-  max-width: 1200px; /* Limit container width */
-  margin: 0 auto; /* Center the container */
-}
-
-.graph-grid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between; /* Adjust spacing between items */
-}
-
-.graph-item {
-  flex: 0 0 calc(30% - 10px); /* Adjusted to 3 items per row with less spacing */
-  box-sizing: border-box;
-  margin-bottom: 15px; /* Spacing below each item */
-  text-align: center; /* Center the text and icons */
-  padding: 15px; /* Reduced padding for smaller items */
-  background: linear-gradient(145deg, #ff77a9, #ff9a9e); /* Gradient background for items from pink to light pink */
-  border-radius: 8px; /* Rounded corners */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-  transition: transform 0.3s, box-shadow 0.3s; /* Smooth transition for hover effect */
-}
-
-.graph-item:hover {
-  transform: translateY(-5px); /* Lift effect on hover */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
-}
-
-.graph-icon {
-  font-size: 30px; /* Decreased icon size */
-  margin-bottom: 8px; /* Spacing between icon and title */
-}
-
-h3 {
-  font-size: 16px; /* Decreased title font size */
-  color: #fff; /* White color for title text for contrast */
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .graph-item {
-    flex: 0 0 calc(48% - 10px); /* 2 items per row on medium screens */
-  }
-}
-
-@media (max-width: 480px) {
-  .graph-item {
-    flex: 0 0 100%; /* 1 item per row on small screens */
-  }
-}
-
-</style>
+      </div>
+    </div>
+  </section>
 
   <section id="visualizer" class="visualizer">
     <div class="container">

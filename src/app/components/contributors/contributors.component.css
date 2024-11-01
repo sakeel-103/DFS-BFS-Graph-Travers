@@ -9,6 +9,7 @@ body {
   padding: 2rem;
   font-family: "Roboto", sans-serif;
   background-color: #f8f9fa; /* Light grey background for the container */
+  margin-top: 6rem;
 }
 
 .text-center {
