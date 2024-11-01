@@ -1,16 +1,26 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap');
+
+body {
+  font-family: 'Montserrat', sans-serif;
+}
+
+
 body {
   background-color: white; /* Change background to white */
   color: black; /* Change text color to black */
+  font-family: "Montserrat", sans-serif;
 }
 
 .contributors-container {
   max-width: 100%;
   margin: 56px auto;
   padding: 2rem;
-  font-family: "Roboto", sans-serif;
+  font-family: "Montserrat", sans-serif; /* Changed font to Montserrat */
   background-color: #f8f9fa; /* Light grey background for the container */
   margin-top: 6rem;
 }
+
 
 .text-center {
   text-align: center;
