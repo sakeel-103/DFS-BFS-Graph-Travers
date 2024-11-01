@@ -1,0 +1,28 @@
+<!-- geminibot.component.html -->
+<div class="chat-container">
+    <div class="chat-header">
+        <h1>Gemini AI Chat</h1>
+    </div>
+
+    <div #chatContainerRef class="messages-container">
+        <div *ngFor="let msg of chatHistory"
+            [class]="msg.sender === 'User' ? 'message user-message' : 'message bot-message'">
+            <div class="message-content">
+                <span [innerHTML]="formatMessage(msg.text)"></span>
+                <div class="message-sender">{{ msg.sender }}</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="input-container">
+        <textarea [(ngModel)]="userInput" placeholder="Type a message..." class="message-input"></textarea>
+        <div class="button-group">
+            <button (click)="getResponse()" [disabled]="!userInput" class="send-button">
+                Send
+            </button>
+            <button (click)="handleClearChat()" class="clear-button">
+                Clear
+            </button>
+        </div>
+    </div>
+</div>
