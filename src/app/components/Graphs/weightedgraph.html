@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weighted Graph Visualization</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.0.0/d3.min.js"></script>
+    <style>
+        /* Professional and Neat Greyish Black and White Theme */
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #2b2b2b;
+            color: #e0e0e0;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        h1 {
+            color: #ffffff;
+            font-size: 26px;
+            margin-bottom: 10px;
+        }
+
+        .section {
+            max-width: 800px;
+            text-align: center;
+            margin-bottom: 25px;
+            font-size: 18px;
+            line-height: 1.7;
+        }
+
+        .section h2 {
+            color: #ffffff;
+            font-size: 22px;
+            margin-bottom: 8px;
+        }
+
+        #graphContainer {
+            width: 100%;
+            max-width: 800px;
+            height: 500px;
+            border-radius: 10px;
+            border: 2px solid #ccc;
+            background-color: #444;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+            position: relative;
+            margin-bottom: 30px;
+        }
+
+        .node {
+            fill: #ccc;
+            stroke: #fff;
+            stroke-width: 1.5px;
+            cursor: grab;
+        }
+
+        .link {
+            stroke: #999;
+            stroke-opacity: 0.8;
+        }
+
+        .node:hover {
+            fill: #ff7f50;
+        }
+
+        .weight-text {
+            fill: #00ffae;
+            font-size: 12px;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin: 10px;
+            background-color: #5a5a5a;
+            color: #e0e0e0;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #7a7a7a;
+        }
+
+        .highlight {
+            color: #00ffae;
+            font-weight: bold;
+        }
+
+        #backToTop {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            padding: 10px 15px;
+            background-color: #5a5a5a;
+            color: #e0e0e0;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            display: none; /* Hidden by default */
+        }
+
+        #backToTop:hover {
+            background-color: #7a7a7a;
+        }
+
+
+        .gtranslate_wrapper {
+            position: fixed; /* Fixed position */
+            bottom: 20px; /* Distance from the bottom */
+            left: 20px; /* Distance from the left */
+            z-index: 1000; /* Ensure it appears above other elements */
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Weighted Graph Visualization</h1>
+
+    <div class="section">
+        <p>
+            A <span class="highlight">Weighted Graph</span> is a type of graph in which each edge has a weight (or value) associated with it. This can represent distances, costs, or any other quantitative measure.
+        </p>
+    </div>
+
+    <div class="section">
+        <h2>Key Properties of Weighted Graphs</h2>
+        <ul>
+            <li><strong>Edges:</strong> Each edge is represented as a line, with the weight displayed as a number.</li>
+            <li><strong>Nodes:</strong> The entities in the graph, represented by circles.</li>
+            <li><strong>Weights:</strong> A numerical value associated with each edge, often representing the "cost" to traverse it.</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>Interactive Weighted Graph</h2>
+        <p>Below, a random weighted graph with automatically generated nodes, edges, and weights is visualized. You can click and drag the nodes to reposition them!</p>
+    </div>
+
+    <!-- Container for the graph -->
+    <div id="graphContainer"></div>
+
+    <div class="section">
+        <button onclick="generateGraph()">Regenerate Graph</button>
+    </div>
+
+    <button id="backToTop" onclick="scrollToTop()">Back to Top</button>
+
+    <div class="gtranslate_wrapper">
+        <script>
+            window.gtranslateSettings = {
+                "default_language": "en",
+                "detect_browser_language": true,
+                "wrapper_selector": ".gtranslate_wrapper"
+            };
+        </script>
+        <script src="https://cdn.gtranslate.net/widgets/latest/popup.js" defer></script>
+    </div>
+
+    <script>
+        const graphContainer = d3.select('#graphContainer');
+        const width = graphContainer.node().clientWidth;
+        const height = graphContainer.node().clientHeight;
+
+        // Function to generate a random weighted graph
+        function generateGraph() {
+            const numNodes = 10; // Number of nodes
+            let nodes = d3.range(numNodes).map(i => ({ id: `Node ${i + 1}` }));
+            let links = [];
+
+            // Randomly generate bidirectional edges with weights between nodes
+            for (let i = 0; i < numNodes; i++) {
+                const source = nodes[i];
+                const target = nodes[Math.floor(Math.random() * numNodes)];
+                const weight = Math.floor(Math.random() * 100) + 1; // Random weight between 1 and 100
+                if (source !== target) {
+                    links.push({ source, target, weight });
+                }
+            }
+
+            // Clear the previous SVG content
+            graphContainer.select("svg").remove();
+
+            // Initialize force simulation
+            const simulation = d3.forceSimulation(nodes)
+                .force("link", d3.forceLink(links).id(d => d.id).distance(120))
+                .force("charge", d3.forceManyBody().strength(-300))
+                .force("center", d3.forceCenter(width / 2, height / 2));
+
+            // Create SVG within the graph container
+            const svg = graphContainer.append("svg")
+                .attr("width", width)
+                .attr("height", height);
+
+            // Render links (edges) with weight text
+            const link = svg.selectAll(".link")
+                .data(links)
+                .enter().append("line")
+                .attr("class", "link")
+                .attr("stroke-width", 2);
+
+            // Add weight text to each link
+            const weightText = svg.selectAll(".weight-text")
+                .data(links)
+                .enter().append("text")
+                .attr("class", "weight-text")
+                .attr("dy", -5)
+                .text(d => d.weight);
+
+            // Render nodes
+            const node = svg.selectAll(".node")
+                .data(nodes)
+                .enter().append("circle")
+                .attr("class", "node")
+                .attr("r", 8)
+                .call(d3.drag()
+                    .on("start", dragstarted)
+                    .on("drag", dragged)
+                    .on("end", dragended));
+
+            // Update node, link, and weight positions on each tick
+            simulation.nodes(nodes).on("tick", () => {
+                link
+                    .attr("x1", d => d.source.x)
+                    .attr("y1", d => d.source.y)
+                    .attr("x2", d => d.target.x)
+                    .attr("y2", d => d.target.y);
+
+                node
+                    .attr("cx", d => d.x)
+                    .attr("cy", d => d.y);
+
+                weightText
+                    .attr("x", d => (d.source.x + d.target.x) / 2)
+                    .attr("y", d => (d.source.y + d.target.y) / 2);
+            });
+
+            simulation.force("link").links(links);
+        }
+
+        // Dragging functionality
+        function dragstarted(event, d) {
+            if (!event.active) simulation.alphaTarget(0.3).restart();
+            d.fx = d.x;
+            d.fy = d.y;
+        }
+
+        function dragged(event, d) {
+            d.fx = event.x;
+            d.fy = event.y;
+        }
+
+        function dragended(event, d) {
+            if (!event.active) simulation.alphaTarget(0);
+            d.fx = null;
+            d.fy = null;
+        }
+
+        // Initial graph generation
+        generateGraph();
+
+        // Show the button when the user scrolls down 20px from the top of the document
+        window.onscroll = function() {
+            const backToTopButton = document.getElementById("backToTop");
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                backToTopButton.style.display = "block";
+            } else {
+                backToTopButton.style.display = "none";
+            }
+        };
+
+        // Scroll to the top of the document
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+
+</body>
+
+</html>

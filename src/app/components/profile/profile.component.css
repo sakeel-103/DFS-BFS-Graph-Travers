@@ -1,0 +1,167 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap");
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css");
+
+.profile-dashboard-container {
+  max-width: 1200px;
+  margin: 4rem auto;
+  padding: 2rem;
+  font-family: "Roboto", sans-serif;
+  background-color: #f8f9fa;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.profile-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin-right: 2rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.user-info h1 {
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+.level {
+  font-size: 1.2rem;
+  color: #6c757d;
+  margin-bottom: 0.5rem;
+}
+
+.progress-bar {
+  width: 200px;
+  height: 10px;
+  background-color: #e9ecef;
+  border-radius: 5px;
+  overflow: hidden;
+  margin-bottom: 0.5rem;
+}
+
+.progress {
+  height: 100%;
+  background-color: #007bff;
+  transition: width 0.3s ease;
+}
+
+.xp {
+  font-size: 0.9rem;
+  color: #6c757d;
+}
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.stat-card,
+.achievements-container,
+.recent-activities-container,
+.performance-chart {
+  background-color: #ffffff;
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.stat-card:hover,
+.achievements-container:hover,
+.recent-activities-container:hover,
+.performance-chart:hover {
+  transform: translateY(-5px);
+}
+
+.stat-card {
+  text-align: center;
+}
+
+.stat-card i {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.streak i {
+  color: #ffc107;
+}
+
+.questions i {
+  color: #28a745;
+}
+
+.stat-card h2 {
+  font-size: 1.2rem;
+  color: #495057;
+  margin-bottom: 0.5rem;
+}
+
+.stat-card p {
+  font-size: 1.5rem;
+  color: #333;
+  font-weight: bold;
+}
+
+.achievements-container h2,
+.recent-activities-container h2,
+.performance-chart h2 {
+  font-size: 1.5rem;
+  color: #495057;
+  margin-bottom: 1rem;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  font-size: 1rem;
+  color: #495057;
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+}
+
+li i {
+  margin-right: 0.5rem;
+  color: #007bff;
+}
+
+.timestamp {
+  font-size: 0.8rem;
+  color: #6c757d;
+  margin-left: auto;
+}
+
+.performance-chart {
+  grid-column: span 2;
+}
+
+@media (max-width: 768px) {
+  .profile-header {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .avatar {
+    margin-right: 0;
+    margin-bottom: 1rem;
+  }
+
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .performance-chart {
+    grid-column: span 1;
+  }
+}

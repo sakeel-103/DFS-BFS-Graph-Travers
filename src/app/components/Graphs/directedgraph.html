@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Directed Graph Visualization</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.0.0/d3.min.js"></script>
+    <style>
+        /* Professional and Neat Greyish Black and White Theme */
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #2b2b2b;
+            color: #e0e0e0;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        h1 {
+            color: #ffffff;
+            font-size: 26px;
+            margin-bottom: 10px;
+        }
+
+        .section {
+            max-width: 800px;
+            text-align: center;
+            margin-bottom: 25px;
+            font-size: 18px;
+            line-height: 1.7;
+        }
+
+        .section h2 {
+            color: #ffffff;
+            font-size: 22px;
+            margin-bottom: 8px;
+        }
+
+        #graphContainer {
+            width: 100%;
+            max-width: 800px;
+            height: 500px;
+            border-radius: 10px;
+            border: 2px solid #ccc;
+            background-color: #444;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+            position: relative;
+            margin-bottom: 30px;
+        }
+
+        .node {
+            fill: #ccc;
+            stroke: #fff;
+            stroke-width: 1.5px;
+            cursor: grab;
+        }
+
+        .link {
+            stroke: #999;
+            stroke-opacity: 0.8;
+        }
+
+        .node:hover {
+            fill: #ff7f50;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin: 10px;
+            background-color: #5a5a5a;
+            color: #e0e0e0;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #7a7a7a;
+        }
+
+        .highlight {
+            color: #00ffae;
+            font-weight: bold;
+        }
+
+        /* Add styles for the Back to Top button */
+        #backToTop {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            padding: 10px 15px;
+            background-color: #5a5a5a;
+            color: #e0e0e0;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            display: none; /* Initially hidden */
+        }
+
+        #backToTop:hover {
+            background-color: #7a7a7a;
+        }
+    </style>
+
+    
+</head>
+
+<body>
+    <h1>Directed Graph Visualization</h1>
+
+    <div class="section">
+        <p>
+            A <span class="highlight">Directed Graph (or Digraph)</span> is a type of graph where edges have a specific direction. 
+            This means that connections between nodes follow a one-way path, from one node (source) to another (target).
+        </p>
+    </div>
+
+    <div class="section">
+        <h2>Key Properties of Directed Graphs</h2>
+        <ul>
+            <li><strong>Direction:</strong> Each edge has a direction, indicated by arrows from one node to another.</li>
+            <li><strong>Nodes:</strong> The circles represent the entities in the graph.</li>
+            <li><strong>Edges:</strong> The lines with arrows represent connections between nodes in a specific direction.</li>
+            <li><strong>Cycle:</strong> A cycle occurs when a path exists that starts and ends at the same node, following the directed edges.</li>
+            <li><strong>Path:</strong> A sequence of directed edges from one node to another.</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>Interactive Directed Graph</h2>
+        <p>Below, a random directed graph with automatically generated nodes and edges is visualized. Hover over nodes to see a highlighted effect. Click and drag nodes to reposition them!</p>
+    </div>
+
+    <!-- Container for the graph -->
+    <div id="graphContainer"></div>
+
+    <div class="section">
+        <button onclick="generateGraph()">Regenerate Graph</button>
+    </div>
+
+    <button id="backToTop" onclick="scrollToTop()">Back to Top</button>
+
+    <div style="position: fixed; left: 20px; bottom: 20px; z-index: 1000;">
+        <div class="gtranslate_wrapper"></div>
+        <script>window.gtranslateSettings = {"default_language":"en", "detect_browser_language":true,"wrapper_selector":".gtranslate_wrapper"}</script>
+        <script src="https://cdn.gtranslate.net/widgets/latest/popup.js" defer></script>
+    </div>
+
+    <script>
+        const graphContainer = d3.select('#graphContainer');
+        const width = graphContainer.node().clientWidth;
+        const height = graphContainer.node().clientHeight;
+
+        // Function to generate a random graph
+        function generateGraph() {
+            const numNodes = 10;
+            let nodes = d3.range(numNodes).map(i => ({ id: `Node ${i + 1}` }));
+            let links = [];
+
+            // Randomly generate edges between nodes
+            for (let i = 0; i < numNodes; i++) {
+                const source = nodes[i];
+                const target = nodes[Math.floor(Math.random() * numNodes)];
+                if (source !== target) {
+                    links.push({ source, target });
+                }
+            }
+
+            // Clear the previous SVG content
+            graphContainer.select("svg").remove();
+
+            // Initialize force simulation
+            const simulation = d3.forceSimulation(nodes)
+                .force("link", d3.forceLink(links).id(d => d.id).distance(120))
+                .force("charge", d3.forceManyBody().strength(-300))
+                .force("center", d3.forceCenter(width / 2, height / 2));
+
+            // Create SVG within the graph container
+            const svg = graphContainer.append("svg")
+                .attr("width", width)
+                .attr("height", height);
+
+            // Add arrows to represent the direction of the links
+            svg.append("defs").append("marker")
+                .attr("id", "arrow")
+                .attr("viewBox", [0, 0, 10, 10])
+                .attr("refX", 12)
+                .attr("refY", 5)
+                .attr("markerWidth", 6)
+                .attr("markerHeight", 6)
+                .attr("orient", "auto-start-reverse")
+                .append("path")
+                .attr("d", "M0,0 L10,5 L0,10 Z")
+                .attr("fill", "#999");
+
+            // Render links (edges)
+            const link = svg.selectAll(".link")
+                .data(links)
+                .enter().append("line")
+                .attr("class", "link")
+                .attr("stroke-width", 2)
+                .attr("marker-end", "url(#arrow)");
+
+            // Render nodes
+            const node = svg.selectAll(".node")
+                .data(nodes)
+                .enter().append("circle")
+                .attr("class", "node")
+                .attr("r", 8)
+                .call(d3.drag()
+                    .on("start", dragstarted)
+                    .on("drag", dragged)
+                    .on("end", dragended));
+
+            // Update node and link positions on each tick
+            simulation.nodes(nodes).on("tick", () => {
+                link
+                    .attr("x1", d => d.source.x)
+                    .attr("y1", d => d.source.y)
+                    .attr("x2", d => d.target.x)
+                    .attr("y2", d => d.target.y);
+
+                node
+                    .attr("cx", d => d.x)
+                    .attr("cy", d => d.y);
+            });
+
+            simulation.force("link").links(links);
+        }
+
+        // Dragging functionality
+        function dragstarted(event, d) {
+            if (!event.active) simulation.alphaTarget(0.3).restart();
+            d.fx = d.x;
+            d.fy = d.y;
+        }
+
+        function dragged(event, d) {
+            d.fx = event.x;
+            d.fy = event.y;
+        }
+
+        function dragended(event, d) {
+            if (!event.active) simulation.alphaTarget(0);
+            d.fx = null;
+            d.fy = null;
+        }
+
+        // Initial graph generation
+        generateGraph();
+
+        // Function to scroll to the top of the page
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Show the button when scrolling down
+        window.onscroll = function() {
+            const button = document.getElementById('backToTop');
+            if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+    </script>
+
+</body>
+
+</html>

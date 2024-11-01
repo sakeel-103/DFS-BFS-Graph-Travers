@@ -5,6 +5,7 @@ import {
   provideZoneChangeDetection,
 } from '@angular/core';
 import { provideRouter } from '@angular/router';
+import { provideAnimations } from '@angular/platform-browser/animations'; // Import animations provider
 
 import { routes } from './app.routes';
 import {provideToastr} from 'ngx-toastr'
@@ -15,7 +16,8 @@ export const appConfig: ApplicationConfig = {
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(routes),
     importProvidersFrom(ReactiveFormsModule),
-    provideToastr()
+    provideToastr(),
+    provideAnimations()
   ],
 };
 

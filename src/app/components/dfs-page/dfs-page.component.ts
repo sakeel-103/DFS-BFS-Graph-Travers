@@ -3,6 +3,7 @@ import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
 import { NavbarComponent } from '../navbar/navbar.component';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-dfs-page',
@@ -12,6 +13,15 @@ import { NavbarComponent } from '../navbar/navbar.component';
   styleUrls: ['./dfs-page.component.css'],
 })
 export class DfsPageComponent implements AfterViewInit, OnInit {
+
+  // constructor(private titleService: Title) { }
+
+  // ngOnInit(): void {
+    
+  //   this.titleService.setTitle('GraphExplorer | DFS');
+  // }
+
+
   private nodes: { label: string; x: number; y: number }[] = [];
   private edges: [number, number][] = [];
 
@@ -20,14 +30,16 @@ export class DfsPageComponent implements AfterViewInit, OnInit {
   private maxDepth: number = 0; // New property to track maximum depth
   private finalPath: number[] = []; // New property to track the final path
 
+  public dfs_explaination: string = '';
+
   customNodeInput: string = '';
   customEdgeInput: string = '';
   isDropdownOpen: boolean = false;
 
-  constructor(private authService: AuthService) {}
+  constructor(private authService: AuthService,private titleService: Title) {}
 
   ngOnInit(): void {
-    // No need to access the canvas here
+    this.titleService.setTitle('GraphExplorer Pro | DFS');
   }
 
   ngAfterViewInit(): void {
@@ -36,6 +48,29 @@ export class DfsPageComponent implements AfterViewInit, OnInit {
 
     this.adjustCanvasSize(); // Adjust size first
     this.drawGraph(dfsCtx);  // Then draw
+  }
+
+  public predefinedGraphs: any = {
+    graph1: {
+      nodes: 'A,B,C,D',
+      edges: '0-1;0-2;1-3',
+    },
+    graph2: {
+      nodes: 'E,F,G,H',
+      edges: '0-1;1-2;2-3',
+    },
+    graph3: {
+      nodes: 'I,J,K,L,M',
+      edges: '0-1;1-2;2-3;3-4;0-2;0-4',
+    },
+  };
+
+  loadPredefinedGraph(event: Event) {
+    const selectedGraph = (event.target as HTMLSelectElement).value;
+    if (selectedGraph && this.predefinedGraphs[selectedGraph]) {
+      this.customNodeInput = this.predefinedGraphs[selectedGraph].nodes;
+      this.customEdgeInput = this.predefinedGraphs[selectedGraph].edges;
+    }
   }
 
   toggleDropdown(): void {

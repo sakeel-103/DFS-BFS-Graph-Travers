@@ -2,6 +2,7 @@ import { Component, AfterViewInit, OnInit } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
+import { Title } from '@angular/platform-browser';
 import { NavbarComponent } from '../navbar/navbar.component';
 
 @Component({
@@ -15,7 +16,7 @@ export class BfsPageComponent implements AfterViewInit, OnInit {
   private nodes: { label: string; x: number; y: number }[] = [];
   private edges: [number, number][] = [];
   private bfsTimeout: any;
-
+  public explanation: string = '';
   private bfsCanvas!: HTMLCanvasElement; // Use '!' to indicate it's definitely assigned later
   private maxDepth: number = 0; // New property to track maximum depth
 
@@ -24,15 +25,40 @@ export class BfsPageComponent implements AfterViewInit, OnInit {
   isDropdownOpen: boolean = false;
   private finalPath: number[] = []; // To store the final path taken
 
-  constructor(private authService: AuthService) {}
+  constructor(private authService: AuthService,private titleService: Title) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.titleService.setTitle('GraphExplorer Pro | BFS');
+  }
 
   ngAfterViewInit(): void {
     this.bfsCanvas = document.getElementById('bfs-canvas') as HTMLCanvasElement;
     const bfsCtx = this.bfsCanvas.getContext('2d')!;
     this.adjustCanvasSize();
     this.drawGraph(bfsCtx);
+  }
+
+  public predefinedGraphs: any = {
+    graph1: {
+      nodes: 'A,B,C,D',
+      edges: '0-1;0-2;1-3;0-3;1-2',
+    },
+    graph2: {
+      nodes: 'E,F,G,H',
+      edges: '0-1;1-2;2-3;0-2',
+    },
+    graph3: {
+      nodes: 'I,J,K,L,M',
+      edges: '0-1;1-2;2-3;3-4;1-2;1-4',
+    },
+  };
+
+  loadPredefinedGraph(event: Event) {
+    const selectedGraph = (event.target as HTMLSelectElement).value;
+    if (selectedGraph && this.predefinedGraphs[selectedGraph]) {
+      this.customNodeInput = this.predefinedGraphs[selectedGraph].nodes;
+      this.customEdgeInput = this.predefinedGraphs[selectedGraph].edges;
+    }
   }
 
   toggleDropdown(): void {
@@ -64,8 +90,12 @@ export class BfsPageComponent implements AfterViewInit, OnInit {
 
     let currentLevel = 1;
 
+    this.explanation = `Start Node: ${this.nodes[0].label}`;
+
     while (queue.length > 0) {
       const node = queue.shift()!;
+
+    //this.explanation += `Current: ${this.nodes[node].label}\n`;
 
       // Find the current node level by converting level strings to numbers
       const currentNodeLevel = Object.keys(levels)
@@ -199,6 +229,7 @@ export class BfsPageComponent implements AfterViewInit, OnInit {
               .map((edge) => edge[1]);
 
             queue.push(...neighbors);
+            this.explanation += `<br>Visited: ${this.nodes[node].label}`;
 
             this.drawGraph(ctx, queue, node, visited);
             this.bfsTimeout = setTimeout(processNextNode, 2000);
@@ -210,6 +241,7 @@ export class BfsPageComponent implements AfterViewInit, OnInit {
       } else {
         this.finalPath = visited;
         this.highlightFinalPath(ctx);
+        this.explanation += `<br>Completed traversal`;
       }
     };
 
@@ -300,14 +332,14 @@ export class BfsPageComponent implements AfterViewInit, OnInit {
 
     // Check for empty input or empty labels
     if (nodeInput.length === 0 || nodeInput.some(label => label.trim() === '')) {
-      alert('Node input is invalid. Ensure all nodes have non-empty labels.');
+      this.showToast('Node input is invalid. Ensure all nodes have non-empty labels.'); // Changed alert to toast
       return false;
     }
 
     // Check for duplicate labels
     const uniqueLabels = new Set(nodeInput.map(label => label.trim()));
     if (uniqueLabels.size !== nodeInput.length) {
-      alert('Node input contains duplicate labels. Ensure all nodes have unique labels.');
+      this.showToast('Node input contains duplicate labels. Ensure all nodes have unique labels.'); // Changed alert to toast
       return false;
     }
 
@@ -321,7 +353,7 @@ export class BfsPageComponent implements AfterViewInit, OnInit {
     for (const edge of edgeInput) {
       const nodes = edge.split('-');
       if (nodes.length !== 2 || isNaN(Number(nodes[0])) || isNaN(Number(nodes[1]))) {
-        alert(`Invalid edge format: ${edge}. Edges should be formatted as 'from-to', where 'from' and 'to' are valid node indices.`);
+        this.showToast(`Invalid edge format: ${edge}. Edges should be formatted as 'from-to', where 'from' and 'to' are valid node indices.`); // Changed alert to toast
         return false;
       }
 
@@ -338,7 +370,7 @@ export class BfsPageComponent implements AfterViewInit, OnInit {
 
     // Check for empty input or invalid formats
     if (nodeInput.length === 0 || nodeInput.some(label => label.trim() === '')) {
-      alert('Invalid node input format. Please enter valid node labels separated by commas.');
+      this.showToast('Invalid node input format. Please enter valid node labels separated by commas.'); // Changed alert to toast
       this.nodes = []; // Reset nodes to avoid further issues
       return;
     }
@@ -357,7 +389,7 @@ export class BfsPageComponent implements AfterViewInit, OnInit {
 
     // Check for empty input or invalid formats
     if (edgeInput.length === 0 || edgeInput.some(edge => edge.trim() === '')) {
-      alert('Invalid edge input format. Please enter valid edges in the format "from-to" separated by semicolons.');
+      this.showToast('Invalid edge input format. Please enter valid edges in the format "from-to" separated by semicolons.'); // Changed alert to toast
       this.edges = []; // Reset edges to avoid further issues
       return;
     }
@@ -369,7 +401,7 @@ export class BfsPageComponent implements AfterViewInit, OnInit {
 
       // Check for valid number conversion
       if (isNaN(from) || isNaN(to) || from < 0 || to < 0 || from >= this.nodes.length || to >= this.nodes.length) {
-        alert(`Invalid edge: ${edge}. Please ensure both nodes are valid indices.`);
+        this.showToast(`Invalid edge: ${edge}. Please ensure both nodes are valid indices.`); // Changed alert to toast
         this.edges = []; // Reset edges if any edge is invalid
         return;
       }
@@ -384,5 +416,10 @@ export class BfsPageComponent implements AfterViewInit, OnInit {
     link.download = 'bfs-canvas.png'; // Name for the downloaded file
     link.href = this.bfsCanvas.toDataURL(); // Get the data URL of the canvas
     link.click(); // Trigger the download
+  }
+
+  private showToast(message: string): void {
+    // Implement your toast notification logic here
+    console.log(message); // Placeholder for actual toast implementation
   }
 }

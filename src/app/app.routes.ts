@@ -17,6 +17,12 @@ import { ContributorsComponent } from './components/contributors/contributors.co
 import { CodeEditorComponent } from './components/code-editor/code-editor.component';
 import { ReviewComponent } from './components/reviews/reviews.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+
+
+import { AlgorithmComparisonComponent } from './components/algocompare/algocompare.component';
+
+import { ProfileDashboardPageComponent } from './components/profile/profile.component';
+
 export const routes: Routes = [
   {
     path: '',
@@ -86,6 +92,10 @@ export const routes: Routes = [
     path: 'pagenotfound',
     component: PageNotFoundComponent,
   },
+  // {
+  //   path: 'algo-compare',
+  //   component: AlgorithmComparisonComponent,
+  // },
   {
     path: '**',
     redirectTo: '',

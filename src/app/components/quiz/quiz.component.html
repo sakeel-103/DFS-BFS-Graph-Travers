@@ -1,14 +1,27 @@
 <app-navbar></app-navbar>
-<div class="quiz-container">
-    <header>
-        <h1>Ultimate Graph Theory Challenge</h1>
-        <div class="progress-bar" [style.width.%]="progressPercentage"></div>
-    </header>
 
-    <main *ngIf="!quizCompleted" class="question-container">
-        <div class="question-card" [@cardAnimation]="animationState">
-            <h2>Question {{ currentQuestionIndex + 1 }} of {{ questions.length }}</h2>
-            <p class="question-text">{{ currentQuestion.text }}</p>
+<div class="quiz-layout">
+    <!-- Sidebar for Difficulty Levels -->
+    <aside class="sidebar">
+        <h2>Quiz Levels</h2>
+        <ul>
+            <li (click)="startQuiz('easy')">Easy</li>
+            <li (click)="startQuiz('medium')">Medium</li>
+            <li (click)="startQuiz('difficult')">Difficult</li>
+        </ul>
+    </aside>
+
+    <!-- Main Quiz Content -->
+    <main class="quiz-content">
+        <header *ngIf="quizStarted">
+            <h1>Ultimate Graph Theory Challenge</h1>
+            <div class="progress-bar" [style.width.%]="progressPercentage"></div>
+        </header>
+
+        <!-- Quiz Questions -->
+        <section *ngIf="quizStarted && questions.length > 0 && !quizCompleted" class="question-section">
+            <h2 class="heading">Question {{ currentQuestionIndex + 1 }} of {{ questions.length }}</h2>
+            <p>{{ currentQuestion.text }}</p>
 
             <div class="options">
                 <button *ngFor="let option of currentQuestion.options; let i = index" (click)="selectAnswer(i)"
@@ -17,23 +30,19 @@
                 </button>
             </div>
 
-            <div class="action-buttons">
-                <button (click)="submitAnswer()" [disabled]="selectedAnswerIndex === null || answerSubmitted">Submit
-                    Answer</button>
-            </div>
-        </div>
+            <button (click)="submitAnswer()" [disabled]="selectedAnswerIndex === null || answerSubmitted">Submit
+                Answer</button>
+        </section>
+
+        <section *ngIf="questions.length <= 0 " class="no-found">
+            <h2>No Questions Available For This Level</h2>
+        </section>
+
+        <!-- Quiz Results -->
+        <section *ngIf="quizCompleted" class="results-section">
+            <h2>Quiz Completed!</h2>
+            <p>Your score: {{ score }} out of {{ questions.length }}</p>
+            <button (click)="restartQuiz()">Retake Quiz</button>
+        </section>
     </main>
-
-    <div *ngIf="quizCompleted" class="results-container" [@fadeInAnimation]>
-        <h2>Quiz Completed!</h2>
-        <p>Your score: {{ score }} out of {{ questions.length }}</p>
-        <div class="score-breakdown">
-            <div class="score-bar" [style.width.%]="(score / questions.length) * 100"></div>
-        </div>
-        <button (click)="restartQuiz()">Retake Quiz</button>
-    </div>
-
-    <footer>
-        <p>Created by Graph Theory Enthusiasts</p>
-    </footer>
 </div>

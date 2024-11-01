@@ -22,9 +22,12 @@
     "@angular/router": "^18.2.0",
     "@netlify/angular-runtime": "^2.1.0",
     "ace-builds": "^1.36.2",
+    "chart.js": "^4.4.5",
     "eccom-prj": "file:",
     "express-validator": "^7.2.0",
     "ngx-toastr": "^19.0.0",
+    "primeicons": "^7.0.0",
+    "primeng": "^17.18.11",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.14.10"

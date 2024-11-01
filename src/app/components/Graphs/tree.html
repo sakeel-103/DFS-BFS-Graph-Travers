@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tree Visualization</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.0.0/d3.min.js"></script>
+    <style>
+        /* Professional and Neat Greyish Black and White Theme */
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #2b2b2b;
+            color: #e0e0e0;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        h1 {
+            color: #ffffff;
+            font-size: 26px;
+            margin-bottom: 10px;
+        }
+
+        .section {
+            max-width: 800px;
+            text-align: center;
+            margin-bottom: 25px;
+            font-size: 18px;
+            line-height: 1.7;
+        }
+
+        .section h2 {
+            color: #ffffff;
+            font-size: 22px;
+            margin-bottom: 8px;
+        }
+
+        #treeContainer {
+            width: 100%;
+            max-width: 800px;
+            height: 500px;
+            border-radius: 10px;
+            border: 2px solid #ccc;
+            background-color: #444;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+            position: relative;
+            margin-bottom: 30px;
+        }
+
+        .node {
+            fill: #ccc;
+            stroke: #fff;
+            stroke-width: 1.5px;
+        }
+
+        .link {
+            fill: none;
+            stroke: #999;
+            stroke-width: 2px;
+        }
+
+        .node:hover {
+            fill: #ff7f50;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin: 10px;
+            background-color: #5a5a5a;
+            color: #e0e0e0;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #7a7a7a;
+        }
+
+        .highlight {
+            color: #00ffae;
+            font-weight: bold;
+        }
+
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            padding: 10px 15px;
+            background-color: #5a5a5a;
+            color: #e0e0e0;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            display: none; /* Initially hidden */
+        }
+
+        .back-to-top:hover {
+            background-color: #7a7a7a;
+        }
+
+
+        .gtranslate_wrapper {
+            position: fixed; /* Fixed position */
+            bottom: 20px; /* Distance from the bottom */
+            left: 20px; /* Distance from the left */
+            z-index: 1000; /* Ensure it appears above other elements */
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Tree Visualization</h1>
+
+    <div class="section">
+        <p>
+            A <span class="highlight">Tree</span> is a type of data structure consisting of nodes connected by edges. 
+            It is a hierarchical structure, starting from a <span class="highlight">root</span> node, where each node can have child nodes.
+        </p>
+    </div>
+
+    <div class="section">
+        <h2>Key Properties of Trees</h2>
+        <ul>
+            <li><strong>Root:</strong> The topmost node of the tree, from which all other nodes descend.</li>
+            <li><strong>Child Nodes:</strong> Nodes that are connected and descend from another node (their parent).</li>
+            <li><strong>Leaf Nodes:</strong> Nodes without children, which represent the endpoints in a tree.</li>
+            <li><strong>Height:</strong> The longest path from the root node to a leaf node.</li>
+            <li><strong>Depth:</strong> The distance from the root node to a particular node in the tree.</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>Interactive Tree Visualization</h2>
+        <p>A simple interactive tree is displayed below. You can interact with it by clicking and dragging nodes.</p>
+    </div>
+
+    <!-- Container for the tree -->
+    <div id="treeContainer"></div>
+
+    <div class="section">
+        <button onclick="generateTree()">Generate New Tree</button>
+    </div>
+
+    <button class="back-to-top" onclick="scrollToTop()">Back to Top</button>
+
+    <div class="gtranslate_wrapper">
+        <script>
+            window.gtranslateSettings = {
+                "default_language": "en",
+                "detect_browser_language": true,
+                "wrapper_selector": ".gtranslate_wrapper"
+            };
+        </script>
+        <script src="https://cdn.gtranslate.net/widgets/latest/popup.js" defer></script>
+    </div>
+
+    <script>
+        const treeContainer = d3.select('#treeContainer');
+        const width = treeContainer.node().clientWidth;
+        const height = treeContainer.node().clientHeight;
+
+        // Function to generate a random tree structure
+        function generateTree() {
+            const data = {
+                name: "Root",
+                children: [
+                    {
+                        name: "Child 1",
+                        children: [
+                            { name: "Grandchild 1" },
+                            { name: "Grandchild 2" }
+                        ]
+                    },
+                    {
+                        name: "Child 2",
+                        children: [
+                            { name: "Grandchild 3" },
+                            { name: "Grandchild 4" }
+                        ]
+                    }
+                ]
+            };
+
+            // Clear the previous SVG content
+            treeContainer.select("svg").remove();
+
+            // Create SVG within the tree container
+            const svg = treeContainer.append("svg")
+                .attr("width", width)
+                .attr("height", height)
+                .append("g")
+                .attr("transform", `translate(40,0)`);
+
+            const treeLayout = d3.tree().size([width - 80, height - 100]);
+
+            const root = d3.hierarchy(data);
+
+            // Create links between nodes
+            const links = svg.selectAll(".link")
+                .data(treeLayout(root).links())
+                .enter().append("path")
+                .attr("class", "link")
+                .attr("d", d3.linkHorizontal()
+                    .x(d => d.y)
+                    .y(d => d.x));
+
+            // Create nodes
+            const nodes = svg.selectAll(".node")
+                .data(root.descendants())
+                .enter().append("g")
+                .attr("class", "node")
+                .attr("transform", d => `translate(${d.y},${d.x})`);
+
+            nodes.append("circle")
+                .attr("r", 8);
+
+            nodes.append("text")
+                .attr("dy", 3)
+                .attr("x", d => d.children ? -12 : 12)
+                .style("text-anchor", d => d.children ? "end" : "start")
+                .text(d => d.data.name);
+        }
+
+        // Initial tree generation
+        generateTree();
+
+        // Function to scroll to the top of the page
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Show/hide the button based on scroll position
+        window.onscroll = function() {
+            const button = document.querySelector('.back-to-top');
+            if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+                button.style.display = "block";
+            } else {
+                button.style.display = "none";
+            }
+        };
+    </script>
+
+</body>
+
+</html>

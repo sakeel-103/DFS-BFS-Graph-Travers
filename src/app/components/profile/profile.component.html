@@ -1,0 +1,49 @@
+<app-navbar></app-navbar>
+<div class="profile-dashboard-container">
+    <div class="profile-header">
+        <!-- <img [src]="user.avatar" alt="User Avatar" class="avatar"> -->
+        <div class="user-info">
+            <h1>{{ user.name }}</h1>
+            <p class="level">Level {{ user.level }} - {{ user.rank }}</p>
+            <div class="progress-bar">
+                <div class="progress" [style.width.%]="progressPercentage"></div>
+            </div>
+            <p class="xp">{{ user.xp }} / {{ user.xpToNextLevel }} XP</p>
+        </div>
+    </div>
+
+    <div class="dashboard-grid">
+        <div class="stat-card streak">
+            <i class="fas fa-fire"></i>
+            <h2>Streak</h2>
+            <p>{{ user.streakCount }} Days</p>
+        </div>
+        <div class="stat-card questions">
+            <i class="fas fa-code"></i>
+            <h2>Questions Solved</h2>
+            <p>{{ user.questionsSolved }} / {{ user.totalQuestions }}</p>
+        </div>
+        <div class="achievements-container">
+            <h2>Achievements</h2>
+            <ul>
+                <li *ngFor="let achievement of user.achievements">
+                    <i class="fas fa-{{ achievement.icon }}"></i>
+                    {{ achievement.name }}
+                </li>
+            </ul>
+        </div>
+        <div class="recent-activities-container">
+            <h2>Recent Activities</h2>
+            <ul>
+                <li *ngFor="let activity of user.recentActivities">
+                    <strong>{{ activity.action }}</strong> {{ activity.item }}
+                    <span class="timestamp">{{ activity.timestamp }}</span>
+                </li>
+            </ul>
+        </div>
+        <div class="performance-chart">
+            <h2>Performance by Topic</h2>
+            <p-chart type="radar" [data]="user.performanceData" [options]="{ responsive: true }"></p-chart>
+        </div>
+    </div>
+</div>

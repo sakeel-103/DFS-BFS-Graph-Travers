@@ -1,3 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap');
+.montserrat-unique {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500; /* Medium weight for specific elements */
+  font-style: normal; /* Normal font style */
+}
+body {
+  font-family: "Montserrat", sans-serif; /* Apply Montserrat to the body for all text */
+  font-weight: 400; /* Regular weight for body text */
+}
+
 .review-container {
   width: 100vw;
   height: 100vh;
@@ -11,6 +22,11 @@
   overflow-y: auto;
   position: relative;
   top: 60px;
+}
+.uploaded-image, .image-preview {
+  max-width: 50%; /* Responsive sizing */
+  height: auto;    /* Maintain aspect ratio */
+  margin-top: 10px; /* Space between elements */
 }
 
 .text-center {

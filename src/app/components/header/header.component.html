@@ -10,62 +10,137 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/i18next/21.6.10/i18next.min.js"></script>
-  <style>
-    .canvas_1 {
-      color: #333;
-      text-align: center;
-      margin-bottom: 20px;
-    }
 
-    canvas {
-      border: 1px solid #ccc;
-      /* Adding a border to visualize the canvas */
-      background-color: #f9f9f9;
-      /* Optional: background color for better visibility */
-    }
-  </style>
+  <!-- <iframe
+src="https://www.chatbase.co/chatbot-iframe/L51AYDMWE0tDQxPXKTgeX"
+width="100%"
+style="height: 100%; min-height: 700px"
+frameborder="0"
+></iframe> -->
+<style>
+  /* .canvas_1 {
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+  } */
+
+  canvas {
+    border: 1px solid #ccc;
+    /* Adding a border to visualize the canvas */
+    background-color: #f9f9f9;
+    /* Optional: background color for better visibility */
+  }
+
+  .algo-button {
+    background: linear-gradient(90deg, #6f42c1, #4e9a4d); /* Gradient background */
+    color: white; /* White text color */
+    border: none; /* No border */
+    padding: 15px 25px; /* Padding for button size */
+    border-radius: 10px; /* Rounded corners */
+    font-size: 16px; /* Font size */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background 0.3s, transform 0.3s; /* Transition effects */
+    margin: 10px; /* Space between buttons */
+    display: inline-block; /* Align buttons in a line */
+    text-align: center; /* Center text in button */
+  }
+
+  .algo-button:hover {
+    background: linear-gradient(90deg, #5a2f91, #4e8c4d); /* Darker gradient on hover */
+    transform: scale(1.05); /* Slightly enlarge on hover */
+  }
+
+  /* Optional: Center the buttons within the container */
+  .container {
+    text-align: center; /* Center content in container */
+  }
+
+  header {
+    background-color: #1a1a2e;
+    padding: 10px;
+  }
+
+  nav.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Add space between the logo image and text */
+  }
+
+  .logo-img {
+    height: 70px;
+    width: 75px;
+    border-radius: 50%;
+  }
+
+  .logo-text {
+    font-size: 1.5rem;
+    color: white;
+    text-decoration: none;
+    white-space: nowrap; /* Prevent breaking into two lines */
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 20px;
+  }
+
+  .nav-item {
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+  }
+
+  .nav-item:hover {
+    text-decoration: underline;
+  }
+
+  .github-link img {
+    height: 25px;
+    width: 25px;
+  }
+</style>
+
 </head>
 
 <body>
 
   <header>
-
-    <nav class="container">
-      <!-- <a href="#hero" class="logo-link">
-        <img src="../../../../public/Icon.jpg" alt="Logo">
-      </a> -->
-      <div class="logo">
-
-        <img
-          src="https://img.freepik.com/free-vector/wireframe-connecting-earth-sphere_1284-52863.jpg?w=740&t=st=1729246267~exp=1729246867~hmac=94824360aa23edc006545118dac0d6c47ef0b21728346613e6e2403dc3a4e88b"
-          alt="Logo">
-        <a href="#hero">GraphExplorer Pro</a>
+    <nav style="display: flex; justify-content: space-between; align-items: center; padding: 10px 0; background-color: #1a1a2e;">
+      <div class="logo" style="display: flex; align-items: center;">
+        <img src="a.png" alt="Logo" style="height: 70px; width: 75px; border-radius: 50%; margin-right: 10px;" />
+        <a href="#hero" style="color: white; font-size: 1.5rem; text-decoration: none; white-space: nowrap;">GraphExplorer Pro</a>
       </div>
-      <div class="menu-icon" id="menu-icon">
+
+      <div class="menu-icon" id="menu-icon" style="display: none;"> <!-- Hidden in this setup -->
         <div class="bar1"></div>
         <div class="bar2"></div>
         <div class="bar3"></div>
       </div>
-      <div class="nav-links" id="nav-links">
-        <a class="nav-item" href="#features" data-i18n="features">Features</a>
-        <a class="nav-item" href="#graph-types" data-i18n="graph-types">Graph Types</a>
-        <a class="nav-item" href="#algorithms" data-i18n="algorithms">Algorithms</a>
-        <a class="nav-item" href="#visualizer" data-i18n="visualizer">Visualizer</a>
-        <a class="nav-item" href="/faq" data-i18n="faq">FAQ</a>
-        <a class="nav-item" href="/quiz" data-i18n="faq">Quiz</a>
-        <a class="nav-item" href="/questions" data-i18n="faq">Questions</a>
-        <a class="nav-item" href="/review" data-i18n="faq">Reviews</a>
 
-        <a class="nav-item" href="https://github.com/sakeel-103/DFS-BFS-Graph-Travers" target="_blank"
-          class="github-link">
+      <div class="nav-links" id="nav-links" style="display: flex; gap: 20px;">
+        <a class="nav-item" href="#features" data-i18n="features" style="color: white; text-decoration: none; font-size: 1rem;">⚙️Features</a>
+        <a class="nav-item" href="#graph-types" data-i18n="graph-types" style="color: white; text-decoration: none; font-size: 1rem;"> 📈Graph Types</a>
+        <a class="nav-item" href="#algorithms" data-i18n="algorithms" style="color: white; text-decoration: none; font-size: 1rem;">💻Algorithms</a>
+        <a class="nav-item" href="#visualizer" data-i18n="visualizer" style="color: white; text-decoration: none; font-size: 1rem;">📊Visualizer</a>
+        <a class="nav-item" href="/faq" data-i18n="faq" style="color: white; text-decoration: none; font-size: 1rem;"> 🗨️ FAQ</a>
+        <a class="nav-item" href="/quiz" data-i18n="quiz" style="color: white; text-decoration: none; font-size: 1rem;">📝Quiz</a>
+        <a class="nav-item" href="/questions" data-i18n="questions" style="color: white; text-decoration: none; font-size: 1rem;">❓Questions</a>
+        <a class="nav-item" href="/review" data-i18n="reviews" style="color: white; text-decoration: none; font-size: 1rem;">⭐Reviews</a>
+        <a class="nav-item github-link" href="https://github.com/sakeel-103/DFS-BFS-Graph-Travers" target="_blank" style="display: flex; align-items: center;">
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="#ffffff">
-            <path
-              d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
           </svg>
         </a>
       </div>
     </nav>
   </header>
+
 
   <section id="hero" class="hero">
     <div class="container">
@@ -90,7 +165,6 @@
     <div class="container mx-auto px-4 py-16">
       <div class="flex flex-col items-center text-center space-y-8 mb-16">
         <h1 class="text-5xl md:text-7xl font-bold text-white tracking-tight graph-a">
-
           Graph Algorithms
           <span class="block text-2xl md:text-3xl mt-2 text-indigo-200" style=" color: #7b95ff;">Visualized &
             Simplified</span>
@@ -99,16 +173,6 @@
           Master advanced graph theory through interactive visualizations and hands-on exploration with GraphExplorer
           Pro.
         </p>
-        <div class="flex gap-4">
-          <button
-            class="bg-white text-indigo-600 px-8 py-3 rounded-full font-semibold flex items-center gap-2 hover:bg-indigo-50 transition-colors">
-            Start Exploring <span class="arrow-right-icon">→</span>
-          </button>
-          <button
-            class="border-2 border-white text-white px-8 py-3 rounded-full font-semibold flex items-center gap-2 hover:bg-white/10 transition-colors">
-            Watch Demo
-          </button>
-        </div>
       </div>
 
       <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
@@ -199,11 +263,17 @@
       <div class="graph-grid">
         <div class="graph-item">
           <div class="graph-icon">→</div>
+          <a href="../Graphs/directedgraph.html">
           <h3 data-i18n="directed-graphs">Directed Graphs</h3>
+         </a>
+
         </div>
         <div class="graph-item">
           <div class="graph-icon">⇔</div>
+          <a href="../Graphs/undirectedgraph.html">
           <h3 data-i18n="undirected-graphs">Undirected Graphs</h3>
+        </a>
+
         </div>
         <div class="graph-item">
           <div class="graph-icon">⚖️</div>
@@ -215,7 +285,9 @@
         </div>
         <div class="graph-item">
           <div class="graph-icon">⇉</div>
+           <a href="../Graphs/acyclicgraph.html">
           <h3 data-i18n="directed-acyclic-graphs">Directed Acyclic Graphs</h3>
+          </a>
         </div>
       </div>
     </div>
@@ -235,6 +307,10 @@
           data-i18n="bellmanFord">Bellman-Ford</button>
         <button class="tab-button" [class.active]="activeTab === 'floydWarshall'"
           (click)="setActiveTab('floydWarshall')" data-i18n="floydWarshall">Floyd-Warshall</button>
+        <button class="tab-button" [class.active]="activeTab === 'Tarjans'"
+          (click)="setActiveTab('tarjans')" data-i18n="tarjans">Tarjans's</button>
+        <button class="tab-button" [class.active]="activeTab === 'kruskals'"
+          (click)="setActiveTab('kruskals')" data-i18n="krushkals">Kruskal's</button>
       </div>
 
       <div class="tab-content">
@@ -299,52 +375,70 @@
             <li data-i18n="floydWarshall-use-2">Transitive closure computation</li>
           </ul>
         </div>
+
+        <!-- Tarjan's Algorithm Content -->
+<div *ngIf="activeTab === 'tarjans'" id="tarjan-content">
+  <h3 data-i18n="tarjan-full">Tarjan's Algorithm</h3>
+  <p data-i18n="tarjan-description">Tarjan's algorithm finds the strongly connected components (SCCs) of a directed graph. It uses a depth-first search (DFS) to explore the graph while maintaining discovery times and low-link values.</p>
+  <p data-i18n="tarjan-use">It's widely used for:</p>
+  <ul>
+    <li data-i18n="tarjan-use-1">Identifying cycles in directed graphs</li>
+    <li data-i18n="tarjan-use-2">Analyzing social networks</li>
+  </ul>
+</div>
+
+<!-- Kruskal's Algorithm Content -->
+<div *ngIf="activeTab === 'kruskals'" id="kruskal-content">
+  <h3 data-i18n="kruskal-full">Kruskal's Algorithm</h3>
+  <p data-i18n="kruskal-description">Kruskal's algorithm finds the Minimum Spanning Tree (MST) of a connected, undirected graph. It sorts all edges and adds them one by one to the MST, ensuring no cycles are formed.</p>
+  <p data-i18n="kruskal-use">It's widely used for:</p>
+  <ul>
+    <li data-i18n="kruskal-use-1">Network design</li>
+    <li data-i18n="kruskal-use-2">Cluster analysis</li>
+  </ul>
+</div>
+
+
       </div>
     </div>
   </section>
 
   <section id="visualizer" class="visualizer">
-    <div class="container" id="container">
-
-<!--         <h2 data-i18n="interactive-graph-visualizer" style="font-size:40px;">Interactive Graph Visualizer</h2> -->
-         <h2 data-i18n="interactive-graph-visualizer">Interactive Graph Visualizer</h2>
-      <div></div>
-        <!-- GIF Visualization -->
-        <div *ngIf="showGif" class="gif-container">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/5/5d/Breadth-First-Search-Algorithm.gif" alt="BFS Algorithm Visualization" />
-        </div>
-        <p class="description" style="margin-left:255px; margin-top: 50px; text-align: center; font-size: 1.4rem;">
-          Click the BFS button to see the BFS algorithm in action!
+    <div class="container">
+      <h2 data-i18n="interactive-graph-visualizer">Interactive Graph Visualizer</h2>
+      <p class="description" style="text-align: center">
+        Click the buttons to see the respective algorithms in action!
       </p>
-        <button (click)="startBFS()" style="display:  inline-block; margin-top: 20px;">Start BFS</button>
+      <div class="button-container">
+        <!-- BFS Button -->
+        <button class="algo-button" (click)="startBFS()">Start BFS</button>
+        <div *ngIf="showBFSGif" class="gif-container">
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/5/5d/Breadth-First-Search-Algorithm.gif"
+            alt="BFS Algorithm Visualization"
+          />
+        </div>
 
-      <!-- Visualizer for DFS or BFS -->
-      <div *ngIf="activeTab === 'bfs'" class="gif-container">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/5/5d/Breadth-First-Search-Algorithm.gif"
-          alt="BFS Algorithm Visualization" />
-      </div>
-      <div *ngIf="activeTab === 'dfs'" class="gif-container">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/7/7f/Depth-First-Search.gif"
-          alt="DFS Algorithm Visualization">
-      </div>
-      <div *ngIf="activeTab === 'dijkstra'" class="gif-container">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/5/57/Dijkstra_Animation.gif"
-          alt=" Dijkstra Algorithm Visualization">
-      </div>
-      <div *ngIf="activeTab === 'bellmanFord'" class="gif-container">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/7/77/Bellman%E2%80%93Ford_algorithm_example.gif"
-          alt=" BellmanFord Algorithm Visualization">
-      </div>
-      <div *ngIf="activeTab === 'floydWarshall'" class="gif-container">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/0/0f/Floyd_warshall_gif.gif"
-          alt=" FloydWarshall Algorithm Visualization">
-      </div>
-      <!-- Add additional visualizations if needed -->
+        <!-- DFS Button -->
+        <button class="algo-button" (click)="startDFS()">Start DFS</button>
+        <div *ngIf="showDFSGif" class="gif-container">
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/7/7f/Depth-First-Search.gif"
+            alt="DFS Algorithm Visualization"
+          />
+        </div>
 
+        <!-- Dijkstra Button -->
+        <button class="algo-button" (click)="startDijkstra()">Start Dijkstra</button>
+        <div *ngIf="showDijkstraGif" class="gif-container">
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/5/57/Dijkstra_Animation.gif"
+            alt="Dijkstra Algorithm Visualization"
+          />
+        </div>
+      </div>
     </div>
   </section>
-
-
 
 
   <h1 class="canvas_1" style="color: #40444b;">CANVAS</h1>
@@ -362,6 +456,7 @@
       <input id="thread-title" type="text" placeholder="Thread Title" required>
       <textarea id="thread-content" placeholder="Write your thread content" required></textarea>
       <button onclick="createThread()" id="thread-button">Post Thread</button>
+      <div id="confirmationMessage" class="confirmation-message" style="display:none; color: green; margin-top: 10px;"></div>
     </div>
 
     <!-- Display All Threads -->
@@ -371,16 +466,106 @@
     </div>
   </div>
 
+
+
+
+
+
+
+    <div class="testimonials-wrap">
+      <div class="container">
+        <div class="heading-section">
+          <span class="sub-heading">Testimonials</span>
+          <h2>Happy Clients &amp; Feedbacks</h2>
+        </div>
+
+        <div class="carousel-testimonial">
+          <div class="arrow left-arrow" onclick="prevSlide()"><i class="fa fa-arrow-left"></i></div>
+
+          <div class="testimonial-container">
+            <div class="testimonial-items">
+              <div class="item">
+                <div class="testimonial-box">
+                  <div class="user-img" style="background-image: url(https://randomuser.me/api/portraits/men/82.jpg)"></div>
+                  <div class="text">
+                    <span class="quote"><i class="fa fa-quote-left"></i></span>
+                    <p class="message">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                    <p class="name">Mark Huff</p>
+                    <span class="position">Businessman</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="item">
+                <div class="testimonial-box">
+                  <div class="user-img" style="background-image: url(https://randomuser.me/api/portraits/women/79.jpg)"></div>
+                  <div class="text">
+                    <span class="quote"><i class="fa fa-quote-left"></i></span>
+                    <p class="message">Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life.</p>
+                    <p class="name">Anna Kendrick</p>
+                    <span class="position">Designer</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="item">
+                <div class="testimonial-box">
+                  <div class="user-img" style="background-image: url(https://randomuser.me/api/portraits/men/88.jpg)"></div>
+                  <div class="text">
+                    <span class="quote"><i class="fa fa-quote-left"></i></span>
+                    <p class="message">When she reached the first hills of the Italic Mountains, she had a last view back on the skyline.</p>
+                    <p class="name">John Smith</p>
+                    <span class="position">Software Engineer</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="arrow right-arrow" onclick="nextSlide()"><i class="fa fa-arrow-right"></i></div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+   <script>
+let currentIndex = 0;
+const items = document.querySelectorAll('.testimonial-items .item');
+const testimonialItems = document.querySelector('.testimonial-items');
+const totalItems = items.length;
+
+function showSlide(index) {
+  const offset = -index * 100;
+  testimonialItems.style.transform = `translateX(${offset}%)`;
+}
+
+function nextSlide() {
+  currentIndex = (currentIndex + 1) % totalItems;
+  showSlide(currentIndex);
+}
+
+function prevSlide() {
+  currentIndex = (currentIndex - 1 + totalItems) % totalItems;
+  showSlide(currentIndex);
+}
+
+// Initial display
+showSlide(currentIndex);
+
+   </script>
+
   <!-- Inline JavaScript code (previously TypeScript) -->
   <script>
-    // Interface for thread structure
-    // Converted to plain JavaScript as browsers don't natively support TypeScript
+    // Initialize threads from local storage
     let threads = JSON.parse(localStorage.getItem('threads') || '[]');
-    console.log("this is discussion")
+
     // Function to create a new thread
     function createThread() {
       const titleInput = document.getElementById('thread-title');
       const contentInput = document.getElementById('thread-content');
+      const confirmationMessage = document.getElementById('confirmationMessage');
 
       const title = titleInput.value;
       const content = contentInput.value;
@@ -398,6 +583,15 @@
         // Clear the input fields
         titleInput.value = '';
         contentInput.value = '';
+
+        // Display confirmation message
+        confirmationMessage.textContent = "Thread posted successfully!";
+        confirmationMessage.style.display = "block";
+
+        // Hide confirmation message after 3 seconds
+        setTimeout(() => {
+          confirmationMessage.style.display = "none";
+        }, 3000);
 
         // Reload the threads
         displayThreads();
@@ -1015,7 +1209,3 @@
       });
     }
   </script>
-
-</body>
-
-</html>
