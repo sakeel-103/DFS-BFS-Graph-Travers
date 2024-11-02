@@ -5,10 +5,6 @@
   font-style: normal; /* Normal font style */
 }
 
-*{
-  margin: 0px;
-  padding: 0px;
-}
 body {
   font-family: "Montserrat", sans-serif; /* Apply Montserrat to the body for all text */
   font-weight: 400; /* Regular weight for body text */
@@ -25,7 +21,7 @@ body {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 2rem;
-  margin-top: 6rem;
+  margin-top: 4rem;
 }
 
 header {
