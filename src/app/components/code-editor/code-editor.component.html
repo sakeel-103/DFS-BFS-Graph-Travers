@@ -1,4 +1,26 @@
 <app-navbar></app-navbar>
-<div style="position: relative; top: 80px;">
-    <div class="app-ace-editor" #editor style="width: 100%; height: 1000px;"></div>
+<div class="editor-container">
+    <div class="toolbar">
+        <span>Editor Settings:</span>
+        <select (change)="changeTheme($event)" class="theme-selector">
+            <option value="twilight">Twilight</option>
+            <option value="monokai">Monokai</option>
+            <option value="github">GitHub</option>
+            <option value="solarized_light">Solarized Light</option>
+            <option value="solarized_dark">Solarized Dark</option>
+            <option value="cobalt">Cobalt</option>
+            <option value="dracula">Dracula</option>
+            <option value="chaos">Chaos</option>
+            <option value="clouds_midnight">Clouds Midnight</option>
+            <option value="tomorrow_night_blue">Tomorrow Night Blue</option>
+        </select>
+        <select (change)="changeLanguage($event)" class="language-selector">
+            <option value="cpp">C++</option>
+            <option value="java">Java</option>
+            <option value="python">Python</option>
+            <option value="javascript">JavaScript</option>
+            <option value="html">HTML</option>
+        </select>
+    </div>
+    <div class="app-ace-editor" #editor></div>
 </div>
