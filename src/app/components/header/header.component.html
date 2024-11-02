@@ -411,6 +411,9 @@ frameborder="0"
       </p>
       <div class="button-container">
         <!-- BFS Button -->
+        <button (click)="startBFS()">
+          {{ isBFSRunning ? 'Stop BFS' : 'Start BFS' }}
+        </button>
         <button class="algo-button" (click)="startBFS()">Start BFS</button>
         <div *ngIf="showBFSGif" class="gif-container">
           <img
@@ -420,6 +423,9 @@ frameborder="0"
         </div>
 
         <!-- DFS Button -->
+        <button (click)="startDFS()">
+          {{ isDFSRunning ? 'Stop DFS' : 'Start DFS' }}
+        </button>
         <button class="algo-button" (click)="startDFS()">Start DFS</button>
         <div *ngIf="showDFSGif" class="gif-container">
           <img
@@ -429,6 +435,9 @@ frameborder="0"
         </div>
 
         <!-- Dijkstra Button -->
+        <button (click)="startDijkstra()">
+          {{ isDijkstraRunning ? 'Stop Dijkstra' : 'Start Dijkstra' }}
+        </button>
         <button class="algo-button" (click)="startDijkstra()">Start Dijkstra</button>
         <div *ngIf="showDijkstraGif" class="gif-container">
           <img
