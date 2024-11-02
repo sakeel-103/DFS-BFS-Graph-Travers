@@ -35,47 +35,29 @@ body {
 }
 
 .contact-form label {
-    display: flex;
-    margin: 1rem 0;
+    display: block;
+    margin: 1rem 0 0.5rem;
     color: #4caf50;
     font-weight: bold;
 }
 
-/*Add footer input field with icon of email*/
-.input-flex {
-    display: flex;
-    align-items: center;
-    width: 100%;
-    border: 1px solid #ccc;
-    padding: 10px;
-    border-radius: 4px;
-}
-  
-.input-flex i {
-    color: #888;
-    margin-right: 8px;
-    padding: 5px;
-}
-  
-.input-flex input {
-    border: none;
-    outline: none;
-    flex-grow: 1;
-    padding: 12px;
-    border-radius: 20px;
-    font-size: 16px;
-}
-
 .contact-form input,
 .contact-form textarea {
+    width: 100%;
+    padding: 0.75rem;
+    font-size: 15px;
+    border: 1px solid #333;
+    border-radius: 4px;
+    background-color: #333;
+    color: #ffffff;
+    margin-bottom: 1rem;
     transition: all 0.3s ease;
 }
 
 .contact-form input:hover,
 .contact-form textarea:hover {
     border-color: #2bb12f;
-    background-color: #fcfcfc;
-    color: #ffffff;
+    background-color: #444;
     font-size: 16px;
     border-radius: 10px;
     border-style: dashed;
@@ -83,25 +65,24 @@ body {
 
 .contact-form input::placeholder,
 .contact-form textarea::placeholder {
-    color: #5c5656;
+    color: #777;
 }
 
 .contact-form button {
-    width: 50%;
-    padding: 1.1rem;
+    width: 100%;
+    padding: 0.75rem;
     border: none;
-    border-radius: 20px;
+    border-radius: 4px;
     background-color: #4caf50;
     color: #ffffff;
     font-size: 1rem;
-    margin-top: 18px;
     font-weight: bold;
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 .contact-form button:hover {
-    background-color: #3466b2;
+    background-color: #7fe484;
     transform: scale(1.05);
     font-size: 1.01rem;
     border-radius: 10px;

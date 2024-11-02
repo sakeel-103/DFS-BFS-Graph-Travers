@@ -164,11 +164,17 @@ frameborder="0"
   <div class="min-h-screen">
     <div class="container mx-auto px-4 py-16">
       <div class="flex flex-col items-center text-center space-y-8 mb-16">
-        <h1 class="text-5xl md:text-7xl font-bold text-white tracking-tight graph-a">
-          Graph Algorithms
-          <span class="block text-2xl md:text-3xl mt-2 text-indigo-200" style=" color: #7b95ff;">Visualized &
-            Simplified</span>
-        </h1>
+  <h1 class="text-5xl md:text-7xl font-bold text-white tracking-tight graph-a" style="display: inline-block; transition: transform 0.3s ease;">
+      Graph Algorithms
+      <span class="block text-2xl md:text-3xl mt-2 text-indigo-200" style="color: #7b95ff;">Visualized & Simplified</span>
+  </h1>
+
+  <style>
+    .graph-a:hover {
+        transform: scale(1.1); 
+     }
+   </style>
+
         <p class="text-xl text-indigo-100 max-w-2xl">
           Master advanced graph theory through interactive visualizations and hands-on exploration with GraphExplorer
           Pro.
@@ -225,37 +231,42 @@ frameborder="0"
 
   <!-- Merged LandingPage component ends here -->
 
-  <section id="features" class="features">
+ <section id="features" class="features">
     <div class="container">
-      <h2 data-i18n="why-choose">Why Choose GraphExplorer Pro?</h2>
-      <div class="feature-grid">
-        <div class="feature-card">
-          <div class="feature-icon">📊</div>
-          <h3 data-i18n="interactive-visualizations">Interactive Visualizations</h3>
-          <p data-i18n="interactive-visualizations-desc">Experience graph algorithms in action with our cutting-edge
-            visualization tools.</p>
+        <h2 data-i18n="why-choose">Why Choose GraphExplorer Pro?</h2>
+        <div class="feature-grid">
+            <div class="feature-card" 
+                 onmouseover="this.querySelector('p').style.color='#001f3f';" 
+                 onmouseout="this.querySelector('p').style.color='';">
+                <div class="feature-icon">📊</div>
+                <h3 data-i18n="interactive-visualizations">Interactive Visualizations</h3>
+                <p data-i18n="interactive-visualizations-desc">Experience graph algorithms in action with our cutting-edge visualization tools.</p>
+            </div>
+            <div class="feature-card" 
+                 onmouseover="this.querySelector('p').style.color='#001f3f';" 
+                 onmouseout="this.querySelector('p').style.color='';">
+                <div class="feature-icon">🧠</div>
+                <h3 data-i18n="in-depth-learning">In-Depth Learning</h3>
+                <p data-i18n="in-depth-learning-desc">Gain a deep understanding of graph theory and its practical applications.</p>
+            </div>
+            <div class="feature-card" 
+                 onmouseover="this.querySelector('p').style.color='#001f3f';" 
+                 onmouseout="this.querySelector('p').style.color='';">
+                <div class="feature-icon">🚀</div>
+                <h3 data-i18n="performance-optimization">Performance Optimization</h3>
+                <p data-i18n="performance-optimization-desc">Learn how to implement and optimize graph algorithms for real-world scenarios.</p>
+            </div>
+            <div class="feature-card" 
+                 onmouseover="this.querySelector('p').style.color='#001f3f';" 
+                 onmouseout="this.querySelector('p').style.color='';">
+                <div class="feature-icon">🌐</div>
+                <h3 data-i18n="real-world-applications">Real-World Applications</h3>
+                <p data-i18n="real-world-applications-desc">Discover how graph algorithms power social networks, GPS systems, and more.</p>
+            </div>
         </div>
-        <div class="feature-card">
-          <div class="feature-icon">🧠</div>
-          <h3 data-i18n="in-depth-learning">In-Depth Learning</h3>
-          <p data-i18n="in-depth-learning-desc">Gain a deep understanding of graph theory and its practical
-            applications.</p>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon">🚀</div>
-          <h3 data-i18n="performance-optimization">Performance Optimization</h3>
-          <p data-i18n="performance-optimization-desc">Learn how to implement and optimize graph algorithms for
-            real-world scenarios.</p>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon">🌐</div>
-          <h3 data-i18n="real-world-applications">Real-World Applications</h3>
-          <p data-i18n="real-world-applications-desc">Discover how graph algorithms power social networks, GPS systems,
-            and more.</p>
-        </div>
-      </div>
     </div>
-  </section>
+</section>
+
 
   <section id="graph-types" class="graph-types">
     <div class="container">
@@ -411,6 +422,9 @@ frameborder="0"
       </p>
       <div class="button-container">
         <!-- BFS Button -->
+        <button (click)="startBFS()">
+          {{ isBFSRunning ? 'Stop BFS' : 'Start BFS' }}
+        </button>
         <button class="algo-button" (click)="startBFS()">Start BFS</button>
         <div *ngIf="showBFSGif" class="gif-container">
           <img
@@ -420,6 +434,9 @@ frameborder="0"
         </div>
 
         <!-- DFS Button -->
+        <button (click)="startDFS()">
+          {{ isDFSRunning ? 'Stop DFS' : 'Start DFS' }}
+        </button>
         <button class="algo-button" (click)="startDFS()">Start DFS</button>
         <div *ngIf="showDFSGif" class="gif-container">
           <img
@@ -429,6 +446,9 @@ frameborder="0"
         </div>
 
         <!-- Dijkstra Button -->
+        <button (click)="startDijkstra()">
+          {{ isDijkstraRunning ? 'Stop Dijkstra' : 'Start Dijkstra' }}
+        </button>
         <button class="algo-button" (click)="startDijkstra()">Start Dijkstra</button>
         <div *ngIf="showDijkstraGif" class="gif-container">
           <img

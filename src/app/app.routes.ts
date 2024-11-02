@@ -18,7 +18,7 @@ import { CodeEditorComponent } from './components/code-editor/code-editor.compon
 import { ReviewComponent } from './components/reviews/reviews.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { NQueenVisualizerComponent } from './components/n-queen-visualizer/n-queen-visualizer.component'
-
+import { GeminibotComponent } from './components/geminibot/geminibot.component';
 
 import { AlgorithmComparisonComponent } from './components/algocompare/algocompare.component';
 
@@ -96,6 +96,10 @@ export const routes: Routes = [
   {
     path: 'n-queen-visualizer',
     component: NQueenVisualizerComponent,
+  },
+  {
+    path: 'gemini',
+    component: GeminibotComponent,
   },
   // {
   //   path: 'algo-compare',

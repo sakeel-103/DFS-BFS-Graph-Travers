@@ -1,22 +1,36 @@
 <app-navbar></app-navbar>
 <div class="question-bank-container">
-    <header>
-        <h1>Practice Your Skills</h1>
-        <p class="intro">
-            Sharpen your coding skills with hundreds of algorithm problems to practice.
-        </p>
-    </header>
-
-    <div class="search-container">
-        <input type="text" [(ngModel)]="searchTerm" (input)="filterQuestions()" placeholder="Search problems..."
-            class="search-input">
+    <div class="sidebar">
+        <h3>Filter by Difficulty</h3>
+        <ul>
+            <li *ngFor="let level of ['Easy', 'Medium', 'Hard', 'All']"
+                (click)="setCategory(level === 'All' ? '' : level)">
+                {{ level }}
+            </li>
+        </ul>
     </div>
 
-    <div class="question-grid">
-        <div *ngFor="let question of filteredQuestions" class="question-card">
-            <h2>{{ question.title }}</h2>
-            <p>{{ question.description }}</p>
-            <a [href]="question.link" class="start-solving-button" target="_blank">Start Solving</a>
+    <div class="content">
+        <header class="header">
+            <h1 class="title">Practice Your Skills</h1>
+            <p class="intro">
+                Sharpen your coding skills with hundreds of algorithm problems to practice.
+            </p>
+        </header>
+
+        <div class="search-container">
+            <input type="text" [(ngModel)]="searchTerm" (input)="filterQuestions()" placeholder="Search problems..."
+                class="search-input">
+        </div>
+
+        <div *ngIf="isLoading" class="loading-indicator">Loading questions, please wait...</div>
+
+        <div class="question-grid" *ngIf="!isLoading">
+            <div *ngFor="let question of filteredQuestions" class="question-card">
+                <h2 class="question-title">{{ question.title }}</h2>
+                <p class="question-description">{{ question.description }}</p>
+                <a [href]="question.link" class="start-solving-button" target="_blank">Start Solving</a>
+            </div>
         </div>
     </div>
 </div>
