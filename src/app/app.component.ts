@@ -6,6 +6,7 @@ import { AboutUsComponent } from './components/aboutUs-page/aboutUs.component';
 import { LoginPageComponent } from './components/login-page/login-page.component';
 import { MainIndexComponent } from './components/main-index/main-index.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { ForumComponent } from './components/forum/forum.component';
 
 
 @Component({
@@ -18,7 +19,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     LoginPageComponent,
     MainIndexComponent,
     NavbarComponent,
-    
+    ForumComponent,
     RouterModule,
   ],
   templateUrl: './app.component.html',

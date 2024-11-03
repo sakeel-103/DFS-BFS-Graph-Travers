@@ -23,6 +23,8 @@ import { AlgorithmComparisonComponent } from './components/algocompare/algocompa
 
 import { ProfileDashboardPageComponent } from './components/profile/profile.component';
 
+import { ForumComponent } from './components/forum/forum.component';
+
 export const routes: Routes = [
   {
     path: '',
@@ -96,6 +98,11 @@ export const routes: Routes = [
     path: 'gemini',
     component: GeminibotComponent,
   },
+  {
+    path: 'forum',
+    component: ForumComponent,
+  },
+
   // {
   //   path: 'algo-compare',
   //   component: AlgorithmComparisonComponent,
