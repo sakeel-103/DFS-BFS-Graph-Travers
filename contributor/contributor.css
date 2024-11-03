@@ -1,3 +1,11 @@
+:root {
+  --primary-color: #007bff;
+  --secondary-color: #ca4818;
+  --text-color: #333;
+  --background-color: #f5f5f5;
+  --hero-background: url("https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=2850&q=80");
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -7,8 +15,18 @@
 body {
   font-family: Arial, sans-serif;
   line-height: 1.6;
-  color: #333;
-  background-color: #f5f5f5;
+  color: var(--text-color);
+  background-color: var(--background-color);
+}
+
+.icon {
+  width: 24px; /* Set width to control size */
+  height: 24px; /* Set height to control size */
+  stroke-width: 2; /* Control stroke width */
+  fill: none; /* No fill */
+  stroke: currentColor; /* Use the text color for stroke */
+  display: inline-block; /* Align icons inline with text */
+  vertical-align: middle; /* Keep icons vertically centered */
 }
 
 .contributor-container {
@@ -17,7 +35,7 @@ body {
 
 /* Hero Section */
 .contributor-hero {
-  background-image: url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=2850&q=80');
+  background-image: var(--hero-background);
   background-size: cover;
   background-position: center;
   height: 70vh;
@@ -30,7 +48,7 @@ body {
 }
 
 .contributor-hero::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
@@ -56,7 +74,7 @@ body {
   margin-bottom: 2rem;
 }
 
-/*Add footer input field with icon of email*/
+/* Input field with icon */
 .input-flex {
   display: flex;
   align-items: center;
@@ -64,6 +82,7 @@ body {
   border: 1px solid #ccc;
   padding: 8px;
   border-radius: 4px;
+  justify-content: space-between;
 }
 
 .input-flex i {
@@ -86,7 +105,7 @@ body {
   border-radius: 5px;
   font-size: 1rem;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.2s ease;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
@@ -98,18 +117,31 @@ body {
 
 .contributor-btn-primary:hover {
   background-color: #c94242;
-  transition-duration: 2s;
+  transform: translateY(-2px);
 }
 
+/* Secondary Button Styling */
 .contributor-btn-secondary {
-  background-color: #ca4818;
+  background: linear-gradient(135deg, #ff512f, #dd2476); /* Gradient for a modern look */
   color: #fff;
-  box-shadow: 0 0 15px rgba(51, 51, 51, 0.3);
+  padding: 0.8rem 1.5rem;
+  border: none;
+  border-radius: 8px; /* Slightly larger rounded corners */
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
 }
 
 .contributor-btn-secondary:hover {
-  background-color: #3ad71b;
-  transition-duration: 2s;
+  background: linear-gradient(135deg, #ff9966, #ff5e62); /* Lighter gradient on hover */
+  transform: translateY(-3px); /* Lift the button slightly on hover */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Deepen the shadow on hover */
+}
+
+.contributor-btn-secondary:active {
+  transform: translateY(0); /* Return to normal on click */
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2); /* Slightly reduce the shadow on click */
 }
 
 /* Stats Section */
@@ -143,6 +175,7 @@ body {
 
 .contributor-stat-card:hover {
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+  transform: scale(1.02);
 }
 
 .contributor-stat-card .contributor-icon {
@@ -236,10 +269,6 @@ body {
   align-items: center;
 }
 
-.contributor-contributor-card .contributor-footer svg {
-  margin-right: 0.5rem;
-}
-
 /* Loading Spinner */
 .contributor-loading {
   display: flex;
@@ -258,23 +287,45 @@ body {
 }
 
 @keyframes contributor-spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 /* Call to Action Section */
+/* Call to Action Section */
 .contributor-cta {
-  background-color: #333;
+  background-color: #444; /* Dark background for contrast */
   color: #fff;
-  padding: 4rem 0;
+  padding: 4rem 1rem;
   text-align: center;
+  position: relative;
   box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.2);
+  max-height: auto;
+  max-width: auto; /* Decreased width */
+  margin: 0 auto; /* Center the CTA box */
+  border-radius: 10px; /* Rounded corners for a modern look */
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 768px) {
+  .contributor-cta {
+    max-width: 100%; /* Make it more flexible on smaller screens */
+  }
+}
+
+.cta-icon {
+  font-size: 3rem; /* Larger icon size */
+  margin-bottom: 1rem;
+  color: #ca4818; /* Icon color */
 }
 
 .contributor-cta h2 {
   font-size: 2rem;
   margin-bottom: 1rem;
-  text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
 }
 
 .contributor-cta p {
@@ -282,24 +333,8 @@ body {
   margin-bottom: 2rem;
 }
 
-.contributor-cta form {
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
-  margin-bottom: 1rem;
-}
-
-.contributor-cta input[type="email"] {
-  padding: 0.8rem;
-  font-size: 1rem;
-  border: none;
-  border-radius: 5px;
-  width: 300px;
-  box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
-}
-
 .contributor-notification {
-  background-color: #4CAF50;
+  background-color: #4caf50; /* Green background for success */
   color: white;
   padding: 1rem;
   border-radius: 5px;
@@ -317,32 +352,65 @@ body {
   }
 }
 
-.contributor-hidden {
-  display: none;
+.contributor-notification.visible {
+  opacity: 1;
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-  .contributor-hero h1 {
-      font-size: 2.5rem;
-  }
+/* Input field with icon */
+/* Input Field with Icon Styling */
+.input-flex {
+  display: flex;
+  align-items: center;
+  width: 100%; /* Full width for responsive design */
+  max-width: 400px; /* Limit max width */
+  padding: 10px 15px; /* Increase padding for a more comfortable feel */
+  margin: 1.5rem auto; /* Center the input and add top-bottom margin */
+  border: 2px solid #ccc; /* Slightly thicker border */
+  border-radius: 8px; /* More rounded corners */
+  background-color: #f9f9f9; /* Light background */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
 
-  .contributor-hero p {
-      font-size: 1.2rem;
-  }
+.input-flex i {
+  color: #888; /* Subtle color for the icon */
+  margin-right: 10px;
+  font-size: 1.2rem; /* Increase icon size for better visibility */
+}
 
-  .contributor-cta form {
-      flex-direction: column;
-      align-items: center;
-  }
+.input-flex input {
+  border: none;
+  outline: none;
+  flex-grow: 1;
+  font-size: 1rem; /* Slightly larger font */
+  padding: 8px; /* Add padding inside input */
+  font-family: 'Poppins', sans-serif; /* Modern font family */
+  color: #333; /* Darker text color */
+  background-color: transparent; /* Clear background to blend with container */
+}
 
-  .contributor-cta input[type="email"] {
-      width: 100%;
-      max-width: 300px;
-  }
+.input-flex input::placeholder {
+  color: #aaa; /* Lighter placeholder text */
+  font-style: italic; /* Slightly stylized placeholder */
+}
 
-  /*add input field width for small screen */
+/* Add Google Fonts for 'Poppins' */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap');
+
+/* Media queries for responsiveness */
+@media (min-width: 768px) {
   .input-flex {
-    width: 50%;
+    max-width: 400px; /* Keeps the input field centered and responsive */
   }
+}
+
+@media (max-width: 768px) {
+  .input-flex {
+    width: 100%;
+    max-width: 350px; /* Reduces the input width on smaller screens */
+  }
+}
+
+.contributor-stat-card,
+.contributor-contributor-card {
+  padding: 1rem;
 }
