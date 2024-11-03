@@ -196,12 +196,12 @@ a.nav-item {
   color: #6c63ff;
 }
 
-@media (max-width:886px){
+@media (max-width:885px){
   .nav-links{
     display: none !important;
   }
   .menu-icon{
-    display: flex;
+    display: block !important;
   }
 
   .active-navbar{
