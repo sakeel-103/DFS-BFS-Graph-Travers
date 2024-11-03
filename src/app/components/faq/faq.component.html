@@ -1,162 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GraphExplorer Pro - FAQ</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
-        integrity="sha384-k6RqeWeci5ZR/Lv4MR0sA0FfDOM8OtChmBfKybU8aJ6p2e63CDbAI6BX8wr7C6YJ" crossorigin="anonymous">
-    <script src="./faq-toggle.js" defer></script>
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #f9f9f9;
-            color: #333;
-            margin: 0;
-            padding: 0;
-        }
-
-        .faq {
-            padding: 4rem 2rem;
-            margin: auto;
-        }
-
-        .faq h1 {
-            font-size: 2.5rem; /* Larger font size for emphasis */
-            font-weight: 600; /* Semi-bold font weight */
-            color: #2c3e50; /* Darker color for contrast */
-            text-align: center; /* Center the text */
-            margin-bottom: 2rem; /* Space below the heading */
-            padding: 1rem 0; /* Padding above and below the text */
-            text-transform: uppercase; /* Uppercase letters for a stronger impact */
-            letter-spacing: 1px; /* Slightly increased letter spacing */
-            border-bottom: 2px solid #000000; /* Bottom border to add a decorative line */
-            display: inline-block; /* Make the heading behave like an inline block for centered border */
-        }
-
-        .accordion__item {
-            margin-bottom: 1.5rem;
-        }
-
-        .accordion__header {
-            background-color: #181818;
-            color: #fff;
-            font-size: 1.25rem;
-            font-weight: 600;
-            padding: 1rem 1.5rem;
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            transition: background-color 0.3s ease;
-        }
-
-        .accordion__header:hover {
-            background-color: #121212;
-        }
-
-        .accordion__content {
-            max-height: 0;
-            overflow: hidden;
-            background-color: #f1f1f1;
-            transition: max-height 0.3s ease;
-            padding: 0 1.5rem;
-        }
-
-        .accordion__content p {
-            padding: 1rem 0;
-            margin: 0;
-        }
-
-        .accordion__item.active .accordion__content {
-            max-height: 500px;
-            padding-bottom: 1.5rem;
-        }
-
-        .accordion__item.active .arrow {
-            transform: rotate(180deg);
-        }
-    </style>
-</head>
-
-<body>
-    <app-navbar></app-navbar>
-    <section class="faq">
-        <h1>Frequently Asked Questions</h1>
-        <div class="accordion">
-            <div class="accordion__item">
-                <div class="accordion__header" data-toggle="#faq1">What is GraphExplorer Pro?<i class="fas fa-chevron-down arrow"></i></div>
-                <div class="accordion__content" id="faq1">
-                    <p>GraphExplorer Pro is an interactive tool designed to help users explore, learn, and visualize different graph algorithms and their real-world applications.</p>
-                </div>
+<app-navbar></app-navbar>
+<section class="faq">
+    <h1>Frequently Asked Questions</h1>
+    <input type="text" placeholder="Search FAQs..." class="faq-search" (input)="filterFAQs($event)">
+    <button class="toggle-all" (click)="toggleAll()">Toggle All</button>
+    <div class="accordion">
+        <div class="accordion__item" *ngFor="let faq of filteredFaqs" id="faq{{ faq.id }}">
+            <div class="accordion__header" (click)="toggle(faq.id)" [attr.aria-expanded]="faq.isOpen">
+                <span class="question-icon">?</span> <!-- Example of an icon -->
+                {{ faq.question }}
+                <i class="fas fa-chevron-down arrow" [ngClass]="{ 'active': faq.isOpen }"></i>
             </div>
-
-            <div class="accordion__item">
-                <div class="accordion__header" data-toggle="#faq2">What graph algorithms are included?<i class="fas fa-chevron-down arrow"></i></div>
-                <div class="accordion__content" id="faq2">
-                    <p>GraphExplorer Pro covers a wide range of graph algorithms, including Depth-First Search (DFS), Breadth-First Search (BFS), Dijkstra's algorithm, and more.</p>
-                </div>
-            </div>
-
-            <div class="accordion__item">
-                <div class="accordion__header" data-toggle="#faq3">How can I use the Graph Visualizer?<i class="fas fa-chevron-down arrow"></i></div>
-                <div class="accordion__content" id="faq3">
-                    <p>The Graph Visualizer allows users to experiment with different graph structures and watch algorithms traverse them step by step, providing an in-depth understanding of the processes involved.</p>
-                </div>
-            </div>
-
-            <div class="accordion__item">
-                <div class="accordion__header" data-toggle="#faq4">What are the different graph types I can explore?<i class="fas fa-chevron-down arrow"></i></div>
-                <div class="accordion__content" id="faq4">
-                    <p>GraphExplorer Pro allows you to explore directed graphs, undirected graphs, weighted graphs, trees, and directed acyclic graphs (DAGs).</p>
-                </div>
-            </div>
-
-            <div class="accordion__item">
-                <div class="accordion__header" data-toggle="#faq5">Is GraphExplorer Pro suitable for beginners?<i class="fas fa-chevron-down arrow"></i></div>
-                <div class="accordion__content" id="faq5">
-                    <p>Yes! GraphExplorer Pro is designed for learners of all levels, offering interactive visualizations and detailed explanations to help beginners understand the basics of graph theory.</p>
-                </div>
-            </div>
-
-            <div class="accordion__item">
-                <div class="accordion__header" data-toggle="#faq6">Can I save my visualizations?<i class="fas fa-chevron-down arrow"></i></div>
-                <div class="accordion__content" id="faq6">
-                    <p>Yes, GraphExplorer Pro provides an option to save your graph visualizations so you can revisit and analyze them later.</p>
-                </div>
-            </div>
-
-            <div class="accordion__item">
-                <div class="accordion__header" data-toggle="#faq7">Does GraphExplorer Pro support weighted graphs?<i class="fas fa-chevron-down arrow"></i></div>
-                <div class="accordion__content" id="faq7">
-                    <p>Yes, GraphExplorer Pro supports weighted graphs, and you can visualize how different algorithms handle weights in edges.</p>
-                </div>
-            </div>
-
-            <div class="accordion__item">
-                <div class="accordion__header" data-toggle="#faq8">What platforms is GraphExplorer Pro available on?<i class="fas fa-chevron-down arrow"></i></div>
-                <div class="accordion__content" id="faq8">
-                    <p>GraphExplorer Pro is a web-based tool that works on all modern browsers, and it is compatible with desktop, tablet, and mobile devices.</p>
-                </div>
-            </div>
-
-            <div class="accordion__item">
-                <div class="accordion__header" data-toggle="#faq9">How often are new features added?<i class="fas fa-chevron-down arrow"></i></div>
-                <div class="accordion__content" id="faq9">
-                    <p>We frequently update GraphExplorer Pro with new features and improvements based on user feedback. Stay tuned for updates!</p>
-                </div>
-            </div>
-
-            <div class="accordion__item">
-                <div class="accordion__header" data-toggle="#faq10">Do I need to create an account to use GraphExplorer Pro?<i class="fas fa-chevron-down arrow"></i></div>
-                <div class="accordion__content" id="faq10">
-                    <p>No, you can use GraphExplorer Pro without creating an account. However, creating an account allows you to save your progress and visualizations.</p>
+            <div class="accordion__content" [ngStyle]="{ 'max-height': faq.isOpen ? faq.contentHeight : '0' }">
+                <p>{{ faq.answer }}</p>
+                <div class="feedback">
+                    <span>Was this answer helpful?</span>
+                    <i class="fas fa-thumbs-up"></i>
+                    <i class="fas fa-thumbs-down"></i>
                 </div>
             </div>
         </div>
-    </section>
-</body>
-
-</html>
+    </div>
+</section>
