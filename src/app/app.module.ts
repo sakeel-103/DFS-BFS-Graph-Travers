@@ -3,8 +3,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; // Import for animations
 import { RouterModule, Routes } from '@angular/router';
 import { ToastrModule } from 'ngx-toastr';
+import { FormsModule } from '@angular/forms'; 
 import { provideAnimations } from '@angular/platform-browser/animations';
-
 import { AppComponent } from './app.component';
 import { ContactUsComponent } from './components/contact-us/contact-us.component'; // Import Contact Us component
 
@@ -22,6 +22,7 @@ const routes: Routes = [
   ],
   imports: [
     BrowserModule,             // For web applications
+    FormsModule,
     BrowserAnimationsModule,    // Required for animations (Toastr)
     RouterModule.forRoot(routes), // Enable routing with routes
     ToastrModule.forRoot()      // Initialize Toastr globally
