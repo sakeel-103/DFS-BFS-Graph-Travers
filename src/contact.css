@@ -1,110 +1,87 @@
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-}
-
 body {
-    background-color: #2e2e2e; /* Grey background */
-    color: #ffffff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
 }
 
 .contact-container {
-    background-color: #1a1a1a;
-    padding: 2rem;
-    width: 90%;
-    max-width: 500px;
-    border-radius: 12px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-    text-align: center;
+  max-width: 600px;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
-.contact-container h1 {
-    color: #4caf50;
-    margin-bottom: 1rem;
+h1 {
+  text-align: center;
+  color: #333;
 }
 
-.contact-container p {
-    color: #cccccc;
-    margin-bottom: 2rem;
+p {
+  text-align: center;
+  color: #666;
 }
 
-.contact-form label {
-    display: flex;
-    margin: 1rem 0;
-    color: #4caf50;
-    font-weight: bold;
+.contact-form {
+  display: flex;
+  flex-direction: column;
 }
 
-/*Add footer input field with icon of email*/
+label {
+  margin: 10px 0 5px;
+  color: #555;
+}
+
 .input-flex {
-    display: flex;
-    align-items: center;
-    width: 100%;
-    border: 1px solid #ccc;
-    padding: 10px;
-    border-radius: 4px;
+  display: flex;
+  align-items: center;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin-bottom: 15px;
+  padding: 5px;
 }
-  
+
 .input-flex i {
-    color: #888;
-    margin-right: 8px;
-    padding: 5px;
-}
-  
-.input-flex input {
-    border: none;
-    outline: none;
-    flex-grow: 1;
-    padding: 12px;
-    border-radius: 20px;
-    font-size: 16px;
+  margin: 0 10px;
+  color: #888;
 }
 
-.contact-form input,
-.contact-form textarea {
-    transition: all 0.3s ease;
+input[type="text"],
+input[type="email"],
+input[type="question"],
+textarea {
+  flex: 1;
+  border: none;
+  outline: none;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 16px;
 }
 
-.contact-form input:hover,
-.contact-form textarea:hover {
-    border-color: #2bb12f;
-    background-color: #fcfcfc;
-    color: #ffffff;
-    font-size: 16px;
-    border-radius: 10px;
-    border-style: dashed;
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="question"]:focus,
+textarea:focus {
+  border: 2px solid #007BFF;
 }
 
-.contact-form input::placeholder,
-.contact-form textarea::placeholder {
-    color: #5c5656;
+button {
+  background-color: #007BFF;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
 }
 
-.contact-form button {
-    width: 50%;
-    padding: 1.1rem;
-    border: none;
-    border-radius: 20px;
-    background-color: #4caf50;
-    color: #ffffff;
-    font-size: 1rem;
-    margin-top: 18px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.3s ease;
+button:hover {
+  background-color: #0056b3;
 }
 
-.contact-form button:hover {
-    background-color: #3466b2;
-    transform: scale(1.05);
-    font-size: 1.01rem;
-    border-radius: 10px;
-
-
+textarea {
+  resize: none; /* Prevent resizing */
 }
