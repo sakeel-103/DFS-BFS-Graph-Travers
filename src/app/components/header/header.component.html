@@ -52,6 +52,7 @@ frameborder="0"
 
   /* Optional: Center the buttons within the container */
   .container {
+    max-width: 1200px; /* Maximum width of the container */
     text-align: center; /* Center content in container */
   }
 
@@ -87,13 +88,14 @@ frameborder="0"
 
   .nav-links {
     display: flex;
-    gap: 20px;
+    gap: 2rem;
   }
 
   .nav-item {
     color: white;
     text-decoration: none;
     font-size: 1rem;
+    padding: 10px;
   }
 
   .nav-item:hover {
@@ -104,6 +106,39 @@ frameborder="0"
     height: 25px;
     width: 25px;
   }
+  @media (min-width: 856px) and (max-width: 1166px) {
+  .nav-links {
+    flex-wrap: wrap; /* Allow links to wrap to the next line if needed */
+    gap: 1.5rem; /* Reduce gap between nav items */
+  }
+
+  .logo-text {
+    font-size: 1.2rem; /* Adjust font size of the logo text */
+  }
+
+  .nav-item {
+    font-size: 0.9rem; /* Adjust font size of nav links */
+  }
+}
+.logo-text {
+  white-space: nowrap; /* Prevents line breaks */
+}
+@media (max-width: 1166px) {
+  .menu-icon {
+    display: block; /* Show menu icon */
+  }
+
+  .nav-links {
+    display: none; /* Hide nav links by default */
+    flex-direction: column;
+    gap: 15px; /* Space out items vertically */
+  }
+
+  .nav-links.show {
+    display: flex; /* Show nav links when menu is toggled */
+  }
+}
+
 </style>
 
 </head>
@@ -111,9 +146,9 @@ frameborder="0"
 <body>
 
   <header>
-    <nav style="display: flex; justify-content: space-between; align-items: center; padding: 10px 0; background-color: #1a1a2e;">
+    <nav>
       <div class="logo" style="display: flex; align-items: center;">
-        <img src="a.png" alt="Logo" style="height: 70px; width: 75px; border-radius: 50%; margin-right: 10px;" />
+        <img src="img/a.png" alt="Logo" style="height: 70px; width: 75px; border-radius: 50%; margin-right: 10px;" />
         <a href="#hero" style="color: white; font-size: 1.5rem; text-decoration: none; white-space: nowrap;">GraphExplorer Pro</a>
       </div>
 
@@ -123,15 +158,15 @@ frameborder="0"
         <div class="bar3"></div>
       </div>
 
-      <div class="nav-links" id="nav-links" style="display: flex; gap: 20px;">
-        <a class="nav-item" href="#features" data-i18n="features" style="color: white; text-decoration: none; font-size: 1rem;">⚙️Features</a>
-        <a class="nav-item" href="#graph-types" data-i18n="graph-types" style="color: white; text-decoration: none; font-size: 1rem;"> 📈Graph Types</a>
-        <a class="nav-item" href="#algorithms" data-i18n="algorithms" style="color: white; text-decoration: none; font-size: 1rem;">💻Algorithms</a>
-        <a class="nav-item" href="#visualizer" data-i18n="visualizer" style="color: white; text-decoration: none; font-size: 1rem;">📊Visualizer</a>
-        <a class="nav-item" href="/faq" data-i18n="faq" style="color: white; text-decoration: none; font-size: 1rem;"> 🗨️ FAQ</a>
-        <a class="nav-item" href="/quiz" data-i18n="quiz" style="color: white; text-decoration: none; font-size: 1rem;">📝Quiz</a>
-        <a class="nav-item" href="/questions" data-i18n="questions" style="color: white; text-decoration: none; font-size: 1rem;">❓Questions</a>
-        <a class="nav-item" href="/review" data-i18n="reviews" style="color: white; text-decoration: none; font-size: 1rem;">⭐Reviews</a>
+      <div class="nav-links" id="nav-links">
+        <a class="nav-item" href="#features" data-i18n="features" style="color: white; text-decoration: none; font-size: 1rem;">Features</a>
+        <a class="nav-item" href="#graph-types" data-i18n="graph-types" style="color: white; text-decoration: none; font-size: 1rem;">Graph Types</a>
+        <a class="nav-item" href="#algorithms" data-i18n="algorithms" style="color: white; text-decoration: none; font-size: 1rem;">Algorithms</a>
+        <a class="nav-item" href="#visualizer" data-i18n="visualizer" style="color: white; text-decoration: none; font-size: 1rem;">Visualizer</a>
+        <a class="nav-item" href="/faq" data-i18n="faq" style="color: white; text-decoration: none; font-size: 1rem;">FAQ</a>
+        <a class="nav-item" href="/quiz" data-i18n="quiz" style="color: white; text-decoration: none; font-size: 1rem;">Quiz</a>
+        <a class="nav-item" href="/questions" data-i18n="questions" style="color: white; text-decoration: none; font-size: 1rem;">Questions</a>
+        <a class="nav-item" href="/review" data-i18n="reviews" style="color: white; text-decoration: none; font-size: 1rem;">Reviews</a>
         <a class="nav-item github-link" href="https://github.com/sakeel-103/DFS-BFS-Graph-Travers" target="_blank" style="display: flex; align-items: center;">
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="#ffffff">
             <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
@@ -224,6 +259,8 @@ frameborder="0"
           line.style.left = `${Math.random() * 100}%`;
           document.body.appendChild(line);
         }
+  
+
       </script>
     </div>
   </div>
@@ -1228,4 +1265,12 @@ showSlide(currentIndex);
         ctx.stroke();
       });
     }
+    document.getElementById('menu-icon').addEventListener('click', function() {
+  const navLinks = document.getElementById('nav-links');
+  if (navLinks.style.display === 'flex') {
+    navLinks.style.display = 'none';
+  } else {
+    navLinks.style.display = 'flex';
+  }
+});
   </script>

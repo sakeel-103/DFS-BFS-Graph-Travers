@@ -46,6 +46,9 @@ body {
   flex-direction: column;
   place-items: center;
   gap: 1.5rem;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
 }
 
 .container h2{
@@ -77,9 +80,11 @@ header {
 
 nav {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  padding: 1rem 0;
+  /* padding: 1rem 0; */
+  padding: 10px 0; 
+  background-color: #1a1a2e;
 }
 
 .logo {
@@ -90,7 +95,7 @@ nav {
 
 .nav-links {
   display: flex;
-  gap: 2rem;
+  gap: 20px;
   align-items: center;
 }
 
