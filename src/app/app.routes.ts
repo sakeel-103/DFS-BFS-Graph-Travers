@@ -23,6 +23,7 @@ import { GeminibotComponent } from './components/geminibot/geminibot.component';
 import { AlgorithmComparisonComponent } from './components/algocompare/algocompare.component';
 
 import { ProfileDashboardPageComponent } from './components/profile/profile.component';
+import { VisualStackQueueComponent } from './components/visual-stack-queue/visual-stack-queue.component';
 
 export const routes: Routes = [
   {
@@ -100,6 +101,10 @@ export const routes: Routes = [
   {
     path: 'gemini',
     component: GeminibotComponent,
+  },
+  {
+    path: 'visual-stack',
+    component: VisualStackQueueComponent,
   },
   // {
   //   path: 'algo-compare',
