@@ -16,7 +16,7 @@ export class BfsPageComponent implements AfterViewInit, OnInit {
   private nodes: { label: string; x: number; y: number }[] = [];
   private edges: [number, number][] = [];
   private bfsTimeout: any;
-
+  public explanation: string = '';
   private bfsCanvas!: HTMLCanvasElement; // Use '!' to indicate it's definitely assigned later
   private maxDepth: number = 0; // New property to track maximum depth
 
@@ -36,6 +36,29 @@ export class BfsPageComponent implements AfterViewInit, OnInit {
     const bfsCtx = this.bfsCanvas.getContext('2d')!;
     this.adjustCanvasSize();
     this.drawGraph(bfsCtx);
+  }
+
+  public predefinedGraphs: any = {
+    graph1: {
+      nodes: 'A,B,C,D',
+      edges: '0-1;0-2;1-3;0-3;1-2',
+    },
+    graph2: {
+      nodes: 'E,F,G,H',
+      edges: '0-1;1-2;2-3;0-2',
+    },
+    graph3: {
+      nodes: 'I,J,K,L,M',
+      edges: '0-1;1-2;2-3;3-4;1-2;1-4',
+    },
+  };
+
+  loadPredefinedGraph(event: Event) {
+    const selectedGraph = (event.target as HTMLSelectElement).value;
+    if (selectedGraph && this.predefinedGraphs[selectedGraph]) {
+      this.customNodeInput = this.predefinedGraphs[selectedGraph].nodes;
+      this.customEdgeInput = this.predefinedGraphs[selectedGraph].edges;
+    }
   }
 
   toggleDropdown(): void {
@@ -67,8 +90,12 @@ export class BfsPageComponent implements AfterViewInit, OnInit {
 
     let currentLevel = 1;
 
+    this.explanation = `Start Node: ${this.nodes[0].label}`;
+
     while (queue.length > 0) {
       const node = queue.shift()!;
+
+    //this.explanation += `Current: ${this.nodes[node].label}\n`;
 
       // Find the current node level by converting level strings to numbers
       const currentNodeLevel = Object.keys(levels)
@@ -202,6 +229,7 @@ export class BfsPageComponent implements AfterViewInit, OnInit {
               .map((edge) => edge[1]);
 
             queue.push(...neighbors);
+            this.explanation += `<br>Visited: ${this.nodes[node].label}`;
 
             this.drawGraph(ctx, queue, node, visited);
             this.bfsTimeout = setTimeout(processNextNode, 2000);
@@ -213,6 +241,7 @@ export class BfsPageComponent implements AfterViewInit, OnInit {
       } else {
         this.finalPath = visited;
         this.highlightFinalPath(ctx);
+        this.explanation += `<br>Completed traversal`;
       }
     };
 

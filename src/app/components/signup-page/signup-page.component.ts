@@ -49,12 +49,13 @@ export class SignupComponent {
           this.router.navigate(['/mainIndex']);
         },
         (error: any) => {
-          console.error('Error during sign-up:', error);
-          this.toastr.error('Sign-up failed. Please try again.', 'Error');
+          console.log('Error during sign-up:', error);
+          const errorMessage = error?.error?.message || 'Sign-up failed. Please try again.';
+          this.toastr.error(errorMessage);
         }
       );
     } else {
-      this.toastr.error('Please fill out the form correctly.', 'Error');
+      this.toastr.error('Please fill out the form correctly.', 'Validation Error');
     }
   }
 

@@ -1,63 +1,85 @@
 <app-navbar></app-navbar>
 
-<div id="dfs-container">
-  <!-- Custom Graph Input -->
-  <div style="display: flex; justify-content: center;">
-    <div class="custom-input">
-      <label for="nodes">Nodes (comma-separated):</label>
-      <input [(ngModel)]="customNodeInput" id="nodes" type="text" placeholder="A,B,C,D,E,F,G" />
-      <br>
-
-      <label for="edges">Edges (format: 0-1;1-2):</label>
-      <input [(ngModel)]="customEdgeInput" id="edges" type="text" placeholder="0-1;0-2;1-3" />
-      <br>
-
-      <button (click)="handleCustomGraphInput()">Create Custom Graph</button>
-      <button class="clear-button" (click)="clearForm()">Clear Form</button>
+<div id="dfs-container" style="display: flex;">
+  <!-- Sidebar for algorithm explanation -->
+  <div id="sidebar" class="sidebar">
+    <h2>DFS Steps</h2>
+    <div id="algorithm-explanation">
+      <p [innerHTML]="dfs_explaination"></p>
     </div>
   </div>
 
-  <h2>Depth First Search</h2>
-
-  <div class="scrollable-container" style="height: 200px;">
-    <canvas #dfsCanvas id="dfs-canvas" width="600" height="200"></canvas>
-  </div>
-  <button style="margin: 10px;" (click)="downloadCanvas()">Download</button>
-
-  <div>
-    <button style="margin: 10px;" (click)="startDFSTraversal()">Start DFS</button>
-    <button style="margin: 10px;" (click)="resetDFS()">Reset DFS</button>
-    <button style="margin: 10px;" (click)="toggleDFSCard()">Algorithm Description</button>
-  </div>
-
-  <!-- DFS Description Card (Initially Hidden) -->
-  <div id="dfs-card" class="dfs-card hidden">
-    <h3>DFS Algorithm</h3>
-    <p>
-      Depth First Search (DFS) is an algorithm for traversing or searching tree or graph data structures. The algorithm
-      starts at the root node (selecting some arbitrary node as the root in the case of a graph) and explores as far as
-      possible along each branch before backtracking.
-    </p>
-  </div>
-
-  <div style="display: flex;">
-    <div id="dfs-stack" class="box">
-      <div id="stack-label">Stack:</div>
-      <div id="stack-content"></div>
+  <!-- Main Content -->
+  <div style="flex: 1; padding: 20px;">
+    <!-- Predefined Graph Dropdown -->
+    <div style="display: flex; justify-content: center; margin-bottom: 20px;">
+      <label for="predefined-graphs">Select From Sample Graph:</label>
+      <select id="predefined-graphs" style="margin-left: 5px;" (change)="loadPredefinedGraph($event)">
+        <option value="">-- Options --</option>
+        <option value="graph1">Graph 1</option>
+        <option value="graph2">Graph 2</option>
+        <option value="graph3">Graph 3</option>
+      </select>
     </div>
-    <div id="dfs-processing" class="box" style="margin-left: 10px;">
-      <div id="processing-label">Processing:</div>
-      <div id="processing-content"></div>
-    </div>
-    <div id="dfs-processed" class="box" style="margin-left: 10px;">
-      <div id="processed-label">Processed:</div>
-      <div id="processed-content"></div>
-    </div>
-  </div>
 
-  <!-- Path Visualization -->
-  <div id="dfs-path" class="box" style="margin-top: 10px;">
-    <div id="path-label">Path Taken:</div>
-    <div id="path-content"></div>
+    <!-- Custom Graph Input -->
+    <div style="display: flex; justify-content: center;">
+      <div class="custom-input">
+        <label for="nodes">Nodes (comma-separated):</label>
+        <input [(ngModel)]="customNodeInput" id="nodes" type="text" placeholder="A,B,C,D,E,F,G" />
+        <br>
+
+        <label for="edges">Edges (format: 0-1;1-2):</label>
+        <input [(ngModel)]="customEdgeInput" id="edges" type="text" placeholder="0-1;0-2;1-3" />
+        <br>
+
+        <button (click)="handleCustomGraphInput()">Create Custom Graph</button>
+        <button class="clear-button" (click)="clearForm()">Clear Form</button>
+      </div>
+    </div>
+
+    <h2>Depth First Search</h2>
+
+    <div class="scrollable-container" style="height: 200px;">
+      <canvas #dfsCanvas id="dfs-canvas" width="600" height="200"></canvas>
+    </div>
+    <button style="margin: 10px;" (click)="downloadCanvas()">Download</button>
+
+    <div>
+      <button style="margin: 10px;" (click)="startDFSTraversal()">Start DFS</button>
+      <button style="margin: 10px;" (click)="resetDFS()">Reset DFS</button>
+      <button style="margin: 10px;" (click)="toggleDFSCard()">Algorithm Description</button>
+    </div>
+
+    <!-- DFS Description Card (Initially Hidden) -->
+    <div id="dfs-card" class="dfs-card hidden">
+      <h3>DFS Algorithm</h3>
+      <p>
+        Depth First Search (DFS) is an algorithm for traversing or searching tree or graph data structures. The algorithm
+        starts at the root node (selecting some arbitrary node as the root in the case of a graph) and explores as far as
+        possible along each branch before backtracking.
+      </p>
+    </div>
+
+    <div style="display: flex;">
+      <div id="dfs-stack" class="box">
+        <div id="stack-label">Stack:</div>
+        <div id="stack-content"></div>
+      </div>
+      <div id="dfs-processing" class="box" style="margin-left: 10px;">
+        <div id="processing-label">Processing:</div>
+        <div id="processing-content"></div>
+      </div>
+      <div id="dfs-processed" class="box" style="margin-left: 10px;">
+        <div id="processed-label">Processed:</div>
+        <div id="processed-content"></div>
+      </div>
+    </div>
+
+    <!-- Path Visualization -->
+    <div id="dfs-path" class="box" style="margin-top: 10px;">
+      <div id="path-label">Path Taken:</div>
+      <div id="path-content"></div>
+    </div>
   </div>
 </div>

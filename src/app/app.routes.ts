@@ -17,11 +17,13 @@ import { ContributorsComponent } from './components/contributors/contributors.co
 import { CodeEditorComponent } from './components/code-editor/code-editor.component';
 import { ReviewComponent } from './components/reviews/reviews.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
-
+import { NQueenVisualizerComponent } from './components/n-queen-visualizer/n-queen-visualizer.component'
+import { GeminibotComponent } from './components/geminibot/geminibot.component';
 
 import { AlgorithmComparisonComponent } from './components/algocompare/algocompare.component';
 
 import { ProfileDashboardPageComponent } from './components/profile/profile.component';
+import { VisualStackQueueComponent } from './components/visual-stack-queue/visual-stack-queue.component';
 
 export const routes: Routes = [
   {
@@ -91,6 +93,18 @@ export const routes: Routes = [
   {
     path: 'pagenotfound',
     component: PageNotFoundComponent,
+  },
+  {
+    path: 'n-queen-visualizer',
+    component: NQueenVisualizerComponent,
+  },
+  {
+    path: 'gemini',
+    component: GeminibotComponent,
+  },
+  {
+    path: 'visual-stack',
+    component: VisualStackQueueComponent,
   },
   // {
   //   path: 'algo-compare',
