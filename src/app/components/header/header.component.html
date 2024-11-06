@@ -459,10 +459,7 @@ frameborder="0"
       </p>
       <div class="button-container">
         <!-- BFS Button -->
-        <button (click)="startBFS()">
-          {{ isBFSRunning ? 'Stop BFS' : 'Start BFS' }}
-        </button>
-        <button class="algo-button" (click)="startBFS()">Start BFS</button>
+        <button class="algo-button" (click)="startBFS()">{{ isBFSRunning ? 'Stop BFS' : 'Start BFS' }}</button>
         <div *ngIf="showBFSGif" class="gif-container">
           <img
             src="https://upload.wikimedia.org/wikipedia/commons/5/5d/Breadth-First-Search-Algorithm.gif"
@@ -471,10 +468,7 @@ frameborder="0"
         </div>
 
         <!-- DFS Button -->
-        <button (click)="startDFS()">
-          {{ isDFSRunning ? 'Stop DFS' : 'Start DFS' }}
-        </button>
-        <button class="algo-button" (click)="startDFS()">Start DFS</button>
+        <button class="algo-button" (click)="startDFS()">{{ isDFSRunning ? 'Stop DFS' : 'Start DFS' }}</button>
         <div *ngIf="showDFSGif" class="gif-container">
           <img
             src="https://upload.wikimedia.org/wikipedia/commons/7/7f/Depth-First-Search.gif"
@@ -483,10 +477,7 @@ frameborder="0"
         </div>
 
         <!-- Dijkstra Button -->
-        <button (click)="startDijkstra()">
-          {{ isDijkstraRunning ? 'Stop Dijkstra' : 'Start Dijkstra' }}
-        </button>
-        <button class="algo-button" (click)="startDijkstra()">Start Dijkstra</button>
+        <button class="algo-button" (click)="startDijkstra()">{{ isDijkstraRunning ? 'Stop Dijkstra' : 'Start Dijkstra' }}</button>
         <div *ngIf="showDijkstraGif" class="gif-container">
           <img
             src="https://upload.wikimedia.org/wikipedia/commons/5/57/Dijkstra_Animation.gif"
