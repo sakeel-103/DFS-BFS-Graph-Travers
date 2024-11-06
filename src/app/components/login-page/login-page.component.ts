@@ -4,6 +4,7 @@ import { NgForm, FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common'; // Import CommonModule for ngClass
 import { ToastrService } from 'ngx-toastr';
 import { AuthService } from '../../services/auth.service';
+import { environment } from '../../../environments/environment';  // Import environment
 
 declare var gapi: any;
 
@@ -47,7 +48,7 @@ export class LoginPageComponent implements OnInit {
   initializeGoogleAuth(): void {
     gapi.load('auth2', () => {
       const auth2 = gapi.auth2.init({
-        client_id: 'YOUR_GOOGLE_CLIENT_ID', // Replace with your actual Google Client ID
+        client_id: environment.CLIENT_ID, // Replace with your actual Google Client ID
         cookiepolicy: 'single_host_origin',
       });
 

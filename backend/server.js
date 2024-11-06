@@ -40,7 +40,7 @@ app.use(session({
 }));
 
 // Connect to MongoDB
-mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect(process.env.MONGODB_URI)
     .then(() => console.log('MongoDB connected'))
     .catch(err => console.error('MongoDB connection error:', err));
 
@@ -121,6 +121,18 @@ app.post('/api/signup', validateSignup, async (req, res) => {
         console.log('Server Error during signup:', error.message);
         res.status(500).json({ message: 'Server error. Please try again later.' });
     }
+});
+
+// Ensure COOP and COEP headers are set correctly
+app.use((req, res, next) => {
+    res.setHeader('Cross-Origin-Opener-Policy', 'same-origin');
+    res.setHeader('Cross-Origin-Embedder-Policy', 'require-corp');
+    next();
+});
+
+app.post('/api/auth/google', async (req, res) => {
+    // Your Google login logic here
+    res.status(200).send('Google login success');
 });
 
 // User login endpoint
