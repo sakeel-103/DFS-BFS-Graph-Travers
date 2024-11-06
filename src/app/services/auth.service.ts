@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
 import { tap } from 'rxjs/operators';
 import { environment } from '../../environments/environment';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root',
@@ -28,6 +28,15 @@ export class AuthService {
         // Handle successful login (e.g., manage user session)
       })
     );
+  }
+  // Login with Google (send the ID token to backend for verification)
+  loginWithGoogle(idToken: string): Observable<any> {
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${idToken}`, // Send the Google ID token to the backend
+    });
+
+    return this.http.post(`${this.apiUrl}/auth/google`, { token: idToken }, { headers });
   }
 
   submitContactForm(contactData: any): Observable<any> {
