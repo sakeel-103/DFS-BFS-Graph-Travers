@@ -1,0 +1,79 @@
+<app-navbar></app-navbar>
+<div class="maze-container">
+    <div class="maze-header">
+        <h1 class="title">Maze Runner Visualizer</h1>
+        <p class="subtitle">Explore and compare different pathfinding algorithms in action</p>
+    </div>
+
+    <div class="controls">
+        <button class="btn btn-primary" (click)="startDFS()">
+            <span class="btn-icon">▶</span>
+            Start DFS
+        </button>
+        <button class="btn btn-primary" (click)="startBFS()">
+            <span class="btn-icon">▶</span>
+            Start BFS
+        </button>
+    </div>
+
+    <div class="maze-content">
+        <div class="maze-section">
+            <div class="algorithm-header">
+                <h2>Depth-First Search (DFS)</h2>
+                <p>DFS explores as far as possible along each branch before backtracking, which can lead to finding a
+                    path but
+                    not necessarily the shortest path.</p>
+            </div>
+            <div class="maze-wrapper">
+                <div class="maze-grid">
+                    <div *ngFor="let row of gridDFS; let i = index" class="row">
+                        <div *ngFor="let cell of row; let j = index" [ngClass]="{
+                   'cell': true,
+                   'start': gridDFS[i][j] === 2,
+                   'end': gridDFS[i][j] === 3,
+                   'visited': gridDFS[i][j] === 1
+                 }">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="maze-section">
+            <div class="algorithm-header">
+                <h2>Breadth-First Search (BFS)</h2>
+                <p>BFS explores all neighbors at the present depth level before moving on to nodes at the next level,
+                    ensuring
+                    the shortest path is found if one exists.</p>
+            </div>
+            <div class="maze-wrapper">
+                <div class="maze-grid">
+                    <div *ngFor="let row of gridBFS; let i = index" class="row">
+                        <div *ngFor="let cell of row; let j = index" [ngClass]="{
+                   'cell': true,
+                   'start': gridBFS[i][j] === 2,
+                   'end': gridBFS[i][j] === 3,
+                   'visited': gridBFS[i][j] === 1
+                 }">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="legend">
+        <div class="legend-item">
+            <div class="legend-color start"></div>
+            <span>Start</span>
+        </div>
+        <div class="legend-item">
+            <div class="legend-color end"></div>
+            <span>End</span>
+        </div>
+        <div class="legend-item">
+            <div class="legend-color visited"></div>
+            <span>Visited</span>
+        </div>
+    </div>
+</div>
