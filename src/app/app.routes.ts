@@ -27,6 +27,7 @@ import { ProfileDashboardPageComponent } from './components/profile/profile.comp
 import { VisualStackQueueComponent } from './components/visual-stack-queue/visual-stack-queue.component';
 import { MazeRunnerVisualizerComponent } from './components/maze-runner-visualizer/maze-runner-visualizer.component';
 import { TreasureHuntVisualizerComponent } from './components/treasure-hunt-visualizer/treasure-hunt-visualizer.component';
+import { SortingComponent } from './components/sorting-v/sorting.component';
 
 export const routes: Routes = [
   {
@@ -76,6 +77,10 @@ export const routes: Routes = [
   {
     path: 'questions',
     component: QuestionBankComponent,
+  },
+  {
+    path: 'sorting-v',
+    component: SortingComponent,
   },
   {
     path: 'resources',
