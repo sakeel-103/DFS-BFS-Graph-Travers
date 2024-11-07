@@ -24,6 +24,7 @@ import { AlgorithmComparisonComponent } from './components/algocompare/algocompa
 
 import { ProfileDashboardPageComponent } from './components/profile/profile.component';
 import { VisualStackQueueComponent } from './components/visual-stack-queue/visual-stack-queue.component';
+import { MazeRunnerVisualizerComponent } from './components/maze-runner-visualizer/maze-runner-visualizer.component';
 
 export const routes: Routes = [
   {
@@ -105,6 +106,10 @@ export const routes: Routes = [
   {
     path: 'visual-stack',
     component: VisualStackQueueComponent,
+  },
+  {
+    path: 'maze-runner',
+    component: MazeRunnerVisualizerComponent,
   },
   // {
   //   path: 'algo-compare',
