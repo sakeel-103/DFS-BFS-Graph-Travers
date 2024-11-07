@@ -1,53 +1,36 @@
-name: Auto Labeler
+name: Auto Label Issue
 
 on:
   issues:
-    types: [opened, edited]
-  pull_request:
-    types: [opened, edited]
+    types: [opened, reopened, edited]
 
 jobs:
-  labeler:
+  label_issue:
     runs-on: ubuntu-latest
+    permissions:
+      issues: write
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
-
-      - name: Label issues and PRs
+      - name: Label Issue
         uses: actions/github-script@v6
         with:
+          github-token: ${{secrets.GITHUB_TOKEN}}
           script: |
-            const issue = context.payload.issue || context.payload.pull_request;
-            const labels = [];
+            const issue = context.payload.issue;
+            const issueBody = issue.body ? issue.body.toLowerCase() : '';
+            const issueTitle = issue.title.toLowerCase();
 
-            // Define keywords and their associated labels
-            const labelMappings = {
-              'bug': 'bug',
-              'enhancement': 'enhancement',
-              'feature': 'feature',
-              'good first issue': 'good first issue',
-              'ui': 'ui',
-              'hacktoberfest': 'hacktoberfest',
-              'hacktoberfest-accepted': 'hacktoberfest-accepted',
-              'documentation': 'documentation',
-              'gssoc-ext': 'gssoc-ext',
-              'workflow': 'workflow',
-              'automation': 'automation',
-              // Add more mappings as needed
-            };
-
-            // Apply labels based on title or body content
-            for (const [keyword, label] of Object.entries(labelMappings)) {
-              if (issue.title.toLowerCase().includes(keyword) || issue.body.toLowerCase().includes(keyword)) {
-                labels.push(label);
-              }
-            }
-
-            if (labels.length > 0) {
-              github.rest.issues.addLabels({
+            // Add gssoc label to all issues
+            await github.rest.issues.addLabels({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: issue.number,
+              labels: ['gssoc-ext','hacktoberfest-accepted','hacktoberfest']
+            });
+            const addLabel = async (label) => {
+              await github.rest.issues.addLabels({
                 owner: context.repo.owner,
                 repo: context.repo.repo,
                 issue_number: issue.number,
-                labels: labels
+                labels: [label]
               });
-            }
+            };
