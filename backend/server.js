@@ -9,6 +9,7 @@ const session = require('express-session');
 const multer = require('multer');
 const fs = require('fs');
 const User = require('./models/User');
+const Feedback = require('./models/Feedback');
 const { validateSignup } = require('./middlewares/validation');
 const http = require('http');
 const { Server } = require('socket.io');
@@ -93,6 +94,38 @@ app.post('/api/upload-graph', upload.single('graphFile'), (req, res) => {
             res.status(500).json({ message: 'Error parsing graph' });
         }
     });
+});
+
+// Express.js Route to get all feedback
+app.get('/api/feedback', async (req, res) => {
+    try {
+      const feedbacks = await Feedback.find(); // Fetch all feedback from the database
+      res.status(200).json(feedbacks);
+    } catch (error) {
+      console.error('Error fetching feedback:', error);
+      res.status(500).json({ message: 'Server error' });
+    }
+});
+
+// POST route to save feedback
+app.post('/api/feedback', async (req, res) => {
+    const { author, content } = req.body;
+    if (!author || !content) {
+      return res.status(400).json({ message: 'Author and content are required' });
+    }
+
+    try {
+      const feedback = new Feedback({
+        author,
+        content,
+      });
+
+      await feedback.save();
+      res.status(201).json({ message: 'Feedback saved successfully', feedback });
+    } catch (error) {
+      console.error('Error saving feedback:', error);
+      res.status(500).json({ message: 'Server error' });
+    }
 });
 
 // User signup endpoint
