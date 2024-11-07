@@ -1,0 +1,45 @@
+// treasure-hunt-visualizer.component.html
+<app-navbar></app-navbar>
+<div class="treasure-hunt-container">
+    <h2 class="title">Treasure Hunt Visualizer</h2>
+    <p class="description">Select an algorithm to visualize how it searches for the treasures:</p>
+    <div class="buttons">
+        <button class="algorithm-button" (click)="startDFS()">Start DFS</button>
+        <button class="algorithm-button" (click)="startBFS()">Start BFS</button>
+        <button class="reset-button" (click)="reset()">Reset</button>
+    </div>
+
+    <div class="treasure-grids">
+        <div class="treasure-section">
+            <h3>Depth-First Search (DFS)</h3>
+            <p class="info-text">DFS explores as far as possible along each branch, making it a great choice for finding
+                all treasures but not necessarily the closest one first.</p>
+            <div class="treasure-grid">
+                <div *ngFor="let row of gridDFS; let i = index" class="row">
+                    <div *ngFor="let cell of row; let j = index" [ngClass]="{
+            'start': gridDFS[i][j] === 2,
+            'treasure': gridDFS[i][j] === 3,
+            'visited': gridDFS[i][j] === 1,
+            'found': gridDFS[i][j] === 4
+          }" class="cell"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="treasure-section">
+            <h3>Breadth-First Search (BFS)</h3>
+            <p class="info-text">BFS explores all neighbors at the current depth level before moving on, making it ideal
+                for finding the closest treasure efficiently.</p>
+            <div class="treasure-grid">
+                <div *ngFor="let row of gridBFS; let i = index" class="row">
+                    <div *ngFor="let cell of row; let j = index" [ngClass]="{
+            'start': gridBFS[i][j] === 2,
+            'treasure': gridBFS[i][j] === 3,
+            'visited': gridBFS[i][j] === 1,
+            'found': gridBFS[i][j] === 4
+          }" class="cell"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

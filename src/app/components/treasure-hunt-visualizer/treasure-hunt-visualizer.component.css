@@ -1,0 +1,116 @@
+
+.treasure-hunt-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50px;
+  padding: 20px;
+  background: #f9f9f9;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 1000px;
+  margin: auto;
+  margin-top: 7rem;
+}
+
+.title {
+  font-size: 2em;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.description {
+  font-size: 1.2em;
+  color: #555;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.buttons {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.algorithm-button, .reset-button {
+  padding: 10px 20px;
+  font-size: 1em;
+  color: #fff;
+  background: #007bff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.algorithm-button:hover, .reset-button:hover {
+  background: #0056b3;
+}
+
+.reset-button {
+  background: #dc3545;
+}
+
+.reset-button:hover {
+  background: #c82333;
+}
+
+.treasure-grids {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.treasure-section {
+  margin: 20px;
+  text-align: center;
+  padding: 20px;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  flex: 1;
+  min-width: 300px;
+}
+
+.info-text {
+  font-size: 1em;
+  color: #666;
+  margin-bottom: 15px;
+}
+
+.treasure-grid {
+  display: grid;
+  gap: 5px;
+  justify-content: center;
+}
+
+.row {
+  display: flex;
+}
+
+.cell {
+  width: 30px;
+  height: 30px;
+  border: 1px solid #ccc;
+  transition: background-color 0.3s;
+}
+
+.start {
+  background-color: #28a745;
+  border-radius: 4px;
+}
+
+.treasure {
+  background-color: #ffc107;
+  border-radius: 4px;
+}
+
+.visited {
+  background-color: #17a2b8;
+}
+
+.found {
+  background-color: #6f42c1;
+  border-radius: 4px;
+}
