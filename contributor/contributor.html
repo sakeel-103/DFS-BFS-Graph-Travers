@@ -57,18 +57,20 @@
 
     <!-- Call to Action -->
     <section id="contribute" class="contributor-cta">
+        <div class="cta-icon">
+            <i class="fas fa-handshake"></i>
+        </div>
         <h2>Ready to Make an Impact?</h2>
         <p>Join our community and help shape the future with us.</p>
         <form id="subscribeForm">
             <div class="input-flex">
-            <i class="far fa-envelope"></i>
-            <input type="email" id="emailInput" placeholder="Enter your email" required>
+                <i class="far fa-envelope"></i>
+                <input type="email" id="emailInput" placeholder="Enter your email" required aria-label="Email Address">
             </div>
             <button type="submit" class="contributor-btn contributor-btn-secondary">Get Started</button>
         </form>
-        <div id="notification" class="contributor-notification contributor-hidden" style="background-color: #333333; color: white;"></div>
+        <div id="notification" class="contributor-notification contributor-hidden"></div>
     </section>
-  </div>
 
     <script src="contributor.js"></script>
     <script>
