@@ -16,6 +16,7 @@ import { ContactUsComponent } from './components/contact-us/contact-us.component
 import { ContributorsComponent } from './components/contributors/contributors.component';
 import { CodeEditorComponent } from './components/code-editor/code-editor.component';
 import { ReviewComponent } from './components/reviews/reviews.component';
+import { FeedbackComponent } from './components/feedback/feedback.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { NQueenVisualizerComponent } from './components/n-queen-visualizer/n-queen-visualizer.component'
 import { GeminibotComponent } from './components/geminibot/geminibot.component';
@@ -89,6 +90,10 @@ export const routes: Routes = [
   {
     path: 'review',
     component: ReviewComponent,
+  },
+  {
+    path: 'feedback',
+    component: FeedbackComponent,
   },
   {
     path: 'pagenotfound',

@@ -1,0 +1,21 @@
+<app-navbar></app-navbar>
+<div class="feedback-container">
+  <h1 class="text-center">📝 Feedback</h1>
+  <div *ngIf="loading" class="loader-container">
+    <div class="loader"></div>
+  </div>
+  <div class="feedback-subContainer" *ngIf="!loading">
+    <div class="feedback-form">
+      <h2>Submit Feedback</h2>
+      <input [(ngModel)]="newFeedback.author" placeholder="Your Name" />
+      <textarea [(ngModel)]="newFeedback.content" placeholder="Your Thoughts on Graph Traversal"></textarea>
+      <button (click)="submitFeedback()">Submit</button>
+    </div>
+    <div *ngFor="let feedback of feedbackList" class="feedback-card">
+      <div class="feedback-details">
+        <h2>{{ feedback.author }}</h2>
+        <p>{{ feedback.content }}</p>
+      </div>
+    </div>
+  </div>
+</div>
