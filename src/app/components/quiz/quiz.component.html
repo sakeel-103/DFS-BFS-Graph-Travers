@@ -19,9 +19,9 @@
         </header>
 
         <!-- Quiz Questions -->
-        <section *ngIf="quizStarted && questions.length > 0 && !quizCompleted" class="question-section">
+        <section *ngIf="quizStarted && questions.length > 0 && !quizCompleted" class="question-section" >
             <h2 class="heading">Question {{ currentQuestionIndex + 1 }} of {{ questions.length }}</h2>
-            <p>{{ currentQuestion.text }}</p>
+            <p class="question-text">{{ currentQuestion.text }}</p>
 
             <div class="options">
                 <button *ngFor="let option of currentQuestion.options; let i = index" (click)="selectAnswer(i)"
@@ -30,11 +30,10 @@
                 </button>
             </div>
 
-            <button (click)="submitAnswer()" [disabled]="selectedAnswerIndex === null || answerSubmitted">Submit
-                Answer</button>
+            <button class="submit-btn" (click)="submitAnswer()" [disabled]="selectedAnswerIndex === null || answerSubmitted">Submit Answer</button>
         </section>
 
-        <section *ngIf="questions.length <= 0 " class="no-found">
+        <section *ngIf="questions.length <= 0" class="no-found">
             <h2>No Questions Available For This Level</h2>
         </section>
 
@@ -42,7 +41,176 @@
         <section *ngIf="quizCompleted" class="results-section">
             <h2>Quiz Completed!</h2>
             <p>Your score: {{ score }} out of {{ questions.length }}</p>
-            <button (click)="restartQuiz()">Retake Quiz</button>
+            <button class="restart-btn" (click)="restartQuiz()">Retake Quiz</button>
         </section>
     </main>
 </div>
+
+<style>
+.quiz-layout {
+    display: flex;
+    justify-content: center; /* Centers the quiz content next to the sidebar */
+    padding: 20px;
+    background-color: #f4f4f9;
+    min-height: 100vh;
+    margin-left: 220px; /* Offsets main content to the right of the sidebar */
+}
+
+.sidebar {
+    position: fixed; /* Fixes the sidebar to the left */
+    top: 0;
+    left: 0;
+    width: 220px; /* Width of the sidebar */
+    height: 100vh; /* Full height of the viewport */
+    background-color: #2c3e50;
+    color: white;
+    padding: 20px;
+    box-shadow: 2px 0 8px rgba(0, 0, 0, 0.2); /* Adds a shadow for separation */
+}
+
+.sidebar h2 {
+    font-size: 24px;
+    margin-bottom: 25px;
+    color: #ecf0f1;
+    text-align: center;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    padding: 12px;
+    background-color: #34495e;
+    border-radius: 8px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    font-weight: bold;
+    color: #ecf0f1;
+    text-align: center;
+}
+
+.sidebar ul li:hover {
+    background-color: #1abc9c;
+    transform: scale(1.05);
+}
+
+.quiz-content {
+    flex: 1;
+    max-width: 700px;
+    background-color: #fff;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    margin-top: 90px; /* Space between sidebar and quiz content */
+    text-align: center;
+}
+
+.quiz-content h1 {
+    text-align: center;
+    font-size: 32px; /* Reduced font size for the quiz title */
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Progress Bar */
+.progress-bar {
+    height: 10px;
+    background-color: #4caf50;
+    border-radius: 5px;
+    margin: 10px 0;
+}
+
+/* Question Section */
+.question-section {
+    margin-top: 40px; /* Increased margin to push the quiz questions section down */
+}
+
+.question-text {
+    font-size: 18px;
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+.options button {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 10px;
+    background-color: #7acfec;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.options button:hover {
+    background-color: #db1939;
+    color: white;
+    transform: scale(1.05);
+}
+
+.options button.selected {
+    background-color: #3e4a5a;
+    color: white;
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 12px;
+    background-color: #4caf50;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.submit-btn:disabled {
+    background-color: #9e9e9e;
+    cursor: not-allowed;
+}
+
+.submit-btn:hover:not(:disabled) {
+    background-color: #45a049;
+}
+
+/* Quiz Completed Results */
+.results-section {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.results-section h2 {
+    font-size: 28px;
+    color: #4caf50;
+    margin-bottom: 20px;
+}
+
+.restart-btn {
+    padding: 15px 30px;
+    background-color: #db1939;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.restart-btn:hover {
+    background-color: #4a030f;
+}
+
+/* No Questions Available */
+.no-found {
+    text-align: center;
+    margin-top: 30px;
+    font-size: 20px;
+    color: #333;
+}
+
+</style>
