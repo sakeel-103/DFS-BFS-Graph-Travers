@@ -1,32 +1,33 @@
 <app-navbar></app-navbar>
-<div class="resources-container">
-    <aside class="sidebar">
-        <h2>Creators</h2>
-        <ul>
-            <li *ngFor="let author of authors" (click)="filterByAuthor(author)">
+<div class="resources-container" style="display: flex; flex-direction: row; margin-top: 100px; height: calc(100% - 100px);">
+    <!-- <aside class="sidebar" style="width: 250px; height: 100rem; background-color: #333; color: #fff; padding: 20px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+        <h2 style="font-size: 1.5rem; margin-bottom: 1rem; color: #ff66b2;">Creators</h2>
+        <ul style="list-style: none; padding: 0;">
+            <li *ngFor="let author of authors" (click)="filterByAuthor(author)" 
+                style="padding: 12px; cursor: pointer; transition: background-color 0.3s, color 0.3s; border-radius: 4px;">
                 {{ author }}
             </li>
         </ul>
-    </aside>
-    <div class="main-content">
-        <header>
-            <h1>Learning Resources for Graph Theory</h1>
-            <p class="intro">
-                Enhance your understanding of graph theory with our curated resources, including video tutorials and
-                helpful articles.
+    </aside> -->
+    <div class="main-content" style="margin-left: 20px; padding: 20px; flex: 1;">
+        <header style="text-align: center; margin-bottom: 3rem;">
+            <h1 style="color: #0a3c6e; font-size: 2.5rem; margin-bottom: 1rem;">Learning Resources for Graph Theory</h1>
+            <p class="intro" style="color: #34495e; font-size: 1.2rem; max-width: 800px; margin: 0 auto;">
+                Enhance your understanding of graph theory with our curated resources, including video tutorials and helpful articles.
             </p>
         </header>
 
-        <div *ngIf="errorMessage" class="error-message">
+        <div *ngIf="errorMessage" class="error-message" style="color: red; font-size: 1.1rem; text-align: center;">
             <p>{{ errorMessage }}</p>
         </div>
 
-        <div class="search-filter-container" *ngIf="!errorMessage">
+        <div class="search-filter-container" *ngIf="!errorMessage" style="display: flex; flex-direction: column; align-items: center; margin-bottom: 2rem;">
             <input type="text" [(ngModel)]="searchTerm" (input)="applyFilters()" placeholder="Search resources..."
-                class="search-input">
-            <div class="category-filter">
+                   class="search-input" style="width: 100%; max-width: 500px; padding: 0.8rem; font-size: 1rem; border: 2px solid #bdc3c7; border-radius: 25px; margin-bottom: 1rem; transition: border-color 0.3s ease;">
+            <div class="category-filter" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 0.5rem;">
                 <button *ngFor="let category of categories" (click)="filterByCategory(category)"
-                    [class.active]="category === selectedCategory">
+                        [class.active]="category === selectedCategory"
+                        style="background-color: #ecf0f1; color: #3498db; border: none; padding: 0.5rem 1rem; border-radius: 20px; cursor: pointer; transition: background-color 0.3s ease, color 0.3s ease;">
                     {{ category }}
                 </button>
             </div>
@@ -34,30 +35,36 @@
 
         <!-- Videos Section -->
         <div *ngIf="!apiError">
-            <div class="video-grid">
-                <div *ngFor="let video of filteredVideos" class="video-card" (click)="goToVideo(video.link)">
-                    <div class="card-thumbnail">
-                        <img [src]="video.thumbnail" alt="{{ video.title }}">
+            <div class="video-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 2rem; margin-bottom: 3rem;">
+                <div *ngFor="let video of filteredVideos" class="video-card" (click)="goToVideo(video.link)"
+                     style="background-color: #f5f8fa; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); padding: 1rem; cursor: pointer; transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s; display: flex; flex-direction: column; align-items: center;"
+                     onmouseover="this.style.backgroundColor='#e0f7fa'; this.style.transform='scale(1.03)'; this.style.boxShadow='0 8px 16px rgba(0, 0, 0, 0.2)';"
+                     onmouseout="this.style.backgroundColor='#f5f8fa'; this.style.transform='scale(1)'; this.style.boxShadow='0 4px 6px rgba(0, 0, 0, 0.1)';">
+                    <div class="card-thumbnail" style="background-color: #d6e4f0; border-radius: 8px; padding: 5px;">
+                        <img [src]="video.thumbnail" alt="{{ video.title }}" style="width: 100%; height: auto; border-radius: 8px; margin-bottom: 1rem;">
                     </div>
-                    <h2>{{ video.title }}</h2>
+                    <h2 style="font-size: 1.2rem; color: #2c3e50; text-align: center;">{{ video.title }}</h2>
                 </div>
             </div>
 
-            <div *ngIf="filteredVideos.length === 0" class="no-results">
+            <div *ngIf="filteredVideos.length === 0" class="no-results" style="text-align: center; color: #7f8c8d;">
                 <p>No videos found. Please try adjusting your search or filters.</p>
             </div>
         </div>
 
         <!-- Resources Section (Always Visible) -->
-        <div class="resources-list">
-            <h3>Additional Resources:</h3>
-            <div class="resource-item" *ngFor="let resource of resources">
-                <h4>{{ resource.title }}</h4>
-                <a [href]="resource.link" target="_blank" class="resource-link">Visit Resource</a>
+        <div class="resources-list" style="width: 100%; background-color: #ffffff; padding: 2rem; border: 1px solid #bdc3c7; border-radius: 10px; margin-bottom: 3rem; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+            <h3 style="font-size: 1.8rem; color: #2c3e50; margin-bottom: 1.5rem; border-bottom: 2px solid #1e628f; padding-bottom: 0.5rem;">Additional Resources:</h3>
+            <div class="resource-item" *ngFor="let resource of resources"
+                 style="background-color: #eef5fc; padding: 1rem; border-radius: 5px; border: 1px solid #d1e7fd; transition: background-color 0.3s ease, box-shadow 0.3s, transform 0.3s; margin-bottom: 1rem; cursor: pointer;"
+                 onmouseover="this.style.backgroundColor='#e6f5ff'; this.style.transform='scale(1.03)'; this.style.boxShadow='0 8px 16px rgba(0, 0, 0, 0.2)';"
+                 onmouseout="this.style.backgroundColor='#eef5fc'; this.style.transform='scale(1)'; this.style.boxShadow='0 4px 8px rgba(0, 0, 0, 0.1)';">
+                <h4 style="font-size: 1.2rem; color: #2c3e50; margin-bottom: 0.5rem;">{{ resource.title }}</h4>
+                <a [href]="resource.link" target="_blank" class="resource-link" style="text-decoration: none; color: #3498db; font-weight: bold; transition: color 0.3s ease;">Visit Resource</a>
             </div>
         </div>
 
-        <footer>
+        <footer style="text-align: center; margin-top: 3rem; color: #4c5455;">
             <p>Continue exploring graph theory through our selected resources and video tutorials!</p>
         </footer>
     </div>
