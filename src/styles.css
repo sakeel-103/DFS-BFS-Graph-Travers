@@ -1,19 +1,15 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap');
-
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-   /* // font-family: 'Roboto', Arial, sans-serif; */
+    font-family: 'Montserrat', Arial, sans-serif; /* Applied Montserrat font globally */
 }
 
 ::-webkit-scrollbar {
-    width: 12px;
-    /* Width of the scrollbar */
-    height: 12px;
-    /* Height of the scrollbar */
+    width: 12px; /* Width of the scrollbar */
+    height: 12px; /* Height of the scrollbar */
 }
 
 ::-webkit-scrollbar-track {
@@ -32,7 +28,7 @@
 
 html {
     scrollbar-width: thin;
-    scrollbar-color: #888 #00292f;
+    scrollbar-color: #888 #f1f1f1;
 }
 
 /* Testimonials Section Styles */
@@ -77,17 +73,16 @@ html {
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
 }
 
-
+/* Profile Icon */
 .profile-icon {
-
     border-radius: 50%;
     position: relative;
     margin-left: 20px; /* Adjust space between Login button and Profile icon */
-  
-  }
-  
-  .dropdown-menu {
-  
+    cursor: pointer; /* Makes the profile icon look clickable */
+}
+
+/* Dropdown Menu */
+.dropdown-menu {
     display: none;
     position: absolute;
     top: 35px; /* Adjust based on the height of your navbar */
@@ -97,21 +92,60 @@ html {
     border: 1px solid #ccc;
     border-radius: 4px;
     z-index: 1;
-  
-  }
-  
-  .dropdown-menu a {
-  
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Adds a slight shadow for dropdown */
+}
+
+.dropdown-menu a {
     display: block;
     padding: 10px 15px;
     text-decoration: none;
-  
-  }
-  
-  .dropdown-menu a:hover {
-  
-    background-color: #f1f1f1;
-  
-  }
+    color: black; /* Ensures link text color is black */
+}
 
-  
+.dropdown-menu a:hover {
+    background-color: #f1f1f1;
+}
+
+/* Display dropdown on hover */
+.profile-icon:hover + .dropdown-menu,
+.dropdown-menu:hover {
+    display: block;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    .testimonials {
+        padding: 20px;
+    }
+
+    .testimonials h2 {
+        font-size: 1.5rem; /* Smaller title on smaller screens */
+    }
+
+    .testimonial {
+        padding: 15px;
+        margin: 10px 0;
+    }
+
+    .profile-icon {
+        margin-left: 10px; /* Reduces the margin on smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .testimonials {
+        padding: 10px;
+    }
+
+    .testimonials h2 {
+        font-size: 1.2rem; /* Even smaller title on mobile devices */
+    }
+
+    .testimonial {
+        padding: 10px;
+    }
+
+    .profile-icon {
+        margin-left: 5px;
+    }
+}

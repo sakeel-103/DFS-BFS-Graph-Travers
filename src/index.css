@@ -1,0 +1,301 @@
+/* Global Body Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4; /* Added a light background color */
+}
+
+/* Uppercase styling */
+.uppercase {
+    text-transform: uppercase;
+    font-size: 16px;
+    text-align: center;
+    color: #000000;
+}
+
+/* Result Text Styles */
+#result {
+    margin-top: 10px; /* Space above result text */
+    word-wrap: break-word; /* Allow long text to wrap */
+    overflow: hidden; /* Prevent overflow */
+    max-height: 50px; /* Limit height */
+    color: #000000; /* Text color */
+    text-align: center; /* Center align the text */
+}
+
+/* Font style for Montserrat */
+.montserrat-unique {
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+}
+
+/* Scroll to Top Button */
+.scrollToTop {
+    position: fixed;
+    bottom: 80px;
+    right: 20px;
+    display: none;
+    width: 50px;
+    height: 50px;
+    background-color: #8f8f8f;
+    color: white;
+    opacity: 0.5;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 28px;
+    font-weight: 500;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    text-align: center;
+    transition: opacity 0.3s ease;
+}
+
+.scrollToTop.show-btn {
+    display: flex;
+    opacity: 1;
+}
+
+.scrollToTop:hover {
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.3);
+}
+
+/* GTranslate Widget Styles */
+.gtranslate_wrapper {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    z-index: 1000;
+}
+
+.gt_float_switcher {
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+}
+
+.gt_float_switcher:hover {
+    opacity: 1;
+}
+
+/* Real-time Updates Text */
+.real-time-updates {
+    margin-top: 20px;
+    font-size: 18px;
+    font-family: Arial, sans-serif;
+}
+
+/* Toast Notification Styles */
+.toast {
+    visibility: hidden;
+    min-width: 250px;
+    margin-left: -125px;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    border-radius: 2px;
+    padding: 16px;
+    position: fixed;
+    z-index: 1002;
+    left: 50%;
+    bottom: 30px;
+    font-size: 17px;
+}
+
+.toast.show {
+    visibility: visible;
+    -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+@-webkit-keyframes fadein {
+    from { bottom: 0; opacity: 0; }
+    to { bottom: 30px; opacity: 1; }
+}
+
+@keyframes fadein {
+    from { bottom: 0; opacity: 0; }
+    to { bottom: 30px; opacity: 1; }
+}
+
+@-webkit-keyframes fadeout {
+    from { bottom: 30px; opacity: 1; }
+    to { bottom: 0; opacity: 0; }
+}
+
+@keyframes fadeout {
+    from { bottom: 30px; opacity: 1; }
+    to { bottom: 0; opacity: 0; }
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1001;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.modal-content {
+    background-color: #2a2a2a;
+    margin: 10% auto;
+    padding: 40px;
+    border: 2px solid #FF1493;
+    outline: 1px solid #FF69B4;
+    width: 90%;
+    max-width: 600px;
+    color: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 30px rgba(255, 20, 147, 0.5);
+}
+
+.close {
+    color: #FF1493;
+    float: right;
+    font-size: 32px;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.close:hover,
+.close:focus {
+    color: #FF69B4;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Modal Form Input Styles */
+.modal-form input,
+.modal-form textarea {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #FF1493;
+    border-radius: 4px;
+    box-sizing: border-box;
+    background-color: #333;
+    color: white;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.modal-form input:focus,
+.modal-form textarea:focus {
+    border-color: #FF69B4;
+    box-shadow: 0 0 5px rgba(255, 105, 180, 0.5);
+    outline: none;
+}
+
+.modal-form button {
+    width: 100%;
+    padding: 12px;
+    background-color: #FF1493;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.modal-form button:hover {
+    background-color: #FF69B4;
+    box-shadow: 0 0 10px rgba(255, 20, 147, 0.5);
+}
+
+/* Scrollbar Styling */
+html {
+    scrollbar-width: auto;
+    scrollbar-color: #ff66b2 #f0f0f0;
+}
+
+html::-webkit-scrollbar {
+    width: 24px;
+}
+
+html::-webkit-scrollbar-thumb {
+    background-color: #ff66b2;
+    border-radius: 12px;
+}
+
+html::-webkit-scrollbar-track {
+    background-color: #f0f0f0;
+}
+
+
+/* Footer Styles */
+.footer {
+    background-color: #2a2a2a; /* Dark background to match modal */
+    color: #fff; /* White text */
+    padding: 20px 0; /* Vertical padding */
+    text-align: center; /* Center align text */
+    font-size: 14px;
+    position: relative;
+    width: 100%;
+    bottom: 0;
+    margin-top: 30px; /* Add some space above the footer */
+}
+
+.footer .footer-content {
+    max-width: 1200px; /* Limit width for large screens */
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.footer .footer-links {
+    list-style-type: none;
+    padding: 0;
+    margin: 10px 0;
+}
+
+.footer .footer-links li {
+    display: inline-block; /* Links will be displayed horizontally */
+    margin: 0 15px; /* Space between links */
+}
+
+.footer .footer-links a {
+    color: #ff66b2; /* Light pinkish color for links */
+    text-decoration: none; /* Remove underline */
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.footer .footer-links a:hover {
+    color: #ff1493; /* Change color when hovering */
+}
+
+/* Social Media Icons */
+.footer .social-icons {
+    margin-top: 15px;
+}
+
+.footer .social-icons a {
+    margin: 0 10px;
+    color: #ff66b2; /* Match footer link color */
+    font-size: 20px;
+    transition: color 0.3s ease;
+}
+
+.footer .social-icons a:hover {
+    color: #ff1493; /* Darker pink for hover effect */
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .footer .footer-links li {
+        display: block; /* Stack links vertically on smaller screens */
+        margin: 5px 0;
+    }
+
+    .footer .social-icons a {
+        font-size: 18px; /* Slightly smaller icons on mobile */
+        margin: 0 8px;
+    }
+}
