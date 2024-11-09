@@ -11,6 +11,72 @@ html {
   line-height: 1.6;
 }
 
+.nav-links {
+  display: flex;
+  justify-content: space-evenly;  /* Distribute space evenly between items */
+  align-items: center;  /* Vertically center the items */
+  padding: 0;
+  margin: 0;
+}
+
+.nav-links .nav-item {
+  color: white;
+  text-decoration: none;
+  font-size: 1rem;
+  padding: 10px 15px;
+  display: inline-flex;  /* Ensure the item is inline-flex for proper alignment */
+  align-items: center;  /* Vertically center text and icons */
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.nav-links .nav-item:hover {
+  color: white;
+  background: linear-gradient(135deg, #5a9bd5, #007bb5, #004f6a);
+}
+
+.nav-links .nav-item:hover:nth-child(2) {
+  background: linear-gradient(135deg, #4f81b7, #3586d3, #2c4f7f);
+}
+
+.nav-links .nav-item:hover:nth-child(3) {
+  background: linear-gradient(135deg, #66b3ff, #0066cc, #3a99d4);
+}
+
+.nav-links .nav-item:hover:nth-child(4) {
+  background: linear-gradient(135deg, #1f78b5, #003366, #005f8a);
+}
+
+.nav-links .nav-item:hover:nth-child(5) {
+  background: linear-gradient(135deg, #4a90e2, #007bb5, #1e539d);
+}
+
+.nav-links .nav-item:hover:nth-child(6) {
+  background: linear-gradient(135deg, #3a99d4, #004e92, #4f9aff);
+}
+
+.nav-links .nav-item:hover:nth-child(7) {
+  background: linear-gradient(135deg, #3399ff, #0066cc, #1f78b5);
+}
+
+.nav-links .nav-item:hover:nth-child(8) {
+  background: linear-gradient(135deg, #66b3ff, #80b8d9, #003366);
+}
+
+.nav-links .nav-item:hover:nth-child(9) {
+  background: linear-gradient(135deg, #0099cc, #1f78b5, #004f6a);
+}
+
+.nav-links .nav-item:hover:nth-child(10) {
+  background: linear-gradient(135deg, #66c2ff, #004e92, #005f8a);
+}
+
+.nav-links .github-link {
+  display: flex;
+  align-items: center;  /* Ensures icon aligns with text */
+  margin-left: 10px;  /* Adds space between the last link and the GitHub icon */
+}
+
+
 /* Header Styling */
 header {
   background-color: rgba(0, 0, 0, 50); /* Dark transparent background */
