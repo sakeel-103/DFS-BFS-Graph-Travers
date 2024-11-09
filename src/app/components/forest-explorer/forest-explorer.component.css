@@ -1,0 +1,79 @@
+.forest-explorer-container {
+  width: 80%;
+  margin: auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.title {
+  text-align: center;
+  font-size: 2em;
+  margin-bottom: 20px;
+}
+
+.controls {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.buttons {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.grid {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin: auto;
+}
+
+.grid-row {
+  display: flex;
+  gap: 5px;
+}
+
+.grid-cell {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.grid-cell.start {
+  background-color: #00f;
+  color: white;
+}
+
+.grid-cell.visited {
+  background-color: #b2fab4;
+}
+
+.grid-cell.rare {
+  background-color: #ffb6c1;
+}
+
+.stats {
+  margin-top: 20px;
+  padding: 10px;
+  background-color: #f1f1f1;
+  border-radius: 5px;
+}
+
+.stats h3 {
+  text-align: center;
+  margin-bottom: 10px;
+}

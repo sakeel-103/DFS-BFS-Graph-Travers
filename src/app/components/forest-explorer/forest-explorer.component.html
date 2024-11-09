@@ -1,0 +1,31 @@
+<div class="forest-explorer-container">
+    <h2>Forest Explorer</h2>
+    <div class="controls">
+        <label>Grid Size: {{ gridSize.rows }}x{{ gridSize.cols }}</label>
+        <input type="range" min="5" max="12" [value]="gridSize.rows" (input)="setGridSize($event)"
+            [disabled]="exploring" />
+        <label>Speed: {{ speed }}ms</label>
+        <input type="range" min="50" max="1000" step="50" [value]="speed" (input)="setSpeed($event)"
+            [disabled]="exploring" />
+    </div>
+    <div class="buttons">
+        <button (click)="explore(startPos.row, startPos.col)" [disabled]="exploring">Explore</button>
+        <button (click)="initializeForest()" [disabled]="exploring">Reset Forest</button>
+    </div>
+    <div class="grid">
+        <div *ngFor="let row of grid; let rowIndex = index" class="grid-row">
+            <div *ngFor="let cell of row; let colIndex = index" (click)="handleCellClick(rowIndex, colIndex)" [ngClass]="{
+            'start': startPos.row === rowIndex && startPos.col === colIndex,
+            'visited': visitedCells.has(rowIndex + ',' + colIndex),
+            'rare': cell === treeTypes.RARE
+          }" class="grid-cell">
+                {{ cell }}
+            </div>
+        </div>
+    </div>
+    <div class="stats">
+        <h3>Exploration Statistics</h3>
+        <p>Rare Plants Found: {{ stats.plantsFound }}</p>
+        <p>Cells Explored: {{ stats.cellsExplored }}</p>
+    </div>
+</div>
