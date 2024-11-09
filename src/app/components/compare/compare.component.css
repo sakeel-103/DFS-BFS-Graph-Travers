@@ -1,140 +1,43 @@
-/* General Background */
-body {
-  background: linear-gradient(135deg, #e0eafc, #cfdef3);
-  font-family: 'Roboto', sans-serif;
-  margin: 0;
-  padding: 0;
-}
-
-/* App Container */
-.app-container {
-  display: flex;
-  justify-content: center;
-  /* Center the main content horizontally */
-  margin-left: 240px;
-  /* Offset for sidebar width */
-}
-
-/* Sidebar Styling */
-.sidebar {
-  width: 220px;
-  background-color: #333;
-  color: #fff;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 20px;
-  height: 100vh;
-  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
-  position: fixed;
-  top: 0;
-  left: 0;
-}
-
-.sidebar h2 {
-  font-size: 1.5rem;
-  margin-bottom: 20px;
-  color: #ffffff;
-}
-
-.sidebar-button {
-  width: 100%;
-  padding: 12px;
-  margin: 10px 0;
-  border: none;
-  border-radius: 8px;
-  font-size: 1rem;
-  color: #fff;
-  cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s;
-  text-align: center;
-}
-
-.sidebar-button.dfs {
-  background: linear-gradient(135deg, #34d058, #28a745);
-}
-
-.sidebar-button.bfs {
-  background: linear-gradient(135deg, #5b9bff, #007bff);
-}
-
-.sidebar-button:hover {
-  transform: translateY(-3px);
-  opacity: 0.9;
-}
-
-.sidebar-button:disabled {
-  background-color: #ccc;
-  cursor: not-allowed;
-}
-
-/* Main Content Styling */
 .algorithm-comparison-container {
-  margin-top: 100px;
-  width: 80%;
-  /* Ensure the content doesn't take full width */
-  max-width: 800px;
-  /* Set a max width for center alignment */
-  padding: 20px;
-  border-radius: 15px;
+  max-width: 100%;
+  margin: 56px auto;
+  padding: 2rem;
+  font-family: "Roboto", sans-serif;
+  background-color: #f8f9fa;
 }
 
-.title {
-  color: #333;
+.text-center {
   text-align: center;
-  font-size: 2rem;
+  color: black;
+  margin-bottom: 2rem;
+  font-size: 2.5rem;
   font-weight: bold;
-  margin-bottom: 25px;
 }
 
-/* Card Styling */
-.card {
-  background: #fff;
-  padding: 20px;
-  border-radius: 12px;
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
-  margin-bottom: 20px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+.chart-container {
+  margin-bottom: 2rem;
 }
 
-.card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+.input-container {
+  text-align: center;
+  margin-bottom: 2rem;
 }
 
-/* Traversal Steps Styling */
-.traversal-steps h2 {
-  color: #555;
-  font-size: 1.5rem;
-  margin-bottom: 15px;
+.traversal-steps {
+  max-width: 600px;
+  margin: 0 auto;
+  background-color: #ffffff;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .traversal-steps ul {
-  list-style: none;
+  list-style-type: none;
   padding: 0;
 }
 
 .traversal-steps li {
-  background: #f7f7f7;
-  margin-bottom: 8px;
-  padding: 10px;
-  border-radius: 5px;
-  font-size: 1rem;
-  color: #333;
-  transition: background 0.3s ease;
-}
-
-.traversal-steps li:hover {
-  background: #e0eafc;
-}
-
-/* Chart Container Styling */
-.chart-container {
-  text-align: center;
-}
-
-canvas {
-  width: 100%;
-  max-width: 700px;
-  margin: 0 auto;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #e0e0e0;
 }
