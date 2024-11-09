@@ -28,6 +28,7 @@ import { VisualStackQueueComponent } from './components/visual-stack-queue/visua
 import { MazeRunnerVisualizerComponent } from './components/maze-runner-visualizer/maze-runner-visualizer.component';
 import { TreasureHuntVisualizerComponent } from './components/treasure-hunt-visualizer/treasure-hunt-visualizer.component';
 import { SortingComponent } from './components/sorting-v/sorting.component';
+import { ForestExplorerComponent } from './components/forest-explorer/forest-explorer.component';
 
 export const routes: Routes = [
   {
@@ -125,6 +126,10 @@ export const routes: Routes = [
   {
     path: 'tresure',
     component: TreasureHuntVisualizerComponent,
+  },
+  {
+    path: 'forest',
+    component: ForestExplorerComponent,
   },
   // {
   //   path: 'algo-compare',
