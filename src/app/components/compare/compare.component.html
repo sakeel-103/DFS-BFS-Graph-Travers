@@ -1,0 +1,26 @@
+<app-navbar></app-navbar>
+
+<div class="app-container">
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <h2>Algorithms</h2>
+        <button class="sidebar-button dfs" (click)="runDFS()" [disabled]="isRunningDFS">Run DFS</button>
+        <button class="sidebar-button bfs" (click)="runBFS()" [disabled]="isRunningBFS">Run BFS</button>
+    </div>
+
+    <!-- Main Content -->
+    <div class="algorithm-comparison-container">
+        <h1 class="title">Graph Traversal Algorithm Comparison: DFS vs BFS</h1>
+
+        <div class="card traversal-steps">
+            <h2>Traversal Steps:</h2>
+            <ul>
+                <li *ngFor="let step of traversalSteps">{{ step }}</li>
+            </ul>
+        </div>
+
+        <div class="card chart-container">
+            <canvas id="efficiencyChart"></canvas>
+        </div>
+    </div>
+</div>

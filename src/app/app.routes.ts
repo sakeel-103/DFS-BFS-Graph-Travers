@@ -29,6 +29,7 @@ import { MazeRunnerVisualizerComponent } from './components/maze-runner-visualiz
 import { TreasureHuntVisualizerComponent } from './components/treasure-hunt-visualizer/treasure-hunt-visualizer.component';
 import { SortingComponent } from './components/sorting-v/sorting.component';
 import { ForestExplorerComponent } from './components/forest-explorer/forest-explorer.component';
+import { ComparisonComponent } from './components/compare/compare.component';
 
 export const routes: Routes = [
   {
@@ -135,10 +136,15 @@ export const routes: Routes = [
   //   path: 'algo-compare',
   //   component: AlgorithmComparisonComponent,
   // },
+   {
+    path: 'compare',
+    component: ComparisonComponent,
+  },
   {
     path: '**',
     redirectTo: '',
   },
+   
 ];
 
 @NgModule({
