@@ -47,6 +47,28 @@ int main() {
     cout << "Hello, C++!" << endl;
     return 0;
 }`,
+    typescript: `function example(): void {
+  console.log("Hello, TypeScript!");
+}`,
+    ruby: `def example
+  puts "Hello, Ruby!"
+end`,
+    php: `<?php
+echo "Hello, PHP!";
+?>`,
+    go: `package main
+
+import "fmt"
+
+func main() {
+    fmt.Println("Hello, Go!")
+}`,
+    swift: `import Foundation
+
+print("Hello, Swift!")`,
+    kotlin: `fun main() {
+    println("Hello, Kotlin!")
+}`,
   };
 
   // Language mode mappings for ACE
@@ -56,6 +78,12 @@ int main() {
     java: 'java',
     html: 'html',
     cpp: 'c_cpp',
+    typescript: 'typescript',
+    ruby: 'ruby',
+    php: 'php',
+    go: 'golang',
+    swift: 'swift',
+    kotlin: 'kotlin',
   };
 
   ngAfterViewInit(): void {
