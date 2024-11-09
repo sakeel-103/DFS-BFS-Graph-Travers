@@ -13,7 +13,7 @@ body {
   width: 100vw;
   height: 100vh;
   padding: 40px;
-  background: linear-gradient(135deg, #ffffff, #f8f9fa); /* Light gradient background */
+  background: linear-gradient(135deg, #4f8bf9, #ffffff); /* Blue to white gradient background */
   color: #333; /* Dark text for better contrast */
   display: flex;
   flex-direction: column;
@@ -23,6 +23,7 @@ body {
   position: relative;
   top: 60px;
 }
+
 .uploaded-image, .image-preview {
   max-width: 50%; /* Responsive sizing */
   height: auto;    /* Maintain aspect ratio */
@@ -32,6 +33,7 @@ body {
 .text-center {
   text-align: center;
   margin-bottom: 20px;
+  color: #333; /* Dark text */
 }
 
 .loader-container {
@@ -42,8 +44,8 @@ body {
 }
 
 .loader {
-  border: 4px solid #ccc; /* Lighter border color */
-  border-top: 4px solid #000; /* Black top color */
+  border: 4px solid #a8c8f1; /* Light blue border */
+  border-top: 4px solid #4f8bf9; /* Deep blue top */
   border-radius: 50%;
   width: 40px;
   height: 40px;
@@ -73,12 +75,13 @@ body {
 .reply-card {
   background-color: #ffffff; /* White background for cards */
   padding: 16px;
-  border-radius: 4px;
-  border: 1px solid #ddd; /* Lighter border */
+  border-radius: 8px; /* Rounded corners */
+  border: 1px solid #e1e1e1; /* Light grey border */
   width: 100%;
   box-sizing: border-box;
-  display: flex; /* Add flexbox for better alignment */
+  display: flex; /* Flex for better alignment */
   flex-direction: column; /* Align content vertically */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Soft shadow for a modern effect */
 }
 
 .review-details {
@@ -89,8 +92,8 @@ body {
 
 .review-details h2 {
   margin: 0;
-  font-size: 18px;
-  color: #333; /* Dark text for headings */
+  font-size: 20px;
+  color: #2a3d79; /* Dark blue for headings */
   font-weight: 700;
 }
 
@@ -101,7 +104,7 @@ body {
 }
 
 .reply-card {
-  border-left: 2px solid #000; /* Black left border */
+  border-left: 4px solid #4f8bf9; /* Blue left border */
   padding-left: 16px; /* Add padding for better spacing */
 }
 
@@ -116,29 +119,69 @@ body {
 input,
 textarea {
   width: 100%;
-  padding: 10px; /* Increased padding for better touch targets */
+  padding: 12px; /* Increased padding for better touch targets */
   margin-bottom: 10px;
-  border: 1px solid #ccc; /* Lighter border color */
-  border-radius: 4px;
-  background-color: #f8f9fa; /* Light grey background for inputs */
+  border: 1px solid #ddd; /* Lighter border color */
+  border-radius: 8px; /* Rounded corners for inputs */
+  background-color: #f1f8ff; /* Very light blue background for inputs */
   color: #333; /* Dark text */
   box-sizing: border-box;
+  transition: all 0.3s; /* Smooth transitions for inputs */
+}
+
+input:focus,
+textarea:focus {
+  outline: none;
+  border-color: #4f8bf9; /* Blue border on focus */
+  background-color: #e1effd; /* Soft blue background on focus */
 }
 
 textarea {
-  height: 100px;
+  height: 120px;
 }
 
 button {
-  background-color: #000; /* Black background */
+  background-color: #4f8bf9; /* Deep blue background */
   color: white;
   border: none;
-  padding: 10px 15px;
-  border-radius: 4px;
+  padding: 12px 18px;
+  border-radius: 8px;
   cursor: pointer;
-  transition: background-color 0.3s; /* Smooth transition */
+  transition: background-color 0.3s, transform 0.2s; /* Smooth transition */
 }
 
 button:hover {
-  background-color: #333; /* Dark grey on hover */
+  background-color: #3566b8; /* Darker blue on hover */
+  transform: scale(1.05); /* Slight zoom effect */
+}
+
+button:active {
+  transform: scale(0.98); /* Small scale effect when clicked */
+}
+
+.question-form {
+  background: linear-gradient(45deg, #a1c4fd, #c2e9fb); /* Soft blue gradient */
+  padding: 20px;
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Light shadow */
+}
+
+.question-form input,
+.question-form button {
+  background: #ffffff; /* White background for input and button */
+  color: #333; /* Dark text */
+}
+
+.question-form button {
+  background-color: #4f8bf9; /* Blue button */
+}
+
+.question-form input:focus {
+  background-color: #e1effd; /* Light blue background on focus */
+  border-color: #4f8bf9; /* Blue border on focus */
+}
+
+.reply-form input:focus {
+  background-color: #e1effd; /* Light blue background for replies */
+  border-color: #2196f3; /* Bright blue border on focus */
 }

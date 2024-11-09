@@ -7,14 +7,14 @@
     <div class="review-subContainer" *ngIf="!loading">
         <div class="review-form">
             <h2>Submit a Discussion</h2>
-            <input [(ngModel)]="newReview.author" placeholder="Your Name" />
-            <textarea [(ngModel)]="newReview.content" placeholder="Your Thoughts on Graph Traversal"></textarea>
-            <button (click)="submitReview()">Submit</button>
+            <input [(ngModel)]="newReview.author" placeholder="Your Name" class="input-field" />
+            <textarea [(ngModel)]="newReview.content" placeholder="Your Thoughts on Graph Traversal" class="input-field"></textarea>
+            <button (click)="submitReview()" class="submit-btn">Submit</button>
         </div>
         <div *ngFor="let review of reviews" class="review-card">
             <div class="review-details">
-                <h2>{{ review.author }}</h2>
-                <p>{{ review.content }}</p>
+                <h2 class="review-author">{{ review.author }}</h2>
+                <p class="review-content">{{ review.content }}</p>
             </div>
             <div class="questions">
                 <div *ngFor="let question of review.questions" class="question-card">
@@ -29,20 +29,20 @@
                         </div>
                     </div>
                     <div class="reply-form">
-                        <input [(ngModel)]="newReply.author" placeholder="Your Name" />
-                        <input [(ngModel)]="newReply.content" placeholder="Your Reply" />
-                        <button (click)="submitReply(review.id, question.id)">Reply</button>
+                        <input [(ngModel)]="newReply.author" placeholder="Your Name" class="input-field" />
+                        <input [(ngModel)]="newReply.content" placeholder="Your Reply" class="input-field" />
+                        <button (click)="submitReply(review.id, question.id)" class="submit-btn">Reply</button>
                     </div>
                 </div>
             </div>
             <div class="question-form">
-                <input [(ngModel)]="newQuestion.author" placeholder="Your Name" />
-                <input [(ngModel)]="newQuestion.content" placeholder="Your Question" />
+                <input [(ngModel)]="newQuestion.author" placeholder="Your Name" class="input-field" />
+                <input [(ngModel)]="newQuestion.content" placeholder="Your Question" class="input-field" />
                 <!-- File Input for Image Upload -->
-                <input type="file" (change)="onFileSelected($event)" />
+                <input type="file" (change)="onFileSelected($event)" class="file-input"/>
                 <!-- Display image preview if a file is selected -->
                 <img *ngIf="newQuestion.file" [src]="getImageUrl(newQuestion.file)" alt="Preview" class="image-preview" />
-                <button (click)="submitQuestion(review.id)">Ask Question</button>
+                <button (click)="submitQuestion(review.id)" class="submit-btn">Ask Question</button>
             </div>
         </div>
     </div>
