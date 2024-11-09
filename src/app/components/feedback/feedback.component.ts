@@ -5,6 +5,7 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { HttpClient } from '@angular/common/http';  // <-- Import HttpClient
 import { Observable } from 'rxjs';
+import { environment } from '../../../environments/environment';
 
 interface Feedback {
   id: number;
@@ -88,7 +89,7 @@ export class FeedbackComponent implements OnInit {
 
   // Method to save feedback to the backend
   saveFeedback(feedback: Feedback): Observable<any> {
-    const url = 'http://localhost:5000/api/feedback'; // Replace with your backend API endpoint
-    return this.http.post(url, feedback);
+    let apiUrl = `${environment.BACKEND_API_URL}/feedback`;
+    return this.http.post(apiUrl, feedback);
   }
 }
