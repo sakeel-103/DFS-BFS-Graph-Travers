@@ -1,4 +1,3 @@
-// treasure-hunt-visualizer.component.ts
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NavbarComponent } from '../navbar/navbar.component';
@@ -25,10 +24,13 @@ export class TreasureHuntVisualizerComponent implements OnInit {
   }
 
   createGrid(): void {
+    // Initialize 2D arrays with default value 0
     this.gridDFS = Array.from({ length: this.rows }, () => Array(this.cols).fill(0));
     this.gridBFS = Array.from({ length: this.rows }, () => Array(this.cols).fill(0));
-    this.gridDFS[this.start[0]][this.start[1]] = 2; // Start point
-    this.gridBFS[this.start[0]][this.start[1]] = 2; // Start point
+
+    // Mark start point
+    this.gridDFS[this.start[0]][this.start[1]] = 2;
+    this.gridBFS[this.start[0]][this.start[1]] = 2;
   }
 
   placeTreasures(): void {
@@ -38,6 +40,8 @@ export class TreasureHuntVisualizerComponent implements OnInit {
       [8, 1],
       [3, 7],
     ];
+
+    // Place treasures on the grid
     this.treasures.forEach(([x, y]) => {
       this.gridDFS[x][y] = 3;
       this.gridBFS[x][y] = 3;
@@ -50,7 +54,6 @@ export class TreasureHuntVisualizerComponent implements OnInit {
     }
 
     if (this.gridDFS[x][y] === 3) {
-      // Found a treasure
       this.gridDFS[x][y] = 4; // Mark as found
       await this.delay();
     }
@@ -87,7 +90,6 @@ export class TreasureHuntVisualizerComponent implements OnInit {
       await this.delay();
 
       if (this.gridBFS[x][y] === 3) {
-        // Found a treasure
         this.gridBFS[x][y] = 4; // Mark as found
         continue;
       }
