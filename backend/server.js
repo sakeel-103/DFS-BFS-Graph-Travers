@@ -14,7 +14,7 @@ const { validateSignup } = require('./middlewares/validation');
 const http = require('http');
 const { Server } = require('socket.io');
 const WebSocket = require('ws');
-
+const { OAuth2Client } = require('google-auth-library');
 // Load environment variables
 dotenv.config();
 
@@ -163,9 +163,50 @@ app.use((req, res, next) => {
     next();
 });
 
+// Initialize the Google OAuth2 Client with your Google Client ID
+const client = new OAuth2Client(process.env.GOOGLE_CLIENT_ID);
+
 app.post('/api/auth/google', async (req, res) => {
-    // Your Google login logic here
-    res.status(200).send('Google login success');
+    const { token } = req.body; // This should be the Google ID token
+
+    if (!token) {
+        return res.status(400).json({ message: 'Token is required' });
+    }
+
+    try {
+        // Verify the token using Google API
+        const ticket = await client.verifyIdToken({
+            idToken: token,
+            audience: process.env.GOOGLE_CLIENT_ID, // Ensure this matches your client ID
+        });
+
+        // Get the user information from the token
+        const payload = ticket.getPayload();
+
+        // Check if the user already exists in the database
+        let user = await User.findOne({ email: payload.email });
+
+        if (!user) {
+            // If user doesn't exist, create a new user
+            user = new User({
+                username: payload.name, // You can use payload information to create a username
+                email: payload.email,
+                password: '', // Google login doesn't require password
+                googleId: payload.sub, // Save the Google user ID for future reference
+            });
+
+            await user.save();
+        }
+
+        // Store the user ID in session
+        req.session.userId = user._id;
+
+        // Send success response
+        res.status(200).json({ message: 'Google login successful', user });
+    } catch (error) {
+        console.error('Google login error:', error);
+        res.status(500).json({ message: 'Google login failed', error: error.message });
+    }
 });
 
 // User login endpoint
