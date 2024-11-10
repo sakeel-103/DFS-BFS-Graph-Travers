@@ -623,3 +623,14 @@ body {
     font-size: 28px;
   }
 }
+
+body {
+  background-color: white;
+  color: black;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+body.dark-mode {
+  background-color: black !important;
+  color: white !important; 
+}
